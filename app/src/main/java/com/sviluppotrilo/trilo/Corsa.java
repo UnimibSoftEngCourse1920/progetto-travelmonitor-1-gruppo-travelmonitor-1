@@ -13,9 +13,10 @@ public class Corsa {
     private int ritardo;
     private boolean cancellato;
 
+    /*
     public Corsa cercaCorsa(String stazionePartenza, String numeroTreno){
 
         return Corsa;
     }
-
+*/
 }

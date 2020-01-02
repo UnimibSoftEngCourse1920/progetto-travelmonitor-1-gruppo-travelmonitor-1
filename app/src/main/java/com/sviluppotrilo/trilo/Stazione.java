@@ -6,10 +6,11 @@ public class Stazione {
     private String codice;
     private String nome;
 
-
+/*
     public Stazione cercaStazione(String codice){
 
         return Stazione;
     }
+ */
 
 }
