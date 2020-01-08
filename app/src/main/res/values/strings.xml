@@ -1,4 +1,8 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
     <string name="app_name">Trilo</string>
     <string name="descriptionLogoSplash">Logo</string>
+
+    <!-- twitter -->
+    <string name="twitter_consumer_key" translatable="false">RkkxLILKqOm0hmbdOsauDFnbT</string>
+    <string name="twitter_consumer_secret" translatable="false">pD12XRClC8xwfzWT0pNm9zzo40siLo5vF9ktnq1mR6glOQzJ5a</string>
 </resources>
