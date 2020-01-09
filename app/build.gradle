@@ -43,4 +43,7 @@ dependencies {
 
     //twitter
     implementation 'com.twitter.sdk.android:tweet-ui:3.1.1'
+
+    //Gson - Java library to convert Java Objects into JSON and back
+    implementation 'com.google.code.gson:gson:2.8.6'
 }
