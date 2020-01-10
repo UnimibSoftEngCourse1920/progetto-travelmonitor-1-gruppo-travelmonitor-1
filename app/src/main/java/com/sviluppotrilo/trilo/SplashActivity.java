@@ -11,10 +11,11 @@ public class SplashActivity extends AppCompatActivity {
 
     private ProgressBar mProgressBar;
     private int mProgressStatus = 0;
-    private Handler mHandler = new Handler();
+    private Handler myHandler = new Handler();
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_theme); //Viene settato il Layout
         mProgressBar = findViewById(R.id.progressBar); //Viene referenziata la ProgressBar presente nel layout
@@ -26,18 +27,18 @@ public class SplashActivity extends AppCompatActivity {
                 while (mProgressStatus < 100){
                     mProgressStatus++;
                     android.os.SystemClock.sleep(20);
-                    mHandler.post(new Runnable() {
+                    myHandler.post(new Runnable() {
                         @Override
                         public void run() {
                             mProgressBar.setProgress(mProgressStatus);
                         }
                     });
                 }
-                mHandler.post(new Runnable() {
+                myHandler.post(new Runnable() {
                     @Override
                     public void run() {
                         // Quando la ProgressBar arriva al 100% viene aperta la Preferiti e "chiusa" quella attuale(SplashActivity)
-                        startActivity(new Intent(SplashActivity.this, Preferiti.class));
+                        startActivity(new Intent(SplashActivity.this, Test.class));
                         finish();
                     }
                 });

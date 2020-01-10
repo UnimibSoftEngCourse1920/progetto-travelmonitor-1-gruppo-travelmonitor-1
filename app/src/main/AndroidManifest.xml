@@ -18,6 +18,13 @@
 
         <activity android:name=".Preferiti">
         </activity>
+
+        <activity android:name=".Test">
+        </activity>
+
+        <activity android:name=".MainActivity">
+        </activity>
+
     </application>
 
 
