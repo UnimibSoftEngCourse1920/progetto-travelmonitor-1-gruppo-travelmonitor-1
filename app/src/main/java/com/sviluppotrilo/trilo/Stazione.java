@@ -11,6 +11,9 @@ public class Stazione {
         this.nome = nome;
         this.id = id;
     }
+    public Stazione() {
+        // TODO Auto-generated constructor stub
+    }
     public static Stazione findStazionePartenza(int numeroTreno) throws Exception {
         String url = "http://www.viaggiatreno.it/"
                 + "viaggiatrenonew/"
@@ -19,6 +22,8 @@ public class Stazione {
                 + "cercaNumeroTrenoTrenoAutocomplete/"
                 + numeroTreno;
         String stazionePartenza = new UrlLoader(url).getUrlResponse();
+        if(stazionePartenza.length() == 0 || stazionePartenza == null)
+            throw new ViaggioException("Impossibile trovare la stazione di partenza dal numero del treno");
         String nome = estraiNome(stazionePartenza);
         String id = estraiId(stazionePartenza);
         Stazione stazione = new Stazione(nome, id);
@@ -64,4 +69,3 @@ public class Stazione {
         return "Stazione [nome=" + nome + ", id=" + id + "]";
     }
 }
-

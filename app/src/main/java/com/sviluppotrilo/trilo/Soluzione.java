@@ -1,18 +1,19 @@
 package com.sviluppotrilo.trilo;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import com.google.gson.annotations.JsonAdapter;
+@JsonAdapter(SoluzioneAdapter.class)
 public class Soluzione {
 
-    public List<Tratta> vehicles;
+    public List<Tratta> tratte;
     public String durata;
 
-    public List<Tratta> getVehicles() {
-        return vehicles;
+    public Soluzione() {
+        tratte = new ArrayList<Tratta>();
     }
-    public void setVehicles(List<Tratta> vehicles) {
-        this.vehicles = vehicles;
-    }
+
     public String getDurata() {
         return durata;
     }
@@ -20,8 +21,16 @@ public class Soluzione {
         this.durata = durata;
     }
 
+    public List<Tratta> getTratte() {
+        return tratte;
+    }
+
+    public void setTratte(List<Tratta> tratte) {
+        this.tratte = tratte;
+    }
+
     public int numeroCambi() {
-        int numeroCambi = vehicles.size();
+        int numeroCambi = tratte.size();
         return numeroCambi;
     }
 
@@ -33,7 +42,7 @@ public class Soluzione {
 
     @Override
     public String toString() {
-        return "Soluzione [vehicles=" + vehicles + ", durata=" + durata + "]";
+        return "Soluzione [tratte=" + tratte + ", durata=" + durata + "]";
     }
 
 }

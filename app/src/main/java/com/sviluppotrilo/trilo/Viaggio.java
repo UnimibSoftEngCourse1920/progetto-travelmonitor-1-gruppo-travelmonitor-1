@@ -1,16 +1,19 @@
 package com.sviluppotrilo.trilo;
 
+import java.util.ArrayList;
 import java.util.List;
 import com.google.gson.Gson;
-
+import com.google.gson.GsonBuilder;
+import com.google.gson.annotations.JsonAdapter;
+@JsonAdapter(ViaggioAdapter.class)
 public class Viaggio{
-    private String origine;
-    private String destinazione;
-    private List<Soluzione> soluzioni;
 
-    public Viaggio(Stazione origine, Stazione destinazione, String data, String ora) throws Exception {
-        setOrigine(origine.nome);
-        setDestinazione(destinazione.nome);
+    private Stazione origine;
+    private Stazione destinazione;
+    public List<Soluzione> soluzioni;
+
+    public Viaggio() {
+        soluzioni = new ArrayList<Soluzione>();
     }
 
     public static Viaggio find(Stazione origine, Stazione destinazione, String data, String ora) throws Exception {
@@ -22,8 +25,29 @@ public class Viaggio{
                 + data
                 + ora;
         String jsonViaggio = new UrlLoader(url).getUrlResponse();
-        Viaggio viaggio = new Gson().fromJson(jsonViaggio, Viaggio.class);
+        if(jsonViaggio.length() == 0 || jsonViaggio == null)
+            throw new ViaggioException("Impossibile trovare il viaggio");
+        GsonBuilder builder = new GsonBuilder();
+        builder.registerTypeAdapter(Viaggio.class, new ViaggioAdapter());
+        Gson gson = builder.create();
+        Viaggio viaggio = gson.fromJson(jsonViaggio, Viaggio.class);
         return viaggio;
+    }
+
+    public Stazione getOrigine() {
+        return origine;
+    }
+
+    public void setOrigine(Stazione origine) {
+        this.origine = origine;
+    }
+
+    public Stazione getDestinazione() {
+        return destinazione;
+    }
+
+    public void setDestinazione(Stazione destinazione) {
+        this.destinazione = destinazione;
     }
 
     public List<Soluzione> getSoluzioni() {
@@ -32,22 +56,6 @@ public class Viaggio{
 
     public void setSoluzioni(List<Soluzione> soluzioni) {
         this.soluzioni = soluzioni;
-    }
-
-    public String getDestinazione() {
-        return destinazione;
-    }
-
-    public void setDestinazione(String destinazione) {
-        this.destinazione = destinazione;
-    }
-
-    public String getOrigine() {
-        return origine;
-    }
-
-    public void setOrigine(String origine) {
-        this.origine = origine;
     }
 
     @Override

@@ -1,9 +1,11 @@
 package com.sviluppotrilo.trilo;
 
-public class Tratta {
+import com.google.gson.annotations.JsonAdapter;
 
-    public String origine;
-    public String destinazione;
+@JsonAdapter(TrattaAdapter.class)
+public class Tratta {
+    public Stazione origine;
+    public Stazione destinazione;
     public String orarioPartenza;
     public String orarioArrivo;
     public int categoria;
@@ -17,22 +19,18 @@ public class Tratta {
         return corsa;
     }
 
-    public String getOrigine() {
+    public Stazione getOrigine() {
         return origine;
     }
-
-    public void setOrigine(String origine) {
+    public void setOrigine(Stazione origine) {
         this.origine = origine;
     }
-
-    public String getDestinazione() {
+    public Stazione getDestinazione() {
         return destinazione;
     }
-
-    public void setDestinazione(String destinazione) {
+    public void setDestinazione(Stazione destinazione) {
         this.destinazione = destinazione;
     }
-
     public String getOrarioPartenza() {
         return orarioPartenza;
     }
