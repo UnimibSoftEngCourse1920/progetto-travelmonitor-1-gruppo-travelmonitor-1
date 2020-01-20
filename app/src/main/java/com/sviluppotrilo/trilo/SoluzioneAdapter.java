@@ -12,6 +12,7 @@ public class SoluzioneAdapter extends TypeAdapter<Soluzione> {
 
     @Override
     public void write(JsonWriter out, Soluzione value) throws IOException {
+        // Non è necessaria la serializzazione
     }
 
     @Override
@@ -37,8 +38,6 @@ public class SoluzioneAdapter extends TypeAdapter<Soluzione> {
                         TypeAdapter<Tratta> trattaAdapter = new Gson().getAdapter(Tratta.class);
                         Tratta tratta = trattaAdapter.read(reader);
                         soluzione.tratte.add(tratta);
-                        tratta = null;
-                        trattaAdapter = null;
                     }
                     reader.endArray();
                 }else {

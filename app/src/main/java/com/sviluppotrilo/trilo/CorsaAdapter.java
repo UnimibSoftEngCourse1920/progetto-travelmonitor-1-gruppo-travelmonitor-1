@@ -12,6 +12,8 @@ public class CorsaAdapter extends TypeAdapter<Corsa>{
 
     @Override
     public void write(JsonWriter out, Corsa value) throws IOException {
+        // Questo metodo non esegue nessuna operazione perchè l'obiettivo del
+        // progetto non include la serializzazione degli oggetti
     }
 
     @Override
@@ -100,8 +102,6 @@ public class CorsaAdapter extends TypeAdapter<Corsa>{
                         TypeAdapter<Fermata> fermataAdapter = new Gson().getAdapter(Fermata.class);
                         Fermata fermata = fermataAdapter.read(reader);
                         corsa.fermate.add(fermata);
-                        fermata = null;
-                        fermataAdapter = null;
                     }
                     reader.endArray();
                 }else{

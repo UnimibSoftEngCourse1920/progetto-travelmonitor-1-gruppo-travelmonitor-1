@@ -11,33 +11,33 @@ import com.google.gson.annotations.JsonAdapter;
 public class Corsa {
 
 
-    public Stazione origine;
-    public Stazione destinazione;
-    public Stazione stazioneUltimoRilevamento; //null se non è partito oppure è soppresso
+    private Stazione origine;
+    private Stazione destinazione;
+    private Stazione stazioneUltimoRilevamento; //null se non è partito oppure è soppresso
 
-    public String orarioPartenza; // formato HH:MM
-    public String orarioArrivo;
-    public String oraUltimoRilevamento;
-    public String dataPartenza;
+    private String orarioPartenza; // formato HH:MM
+    private String orarioArrivo;
+    private String oraUltimoRilevamento;
+    private String dataPartenza;
 
-    public String tipoTreno;
-    public int numeroTreno;
-    public String categoria;
+    private String tipoTreno;
+    private int numeroTreno;
+    private String categoria;
 
-    public int provvedimento;
-    public String descrizione; // subTitle - il messaggio sul tabellone
-    public int codiceCliente;
+    private int provvedimento;
+    private String descrizione; // subTitle - il messaggio sul tabellone
+    private int codiceCliente;
 
-    public boolean inStazione;
-    public boolean partito;
+    private boolean inStazione;
+    private boolean partito;
     public List<Fermata> fermate;
 
     public Corsa() {
         super();
-        fermate = new ArrayList<Fermata>();
+        fermate = new ArrayList<>();
     }
 
-    public static Corsa find(Stazione stazionePartenza, int numeroTreno) throws Exception {
+    public static Corsa find(Stazione stazionePartenza, int numeroTreno) throws ViaggioException {
         String url = "http://www.viaggiatreno.it/"
                 + "viaggiatrenonew/"
                 + "resteasy/"
@@ -46,13 +46,12 @@ public class Corsa {
                 +  stazionePartenza.getId() + "/"
                 + numeroTreno;
         String jsonCorsa = new UrlLoader(url).getUrlResponse();
-        if(jsonCorsa.length() == 0 || jsonCorsa == null)
+        if(jsonCorsa == null || jsonCorsa.length() == 0)
             throw new ViaggioException("Impossibile trovare la corsa");
         GsonBuilder builder = new GsonBuilder();
         builder.registerTypeAdapter(Corsa.class, new CorsaAdapter());
         Gson gson = builder.create();
-        Corsa corsa = gson.fromJson(jsonCorsa, Corsa.class);
-        return corsa;
+        return gson.fromJson(jsonCorsa, Corsa.class);
     }
 
     public Stazione getOrigine() {

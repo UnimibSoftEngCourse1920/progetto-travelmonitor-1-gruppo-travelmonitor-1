@@ -11,6 +11,8 @@ public class TrattaAdapter extends TypeAdapter<Tratta> {
 
     @Override
     public void write(JsonWriter out, Tratta value) throws IOException {
+        // Questo metodo non esegue nessuna operazione perchè l'obiettivo del
+        // progetto non include la serializzazione degli oggetti
     }
 
     @Override
@@ -32,7 +34,6 @@ public class TrattaAdapter extends TypeAdapter<Tratta> {
                     //Qui andrebbe cercato il nome della stazione nel db,
                     //Perchè a questa stazione manca l'id
                     tratta.setOrigine(origine);
-                    origine = null;
                 }else if("destinazione".equals(fieldname)){
                     Stazione destinazione = new Stazione();
                     String nomeStazioneDestinazione = reader.nextString();
@@ -40,7 +41,6 @@ public class TrattaAdapter extends TypeAdapter<Tratta> {
                     //Qui andrebbe cercato il nome della stazione nel db,
                     //Perchè a questa stazione manca l'id
                     tratta.setDestinazione(destinazione);
-                    destinazione = null;
                 }else if("orarioPartenza".equals(fieldname)){
                     String orarioPartenza = reader.nextString();
                     tratta.setOrarioPartenza(orarioPartenza);

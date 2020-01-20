@@ -8,10 +8,10 @@ import com.google.gson.annotations.JsonAdapter;
 public class Soluzione {
 
     public List<Tratta> tratte;
-    public String durata;
+    private String durata;
 
     public Soluzione() {
-        tratte = new ArrayList<Tratta>();
+        tratte = new ArrayList<>();
     }
 
     public String getDurata() {
@@ -30,14 +30,7 @@ public class Soluzione {
     }
 
     public int numeroCambi() {
-        int numeroCambi = tratte.size();
-        return numeroCambi;
-    }
-
-    public boolean prevedeCambi() {
-        if(numeroCambi() != 1)
-            return true;
-        return false;
+        return tratte.size();
     }
 
     @Override

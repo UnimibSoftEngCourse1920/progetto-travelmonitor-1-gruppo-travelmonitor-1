@@ -12,6 +12,8 @@ public class ViaggioAdapter extends TypeAdapter<Viaggio> {
 
     @Override
     public void write(JsonWriter out, Viaggio value) throws IOException {
+        // Questo metodo non esegue nessuna operazione perchè l'obiettivo del
+        // progetto non include la serializzazione degli oggetti
     }
 
     @Override
@@ -22,8 +24,6 @@ public class ViaggioAdapter extends TypeAdapter<Viaggio> {
         JsonToken token = null;
         while (reader.hasNext()) {
             token = reader.peek();
-            if(token.equals(JsonToken.NULL))
-                reader.skipValue();
             if (token.equals(JsonToken.NAME)) {
                 fieldname = reader.nextName();
                 if(reader.peek() == JsonToken.NULL) {
@@ -49,8 +49,6 @@ public class ViaggioAdapter extends TypeAdapter<Viaggio> {
                         TypeAdapter<Soluzione> soluzioneAdapter = new Gson().getAdapter(Soluzione.class);
                         Soluzione soluzione = soluzioneAdapter.read(reader);
                         viaggio.soluzioni.add(soluzione);
-                        soluzione = null;
-                        soluzioneAdapter = null;
                     }
                     reader.endArray();
                 }else {

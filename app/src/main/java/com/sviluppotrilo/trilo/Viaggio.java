@@ -13,10 +13,10 @@ public class Viaggio{
     public List<Soluzione> soluzioni;
 
     public Viaggio() {
-        soluzioni = new ArrayList<Soluzione>();
+        soluzioni = new ArrayList<>();
     }
 
-    public static Viaggio find(Stazione origine, Stazione destinazione, String data, String ora) throws Exception {
+    public static Viaggio find(Stazione origine, Stazione destinazione, String data, String ora) throws ViaggioException {
         String url = "http://www.viaggiatreno.it/"
                 + "viaggiatrenonew/resteasy/viaggiatreno/"
                 + "soluzioniViaggioNew/"
@@ -25,13 +25,12 @@ public class Viaggio{
                 + data
                 + ora;
         String jsonViaggio = new UrlLoader(url).getUrlResponse();
-        if(jsonViaggio.length() == 0 || jsonViaggio == null)
+        if(jsonViaggio == null || jsonViaggio.length() == 0)
             throw new ViaggioException("Impossibile trovare il viaggio");
         GsonBuilder builder = new GsonBuilder();
         builder.registerTypeAdapter(Viaggio.class, new ViaggioAdapter());
         Gson gson = builder.create();
-        Viaggio viaggio = gson.fromJson(jsonViaggio, Viaggio.class);
-        return viaggio;
+        return gson.fromJson(jsonViaggio, Viaggio.class);
     }
 
     public Stazione getOrigine() {

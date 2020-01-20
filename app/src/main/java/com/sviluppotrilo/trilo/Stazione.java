@@ -4,17 +4,17 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Stazione {
-    public String nome;
-    public String id;
+    private String nome;
+    private String id;
 
     public Stazione(String nome, String id) {
         this.nome = nome;
         this.id = id;
     }
     public Stazione() {
-        // TODO Auto-generated constructor stub
+        super();
     }
-    public static Stazione findStazionePartenza(int numeroTreno) throws Exception {
+    public static Stazione findStazionePartenza(int numeroTreno) throws ViaggioException {
         String url = "http://www.viaggiatreno.it/"
                 + "viaggiatrenonew/"
                 + "resteasy/"
@@ -22,12 +22,11 @@ public class Stazione {
                 + "cercaNumeroTrenoTrenoAutocomplete/"
                 + numeroTreno;
         String stazionePartenza = new UrlLoader(url).getUrlResponse();
-        if(stazionePartenza.length() == 0 || stazionePartenza == null)
+        if(stazionePartenza == null || stazionePartenza.length() == 0)
             throw new ViaggioException("Impossibile trovare la stazione di partenza dal numero del treno");
         String nome = estraiNome(stazionePartenza);
         String id = estraiId(stazionePartenza);
-        Stazione stazione = new Stazione(nome, id);
-        return stazione;
+        return new Stazione(nome, id);
     }
     private static String estraiNome(String string) {
         String regexNome = "[-].+[|]";

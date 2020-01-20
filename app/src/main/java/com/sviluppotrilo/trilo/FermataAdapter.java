@@ -11,6 +11,8 @@ public class FermataAdapter extends TypeAdapter<Fermata> {
 
     @Override
     public void write(JsonWriter out, Fermata value) throws IOException {
+        // Questo metodo non esegue nessuna operazione perchè l'obiettivo del
+        // progetto non include la serializzazione degli oggetti
     }
 
     @Override

@@ -4,19 +4,17 @@ import com.google.gson.annotations.JsonAdapter;
 
 @JsonAdapter(TrattaAdapter.class)
 public class Tratta {
-    public Stazione origine;
-    public Stazione destinazione;
-    public String orarioPartenza;
-    public String orarioArrivo;
-    public int categoria;
-    public String categoriaDescrizione;
-    public int numeroTreno;
+    private Stazione origine;
+    private Stazione destinazione;
+    private String orarioPartenza;
+    private String orarioArrivo;
+    private int categoria;
+    private String categoriaDescrizione;
+    private int numeroTreno;
 
-    public Corsa cercaCorsa() throws Exception {
+    public Corsa cercaCorsa() throws ViaggioException {
         Stazione stazionePartenza = Stazione.findStazionePartenza(numeroTreno);
-        Corsa corsa = Corsa.find(stazionePartenza, numeroTreno);
-        stazionePartenza = null;
-        return corsa;
+        return Corsa.find(stazionePartenza, numeroTreno);
     }
 
     public Stazione getOrigine() {

@@ -4,18 +4,18 @@ import com.google.gson.annotations.JsonAdapter;
 @JsonAdapter(FermataAdapter.class)
 public class Fermata {
 
-    public Stazione stazione;
+    private Stazione stazione;
 
-    public String programmata;
-    public String tipoFermata;
-    public int ritardo;
-    public int ritardoArrivo;
-    public int ritardoPartenza;
-    public String arrivoReale;
-    public String partenzaReale;
-    public String partenzaTeorica;
-    public String arrivoTeorico;
-    public int tipoFermataAttuale;
+    private String programmata;
+    private String tipoFermata;
+    private int ritardo;
+    private int ritardoArrivo;
+    private int ritardoPartenza;
+    private String arrivoReale;
+    private String partenzaReale;
+    private String partenzaTeorica;
+    private String arrivoTeorico;
+    private int tipoFermataAttuale;
 
     public Stazione getStazione() {
         return stazione;
