@@ -7,6 +7,8 @@ public class Controller {
         Viaggio viaggio = null;
         try {
             viaggio = Viaggio.find(partenza, arrivo, data, ora);
+        } catch(ViaggioException e){
+            Log.e("Errore:", e.toString());
         } catch (Exception e) {
             Log.e("Errore:", e.toString());
         }
