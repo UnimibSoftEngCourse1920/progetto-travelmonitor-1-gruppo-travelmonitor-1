@@ -5,6 +5,20 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textViewStyle">@style/MontserratRegularStyle</item>
+        <item name="buttonStyle">@style/MontserratButtonStyle</item>
+    </style>
+
+    <style name="MontserratRegularStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+    </style>
+
+    <style name="MontserratBoldStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+    </style>
+
+    <style name="MontserratButtonStyle" parent="android:Widget.Button">
+        <item name="android:fontFamily">@font/montserrat_regular</item>
     </style>
 
 </resources>

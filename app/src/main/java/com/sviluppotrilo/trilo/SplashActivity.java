@@ -38,7 +38,7 @@ public class SplashActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         // Quando la ProgressBar arriva al 100% viene aperta la Preferiti e "chiusa" quella attuale(SplashActivity)
-                        startActivity(new Intent(SplashActivity.this, Test.class));
+                        startActivity(new Intent(SplashActivity.this, Preferiti.class));
                         finish();
                     }
                 });

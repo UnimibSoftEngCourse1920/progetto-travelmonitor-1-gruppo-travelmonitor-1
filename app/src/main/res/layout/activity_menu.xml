@@ -7,72 +7,97 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary">
 
+    <Button
+        android:id="@+id/linkcercaviaggio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="CercaViaggio"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/linkcercastazione"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/linkimpostazioni" />
+
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="233dp"
         android:layout_height="206dp"
-        app:layout_constraintBottom_toTopOf="@+id/textInputEditText"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.349"
-        app:srcCompat="@drawable/logo_white"
-        tools:layout_editor_absoluteX="199dp" />
+        app:layout_constraintBottom_toTopOf="@+id/linkgestiscipreferiti"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/guideline3"
+        app:layout_constraintVertical_bias="0.200"
+        app:srcCompat="@drawable/logo_white" />
 
-    <com.google.android.material.textfield.TextInputEditText
+    <Button
+        android:id="@+id/linkgestiscipreferiti"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:textAlignment="center"
-        android:textColor="@color/colorAccent"
-        android:textSize="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.921"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.663"></com.google.android.material.textfield.TextInputEditText>
+        android:backgroundTint="@color/colorPrimary"
+        android:text="GestisciPreferiti"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/linkimpostazioni"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintHorizontal_bias="0.900"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
-    <com.google.android.material.textfield.TextInputEditText
+    <Button
+        android:id="@+id/linkimpostazioni"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:textAlignment="center"
-        android:textColor="@color/colorAccent"
-        android:textSize="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.921"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.559"></com.google.android.material.textfield.TextInputEditText>
+        android:backgroundTint="@color/colorPrimary"
+        android:text="Impostazioni"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/linkcercaviaggio"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintHorizontal_bias="0.901"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/linkgestiscipreferiti" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText"
+    <Button
+        android:id="@+id/linkcercastazione"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:textAlignment="center"
-        android:textColor="@color/colorAccent"
-        android:textSize="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.921"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.449"></com.google.android.material.textfield.TextInputEditText>
+        android:layout_marginBottom="100dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="Cerca stazione"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintHorizontal_bias="0.898"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/linkcercaviaggio" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText2"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:textAlignment="center"
-        android:textColor="@color/colorAccent"
-        android:textSize="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.921"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.769"></com.google.android.material.textfield.TextInputEditText>
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.04" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.96" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.04" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.96" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
