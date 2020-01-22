@@ -26,14 +26,62 @@
 
             <TextView
                 android:id="@+id/orarioTreno"
-                android:layout_width="102dp"
-                android:layout_height="17dp"
+                android:layout_width="100dp"
+                android:layout_height="20dp"
                 android:text="ORARIO"
                 android:textAlignment="inherit"
                 android:textColor="@android:color/black"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/guideline7"
+                app:layout_constraintTop_toTopOf="@+id/guideline9" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="30dp"
+                app:layout_constraintStart_toEndOf="@+id/orarioTreno"
+                app:layout_constraintTop_toTopOf="@+id/guideline9"
+                app:srcCompat="@drawable/realtime_black" />
+
+            <TextView
+                android:id="@+id/statoTreno"
+                android:layout_width="100dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="5dp"
+                android:gravity="center_vertical"
+                android:text="stato"
+                android:textAlignment="inherit"
+                android:textColor="@android:color/black"
+                android:textSize="8sp"
+                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                app:layout_constraintTop_toTopOf="@+id/guideline9" />
+
+            <TextView
+                android:id="@+id/numerotreno"
+                android:layout_width="100dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="5dp"
+                android:gravity="center_vertical"
+                android:text="stato"
+                android:textAlignment="inherit"
+                android:textColor="@android:color/black"
+                android:textSize="8sp"
+                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                app:layout_constraintTop_toTopOf="@+id/guideline9" />
+
+            <TextView
+                android:id="@+id/lineatreno"
+                android:layout_width="100dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="5dp"
+                android:gravity="center_vertical"
+                android:text="stato"
+                android:textAlignment="inherit"
+                android:textColor="@android:color/black"
+                android:textSize="8sp"
+                app:layout_constraintStart_toEndOf="@+id/imageView2"
                 app:layout_constraintTop_toTopOf="@+id/guideline9" />
 
             <androidx.constraintlayout.widget.Guideline
@@ -49,18 +97,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 app:layout_constraintGuide_percent="0.04" />
-
-            <TextView
-                android:id="@+id/statoTreno"
-                android:layout_width="102dp"
-                android:layout_height="17dp"
-                android:gravity="center_vertical"
-                android:text="stato"
-                android:textAlignment="inherit"
-                android:textColor="@android:color/black"
-                android:textSize="8sp"
-                app:layout_constraintStart_toEndOf="@+id/orarioTreno"
-                app:layout_constraintTop_toTopOf="@+id/guideline9" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline10"
