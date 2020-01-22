@@ -1,39 +1,228 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout2"
     android:layout_width="match_parent"
     android:layout_height="250dp"
-    android:orientation="vertical"
     android:elevation="10dp"
+    android:orientation="vertical"
     android:translationZ="10dp">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.04" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.96" />
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardBackgroundColor="#ffffff">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.04" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.96" />
+            <ImageView
+                android:id="@+id/linea3"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintBottom_toTopOf="@+id/cercabt"
+                app:layout_constraintStart_toEndOf="@+id/linea2"
+                app:layout_constraintTop_toBottomOf="@+id/oraarrivo"
+                app:layout_constraintVertical_bias="0.076"
+                app:srcCompat="@drawable/realtime_black" />
+
+            <ImageView
+                android:id="@+id/linea1"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintBottom_toTopOf="@+id/cercabt"
+                app:layout_constraintStart_toStartOf="@+id/guideline7"
+                app:layout_constraintTop_toBottomOf="@+id/oraarrivo"
+                app:layout_constraintVertical_bias="0.043"
+                app:srcCompat="@drawable/realtime_black" />
+
+            <ImageView
+                android:id="@+id/linea2"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintBottom_toTopOf="@+id/cercabt"
+                app:layout_constraintStart_toEndOf="@+id/linea1"
+                app:layout_constraintTop_toBottomOf="@+id/oraarrivo"
+                app:layout_constraintVertical_bias="0.043"
+                app:srcCompat="@drawable/realtime_black" />
+
+            <TextView
+                android:id="@+id/nomestazione"
+                android:layout_width="200dp"
+                android:layout_height="25dp"
+                android:gravity="center_vertical"
+                android:text="Stazione"
+                android:textAlignment="inherit"
+                android:textColor="@color/colorPrimary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/guideline7"
+                app:layout_constraintTop_toTopOf="@+id/guideline9" />
+
+            <TextView
+                android:id="@+id/statoTreno"
+                android:layout_width="100dp"
+                android:layout_height="15dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"
+                android:text="stato"
+                android:textAlignment="inherit"
+                android:textColor="@android:color/black"
+                android:textSize="8sp"
+                app:layout_constraintStart_toEndOf="@+id/imagestato"
+                app:layout_constraintTop_toTopOf="@+id/guideline9" />
+
+            <ImageView
+                android:id="@+id/imagestato"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toEndOf="@+id/nomestazione"
+                app:layout_constraintTop_toTopOf="@+id/guideline9"
+                app:srcCompat="@drawable/realtime_black" />
+
+            <ImageView
+                android:id="@+id/servizio1"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="@+id/guideline7"
+                app:layout_constraintTop_toBottomOf="@+id/nomestazione"
+                app:srcCompat="@drawable/realtime_black" />
+
+            <ImageView
+                android:id="@+id/servizio2"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toEndOf="@+id/servizio1"
+                app:layout_constraintTop_toBottomOf="@+id/nomestazione"
+                app:srcCompat="@drawable/realtime_black" />
+
+            <ImageView
+                android:id="@+id/servizio3"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toEndOf="@+id/servizio2"
+                app:layout_constraintTop_toBottomOf="@+id/nomestazione"
+                app:srcCompat="@drawable/realtime_black" />
+
+            <TextView
+                android:id="@+id/oraarrivo"
+                android:layout_width="150dp"
+                android:layout_height="20dp"
+                android:layout_marginBottom="50dp"
+                android:gravity="center_vertical"
+                android:text="Linee e interscambi"
+                android:textAlignment="inherit"
+                android:textColor="@color/colorPrimary"
+                android:textSize="10dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/cercabt"
+                app:layout_constraintStart_toStartOf="@+id/guideline7" />
+
+            <TextView
+                android:id="@+id/orapartenza"
+                android:layout_width="100dp"
+                android:layout_height="20dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="center_vertical"
+                android:text="NumeroBinari"
+                android:textAlignment="inherit"
+                android:textColor="@color/colorPrimary"
+                android:textSize="10dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/oraarrivo"
+                app:layout_constraintStart_toStartOf="@+id/guideline7" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.96" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.04" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.96" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.04" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toStartOf="@+id/guideline8"
+                app:layout_constraintTop_toTopOf="@+id/guideline9"
+                app:srcCompat="@android:drawable/btn_star_big_off" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/cercabt"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:textColor="@color/colorPrimary"
+                android:textSize="6sp"
+                app:icon="@android:drawable/ic_dialog_alert"
+                app:iconSize="10dp"
+                app:iconTint="@color/colorPrimary"
+                app:layout_constraintBottom_toTopOf="@+id/guideline10"
+                app:layout_constraintStart_toStartOf="@+id/guideline7"
+                app:strokeColor="@color/colorPrimary"
+                app:strokeWidth="2dp"
+                tools:text="segnala" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/cercabt2"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:textColor="@color/colorPrimary"
+                android:textSize="6sp"
+                app:icon="@android:drawable/arrow_down_float"
+                app:iconSize="10dp"
+                app:iconTint="@color/colorPrimary"
+                app:layout_constraintBottom_toTopOf="@+id/guideline10"
+                app:layout_constraintStart_toEndOf="@+id/cercabt"
+                app:strokeColor="@color/colorPrimary"
+                app:strokeWidth="2dp"
+                tools:text="espandi linee" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
