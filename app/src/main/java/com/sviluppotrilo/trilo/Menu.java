@@ -14,6 +14,8 @@ public class Menu extends AppCompatActivity {
     private Button cercaStazione;
     private Button gestisciPreferiti;
     private Button impostazioni;
+    private Button mappe;
+    private Button profilo;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +54,23 @@ public class Menu extends AppCompatActivity {
                 //Al click sul link viene aperta la pagina di gestione delle impostazioni
                 Intent goToImpostazioni = new Intent(Menu.this, Impostazioni.class); //ATT!
                 Menu.this.startActivity(goToImpostazioni);
+            }
+        });
+
+        mappe = findViewById(R.id.linkmappe);
+        mappe.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //Al click sul link viene aperta la pagina di visualizzazione delle mappe
+                setContentView(R.layout.activity_map);
+            }
+        });
+
+        profilo = findViewById(R.id.linkprofilo);
+        profilo.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //Al click sul link viene aperta la pagina di gestione delle impostazioni
+                Intent goToProfilo = new Intent(Menu.this, Profilo.class); //ATT!
+                Menu.this.startActivity(goToProfilo);
             }
         });
     }

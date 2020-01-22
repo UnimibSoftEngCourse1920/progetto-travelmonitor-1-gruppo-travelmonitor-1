@@ -18,12 +18,14 @@ public class Preferiti extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preferiti);
+
+        //bottone profilo
         profilebt = findViewById(R.id.profilebt);
         profilebt.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 //Al click sul bottone viene aperta la pagina del profilo
-                //Intent goToProfile = new Intent(Preferiti.this, Profilo.class);
-                //Preferiti.this.startActivity(goToProfile);
+                Intent goToProfile = new Intent(Preferiti.this, Profilo.class);
+                Preferiti.this.startActivity(goToProfile);
             }
         });
 

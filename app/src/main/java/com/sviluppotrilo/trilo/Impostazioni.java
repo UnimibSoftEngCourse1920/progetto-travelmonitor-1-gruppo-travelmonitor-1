@@ -6,12 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Impostazioni extends AppCompatActivity {
 
-    public class Preferiti extends AppCompatActivity {
-
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_impostazioni);
-        }
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_impostazioni);
     }
 }

@@ -55,7 +55,7 @@
                 android:layout_width="102dp"
                 android:layout_height="17dp"
                 android:gravity="center_vertical"
-                android:text="ORARIO"
+                android:text="stato"
                 android:textAlignment="inherit"
                 android:textColor="@android:color/black"
                 android:textSize="8sp"

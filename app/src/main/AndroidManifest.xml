@@ -28,6 +28,12 @@
         <activity android:name=".MainActivity">
         </activity>
 
+        <activity android:name=".Impostazioni">
+        </activity>
+
+        <activity android:name=".Profilo">
+        </activity>
+
     </application>
 
 
