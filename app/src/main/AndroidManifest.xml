@@ -31,6 +31,9 @@
         <activity android:name=".Profilo">
         </activity>
 
+        <activity android:name=".CercaViaggio">
+        </activity>
+
     </application>
 
 

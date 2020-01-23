@@ -14,7 +14,7 @@ public class Test extends Activity {
     ArrayAdapter arrayAdapter;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.test);
         myDbHelper = new DataBaseHelper(getApplicationContext());

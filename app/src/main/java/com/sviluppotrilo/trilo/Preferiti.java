@@ -1,76 +1,44 @@
 package com.sviluppotrilo.trilo;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.drawerlayout.widget.DrawerLayout;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
-import com.google.android.material.navigation.NavigationView;
+import androidx.appcompat.app.AppCompatActivity;
 
 //Classe relativa ai activity_preferiti dell'utente
-public class Preferiti extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class Preferiti extends AppCompatActivity {
 
-    private Button prova;
-    DrawerLayout drawerLayout;
-    Toolbar toolbar;
-    NavigationView navigationView;
-    ActionBarDrawerToggle toggle;
+    Button cercaviaggio;
+    Button prova;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preferiti);
-        drawerLayout = findViewById(R.id.drawer);
-        toolbar = findViewById(R.id.toolbar);
-        navigationView = findViewById(R.id.navigationView);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-        toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawerOpen, R.string.drawerClose);
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
-        navigationView.setNavigationItemSelectedListener(this);
+
+        cercaviaggio = findViewById(R.id.cercabt);
+        cercaviaggio.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //Al click sul bottone viene aperta la pagina dei ricerca viaggio
+                Intent goToCercaViaggio = new Intent(Preferiti.this, CercaViaggio.class);
+                Preferiti.this.startActivity(goToCercaViaggio);
+            }
+        });
+
+        //bottone prova
+        prova = findViewById(R.id.prova);
+        prova.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToMainActivity = new Intent(Preferiti.this, MainActivity.class);
+                Preferiti.this.startActivity(goToMainActivity);
+                Log.d("SONO IN prefe ultim", "MSG");
+            }
+        });
+
     }
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        //menu
-        switch (menuItem.getItemId()) {
-            case R.id.gestiscipreferiti:
-                Toast.makeText(Preferiti.this, "Gestione preferiti Selected", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.gestiscinotifiche:
-                Toast.makeText(Preferiti.this, "Gestisci notifiche Selected", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.impostazioni:
-                Intent goToImpostazioni = new Intent(Preferiti.this, Impostazioni.class);
-                Preferiti.this.startActivity(goToImpostazioni);
-                break;
-            case R.id.profilo:
-                Intent goToProfilo = new Intent(Preferiti.this, Profilo.class);
-                Preferiti.this.startActivity(goToProfilo);
-                break;
-            case R.id.socialnetwork:
-                Toast.makeText(Preferiti.this, "Social Network Selected", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.mappe:
-                Intent goToMap = new Intent(Preferiti.this, Mappa.class);
-                Preferiti.this.startActivity(goToMap);
-                break;
-            case R.id.aboutus:
-                Toast.makeText(Preferiti.this, "About us Selected", Toast.LENGTH_SHORT).show();
-                break;
-            default:
-                break;
-        }
-        return false;
-    }
 }

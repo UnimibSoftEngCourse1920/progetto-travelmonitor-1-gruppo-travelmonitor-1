@@ -21,34 +21,56 @@
         app:layout_constraintVertical_bias="0.0">
 
 
-        <TextView
-            android:layout_width="wrap_content"
+        <AutoCompleteTextView
+            android:id="@+id/stazionepartenza"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_regular"
-            android:text="stazione di"
-            android:textColor="#ffffff"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/guideline9"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline8"
-            app:layout_constraintVertical_bias="0.300" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.118" />
 
-        <TextView
-            android:id="@+id/PageTitle"
-            android:layout_width="wrap_content"
+
+        <AutoCompleteTextView
+            android:id="@+id/stazionearrivo"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
-            android:fontFamily="@font/montserrat_bold"
-            android:text="Cesano Maderno"
-            android:textColor="#ffffff"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/guideline9"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.373" />
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="103dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="88dp"
+            android:ems="10"
+            android:inputType="time"
+            app:layout_constraintBottom_toTopOf="@+id/guideline9"
+            app:layout_constraintEnd_toStartOf="@+id/guideline5"
+            app:layout_constraintHorizontal_bias="0.949"
+            app:layout_constraintStart_toStartOf="@+id/guideline6"
+            app:layout_constraintTop_toBottomOf="@+id/stazionearrivo"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <CalendarView
+            android:id="@+id/datapartenza"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline5"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="@+id/guideline6"
+            app:layout_constraintTop_toBottomOf="@+id/stazionearrivo" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline5"
@@ -107,6 +129,14 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.96" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintEnd_toStartOf="@+id/guideline1"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="@+id/guideline3"
+        android:layout_height="410dp"
+        android:layout_width="match_parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

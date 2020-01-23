@@ -15,7 +15,7 @@ public class SplashActivity extends AppCompatActivity {
 
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_theme); //Viene settato il Layout
         mProgressBar = findViewById(R.id.progressBar); //Viene referenziata la ProgressBar presente nel layout
