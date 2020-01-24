@@ -36,7 +36,7 @@ public class Corsa{
         fermate = new ArrayList<>();
     }
 
-    public static Corsa find(Stazione stazionePartenza, int numeroTreno) throws ViaggioException {
+    public static Corsa find(Stazione stazionePartenza, String numeroTreno) throws ViaggioException {
         String url = "http://www.viaggiatreno.it/"
                 + "viaggiatrenonew/"
                 + "resteasy/"

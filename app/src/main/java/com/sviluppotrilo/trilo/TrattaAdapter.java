@@ -54,7 +54,7 @@ public class TrattaAdapter extends TypeAdapter<Tratta> {
                     String categoriaDescrizione = reader.nextString();
                     tratta.setCategoriaDescrizione(categoriaDescrizione);
                 }else if("numeroTreno".equals(fieldname)){
-                    int numeroTreno = reader.nextInt();
+                    String numeroTreno = reader.nextString();
                     tratta.setNumeroTreno(numeroTreno);
                 }else{
                     reader.skipValue();

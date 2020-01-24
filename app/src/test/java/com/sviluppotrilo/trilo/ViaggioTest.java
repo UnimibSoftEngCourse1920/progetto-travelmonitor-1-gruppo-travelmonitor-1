@@ -12,7 +12,7 @@ public class ViaggioTest {
 
     @Test
     public void cercaViaggio() {
-        Stazione origine = new Stazione("Baruccana", "1929");
+        Stazione origine = new Stazione("Baruccana", "1918");
         Stazione destinazione = new Stazione("Camnago", "1316");
         String data = "2020-01-20";
         String ora = "T" + "10:00:00";
@@ -20,11 +20,20 @@ public class ViaggioTest {
         Viaggio v = c.cercaViaggio(origine, destinazione, data, ora);
         System.out.println(v);
     }
+    @Test
+    public void testProva() throws ViaggioException{
+        Stazione origine = new Stazione("Baruccana", "1918");
+        Stazione destinazione = new Stazione("Camnago", "1316");
+        String data = "2020-01-20";
+        String ora = "T" + "10:00:00";
+        Viaggio v = Viaggio.find(origine, destinazione, data, ora);
+        System.out.println(v);
+    }
 
     @Test
     public void findStazionePartenza() {
         try {
-            Stazione partenza = Stazione.findStazionePartenza(31437);
+            Stazione partenza = Stazione.findStazionePartenza("31437");
             System.out.println(partenza);
         }catch(Exception e) {
             System.out.println(e);
@@ -35,7 +44,7 @@ public class ViaggioTest {
     public void find() {
         try {
             Stazione partenza = new Stazione("Bho", "S00228");
-            Corsa c = Corsa.find(partenza, 4640);
+            Corsa c = Corsa.find(partenza, "4640");
             System.out.println(c);
         }catch(Exception e) {
             System.out.println(e);

@@ -14,7 +14,7 @@ public class Stazione {
     public Stazione() {
         super();
     }
-    public static Stazione findStazionePartenza(int numeroTreno) throws ViaggioException {
+    public static Stazione findStazionePartenza(String numeroTreno) throws ViaggioException {
         String url = "http://www.viaggiatreno.it/"
                 + "viaggiatrenonew/"
                 + "resteasy/"

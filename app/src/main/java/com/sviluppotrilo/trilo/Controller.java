@@ -10,7 +10,7 @@ public class Controller {
         } catch(ViaggioException e){
             Log.e("Errore:", e.toString());
         } catch (Exception e) {
-            Log.e("Errore:", e.toString());
+            Log.e("Errore:", e.getMessage());
         }
         return viaggio;
     }

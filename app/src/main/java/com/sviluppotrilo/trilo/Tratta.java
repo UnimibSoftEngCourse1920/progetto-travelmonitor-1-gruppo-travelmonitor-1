@@ -12,7 +12,7 @@ public class Tratta extends Observable {
     private String orarioArrivo;
     private int categoria;
     private String categoriaDescrizione;
-    private int numeroTreno;
+    private String numeroTreno;
 
     private Corsa corsa;
 
@@ -69,11 +69,11 @@ public class Tratta extends Observable {
         this.categoriaDescrizione = categoriaDescrizione;
     }
 
-    public int getNumeroTreno() {
+    public String getNumeroTreno() {
         return numeroTreno;
     }
 
-    public void setNumeroTreno(int numeroTreno) {
+    public void setNumeroTreno(String numeroTreno) {
         this.numeroTreno = numeroTreno;
     }
 
