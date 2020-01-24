@@ -28,4 +28,37 @@ public class StatoCorsaTest {
         }
     }
 
+    @Test
+    public void cercaUnaCorsa(){
+        Controller c= new Controller();
+        Stazione origine = new Stazione("SEVESO", "S01925");
+        String numeroTreno="20245";
+        Corsa corsa = c.cercaCorsa(origine,numeroTreno);
+        System.out.println(corsa.toString());
+    }
+
+    @Test
+    public void cercaUnaCorsaConStatoInRitardo(){
+        Controller c= new Controller();
+        Stazione origine = new Stazione("SEVESO", "S01925");
+        String numeroTreno="20245";
+        Corsa corsa = c.cercaCorsa(origine,numeroTreno);
+        CorsaState s = new NonPartito();
+        CorsaState s1=s.statoCorsa(corsa);
+        System.out.println(s1.getClass());
+    }
+
+    @Test
+    public void cercaUnaCorsaConStatoInOrario(){
+        Controller c= new Controller();
+        Stazione origine = new Stazione("SEVESO", "S01925");
+        String numeroTreno="20261";
+        Corsa corsa = c.cercaCorsa(origine,numeroTreno);
+        CorsaState s = new InRitardo();
+        CorsaState s1=s.statoCorsa(corsa);
+        System.out.println(s1.getClass());
+    }
+
+
+
 }
