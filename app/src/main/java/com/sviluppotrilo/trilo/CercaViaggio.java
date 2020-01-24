@@ -83,4 +83,6 @@ public class CercaViaggio extends AppCompatActivity {
     }
 
 
+    Controller c = new Controller();
+    //Viaggio v = new Viaggio(c.cercaViaggio(getStazionePartenza(), getStazioneArrivo(), "24-01-20", "11:00"));
 }

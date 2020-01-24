@@ -65,8 +65,8 @@ public class Preferiti extends AppCompatActivity implements NavigationView.OnNav
                 startActivity(goToImpostazioni);
                 break;
             case R.id.socialnetwork:
-                //Intent goToSocial = new Intent(Preferiti.this, Preferiti.class);
-                //startActivity(goToSocial);
+                Intent goToSocial = new Intent(Preferiti.this, Social.class);
+                startActivity(goToSocial);
                 break;
             case R.id.profilo:
                 Intent goToProfilo = new Intent(Preferiti.this, Profilo.class);
