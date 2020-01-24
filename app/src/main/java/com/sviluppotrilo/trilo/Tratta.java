@@ -2,8 +2,10 @@ package com.sviluppotrilo.trilo;
 
 import com.google.gson.annotations.JsonAdapter;
 
+import java.util.Observable;
+
 @JsonAdapter(TrattaAdapter.class)
-public class Tratta {
+public class Tratta extends Observable {
     private Stazione origine;
     private Stazione destinazione;
     private String orarioPartenza;
@@ -11,6 +13,12 @@ public class Tratta {
     private int categoria;
     private String categoriaDescrizione;
     private int numeroTreno;
+
+    private Corsa corsa;
+
+    public void update() throws ViaggioException{
+        setCorsa(cercaCorsa());
+    }
 
     public Corsa cercaCorsa() throws ViaggioException {
         Stazione stazionePartenza = Stazione.findStazionePartenza(numeroTreno);
@@ -67,6 +75,16 @@ public class Tratta {
 
     public void setNumeroTreno(int numeroTreno) {
         this.numeroTreno = numeroTreno;
+    }
+
+    public Corsa getCorsa() {
+        return corsa;
+    }
+
+    public void setCorsa(Corsa corsa) {
+        this.corsa = corsa;
+        setChanged();
+        notifyObservers(corsa);
     }
 
     @Override

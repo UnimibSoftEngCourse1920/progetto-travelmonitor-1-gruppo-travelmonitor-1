@@ -8,8 +8,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.JsonAdapter;
 
 @JsonAdapter(CorsaAdapter.class)
-public class Corsa {
-
+public class Corsa{
 
     private Stazione origine;
     private Stazione destinazione;
