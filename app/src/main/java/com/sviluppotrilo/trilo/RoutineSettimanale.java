@@ -1,6 +1,12 @@
 package com.sviluppotrilo.trilo;
 
+import android.content.SharedPreferences;
+
+import com.preference.PowerPreference;
+
 import java.time.LocalDate;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class RoutineSettimanale {
 
@@ -16,49 +22,49 @@ public class RoutineSettimanale {
 
     public static Giorno getLunedi(){
         if(lunedi == null){
-            lunedi = new Giorno(1, "Lunedi");
+            lunedi = (Giorno) PowerPreference.getDefaultFile().getObject("Lunedi", Giorno.class);
         }
         return lunedi;
     }
 
     public static Giorno getMartedi(){
         if(martedi == null){
-            martedi = new Giorno(2, "Martedi");
+            martedi = (Giorno) PowerPreference.getDefaultFile().getObject("Martedi", Giorno.class);
         }
         return martedi;
     }
 
     public static Giorno getMercoledi(){
         if(mercoledi == null){
-            mercoledi = new Giorno(3, "Mercoledi");
+            mercoledi = (Giorno) PowerPreference.getDefaultFile().getObject("Mercoledi", Giorno.class);
         }
         return mercoledi;
     }
 
     public static Giorno getGiovedi(){
         if(giovedi == null){
-            giovedi = new Giorno(4, "Giovedi");
+            giovedi = (Giorno) PowerPreference.getDefaultFile().getObject("Giovedi", Giorno.class);
         }
         return giovedi;
     }
 
     public static Giorno getVenerdi(){
         if(venerdi == null){
-            venerdi = new Giorno(5, "Venerdi");
+            venerdi = (Giorno) PowerPreference.getDefaultFile().getObject("Venerdi", Giorno.class);
         }
         return venerdi;
     }
 
     public static Giorno getSabato(){
         if(sabato == null){
-            sabato = new Giorno(6, "Sabato");
+            sabato = (Giorno) PowerPreference.getDefaultFile().getObject("Sabato", Giorno.class);
         }
         return sabato;
     }
 
     public static Giorno getDomenica(){
         if(domenica == null){
-            domenica = new Giorno(7, "Domenica");
+            domenica = (Giorno) PowerPreference.getDefaultFile().getObject("Domenica", Giorno.class);
         }
         return domenica;
     }

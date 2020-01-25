@@ -1,5 +1,7 @@
 package com.sviluppotrilo.trilo;
 
+import com.preference.PowerPreference;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -27,16 +29,24 @@ public class Giorno {
         return preferiti;
     }
 
-    public void aggiungiPreferito(Soluzione preferito) {
+    public void aggiungiPreferito(Soluzione preferito) throws Exception{
         if(preferito == null)
             return;
         preferiti.add(preferito);
+        update();
     }
 
-    public void rimuoviPreferito(Soluzione preferito) {
+    public void rimuoviPreferito(Soluzione preferito) throws Exception{
         if(preferito == null)
             return;
         preferiti.remove(preferito);
+        update();
+    }
+
+    private void update() throws Exception{
+        boolean result = PowerPreference.getDefaultFile().setObject(getNome(), this);
+        if(!result)
+            throw new Exception("Update dei preferiti fallito");
     }
 
     @Override

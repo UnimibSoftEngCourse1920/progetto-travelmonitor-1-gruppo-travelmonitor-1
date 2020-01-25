@@ -50,4 +50,7 @@ dependencies {
 
     //Gson - Java library to convert Java Objects into JSON and back
     implementation 'com.google.code.gson:gson:2.8.6'
+
+    //Libreria per il salvataggio in shared preference
+    implementation 'com.aliassadi:power-preference-lib:2.0.0'
 }
