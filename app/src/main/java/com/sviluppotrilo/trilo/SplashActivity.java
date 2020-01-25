@@ -26,7 +26,7 @@ public class SplashActivity extends AppCompatActivity {
 
         //Inizializzazione dei preferiti
         initPreferiti();
-        
+
         // Creo un thread per l'avanzamento della ProgressBar
         new Thread(new Runnable() {
             @Override
