@@ -7,8 +7,11 @@ public class InOrario implements CorsaState {
             return new Arrivato().statoCorsa(corsa);
         Stazione sur = corsa.getStazioneUltimoRilevamento();
         for(Fermata fermata : corsa.getFermate())
-            if(fermata.getStazione().getNome().equals(sur.getNome()) && fermata.getRitardo() >= 5)
+            if(fermata.getStazione().getNome().equals(sur.getNome()) && fermata.getRitardo() >= 5) {
+                Notifica n = new NotificaRitardo(fermata.getRitardo(), corsa.getNumeroTreno());
+                n.invia();
                 return new InRitardo().statoCorsa(corsa);
+            }
         return this;
     }
 }

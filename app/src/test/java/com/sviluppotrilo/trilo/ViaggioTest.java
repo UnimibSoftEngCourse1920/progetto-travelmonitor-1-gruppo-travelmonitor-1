@@ -2,11 +2,7 @@ package com.sviluppotrilo.trilo;
 
 import org.junit.Test;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 public class ViaggioTest {
 
@@ -62,7 +58,7 @@ public class ViaggioTest {
         List<Soluzione> s = v.getSoluzioni();
         List<Tratta> t = s.get(0).getTratte();
         Tratta t1 = t.get(0);
-        t1.addObserver(new Notifica());
+        t1.addObserver(new NotificaObserver());
         t1.update();
     }
 }
