@@ -21,6 +21,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private String[] arrData;
     private InputStream myInput;
     private OutputStream myOutput;
+    private String idPartenza;
+    private String idArrivo;
     @CheckForNull
     private Cursor cursor = null;
 
@@ -94,6 +96,39 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             cursor.close();
         }
         return arrData;
+    }
+
+    public String selectIdPartenza(String partenza) {
+        SQLiteDatabase db;
+        try {
+            db = this.getReadableDatabase();
+            String strSQL = "SELECT id FROM " + tablestazioni + " WHERE nome = \""+partenza+"\"";
+            System.out.println(strSQL);
+            cursor = db.rawQuery(strSQL, null);
+            if (cursor.moveToFirst()) {
+                idPartenza = cursor.getString(cursor.getColumnIndex("id"));
+            }
+        } finally {
+            cursor.close();
+        }
+
+        System.out.println(idPartenza);
+        return idPartenza;
+    }
+
+    public String selectIdArrivo(String arrivo) {
+        SQLiteDatabase db;
+        try {
+            db = this.getReadableDatabase();
+            String strSQL = "SELECT id FROM " +tablestazioni+ " WHERE nome = \""+arrivo+"\"";
+            cursor = db.rawQuery(strSQL, null);
+            if (cursor.moveToFirst()) {
+                idArrivo = cursor.getString(cursor.getColumnIndex("id"));
+            }
+        } finally {
+            cursor.close();
+        }
+        return idArrivo;
     }
 
     @Override

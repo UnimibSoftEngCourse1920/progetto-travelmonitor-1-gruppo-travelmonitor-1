@@ -73,8 +73,8 @@ public class Preferiti extends AppCompatActivity implements NavigationView.OnNav
                 startActivity(goToProfilo);
                 break;
             case R.id.mappe:
-                //Intent goToMappe = new Intent(Preferiti.this, Mappa.class);
-                //startActivity(goToMappe);
+                Intent goToMappe = new Intent(Preferiti.this, Mappa.class);
+                startActivity(goToMappe);
                 break;
             case R.id.aboutus:
                 //Intent goToAboutUs = new Intent(Preferiti.this, Preferiti.class);

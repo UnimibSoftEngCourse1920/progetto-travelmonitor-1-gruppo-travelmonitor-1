@@ -2,18 +2,28 @@ package com.sviluppotrilo.trilo;
 
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class CercaViaggio extends AppCompatActivity {
@@ -23,14 +33,16 @@ public class CercaViaggio extends AppCompatActivity {
     AutoCompleteTextView autoCom1;
     AutoCompleteTextView autoCom2;
     ArrayAdapter arrayAdapter;
-    Button data;
+    Button data,cerca;
     Calendar calendar;
     DatePickerDialog datePickerDialog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cercaviaggio);
+
         myDbHelper = new DataBaseHelper(getApplicationContext());
         myDbHelper.createDatabase();
         myData = myDbHelper.selectAllData();
@@ -72,6 +84,23 @@ public class CercaViaggio extends AppCompatActivity {
 
         */
 
+        cerca = findViewById(R.id.cerca);
+        cerca.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String stazionePartenza = getStazionePartenza();
+                String stazioneArrivo = getStazioneArrivo();
+                String IdStazionePartenza = getIdStazionePartenza(stazionePartenza);
+                String IdStazioneArrivo = getIdStazioneArrivo(stazioneArrivo);
+                Intent intent = new Intent(CercaViaggio.this, RisultatiCercaViaggio.class);
+                intent.putExtra("stazionePartenza", stazionePartenza);
+                intent.putExtra("stazioneArrivo", stazioneArrivo);
+                intent.putExtra("IdStazionePartenza", IdStazionePartenza);
+                intent.putExtra("IdStazioneArrivo", IdStazioneArrivo);
+                startActivity(intent);
+            }
+        });
+
     }
 
     public String getStazionePartenza() {
@@ -81,8 +110,13 @@ public class CercaViaggio extends AppCompatActivity {
     public String getStazioneArrivo() {
         return String.valueOf(autoCom2.getText());
     }
+    public String getIdStazionePartenza(String partenza) {
+        String idPartenza = myDbHelper.selectIdPartenza(partenza);
+        return idPartenza;
+    }
+    public String getIdStazioneArrivo(String arrivo) {
+        String idArrivo = myDbHelper.selectIdArrivo(arrivo);
+        return idArrivo;
+    }
 
-
-    Controller c = new Controller();
-    //Viaggio v = new Viaggio(c.cercaViaggio(getStazionePartenza(), getStazioneArrivo(), "24-01-20", "11:00"));
 }

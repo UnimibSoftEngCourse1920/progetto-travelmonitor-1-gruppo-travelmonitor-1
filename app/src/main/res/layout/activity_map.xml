@@ -125,7 +125,7 @@
                 android:layout_gravity="center_horizontal"
                 android:clickable="false"
                 android:contentDescription="STIBN"
-                app:srcCompat="@drawable/stibn" />
+                android:background="@drawable/stibn" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

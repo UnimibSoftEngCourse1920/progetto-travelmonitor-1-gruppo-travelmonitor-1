@@ -13,17 +13,12 @@ import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter<MyCard> {
 
-    Context c;
-    ArrayList<Soluzione> datiViaggio;
-    CercaViaggio viaggio;
+    Context context;
+    ArrayList<Soluzione> datiSoluzione;
 
-    public void getDati(){
-        Controller c = new Controller ();
-    };
-
-    public MyAdapter(Context c, ArrayList<Soluzione> datiViaggio) {
-        this.c = c;
-        this.datiViaggio = datiViaggio;
+    public MyAdapter(Context c, ArrayList<Soluzione> datiSoluzione) {
+        this.context = c;
+        this.datiSoluzione = datiSoluzione;
     }
 
     @NonNull
@@ -31,17 +26,23 @@ public class MyAdapter extends RecyclerView.Adapter<MyCard> {
     public MyCard onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_viaggio,null);
         return new MyCard(view);
-
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyCard holder, int position) {
+    public void onBindViewHolder(@NonNull MyCard holder, int i) {
+        holder.oraPartenza.setText(datiSoluzione.get(i).getTratte().get(0).getOrarioPartenza());
+        int numeroUltimTratta = datiSoluzione.get(i).getTratte().size() - 1;
+        holder.oraArrivo.setText(datiSoluzione.get(i).getTratte().get(numeroUltimTratta).getOrarioArrivo());
+        /*
+        holder.stazionePartenza.setText();
+        holder.stazioneArrivo.setText();
 
+         */
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return datiSoluzione.size();
     }
 }
 
