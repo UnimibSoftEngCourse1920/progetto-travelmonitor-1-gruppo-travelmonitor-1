@@ -17,11 +17,13 @@ public class MyCard extends RecyclerView.ViewHolder {
     TextView destinazioneTreno;
     TextView classeTreno;
     TextView binarioTrenoStazPart;
+    TextView statoTreno;
 
 
     public MyCard(@NonNull View itemView) {
         super(itemView);
 
+        this.statoTreno = itemView.findViewById(R.id.statoTreno);
         this.orarioViaggio = itemView.findViewById(R.id.orarioViaggio);
         this.oraPartenza = itemView.findViewById(R.id.orapartenza);
         this.oraArrivo = itemView.findViewById(R.id.oraarrivo);

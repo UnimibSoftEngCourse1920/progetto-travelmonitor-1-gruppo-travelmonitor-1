@@ -8,12 +8,19 @@ public class ViaggioTest {
 
     @Test
     public void cercaViaggio() {
-        Stazione origine = new Stazione("Baruccana", "1918");
-        Stazione destinazione = new Stazione("Camnago", "1316");
-        String data = "2020-01-20";
-        String ora = "T" + "10:00:00";
+        Stazione origine = new Stazione("Seveso", "1925");
+        Stazione destinazione = new Stazione("Affori", "1078");
+        String data = "2020-01-25";
+        String ora = "T" + "12:00:00";
         Controller c = new Controller();
         Viaggio v = c.cercaViaggio(origine, destinazione, data, ora);
+        ArrayList<Soluzione> soluzione;
+        soluzione = (ArrayList<Soluzione>) v.getSoluzioni();
+        ArrayList<Tratta> tratta = null;
+        for(int i=0; i<soluzione.size(); i++){
+            tratta = (ArrayList<Tratta>) soluzione.get(i).getTratte();
+            System.out.println(tratta.get(0).getNumeroTreno());
+        }
         System.out.println(v);
     }
     @Test
