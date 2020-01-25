@@ -59,6 +59,4 @@ public class StatoCorsaTest {
         System.out.println(s1.getClass());
     }
 
-
-
 }

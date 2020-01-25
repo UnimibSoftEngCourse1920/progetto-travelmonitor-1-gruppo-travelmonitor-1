@@ -6,10 +6,12 @@ public class NonPartito implements CorsaState {
     public CorsaState statoCorsa(Corsa corsa){
         if(corsa.isPartito() == true)
             return new InOrario().statoCorsa(corsa);
-        if(corsa.isPartito() == false && corsa.getDescrizione()!=null) {
-            Notifica n = new NotificaSoppressione(corsa.getNumeroTreno());
-            n.invia();
+        if(corsa.getProvvedimento() == 1 && corsa.getTipoTreno().equals("ST")) {
             return new Soppresso().statoCorsa(corsa);
+        }
+        if((corsa.getProvvedimento() == 0 || corsa.getProvvedimento() == 2) && (corsa.getTipoTreno().equals("PP") ||
+                corsa.getTipoTreno().equals("SI") || corsa.getTipoTreno().equals("SF"))){
+            return new ParzialmenteSoppresso().statoCorsa(corsa);
         }
         return this;
     }
