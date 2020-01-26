@@ -1,11 +1,8 @@
 package com.sviluppotrilo.trilo;
 
-import com.sviluppotrilo.trilo.Controller.ViaggioController;
-import com.sviluppotrilo.trilo.Domain.Corsa;
-import com.sviluppotrilo.trilo.Domain.Stazione;
-import com.sviluppotrilo.trilo.Domain.Viaggio;
-
 import org.junit.Test;
+
+import java.util.List;
 
 public class ViaggioTest {
 
@@ -15,8 +12,15 @@ public class ViaggioTest {
         Stazione destinazione = new Stazione("Affori", "1078");
         String data = "2020-01-25";
         String ora = "T" + "12:00:00";
-        ViaggioController c = new ViaggioController();
+        Controller c = new Controller();
         Viaggio v = c.cercaViaggio(origine, destinazione, data, ora);
+        ArrayList<Soluzione> soluzione;
+        soluzione = (ArrayList<Soluzione>) v.getSoluzioni();
+        ArrayList<Tratta> tratta = null;
+        for(int i=0; i<soluzione.size(); i++){
+            tratta = (ArrayList<Tratta>) soluzione.get(i).getTratte();
+            System.out.println(tratta.get(0).getNumeroTreno());
+        }
         System.out.println(v);
     }
     @Test
@@ -49,8 +53,19 @@ public class ViaggioTest {
             System.out.println(e);
         }
     }
-    @Test
-    public void testCambioStato(){
 
+    @Test
+    public void provaObserver() throws Exception{
+        Stazione origine = new Stazione("Baruccana", "1929");
+        Stazione destinazione = new Stazione("Camnago", "1316");
+        String data = "2020-01-20";
+        String ora = "T" + "10:00:00";
+        Controller c = new Controller();
+        Viaggio v = c.cercaViaggio(origine, destinazione, data, ora);
+        List<Soluzione> s = v.getSoluzioni();
+        List<Tratta> t = s.get(0).getTratte();
+        Tratta t1 = t.get(0);
+        t1.addObserver(new NotificaObserver());
+        t1.update();
     }
 }

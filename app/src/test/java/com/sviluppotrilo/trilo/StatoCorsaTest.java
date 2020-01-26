@@ -1,15 +1,8 @@
 package com.sviluppotrilo.trilo;
 
-import com.sviluppotrilo.trilo.Controller.ViaggioController;
-import com.sviluppotrilo.trilo.Domain.Arrivi;
-import com.sviluppotrilo.trilo.Domain.Corsa;
-import com.sviluppotrilo.trilo.Domain.CorsaState;
-import com.sviluppotrilo.trilo.Domain.InRitardo;
-import com.sviluppotrilo.trilo.Domain.NonPartito;
-import com.sviluppotrilo.trilo.Domain.Partenze;
-import com.sviluppotrilo.trilo.Domain.Stazione;
-
 import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 public class StatoCorsaTest {
 
@@ -37,7 +30,7 @@ public class StatoCorsaTest {
 
     @Test
     public void cercaUnaCorsa(){
-        ViaggioController c= new ViaggioController();
+        Controller c= new Controller();
         Stazione origine = new Stazione("SEVESO", "S01925");
         String numeroTreno="20245";
         Corsa corsa = c.cercaCorsa(origine,numeroTreno);
@@ -46,7 +39,7 @@ public class StatoCorsaTest {
 
     @Test
     public void cercaUnaCorsaConStatoInRitardo(){
-        ViaggioController c= new ViaggioController();
+        Controller c= new Controller();
         Stazione origine = new Stazione("SEVESO", "S01925");
         String numeroTreno="20245";
         Corsa corsa = c.cercaCorsa(origine,numeroTreno);
@@ -57,7 +50,7 @@ public class StatoCorsaTest {
 
     @Test
     public void cercaUnaCorsaConStatoInOrario(){
-        ViaggioController c= new ViaggioController();
+        Controller c= new Controller();
         Stazione origine = new Stazione("SEVESO", "S01925");
         String numeroTreno="20261";
         Corsa corsa = c.cercaCorsa(origine,numeroTreno);
