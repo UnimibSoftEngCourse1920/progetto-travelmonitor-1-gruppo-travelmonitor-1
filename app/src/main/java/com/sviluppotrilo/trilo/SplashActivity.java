@@ -8,7 +8,10 @@ import android.preference.PreferenceManager;
 import android.widget.ProgressBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.jakewharton.threetenabp.AndroidThreeTen;
 import com.preference.PowerPreference;
+
+import org.threeten.bp.LocalDate;
 
 
 public class SplashActivity extends AppCompatActivity {
@@ -26,6 +29,9 @@ public class SplashActivity extends AppCompatActivity {
 
         //Inizializzazione dei preferiti
         initPreferiti();
+
+        //Inizializza la libreria LocalDate
+        AndroidThreeTen.init(this);
 
         // Creo un thread per l'avanzamento della ProgressBar
         new Thread(new Runnable() {

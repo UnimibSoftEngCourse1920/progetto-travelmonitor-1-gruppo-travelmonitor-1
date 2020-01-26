@@ -4,7 +4,8 @@ import android.content.SharedPreferences;
 
 import com.preference.PowerPreference;
 
-import java.time.LocalDate;
+
+import org.threeten.bp.LocalDate;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -71,7 +72,11 @@ public class RoutineSettimanale {
 
     public static Giorno giornoAttuale() throws Exception{
         int idGiornoAttuale = LocalDate.now().getDayOfWeek().getValue();
-        switch(idGiornoAttuale) {
+        return getGiorno(idGiornoAttuale);
+    }
+
+    public static Giorno getGiorno(int idGiorno) throws Exception{
+        switch(idGiorno) {
             case 1: return getLunedi();
             case 2: return getMartedi();
             case 3: return getMercoledi();
@@ -80,6 +85,6 @@ public class RoutineSettimanale {
             case 6: return getSabato();
             case 7: return getDomenica();
         }
-        throw new Exception();
+        throw new Exception("L'id del giorno non esiste");
     }
 }

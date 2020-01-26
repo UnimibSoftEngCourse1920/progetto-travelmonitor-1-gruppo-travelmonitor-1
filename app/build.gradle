@@ -53,4 +53,7 @@ dependencies {
 
     //Libreria per il salvataggio in shared preference
     implementation 'com.aliassadi:power-preference-lib:2.0.0'
+
+    //Libreria per la retrocompatibilità di LocalDate
+    implementation 'com.jakewharton.threetenabp:threetenabp:1.2.2'
 }
