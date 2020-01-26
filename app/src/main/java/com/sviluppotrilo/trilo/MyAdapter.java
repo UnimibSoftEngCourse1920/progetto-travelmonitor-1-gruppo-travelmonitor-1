@@ -7,7 +7,8 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.SortedList;
+
+import com.sviluppotrilo.trilo.Domain.Soluzione;
 
 import java.util.ArrayList;
 

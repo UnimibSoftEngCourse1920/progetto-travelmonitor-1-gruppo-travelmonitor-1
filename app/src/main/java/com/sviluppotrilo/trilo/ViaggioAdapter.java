@@ -7,6 +7,9 @@ import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.JsonWriter;
+import com.sviluppotrilo.trilo.Domain.Soluzione;
+import com.sviluppotrilo.trilo.Domain.Stazione;
+import com.sviluppotrilo.trilo.Domain.Viaggio;
 
 public class ViaggioAdapter extends TypeAdapter<Viaggio> {
 

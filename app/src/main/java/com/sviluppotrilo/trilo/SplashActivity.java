@@ -10,8 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.jakewharton.threetenabp.AndroidThreeTen;
 import com.preference.PowerPreference;
-
-import org.threeten.bp.LocalDate;
+import com.sviluppotrilo.trilo.Domain.Giorno;
 
 
 public class SplashActivity extends AppCompatActivity {

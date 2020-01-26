@@ -1,6 +1,7 @@
-package com.sviluppotrilo.trilo;
+package com.sviluppotrilo.trilo.Domain;
 
 import com.google.gson.annotations.JsonAdapter;
+import com.sviluppotrilo.trilo.ViaggioException;
 
 import java.util.Observable;
 
@@ -16,8 +17,14 @@ public class Tratta extends Observable {
 
     private Corsa corsa;
 
-    public void update() throws ViaggioException{
+    private CorsaState stato;
+
+
+    public void update() throws ViaggioException {
+        if(stato == null)
+            stato = new NonPartito();
         setCorsa(cercaCorsa());
+        stato = stato.statoCorsa((Corsa) corsa);
     }
 
     public Corsa cercaCorsa() throws ViaggioException {
@@ -83,8 +90,6 @@ public class Tratta extends Observable {
 
     public void setCorsa(Corsa corsa) {
         this.corsa = corsa;
-        setChanged();
-        notifyObservers(corsa);
     }
 
     @Override

@@ -1,4 +1,6 @@
-package com.sviluppotrilo.trilo;
+package com.sviluppotrilo.trilo.Domain;
+
+import com.sviluppotrilo.trilo.ViaggioException;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

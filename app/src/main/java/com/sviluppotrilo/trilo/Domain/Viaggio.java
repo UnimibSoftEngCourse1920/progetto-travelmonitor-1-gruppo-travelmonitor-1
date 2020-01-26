@@ -1,10 +1,13 @@
-package com.sviluppotrilo.trilo;
+package com.sviluppotrilo.trilo.Domain;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.JsonAdapter;
+import com.sviluppotrilo.trilo.ViaggioAdapter;
+import com.sviluppotrilo.trilo.ViaggioException;
+
 @JsonAdapter(ViaggioAdapter.class)
 public class Viaggio{
 

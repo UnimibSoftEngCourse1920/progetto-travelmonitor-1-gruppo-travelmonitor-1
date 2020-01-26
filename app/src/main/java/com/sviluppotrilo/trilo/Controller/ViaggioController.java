@@ -1,6 +1,11 @@
-package com.sviluppotrilo.trilo;
+package com.sviluppotrilo.trilo.Controller;
 
 import android.util.Log;
+
+import com.sviluppotrilo.trilo.Domain.Corsa;
+import com.sviluppotrilo.trilo.Domain.Stazione;
+import com.sviluppotrilo.trilo.Domain.Viaggio;
+import com.sviluppotrilo.trilo.ViaggioException;
 
 public class ViaggioController {
     public Viaggio cercaViaggio(Stazione partenza, Stazione arrivo, String data, String ora){

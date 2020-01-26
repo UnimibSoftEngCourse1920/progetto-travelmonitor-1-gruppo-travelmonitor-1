@@ -1,4 +1,4 @@
-package com.sviluppotrilo.trilo;
+package com.sviluppotrilo.trilo.Domain;
 
 public class NotificaRitardo extends Notifica {
 

@@ -1,13 +1,9 @@
-package com.sviluppotrilo.trilo;
-
-import android.content.SharedPreferences;
+package com.sviluppotrilo.trilo.Domain;
 
 import com.preference.PowerPreference;
 
 
 import org.threeten.bp.LocalDate;
-
-import static android.content.Context.MODE_PRIVATE;
 
 public class RoutineSettimanale {
 

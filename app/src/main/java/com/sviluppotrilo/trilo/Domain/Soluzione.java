@@ -1,4 +1,4 @@
-package com.sviluppotrilo.trilo;
+package com.sviluppotrilo.trilo.Domain;
 
 import java.util.ArrayList;
 import java.util.List;

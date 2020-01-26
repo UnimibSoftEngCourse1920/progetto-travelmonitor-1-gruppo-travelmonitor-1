@@ -1,5 +1,14 @@
 package com.sviluppotrilo.trilo;
 
+import com.sviluppotrilo.trilo.Controller.ViaggioController;
+import com.sviluppotrilo.trilo.Domain.Arrivi;
+import com.sviluppotrilo.trilo.Domain.Corsa;
+import com.sviluppotrilo.trilo.Domain.CorsaState;
+import com.sviluppotrilo.trilo.Domain.InRitardo;
+import com.sviluppotrilo.trilo.Domain.NonPartito;
+import com.sviluppotrilo.trilo.Domain.Partenze;
+import com.sviluppotrilo.trilo.Domain.Stazione;
+
 import org.junit.Test;
 
 public class StatoCorsaTest {

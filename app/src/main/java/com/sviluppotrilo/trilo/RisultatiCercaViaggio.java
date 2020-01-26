@@ -7,6 +7,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.sviluppotrilo.trilo.Controller.ViaggioController;
+import com.sviluppotrilo.trilo.Domain.Soluzione;
+import com.sviluppotrilo.trilo.Domain.Stazione;
+import com.sviluppotrilo.trilo.Domain.Viaggio;
+
 import java.util.ArrayList;
 
 

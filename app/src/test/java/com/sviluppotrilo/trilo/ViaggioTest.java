@@ -1,8 +1,11 @@
 package com.sviluppotrilo.trilo;
 
-import org.junit.Test;
+import com.sviluppotrilo.trilo.Controller.ViaggioController;
+import com.sviluppotrilo.trilo.Domain.Corsa;
+import com.sviluppotrilo.trilo.Domain.Stazione;
+import com.sviluppotrilo.trilo.Domain.Viaggio;
 
-import java.util.List;
+import org.junit.Test;
 
 public class ViaggioTest {
 
@@ -46,19 +49,8 @@ public class ViaggioTest {
             System.out.println(e);
         }
     }
-
     @Test
-    public void provaObserver() throws Exception{
-        Stazione origine = new Stazione("Baruccana", "1929");
-        Stazione destinazione = new Stazione("Camnago", "1316");
-        String data = "2020-01-20";
-        String ora = "T" + "10:00:00";
-        ViaggioController c = new ViaggioController();
-        Viaggio v = c.cercaViaggio(origine, destinazione, data, ora);
-        List<Soluzione> s = v.getSoluzioni();
-        List<Tratta> t = s.get(0).getTratte();
-        Tratta t1 = t.get(0);
-        t1.addObserver(new NotificaObserver());
-        t1.update();
+    public void testCambioStato(){
+
     }
 }

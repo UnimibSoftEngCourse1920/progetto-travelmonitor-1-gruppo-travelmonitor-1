@@ -1,6 +1,10 @@
-package com.sviluppotrilo.trilo;
+package com.sviluppotrilo.trilo.Controller;
 
 import android.util.Log;
+
+import com.sviluppotrilo.trilo.Domain.Giorno;
+import com.sviluppotrilo.trilo.Domain.RoutineSettimanale;
+import com.sviluppotrilo.trilo.Domain.Soluzione;
 
 public class PreferitiController {
     public Giorno visualizzaPreferiti(int idGiorno){
