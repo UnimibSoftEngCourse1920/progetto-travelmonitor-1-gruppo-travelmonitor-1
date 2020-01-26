@@ -14,13 +14,6 @@ public class ViaggioTest {
         String ora = "T" + "12:00:00";
         Controller c = new Controller();
         Viaggio v = c.cercaViaggio(origine, destinazione, data, ora);
-        ArrayList<Soluzione> soluzione;
-        soluzione = (ArrayList<Soluzione>) v.getSoluzioni();
-        ArrayList<Tratta> tratta = null;
-        for(int i=0; i<soluzione.size(); i++){
-            tratta = (ArrayList<Tratta>) soluzione.get(i).getTratte();
-            System.out.println(tratta.get(0).getNumeroTreno());
-        }
         System.out.println(v);
     }
     @Test

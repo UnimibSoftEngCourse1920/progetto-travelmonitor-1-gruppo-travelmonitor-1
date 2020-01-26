@@ -10,6 +10,66 @@
         <item name="android:statusBarColor">@color/colorPrimary</item>
     </style>
 
+    <style name="MyDatePickerStyle" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/colorPrimary</item>
+        <!--selected Item color-->
+        <item name="colorControlActivated">#2196F3</item>
+        <!-- arrow bordercolor(<>)-->
+        <item name="android:selectableItemBackgroundBorderless">@color/colorPrimary</item>
+        <!-- Highlight item color-->
+        <item name="colorControlHighlight">#d50000</item>
+        <!--Calender Background color -->
+        <item name="android:windowBackground">@color/colorPrimary</item>
+        <!-- Ok Cancel Color-->
+        <item name="android:buttonBarNegativeButtonStyle">@style/DatePickerTheme.ButtonBarNegativeButtonStyle</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/DatePickerTheme.ButtonBarPositiveButtonStyle</item>
+        <!-- Week TextColor-->
+        <item name="android:textColorSecondary">#E91E63</item>
+        <!-- Calender Number color arrow color (< >) -->
+        <item name="android:textColorPrimary">#fff</item>
+        <!--day , month-->
+        <item name="android:textColorPrimaryInverse">#fff</item>
+        <!-- year-->
+        <item name="android:textColorSecondaryInverse">#fff</item>
+    </style>
+
+    <style name="DatePickerTheme.ButtonBarNegativeButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">#fff</item>
+    </style>
+    <style name="DatePickerTheme.ButtonBarPositiveButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">#fff</item>
+    </style>
+
+    <style name="MyTimePickerStyle" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/colorPrimary</item>
+        <!--selected Item color-->
+        <item name="colorControlActivated">#2196F3</item>
+        <!-- arrow bordercolor(<>)-->
+        <item name="android:selectableItemBackgroundBorderless">@color/colorPrimary</item>
+        <!-- Highlight item color-->
+        <item name="colorControlHighlight">#d50000</item>
+        <!--Calender Background color -->
+        <item name="android:windowBackground">@color/colorPrimary</item>
+        <!-- Ok Cancel Color-->
+        <item name="android:buttonBarNegativeButtonStyle">@style/TimePickerTheme.ButtonBarNegativeButtonStyle</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/TimePickerTheme.ButtonBarPositiveButtonStyle</item>
+        <!-- Week TextColor-->
+        <item name="android:textColorSecondary">#E91E63</item>
+        <!-- Calender Number color arrow color (< >) -->
+        <item name="android:textColorPrimary">#fff</item>
+        <!--day , month-->
+        <item name="android:textColorPrimaryInverse">#fff</item>
+        <!-- year-->
+        <item name="android:textColorSecondaryInverse">#fff</item>
+    </style>
+
+    <style name="TimePickerTheme.ButtonBarNegativeButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">#fff</item>
+    </style>
+    <style name="TimePickerTheme.ButtonBarPositiveButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">#fff</item>
+    </style>
+
     <style name="MontserratRegularStyle" parent="android:Widget.TextView">
         <item name="android:fontFamily">@font/montserrat_regular</item>
     </style>

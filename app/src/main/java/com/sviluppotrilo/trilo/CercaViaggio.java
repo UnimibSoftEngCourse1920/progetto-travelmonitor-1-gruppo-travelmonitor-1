@@ -2,40 +2,39 @@ package com.sviluppotrilo.trilo;
 
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.Toast;
+import android.widget.TimePicker;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
+import java.util.SimpleTimeZone;
 
-public class CercaViaggio extends AppCompatActivity {
+public class CercaViaggio extends AppCompatActivity{
 
     DataBaseHelper myDbHelper;
     String[] myData;
     AutoCompleteTextView autoCom1;
     AutoCompleteTextView autoCom2;
     ArrayAdapter arrayAdapter;
-    Button data,cerca;
+    Button data, ora,cerca;
     Calendar calendar;
-    DatePickerDialog datePickerDialog;
+    DatePickerDialog pickerDate;
+    TimePickerDialog pickerTime;
+    private int mYear, mMonth, mDay;
 
 
     @Override
@@ -59,30 +58,19 @@ public class CercaViaggio extends AppCompatActivity {
 
         //Data
         data = findViewById(R.id.data);
-        String date = new SimpleDateFormat("dd-MM-yy", Locale.getDefault()).format(new Date());
+        String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
         data.setText(date);
+        ora = findViewById(R.id.ora);
+        DateFormat df = new SimpleDateFormat("HH:mm");
+        String time = df.format(Calendar.getInstance().getTime());
+        ora.setText(time);
 
-        /*
-        data.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                calendar.getInstance();
-                int giorno = calendar.get(Calendar.DAY_OF_MONTH);
-                int mese = calendar.get(Calendar.MONTH);
-                int anno = calendar.get(Calendar.YEAR);
 
-                datePickerDialog = new DatePickerDialog(CercaViaggio.this, new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int a, int m, int g) {
-                        data.setText(g + "-" +(m+1)+ "-" + a);
-                    }
-                }, anno, mese, giorno);
-                datePickerDialog.show();
+        new Thread(new Runnable() {
+            public void run() {
 
             }
-        });
-
-        */
+        }).start();
 
         cerca = findViewById(R.id.cerca);
         cerca.setOnClickListener(new View.OnClickListener() {
@@ -92,12 +80,69 @@ public class CercaViaggio extends AppCompatActivity {
                 String stazioneArrivo = getStazioneArrivo();
                 String IdStazionePartenza = getIdStazionePartenza(stazionePartenza);
                 String IdStazioneArrivo = getIdStazioneArrivo(stazioneArrivo);
+                String dataScelta = (String) data.getText();
+                String oraScelta = (String) ora.getText();
                 Intent intent = new Intent(CercaViaggio.this, RisultatiCercaViaggio.class);
                 intent.putExtra("stazionePartenza", stazionePartenza);
                 intent.putExtra("stazioneArrivo", stazioneArrivo);
                 intent.putExtra("IdStazionePartenza", IdStazionePartenza);
                 intent.putExtra("IdStazioneArrivo", IdStazioneArrivo);
+                intent.putExtra("dataScelta", dataScelta);
+                intent.putExtra("oraScelta", oraScelta);
                 startActivity(intent);
+            }
+        });
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        data.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Calendar cldr = Calendar.getInstance();
+                int day = cldr.get(Calendar.DAY_OF_MONTH);
+                final int month = cldr.get(Calendar.MONTH);
+                int year = cldr.get(Calendar.YEAR);
+                // date picker dialog
+                pickerDate = new DatePickerDialog(CercaViaggio.this,R.style.MyDatePickerStyle,
+                        new DatePickerDialog.OnDateSetListener() {
+                            @Override
+                            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                                String monthFix= String.valueOf(monthOfYear+1);
+                                if(monthFix.length()==1)
+                                    monthFix= "0"+(monthFix);
+                                String dayFix= String.valueOf(dayOfMonth);
+                                if(dayFix.length()==1)
+                                    dayFix= "0"+(dayFix);
+                                data.setText(year +"-"+(monthFix)+"-"+dayFix);
+                            }
+                        }, year, month, day);
+                pickerDate.show();
+            }
+        });
+        ora.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Calendar cldr = Calendar.getInstance();
+                int hour = cldr.get(Calendar.HOUR_OF_DAY);
+                int minutes = cldr.get(Calendar.MINUTE);
+                // time picker dialog
+                pickerTime = new TimePickerDialog(CercaViaggio.this,R.style.MyTimePickerStyle,
+                        new TimePickerDialog.OnTimeSetListener() {
+                            @Override
+                            public void onTimeSet(TimePicker tp, int sHour, int sMinute) {
+                                String sHourFix= String.valueOf(sHour);
+                                if(sHourFix.length()==1)
+                                    sHourFix= "0"+(sHourFix);
+                                String sMinuteFix= String.valueOf(sMinute);
+                                if(sMinuteFix.length()==1)
+                                    sMinuteFix= "0"+(sMinuteFix);
+                                ora.setText(sHourFix + ":" + sMinuteFix);
+                            }
+                        }, hour, minutes, true);
+                pickerTime.show();
             }
         });
 
@@ -110,13 +155,16 @@ public class CercaViaggio extends AppCompatActivity {
     public String getStazioneArrivo() {
         return String.valueOf(autoCom2.getText());
     }
+
     public String getIdStazionePartenza(String partenza) {
         String idPartenza = myDbHelper.selectIdPartenza(partenza);
         return idPartenza;
     }
+
     public String getIdStazioneArrivo(String arrivo) {
         String idArrivo = myDbHelper.selectIdArrivo(arrivo);
         return idArrivo;
     }
+
 
 }

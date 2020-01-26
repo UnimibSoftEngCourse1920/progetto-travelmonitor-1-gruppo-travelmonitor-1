@@ -15,10 +15,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyCard> {
 
     Context context;
     ArrayList<Soluzione> datiSoluzione;
+    String partenza;
+    String arrivo;
 
-    public MyAdapter(Context c, ArrayList<Soluzione> datiSoluzione) {
+    public MyAdapter(Context c, ArrayList<Soluzione> datiSoluzione, String partenza, String arrivo) {
         this.context = c;
         this.datiSoluzione = datiSoluzione;
+        this.partenza = partenza;
+        this.arrivo = arrivo;
     }
 
     @NonNull
@@ -30,14 +34,17 @@ public class MyAdapter extends RecyclerView.Adapter<MyCard> {
 
     @Override
     public void onBindViewHolder(@NonNull MyCard holder, int i) {
-        holder.oraPartenza.setText(datiSoluzione.get(i).getTratte().get(0).getOrarioPartenza());
         int numeroUltimTratta = datiSoluzione.get(i).getTratte().size() - 1;
-        holder.oraArrivo.setText(datiSoluzione.get(i).getTratte().get(numeroUltimTratta).getOrarioArrivo());
-        /*
-        holder.stazionePartenza.setText();
-        holder.stazioneArrivo.setText();
+        String orarioPartenza = datiSoluzione.get(i).getTratte().get(0).getOrarioPartenza();
+        String orarioArrivo = datiSoluzione.get(i).getTratte().get(numeroUltimTratta).getOrarioArrivo();
 
-         */
+        holder.oraPartenza.setText(orarioPartenza.substring((orarioPartenza.indexOf("T")+1),orarioPartenza.indexOf(":00")));
+        holder.oraArrivo.setText(orarioArrivo.substring((orarioArrivo.indexOf("T")+1),orarioArrivo.indexOf(":00")));
+        holder.stazionePartenza.setText(partenza);
+        holder.stazioneArrivo.setText(arrivo);
+        holder.numeroTreno.setText("Treno N: "+datiSoluzione.get(i).getTratte().get(0).getNumeroTreno());
+        holder.orarioViaggio.setText(orarioPartenza.substring((orarioPartenza.indexOf("T")+1),orarioPartenza.indexOf(":00"))+" - "
+                        +orarioArrivo.substring((orarioArrivo.indexOf("T")+1),orarioArrivo.indexOf(":00")));
     }
 
     @Override
