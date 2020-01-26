@@ -2,6 +2,9 @@ package com.sviluppotrilo.trilo;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -45,17 +48,17 @@ public class RisultatiCercaViaggio extends AppCompatActivity {
                 Viaggio viaggio = c.cercaViaggio(partenza, arrivo, dataScelta, "T"+oraScelta+":00");
                 soluzioni = (ArrayList<Soluzione>) viaggio.getSoluzioni();
                 System.out.println(soluzioni);
-                runOnUiThread(new Runnable() {
+                runOnUiThread(new Runnable(){
                     @Override
                     public void run() {
                         recyclerView.setHasFixedSize(true);
                         adapter = new MyAdapter(RisultatiCercaViaggio.this, soluzioni, stazionePartenza, stazioneArrivo);
                         recyclerView.setLayoutManager(new GridLayoutManager(RisultatiCercaViaggio.this,1));
                         recyclerView.setAdapter(adapter);
-
                     }
                 });
             }
         }).start();
+
     }
 }

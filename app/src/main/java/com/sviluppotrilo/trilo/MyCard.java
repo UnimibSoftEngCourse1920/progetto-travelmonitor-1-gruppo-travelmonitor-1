@@ -1,6 +1,7 @@
 package com.sviluppotrilo.trilo;
 
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -18,6 +19,7 @@ public class MyCard extends RecyclerView.ViewHolder {
     TextView classeTreno;
     TextView binarioTrenoStazPart;
     TextView statoTreno;
+    ImageView preferito;
 
 
     public MyCard(@NonNull View itemView) {
@@ -33,5 +35,6 @@ public class MyCard extends RecyclerView.ViewHolder {
         this.destinazioneTreno = itemView.findViewById(R.id.lineatreno);
         this.classeTreno= itemView.findViewById(R.id.stazionearrivo);
         this.binarioTrenoStazPart = itemView.findViewById(R.id.stazionearrivo);
+        this.preferito = itemView.findViewById(R.id.preferito);
     }
 }
