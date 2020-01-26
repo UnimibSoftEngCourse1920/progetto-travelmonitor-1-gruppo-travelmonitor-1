@@ -12,7 +12,7 @@ public class ViaggioTest {
         Stazione destinazione = new Stazione("Affori", "1078");
         String data = "2020-01-25";
         String ora = "T" + "12:00:00";
-        Controller c = new Controller();
+        ViaggioController c = new ViaggioController();
         Viaggio v = c.cercaViaggio(origine, destinazione, data, ora);
         System.out.println(v);
     }
@@ -53,7 +53,7 @@ public class ViaggioTest {
         Stazione destinazione = new Stazione("Camnago", "1316");
         String data = "2020-01-20";
         String ora = "T" + "10:00:00";
-        Controller c = new Controller();
+        ViaggioController c = new ViaggioController();
         Viaggio v = c.cercaViaggio(origine, destinazione, data, ora);
         List<Soluzione> s = v.getSoluzioni();
         List<Tratta> t = s.get(0).getTratte();

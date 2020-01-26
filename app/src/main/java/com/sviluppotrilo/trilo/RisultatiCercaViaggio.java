@@ -36,7 +36,7 @@ public class RisultatiCercaViaggio extends AppCompatActivity {
         final Stazione arrivo = new Stazione(stazioneArrivo,  IdStazioneArrivoT);
         new Thread(new Runnable() {
             public void run(){
-                Controller c = new Controller();
+                ViaggioController c = new ViaggioController();
                 Viaggio viaggio = c.cercaViaggio(partenza, arrivo, dataScelta, "T"+oraScelta+":00");
                 soluzioni = (ArrayList<Soluzione>) viaggio.getSoluzioni();
                 System.out.println(soluzioni);

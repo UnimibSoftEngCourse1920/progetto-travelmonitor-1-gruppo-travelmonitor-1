@@ -2,8 +2,6 @@ package com.sviluppotrilo.trilo;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class StatoCorsaTest {
 
     @Test
@@ -30,7 +28,7 @@ public class StatoCorsaTest {
 
     @Test
     public void cercaUnaCorsa(){
-        Controller c= new Controller();
+        ViaggioController c= new ViaggioController();
         Stazione origine = new Stazione("SEVESO", "S01925");
         String numeroTreno="20245";
         Corsa corsa = c.cercaCorsa(origine,numeroTreno);
@@ -39,7 +37,7 @@ public class StatoCorsaTest {
 
     @Test
     public void cercaUnaCorsaConStatoInRitardo(){
-        Controller c= new Controller();
+        ViaggioController c= new ViaggioController();
         Stazione origine = new Stazione("SEVESO", "S01925");
         String numeroTreno="20245";
         Corsa corsa = c.cercaCorsa(origine,numeroTreno);
@@ -50,7 +48,7 @@ public class StatoCorsaTest {
 
     @Test
     public void cercaUnaCorsaConStatoInOrario(){
-        Controller c= new Controller();
+        ViaggioController c= new ViaggioController();
         Stazione origine = new Stazione("SEVESO", "S01925");
         String numeroTreno="20261";
         Corsa corsa = c.cercaCorsa(origine,numeroTreno);
