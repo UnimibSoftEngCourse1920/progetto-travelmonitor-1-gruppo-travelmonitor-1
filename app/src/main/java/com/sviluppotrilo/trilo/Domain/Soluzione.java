@@ -1,5 +1,7 @@
 package com.sviluppotrilo.trilo.Domain;
 
+import android.os.AsyncTask;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,4 +40,10 @@ public class Soluzione {
         return "Soluzione [tratte=" + tratte + ", durata=" + durata + "]";
     }
 
+
+    public void controllaTratte() {
+        for (Tratta t : getTratte()) {
+            t.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+        }
+    }
 }

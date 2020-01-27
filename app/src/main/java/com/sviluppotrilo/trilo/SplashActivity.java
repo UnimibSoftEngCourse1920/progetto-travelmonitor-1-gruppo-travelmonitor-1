@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.jakewharton.threetenabp.AndroidThreeTen;
 import com.preference.PowerPreference;
 import com.sviluppotrilo.trilo.Domain.Giorno;
+import com.sviluppotrilo.trilo.Domain.RoutineSettimanale;
 
 
 public class SplashActivity extends AppCompatActivity {

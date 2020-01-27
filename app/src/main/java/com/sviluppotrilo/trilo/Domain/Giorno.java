@@ -1,11 +1,14 @@
 package com.sviluppotrilo.trilo.Domain;
 
+import android.os.AsyncTask;
+import android.util.Log;
+
 import com.preference.PowerPreference;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class Giorno {
+public class Giorno{
 
     private int id;
     private String nome;
@@ -53,4 +56,11 @@ public class Giorno {
     public String toString() {
         return "Giorno [id=" + id + ", nome=" + nome + ", preferiti=" + preferiti + "]";
     }
+
+    public void controllaSoluzioni(){
+        for (Soluzione s: preferiti) {
+            s.controllaTratte();
+        }
+    }
+
 }

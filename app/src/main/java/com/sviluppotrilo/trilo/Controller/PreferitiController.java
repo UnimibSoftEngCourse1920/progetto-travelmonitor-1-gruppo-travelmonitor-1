@@ -36,4 +36,12 @@ public class PreferitiController {
             Log.e("Errore: ", e.getMessage());
         }
     }
+
+    public void controllaPreferiti(){
+        try {
+            RoutineSettimanale.giornoAttuale().controllaSoluzioni();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
