@@ -72,10 +72,10 @@ public class CercaViaggio extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 if(autoCom1.getText().toString().equals(autoCom2.getText().toString())){
-                    Toast.makeText(CercaViaggio.this, "Parametri Non Validi", Toast.LENGTH_LONG).show();
+                    Toast.makeText(CercaViaggio.this, "Devi inserire due stazioni diverse", Toast.LENGTH_LONG).show();
                 }else {
                     if((autoCom1.getText().toString().equals("")) || (autoCom2.getText().toString().equals(""))){
-                        Toast.makeText(CercaViaggio.this, "Inserisci Stazioni Valide", Toast.LENGTH_LONG).show();
+                        Toast.makeText(CercaViaggio.this, "Devi inserire entrambe le stazioni", Toast.LENGTH_LONG).show();
                     }else {
                         String stazionePartenza = getStazionePartenza();
                         String stazioneArrivo = getStazioneArrivo();

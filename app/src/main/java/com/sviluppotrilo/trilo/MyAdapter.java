@@ -54,6 +54,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyCard> {
         holder.numeroTreno.setText("Treno N: " + datiSoluzione.get(i).getTratte().get(0).getNumeroTreno());
         holder.orarioViaggio.setText(orarioPartenza.substring((orarioPartenza.indexOf("T") + 1), orarioPartenza.indexOf(":00")) + " - "
                 + orarioArrivo.substring((orarioArrivo.indexOf("T") + 1), orarioArrivo.indexOf(":00")));
+        if(datiSoluzione.get(i).numeroCambi() > 1){
+            holder.destinazioneTreno.setText("numero cambi: "+datiSoluzione.get(i).numeroCambi());
+        }else{
+            holder.destinazioneTreno.setText("Trenoper");
+            //holder.destinazioneTreno.setText(datiSoluzione.get(getItemCount()).getTratte().get(0).getOrigine().getNome());
+        }
+
 
 
         holder.preferito.setOnClickListener(new View.OnClickListener() {
