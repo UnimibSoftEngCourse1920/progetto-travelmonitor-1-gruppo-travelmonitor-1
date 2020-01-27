@@ -92,6 +92,14 @@ public class Preferiti extends AppCompatActivity implements NavigationView.OnNav
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()) {
+            case R.id.cercaViaggio:
+                Intent goToCercaViaggio = new Intent(Preferiti.this, CercaViaggio.class);
+                startActivity(goToCercaViaggio);
+                break;
+            case R.id.cercaStazione:
+                Intent goToCercaStazione = new Intent(Preferiti.this, CercaStazione.class);
+                startActivity(goToCercaStazione);
+                break;
             case R.id.gestiscipreferiti:
                 Intent goToPreferiti = new Intent(Preferiti.this, Preferiti.class);
                 startActivity(goToPreferiti);
