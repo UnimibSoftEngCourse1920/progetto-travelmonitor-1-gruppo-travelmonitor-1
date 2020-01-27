@@ -99,8 +99,7 @@ public class CorsaAdapter extends TypeAdapter<Corsa>{
                 }else if("fermate".equals(fieldname)) {
                     reader.beginArray();
                     while (reader.hasNext()){
-                        TypeAdapter<Fermata> fermataAdapter = new Gson().getAdapter(Fermata.class);
-                        Fermata fermata = fermataAdapter.read(reader);
+                        Fermata fermata = new FermataAdapter().read(reader);
                         corsa.fermate.add(fermata);
                     }
                     reader.endArray();

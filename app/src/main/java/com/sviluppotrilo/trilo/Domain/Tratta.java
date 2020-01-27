@@ -11,7 +11,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-@JsonAdapter(TrattaAdapter.class)
 public class Tratta extends AsyncTask<Void, Void, Void> {
 
 

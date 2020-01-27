@@ -8,7 +8,6 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.JsonAdapter;
 import com.sviluppotrilo.trilo.ViaggioException;
 
-@JsonAdapter(CorsaAdapter.class)
 public class Corsa{
 
     private Stazione origine;

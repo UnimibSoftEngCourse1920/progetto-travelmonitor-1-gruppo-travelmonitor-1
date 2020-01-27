@@ -1,7 +1,6 @@
 package com.sviluppotrilo.trilo.Domain;
 import com.google.gson.annotations.JsonAdapter;
 
-@JsonAdapter(FermataAdapter.class)
 public class Fermata {
 
     private Stazione stazione;

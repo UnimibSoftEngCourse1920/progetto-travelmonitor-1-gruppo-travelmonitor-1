@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Objects;
 
 import com.google.gson.annotations.JsonAdapter;
-@JsonAdapter(SoluzioneAdapter.class)
 public class Soluzione {
 
     public List<Tratta> tratte;

@@ -8,6 +8,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.JsonWriter;
 import com.sviluppotrilo.trilo.Domain.Soluzione;
+import com.sviluppotrilo.trilo.Domain.SoluzioneAdapter;
 import com.sviluppotrilo.trilo.Domain.Stazione;
 import com.sviluppotrilo.trilo.Domain.Viaggio;
 
@@ -49,8 +50,7 @@ public class ViaggioAdapter extends TypeAdapter<Viaggio> {
                 }else if("soluzioni".equals(fieldname)) {
                     reader.beginArray();
                     while (reader.hasNext()){
-                        TypeAdapter<Soluzione> soluzioneAdapter = new Gson().getAdapter(Soluzione.class);
-                        Soluzione soluzione = soluzioneAdapter.read(reader);
+                        Soluzione soluzione = new SoluzioneAdapter().read(reader);
                         viaggio.soluzioni.add(soluzione);
                     }
                     reader.endArray();

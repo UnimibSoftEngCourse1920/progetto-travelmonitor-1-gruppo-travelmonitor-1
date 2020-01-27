@@ -35,8 +35,7 @@ public class SoluzioneAdapter extends TypeAdapter<Soluzione> {
                 }else if("vehicles".equals(fieldname)) {
                     reader.beginArray();
                     while (reader.hasNext()){
-                        TypeAdapter<Tratta> trattaAdapter = new Gson().getAdapter(Tratta.class);
-                        Tratta tratta = trattaAdapter.read(reader);
+                        Tratta tratta = new TrattaAdapter().read(reader);
                         soluzione.tratte.add(tratta);
                     }
                     reader.endArray();

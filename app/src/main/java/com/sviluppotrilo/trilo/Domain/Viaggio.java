@@ -8,7 +8,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.sviluppotrilo.trilo.ViaggioAdapter;
 import com.sviluppotrilo.trilo.ViaggioException;
 
-@JsonAdapter(ViaggioAdapter.class)
 public class Viaggio{
 
     private Stazione origine;
