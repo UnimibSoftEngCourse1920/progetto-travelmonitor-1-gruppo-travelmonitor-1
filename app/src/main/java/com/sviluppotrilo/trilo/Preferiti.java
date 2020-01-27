@@ -162,8 +162,8 @@ public class Preferiti extends AppCompatActivity implements NavigationView.OnNav
 
             @Override
             public void onLongClick(View view, int position) {
-                AlertDialog.Builder builder1 = new AlertDialog.Builder(Preferiti.this);
-                builder1.setMessage("Vuoi eliminare questo preferito ?");
+                AlertDialog.Builder builder1 = new AlertDialog.Builder(Preferiti.this, R.style.bannereliminapreferito);
+                builder1.setMessage("Vuoi eliminare questo preferito?");
                 builder1.setCancelable(true);
 
                 builder1.setPositiveButton(

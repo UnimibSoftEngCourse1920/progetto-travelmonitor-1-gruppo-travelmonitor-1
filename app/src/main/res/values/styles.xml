@@ -63,6 +63,34 @@
         <item name="android:textColorSecondaryInverse">#fff</item>
     </style>
 
+    <style name="bannereliminapreferito" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowBackground">@color/colorPrimary</item>
+
+        <item name="android:textColorPrimary">#fff</item>
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+
+        <item name="android:textColorSecondary">@color/colorAccent</item>
+
+        <item name="android:buttonBarNegativeButtonStyle">@style/TimePickerTheme.ButtonBarNegativeButtonStyle</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/TimePickerTheme.ButtonBarPositiveButtonStyle</item>
+
+    </style>
+
+    <style name="bannerscegligiornipreferiti" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowBackground">@color/colorPrimary</item>
+
+        <item name="android:textColorPrimary">#fff</item>
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+
+        <item name="android:textColorAlertDialogListItem">#fff</item>
+        <item name="android:colorControlActivated">@color/colorAccent</item>
+        <item name="android:textColorSecondary">@color/colorAccent</item>
+
+        <item name="android:buttonBarNegativeButtonStyle">@style/TimePickerTheme.ButtonBarNegativeButtonStyle</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/TimePickerTheme.ButtonBarPositiveButtonStyle</item>
+
+    </style>
+
     <style name="TimePickerTheme.ButtonBarNegativeButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
         <item name="android:textColor">#fff</item>
     </style>

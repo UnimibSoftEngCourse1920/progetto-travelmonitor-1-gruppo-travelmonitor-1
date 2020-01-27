@@ -73,7 +73,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyCard> {
     public void showMultiSelection(final int i) {
         final String[] items = {"Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato", "Domenica"};
         final ArrayList<Integer> selectedList = new ArrayList<>();
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.bannerscegligiornipreferiti);
 
         builder.setTitle("Salva Viaggio Per:");
         builder.setMultiChoiceItems(items, null,
