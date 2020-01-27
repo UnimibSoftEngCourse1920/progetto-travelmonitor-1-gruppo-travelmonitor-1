@@ -6,6 +6,8 @@ import com.sviluppotrilo.trilo.Domain.Corsa;
 import com.sviluppotrilo.trilo.Domain.Stazione;
 import com.sviluppotrilo.trilo.Domain.Viaggio;
 import com.sviluppotrilo.trilo.ViaggioException;
+import com.sviluppotrilo.trilo.Domain.Arrivi;
+import com.sviluppotrilo.trilo.Domain.Partenze;
 
 public class ViaggioController {
     public Viaggio cercaViaggio(Stazione partenza, Stazione arrivo, String data, String ora){
@@ -30,5 +32,25 @@ public class ViaggioController {
             Log.e("Errore:", e.getMessage());
         }
         return corsa;
+    }
+
+    public Arrivi[] cercaTabelloneArrivi(Stazione stazione){
+        Arrivi[] arrivi = null;
+        try {
+            arrivi = Arrivi.find(stazione);
+        } catch (Exception e) {
+            Log.e("Errore:", e.getMessage());
+        }
+        return arrivi;
+    }
+
+    public Partenze[] cercaTabellonePartenze(Stazione stazione){
+        Partenze[] partenze = null;
+        try {
+            partenze = Partenze.find(stazione);
+        } catch (Exception e) {
+            Log.e("Errore:", e.getMessage());
+        }
+        return partenze;
     }
 }
