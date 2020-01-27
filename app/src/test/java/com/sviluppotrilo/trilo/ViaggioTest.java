@@ -1,8 +1,20 @@
 package com.sviluppotrilo.trilo;
 
+import com.sviluppotrilo.trilo.Controller.ViaggioController;
+import com.sviluppotrilo.trilo.Domain.Corsa;
+import com.sviluppotrilo.trilo.Domain.Giorno;
+import com.sviluppotrilo.trilo.Domain.RoutineSettimanale;
+import com.sviluppotrilo.trilo.Domain.Soluzione;
+import com.sviluppotrilo.trilo.Domain.Stazione;
+import com.sviluppotrilo.trilo.Domain.Tratta;
+import com.sviluppotrilo.trilo.Domain.Viaggio;
+
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ViaggioTest {
 
@@ -10,10 +22,12 @@ public class ViaggioTest {
     public void cercaViaggio() {
         Stazione origine = new Stazione("Seveso", "1925");
         Stazione destinazione = new Stazione("Affori", "1078");
-        String data = "2020-01-25";
+        String data = "2020-01-27";
         String ora = "T" + "12:00:00";
-        Controller c = new Controller();
+        ViaggioController c = new ViaggioController();
         Viaggio v = c.cercaViaggio(origine, destinazione, data, ora);
+        System.out.println(v);
+        System.out.println("\n\n\n");
         ArrayList<Soluzione> soluzione;
         soluzione = (ArrayList<Soluzione>) v.getSoluzioni();
         ArrayList<Tratta> tratta = null;
@@ -52,20 +66,5 @@ public class ViaggioTest {
         }catch(Exception e) {
             System.out.println(e);
         }
-    }
-
-    @Test
-    public void provaObserver() throws Exception{
-        Stazione origine = new Stazione("Baruccana", "1929");
-        Stazione destinazione = new Stazione("Camnago", "1316");
-        String data = "2020-01-20";
-        String ora = "T" + "10:00:00";
-        Controller c = new Controller();
-        Viaggio v = c.cercaViaggio(origine, destinazione, data, ora);
-        List<Soluzione> s = v.getSoluzioni();
-        List<Tratta> t = s.get(0).getTratte();
-        Tratta t1 = t.get(0);
-        t1.addObserver(new NotificaObserver());
-        t1.update();
     }
 }

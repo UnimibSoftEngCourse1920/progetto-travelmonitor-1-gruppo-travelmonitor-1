@@ -20,7 +20,6 @@ public class SplashActivity extends AppCompatActivity {
     private int mProgressStatus = 0;
     private Handler myHandler = new Handler();
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,17 +59,14 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void initPreferiti(){
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        if(!prefs.getBoolean("firstTime", false)) {
+        PowerPreference.init(this);
+        if(!PowerPreference.getDefaultFile().getBoolean("firstTime", false)) {
             firstRun();
-            SharedPreferences.Editor editor = prefs.edit();
-            editor.putBoolean("firstTime", true);
-            editor.commit();
+            PowerPreference.getDefaultFile().setBoolean("firstTime", true);
         }
     }
 
     private void firstRun(){
-        PowerPreference.init(this);
         Giorno lunedi = new Giorno(1, "Lunedi");
         boolean result = PowerPreference.getDefaultFile().setObject("Lunedi", lunedi);
         Giorno martedi = new Giorno(2, "Martedi");
