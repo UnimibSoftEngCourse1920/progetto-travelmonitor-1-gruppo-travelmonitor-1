@@ -91,11 +91,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyCard> {
                 PreferitiController preferitiController = new PreferitiController();
                 if(selectedStrings.contains("Lunedì")){
                     preferitiController.aggiungiPreferito(1, datiSoluzione.get(0));
-                    try {
-                        System.out.println(RoutineSettimanale.getGiorno(1).getPreferiti());
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
                 }
                 if(selectedStrings.contains("Martedì")){
                     preferitiController.aggiungiPreferito(2, datiSoluzione.get(0));

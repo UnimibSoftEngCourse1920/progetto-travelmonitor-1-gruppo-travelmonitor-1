@@ -9,9 +9,6 @@
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -96,6 +93,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="@+id/guideline3"
@@ -167,41 +165,49 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.96" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/prova"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="135dp"
-            android:layout_height="40dp"
-            android:text="Prova"
-            app:backgroundTint="@android:color/transparent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/profilebar"
-            app:strokeColor="#FFFFFF"
-            app:strokeWidth="2dp" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="200dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp" />
+        </RelativeLayout>
+    </ScrollView>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="190dp"
             android:layout_height="wrap_content"
-            android:id="@+id/toolbar"
-            android:background="@color/colorPrimary"/>
+            android:layout_marginTop="20dp"
+            android:background="@color/colorPrimary" />
 
     </RelativeLayout>
 
-<com.google.android.material.navigation.NavigationView
-    android:id="@+id/navigation"
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent"
-    android:layout_gravity="start|left"
-    app:headerLayout="@layout/header_menu"
-    app:menu="@menu/menu_item" />
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start|left"
+        android:backgroundTint="@color/colorPrimary"
+        app:headerLayout="@layout/header_menu"
+        app:menu="@menu/menu_item" />
 </androidx.drawerlayout.widget.DrawerLayout>

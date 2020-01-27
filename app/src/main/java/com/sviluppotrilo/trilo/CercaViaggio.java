@@ -11,6 +11,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -66,30 +67,32 @@ public class CercaViaggio extends AppCompatActivity{
         ora.setText(time);
 
 
-        new Thread(new Runnable() {
-            public void run() {
-
-            }
-        }).start();
-
         cerca = findViewById(R.id.cerca);
         cerca.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String stazionePartenza = getStazionePartenza();
-                String stazioneArrivo = getStazioneArrivo();
-                String IdStazionePartenza = getIdStazionePartenza(stazionePartenza);
-                String IdStazioneArrivo = getIdStazioneArrivo(stazioneArrivo);
-                String dataScelta = (String) data.getText();
-                String oraScelta = (String) ora.getText();
-                Intent intent = new Intent(CercaViaggio.this, RisultatiCercaViaggio.class);
-                intent.putExtra("stazionePartenza", stazionePartenza);
-                intent.putExtra("stazioneArrivo", stazioneArrivo);
-                intent.putExtra("IdStazionePartenza", IdStazionePartenza);
-                intent.putExtra("IdStazioneArrivo", IdStazioneArrivo);
-                intent.putExtra("dataScelta", dataScelta);
-                intent.putExtra("oraScelta", oraScelta);
-                startActivity(intent);
+                if(autoCom1.getText().toString().equals(autoCom2.getText().toString())){
+                    Toast.makeText(CercaViaggio.this, "Parametri Non Validi", Toast.LENGTH_LONG).show();
+                }else {
+                    if((autoCom1.getText().toString().equals("")) || (autoCom2.getText().toString().equals(""))){
+                        Toast.makeText(CercaViaggio.this, "Inserisci Stazioni Valide", Toast.LENGTH_LONG).show();
+                    }else {
+                        String stazionePartenza = getStazionePartenza();
+                        String stazioneArrivo = getStazioneArrivo();
+                        String IdStazionePartenza = getIdStazionePartenza(stazionePartenza);
+                        String IdStazioneArrivo = getIdStazioneArrivo(stazioneArrivo);
+                        String dataScelta = (String) data.getText();
+                        String oraScelta = (String) ora.getText();
+                        Intent intent = new Intent(CercaViaggio.this, RisultatiCercaViaggio.class);
+                        intent.putExtra("stazionePartenza", stazionePartenza);
+                        intent.putExtra("stazioneArrivo", stazioneArrivo);
+                        intent.putExtra("IdStazionePartenza", IdStazionePartenza);
+                        intent.putExtra("IdStazioneArrivo", IdStazioneArrivo);
+                        intent.putExtra("dataScelta", dataScelta);
+                        intent.putExtra("oraScelta", oraScelta);
+                        startActivity(intent);
+                    }
+                }
             }
         });
 

@@ -58,6 +58,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/sviluppotrilo/trilo/Domain/Giorno.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/sviluppotrilo/trilo/MainActivity.java">
           <value>
             <set />
@@ -69,6 +74,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/sviluppotrilo/trilo/MyAdapter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/sviluppotrilo/trilo/MyAdapterPreferiti.java">
           <value>
             <set />
           </value>

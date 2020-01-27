@@ -101,6 +101,18 @@ public class StatoCorsaTest {
     }
 
     @Test
+    public void cercaUnaCorsaConStatoInOrario1(){
+        ViaggioController c= new ViaggioController();
+        Stazione origine = new Stazione("STRADELLA", "S01945");
+        String numeroTreno="10578";
+        Corsa corsa = c.cercaCorsa(origine,numeroTreno);
+        System.out.println(corsa.toString());
+        CorsaState s = new NonPartito();
+        CorsaState s1=s.statoCorsa(corsa);
+        System.out.println(s1.getClass());
+    }
+
+    @Test
     public void cercaUnaCorsaePreferiti(){
         Stazione origine = new Stazione("LECCO", "1520");
         Stazione destinazione = new Stazione("LECCO M", "1522");
