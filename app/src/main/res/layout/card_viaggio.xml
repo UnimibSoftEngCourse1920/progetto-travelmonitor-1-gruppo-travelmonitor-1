@@ -160,7 +160,7 @@
                 app:layout_constraintTop_toTopOf="@+id/guideline17" />
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/preferito"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
@@ -180,10 +180,10 @@
                 app:iconSize="10dp"
                 app:iconTint="@color/colorPrimary"
                 app:layout_constraintEnd_toStartOf="@+id/guideline16"
-                app:layout_constraintTop_toBottomOf="@+id/imageView2"
+                app:layout_constraintTop_toBottomOf="@+id/preferito"
                 app:strokeColor="@color/colorPrimary"
                 app:strokeWidth="2dp"
-                tools:text="segnala" />
+                tools:text="Segnala" />
 
             <TextView
                 android:id="@+id/statoTreno"
