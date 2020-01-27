@@ -46,6 +46,9 @@
         <activity android:name=".RisultatiCercaViaggio">
         </activity>
 
+        <activity android:name=".CercaStazione">
+        </activity>
+
 
     </application>
 

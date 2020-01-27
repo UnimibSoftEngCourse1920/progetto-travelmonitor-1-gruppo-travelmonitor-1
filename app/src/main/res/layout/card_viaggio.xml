@@ -91,7 +91,7 @@
                 android:id="@+id/stazionepartenza"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/statoTreno2"
+                android:layout_below="@+id/statoTreno"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="20dp"
                 android:layout_toEndOf="@+id/traccia"
@@ -186,7 +186,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/statoTreno2"
+                android:id="@+id/statoTreno"
                 android:layout_width="103dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
