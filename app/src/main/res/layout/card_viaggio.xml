@@ -1,234 +1,243 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="180dp"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <Space
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="20dp"
+        android:layout_marginTop="160dp" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/card"
-            android:layout_width="340dp"
-            android:layout_height="230dp"
-            android:layout_gravity="center_horizontal"
-            android:background="#fff"
-            android:elevation="2dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="#fff"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="2dp">
 
-            <TextView
-                android:id="@+id/lineatreno"
-                android:layout_width="100dp"
-                android:layout_height="20dp"
-                android:gravity="right|center_vertical"
-                android:hint="Per Destinazione"
-                android:textAlignment="inherit"
-                android:textColor="@color/colorPrimary"
-                android:textSize="10sp"
-                app:layout_constraintEnd_toStartOf="@+id/guideline16"
-                app:layout_constraintTop_toBottomOf="@+id/numerotreno" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white">
+
+            <ImageView
+                android:id="@+id/imagestato"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_toEndOf="@+id/orarioViaggio"
+                android:background="@drawable/realtime_black"
+                android:contentDescription="orarioviaggio"
+                app:layout_constraintStart_toEndOf="@+id/orarioViaggio" />
 
             <TextView
                 android:id="@+id/stazionearrivo"
                 android:layout_width="200dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="40dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/oraarrivo"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="20dp"
+                android:layout_toEndOf="@+id/traccia"
+                android:fontFamily="@font/montserrat_bold"
                 android:gravity="left|center_vertical"
                 android:hint="Stazione"
                 android:textAlignment="inherit"
                 android:textColor="@color/colorPrimary"
-                android:textSize="10sp"
-                app:layout_constraintStart_toEndOf="@+id/divider"
-                app:layout_constraintTop_toBottomOf="@+id/orapartenza" />
-
-            <TextView
-                android:id="@+id/stazionepartenza"
-                android:layout_width="200dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="52dp"
-                android:gravity="left|center_vertical"
-                android:hint="Stazione"
-                android:textAlignment="inherit"
-                android:textColor="@color/colorPrimary"
-                android:textSize="10sp"
-                app:layout_constraintStart_toEndOf="@+id/divider"
-                app:layout_constraintTop_toTopOf="@+id/guideline17" />
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/oraarrivo"
                 android:layout_width="100dp"
-                android:layout_height="10dp"
-                android:layout_marginStart="20dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/stazionepartenza"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="-1dp"
+                android:layout_toEndOf="@+id/traccia"
                 android:gravity="center_vertical"
                 android:hint="ORA"
                 android:textAlignment="inherit"
                 android:textColor="@color/colorPrimary"
-                android:textSize="8sp"
+                android:textSize="12sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/divider"
-                app:layout_constraintTop_toBottomOf="@+id/stazionearrivo" />
+                app:layout_constraintStart_toEndOf="@+id/traccia" />
 
             <TextView
                 android:id="@+id/orapartenza"
                 android:layout_width="100dp"
-                android:layout_height="10dp"
-                android:layout_marginStart="20dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/stazionearrivo"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="0dp"
+                android:layout_toEndOf="@+id/traccia"
                 android:gravity="center_vertical"
                 android:hint="ORA"
                 android:textAlignment="inherit"
                 android:textColor="@color/colorPrimary"
-                android:textSize="8sp"
+                android:textSize="12sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/divider"
+                app:layout_constraintStart_toEndOf="@+id/traccia"
                 app:layout_constraintTop_toBottomOf="@+id/stazionepartenza" />
+
+            <TextView
+                android:id="@+id/stazionepartenza"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/statoTreno2"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="20dp"
+                android:layout_toEndOf="@+id/traccia"
+                android:fontFamily="@font/montserrat_bold"
+                android:gravity="left|center_vertical"
+                android:hint="Stazione"
+                android:textAlignment="inherit"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@+id/traccia"
+                app:layout_constraintTop_toBottomOf="@+id/orapartenza" />
 
             <TextView
                 android:id="@+id/classetreno"
                 android:layout_width="100dp"
                 android:layout_height="20dp"
-                android:layout_marginTop="12dp"
+                android:layout_above="@+id/binariotreno"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="0dp"
                 android:gravity="right|center_vertical"
                 android:text="2CL"
                 android:textAlignment="inherit"
                 android:textColor="@color/colorPrimary"
                 android:textSize="10sp"
-                app:layout_constraintEnd_toStartOf="@+id/guideline16"
                 app:layout_constraintTop_toBottomOf="@+id/lineatreno" />
-
-            <ImageView
-                android:id="@+id/imagestato"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:background="@drawable/realtime_black"
-                app:layout_constraintStart_toEndOf="@+id/orarioViaggio"
-                app:layout_constraintTop_toTopOf="@+id/guideline17" />
 
             <TextView
                 android:id="@+id/numerotreno"
                 android:layout_width="100dp"
                 android:layout_height="20dp"
+                android:layout_above="@+id/lineatreno"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="15dp"
                 android:gravity="right|center_vertical"
                 android:hint="Numero Treno"
                 android:textAlignment="inherit"
                 android:textColor="@color/colorPrimary"
-                android:textSize="10sp"
-                app:layout_constraintEnd_toStartOf="@+id/guideline16"
-                app:layout_constraintTop_toTopOf="@+id/guideline17" />
+                android:textSize="12sp" />
+
+            <ImageView
+                android:id="@+id/traccia"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/orarioViaggio"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                app:srcCompat="@drawable/tratta" />
+
+            <ImageView
+                android:id="@+id/preferito"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="6dp"
+                android:layout_toStartOf="@+id/segnalabt"
+                app:layout_constraintTop_toBottomOf="@+id/binariotreno"
+                app:srcCompat="@android:drawable/btn_star" />
+
+            <TextView
+                android:id="@+id/lineatreno"
+                android:layout_width="100dp"
+                android:layout_height="20dp"
+                android:layout_above="@+id/classetreno"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="15dp"
+                android:gravity="right|center_vertical"
+                android:hint="Per Destinazione"
+                android:textAlignment="inherit"
+                android:textColor="@color/colorPrimary"
+                android:textSize="10sp" />
 
             <TextView
                 android:id="@+id/orarioViaggio"
-                android:layout_width="100dp"
-                android:layout_height="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
                 android:gravity="center_vertical"
                 android:hint="ORARIO"
                 android:textAlignment="inherit"
                 android:textColor="@color/colorPrimary"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/guideline15"
-                app:layout_constraintTop_toTopOf="@+id/guideline17" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/statoTreno2"
+                android:layout_width="103dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="20dp"
+                android:layout_toEndOf="@+id/imagestato"
+                android:gravity="center_vertical"
+                android:hint="stato"
+                android:textAlignment="inherit"
+                android:textColor="@android:color/black"
+                android:textSize="8sp"
+                app:layout_constraintStart_toEndOf="@+id/imagestato" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/segnalabt"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="2dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:textColor="@color/colorPrimary"
+                android:textSize="10sp"
+                app:icon="@android:drawable/ic_dialog_alert"
+                app:iconSize="10dp"
+                app:iconTint="@color/colorPrimary"
+                app:strokeColor="@color/colorPrimary"
+                app:strokeWidth="2dp"
+                android:text="SEGNALA" />
 
             <TextView
                 android:id="@+id/binariotreno"
                 android:layout_width="100dp"
                 android:layout_height="20dp"
+                android:layout_above="@+id/segnalabt"
+                android:layout_alignParentEnd="true"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="10dp"
                 android:gravity="right|center_vertical"
                 android:hint="Binario numero"
                 android:textAlignment="inherit"
                 android:textColor="@color/colorPrimary"
                 android:textSize="10sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@+id/guideline16"
                 app:layout_constraintTop_toBottomOf="@+id/classetreno" />
 
-            <View
-                android:id="@+id/divider"
-                android:layout_width="2dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="56dp"
-                android:background="@color/colorPrimaryDark"
-                app:layout_constraintStart_toStartOf="@+id/guideline15"
-                app:layout_constraintTop_toTopOf="@+id/guideline17" />
+        </RelativeLayout>
 
-            <ImageView
-                android:id="@+id/preferito"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                app:layout_constraintEnd_toStartOf="@+id/guideline16"
-                app:layout_constraintTop_toBottomOf="@+id/binariotreno"
-                app:srcCompat="@android:drawable/btn_star" />
+    </androidx.cardview.widget.CardView>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/segnalabt"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="100dp"
-                android:layout_height="30dp"
-                android:fontFamily="@font/montserrat_bold"
-                android:textColor="@color/colorPrimary"
-                android:textSize="6sp"
-                app:icon="@android:drawable/ic_dialog_alert"
-                app:iconSize="10dp"
-                app:iconTint="@color/colorPrimary"
-                app:layout_constraintEnd_toStartOf="@+id/guideline16"
-                app:layout_constraintTop_toBottomOf="@+id/preferito"
-                app:strokeColor="@color/colorPrimary"
-                app:strokeWidth="2dp"
-                tools:text="Segnala" />
-
-            <TextView
-                android:id="@+id/statoTreno"
-                android:layout_width="100dp"
-                android:layout_height="20dp"
-                android:gravity="center_vertical"
-                android:hint="stato"
-                android:textAlignment="inherit"
-                android:textColor="@android:color/black"
-                android:textSize="8sp"
-                app:layout_constraintStart_toEndOf="@+id/imagestato"
-                app:layout_constraintTop_toTopOf="@+id/guideline17" />
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline15"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.04" />
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline16"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.96" />
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline17"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.02" />
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline18"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.98" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="30dp" />
-    </LinearLayout>
-
-</LinearLayout>
+</RelativeLayout>
