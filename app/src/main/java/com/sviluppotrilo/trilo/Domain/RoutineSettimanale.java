@@ -83,4 +83,8 @@ public class RoutineSettimanale {
         }
         throw new Exception("L'id del giorno non esiste");
     }
+
+    public void controllaSoluzioniDelGiorno() throws Exception{
+        giornoAttuale().controllaSoluzioni();
+    }
 }

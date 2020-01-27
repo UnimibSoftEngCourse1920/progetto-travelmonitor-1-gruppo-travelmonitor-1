@@ -4,6 +4,7 @@ import android.os.AsyncTask;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import com.google.gson.annotations.JsonAdapter;
 @JsonAdapter(SoluzioneAdapter.class)
@@ -40,6 +41,20 @@ public class Soluzione {
         return "Soluzione [tratte=" + tratte + ", durata=" + durata + "]";
     }
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Soluzione)) return false;
+        Soluzione soluzione = (Soluzione) o;
+        return Objects.equals(getTratte(), soluzione.getTratte()) &&
+                Objects.equals(getDurata(), soluzione.getDurata());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getTratte(), getDurata());
+    }
 
     public void controllaTratte() {
         for (Tratta t : getTratte()) {

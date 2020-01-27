@@ -6,9 +6,15 @@ import android.util.Log;
 import com.google.gson.annotations.JsonAdapter;
 import com.sviluppotrilo.trilo.ViaggioException;
 
+import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 @JsonAdapter(TrattaAdapter.class)
 public class Tratta extends AsyncTask<Void, Void, Void> {
+
+
     private Stazione origine;
     private Stazione destinazione;
     private String orarioPartenza;
@@ -99,6 +105,31 @@ public class Tratta extends AsyncTask<Void, Void, Void> {
         return "Tratta [origine=" + origine + ", destinazione=" + destinazione + ", orarioPartenza=" + orarioPartenza
                 + ", orarioArrivo=" + orarioArrivo + ", categoria=" + categoria + ", categoriaDescrizione="
                 + categoriaDescrizione + ", numeroTreno=" + numeroTreno + "]";
+    }
+
+    private String orario(String dataOra){
+        String s = null;
+        Pattern pattern = Pattern.compile("[T].*");
+        Matcher matcher = pattern.matcher(getOrarioPartenza());
+        if (matcher.find())
+            s = matcher.group(0);
+        s = s.substring(1);
+        return s;
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Tratta)) return false;
+        Tratta tratta = (Tratta) o;
+        return Objects.equals(getOrigine(), tratta.getOrigine()) &&
+                Objects.equals(getDestinazione(), tratta.getDestinazione()) &&
+                Objects.equals(orario(getOrarioPartenza()), orario(tratta.getOrarioPartenza())) &&
+                Objects.equals(orario(getOrarioArrivo()), orario(tratta.getOrarioArrivo()));
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getOrigine(), getDestinazione(), getOrarioPartenza(), getOrarioArrivo());
     }
 
     @Override

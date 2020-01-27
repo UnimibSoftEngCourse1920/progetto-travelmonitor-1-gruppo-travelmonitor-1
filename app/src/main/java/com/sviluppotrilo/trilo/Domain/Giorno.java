@@ -59,8 +59,9 @@ public class Giorno{
 
     public void controllaSoluzioni(){
         for (Soluzione s: preferiti) {
+            //Viaggio v = Viaggio.find(s.getTratte().get(0).getOrigine());
+            //Se esiste allora fai s.controllaTratte()
             s.controllaTratte();
         }
     }
-
 }

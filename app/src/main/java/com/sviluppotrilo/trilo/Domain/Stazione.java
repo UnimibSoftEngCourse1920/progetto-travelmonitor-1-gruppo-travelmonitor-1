@@ -2,6 +2,7 @@ package com.sviluppotrilo.trilo.Domain;
 
 import com.sviluppotrilo.trilo.ViaggioException;
 
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -68,5 +69,19 @@ public class Stazione {
     @Override
     public String toString() {
         return "Stazione [nome=" + nome + ", id=" + id + "]";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Stazione)) return false;
+        Stazione stazione = (Stazione) o;
+        return Objects.equals(getNome(), stazione.getNome()) ||
+                Objects.equals(getId(), stazione.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getNome(), getId());
     }
 }
