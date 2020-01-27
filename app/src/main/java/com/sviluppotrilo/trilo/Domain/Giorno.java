@@ -1,18 +1,19 @@
 package com.sviluppotrilo.trilo.Domain;
 
-import android.os.AsyncTask;
-import android.util.Log;
-
 import com.preference.PowerPreference;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class Giorno{
+public class Giorno {
 
     private int id;
     private String nome;
     private Set<Soluzione> preferiti;
+
+    public Giorno(){
+
+    }
 
     public Giorno(int id, String nome) {
         this.id = id;

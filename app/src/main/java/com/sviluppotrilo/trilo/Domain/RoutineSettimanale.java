@@ -5,7 +5,7 @@ import com.preference.PowerPreference;
 
 import org.threeten.bp.LocalDate;
 
-public class RoutineSettimanale {
+public class RoutineSettimanale extends Giorno{
 
     private static Giorno lunedi;
     private static Giorno martedi;
@@ -15,11 +15,12 @@ public class RoutineSettimanale {
     private static Giorno sabato;
     private static Giorno domenica;
 
-    private RoutineSettimanale(){}
+    private RoutineSettimanale(){
+    }
 
     public static Giorno getLunedi(){
         if(lunedi == null){
-            lunedi = (Giorno) PowerPreference.getDefaultFile().getObject("Lunedi", Giorno.class);
+            lunedi = (Giorno) PowerPreference.getDefaultFile().getObject("Lunedi",Giorno.class);
         }
         return lunedi;
     }

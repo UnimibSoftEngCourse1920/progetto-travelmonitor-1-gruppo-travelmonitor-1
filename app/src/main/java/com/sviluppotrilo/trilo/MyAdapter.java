@@ -56,13 +56,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyCard> {
         holder.orarioViaggio.setText(orarioPartenza.substring((orarioPartenza.indexOf("T") + 1), orarioPartenza.indexOf(":00")) + " - "
                 + orarioArrivo.substring((orarioArrivo.indexOf("T") + 1), orarioArrivo.indexOf(":00")));
         if(datiSoluzione.get(i).numeroCambi() > 1){
-            holder.destinazioneTreno.setText("numero cambi: "+datiSoluzione.get(i).numeroCambi());
+            holder.destinazioneTreno.setText("Numero cambi: "+datiSoluzione.get(i).numeroCambi());
         }else{
-            holder.destinazioneTreno.setText("Trenoper");
-            //holder.destinazioneTreno.setText(datiSoluzione.get(getItemCount()).getTratte().get(0).getOrigine().getNome());
+            holder.destinazioneTreno.setText("Treno per");
+            //holder.destinazioneTreno.setText(datiSoluzione.get(numeroUltimTratta).getTratte().get(0).getDestinazione().getNome());
         }
-
-
 
         holder.preferito.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,7 +97,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyCard> {
                 PreferitiController preferitiController = new PreferitiController();
                 if(selectedStrings.contains("Lunedì")){
                     preferitiController.aggiungiPreferito(1, datiSoluzione.get(i));
-                    PowerPreference.showDebugScreen(true);
                 }
                 if(selectedStrings.contains("Martedì")){
                     preferitiController.aggiungiPreferito(2, datiSoluzione.get(i));

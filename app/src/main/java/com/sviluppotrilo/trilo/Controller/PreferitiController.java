@@ -6,15 +6,20 @@ import com.sviluppotrilo.trilo.Domain.Giorno;
 import com.sviluppotrilo.trilo.Domain.RoutineSettimanale;
 import com.sviluppotrilo.trilo.Domain.Soluzione;
 
+import java.util.Set;
+
 public class PreferitiController {
-    public Giorno visualizzaPreferiti(int idGiorno){
-        Giorno giorno = null;
+    public Set<Soluzione> visualizzaPreferiti(int idGiorno){
+        Set<Soluzione> preferiti = null;
+        Giorno giorno;
         try {
             giorno = RoutineSettimanale.getGiorno(idGiorno);
+            preferiti = giorno.getPreferiti();
+
         }catch(Exception e){
             Log.e("Errore: ", e.getMessage());
         }
-        return giorno;
+        return preferiti;
     }
 
     public void eliminaPreferito(int idGiorno, Soluzione s){

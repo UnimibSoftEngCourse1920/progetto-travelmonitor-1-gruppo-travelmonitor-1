@@ -51,6 +51,7 @@ public class MyAdapterPreferiti extends RecyclerView.Adapter<MyCard> {
                 + orarioArrivo.substring((orarioArrivo.indexOf("T") + 1), orarioArrivo.indexOf(":00")));
 
     }
+
     @Override
     public int getItemCount() {
         return datiSoluzione.size();

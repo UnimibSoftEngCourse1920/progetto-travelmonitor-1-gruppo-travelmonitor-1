@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Objects;
 
 import com.google.gson.annotations.JsonAdapter;
+
 public class Soluzione {
 
     public List<Tratta> tratte;
@@ -57,7 +58,7 @@ public class Soluzione {
 
     public void controllaTratte() {
         for (Tratta t : getTratte()) {
-            t.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+            //t.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         }
     }
 }

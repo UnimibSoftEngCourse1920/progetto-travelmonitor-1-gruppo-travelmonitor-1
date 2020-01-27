@@ -1,6 +1,10 @@
 package com.sviluppotrilo.trilo;
 
+import android.app.AlertDialog;
+import android.content.ClipData;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Canvas;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,19 +19,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 import com.preference.PowerPreference;
 import com.sviluppotrilo.trilo.Controller.PreferitiController;
+import com.sviluppotrilo.trilo.Domain.Giorno;
 import com.sviluppotrilo.trilo.Domain.RoutineSettimanale;
 import com.sviluppotrilo.trilo.Domain.Soluzione;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 
-public class Preferiti extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class Preferiti extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     Button cercaviaggio;
     DrawerLayout drawerLayout;
@@ -38,6 +45,7 @@ public class Preferiti extends AppCompatActivity implements NavigationView.OnNav
     HashSet<Soluzione> soluzioni;
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
+    PreferitiController preferitiController = new PreferitiController();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +58,11 @@ public class Preferiti extends AppCompatActivity implements NavigationView.OnNav
         cercaviaggio = findViewById(R.id.cercabt);
         recyclerView = findViewById(R.id.recyclerView);
 
+        soluzioni = (HashSet<Soluzione>) preferitiController.visualizzaPreferiti(1);
+        recyclerView.setHasFixedSize(true);
+        adapter = new MyAdapterPreferiti(Preferiti.this, soluzioni);
+        recyclerView.setLayoutManager(new GridLayoutManager(Preferiti.this,1));
+        recyclerView.setAdapter(adapter);
 
         cercaviaggio.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -70,17 +83,16 @@ public class Preferiti extends AppCompatActivity implements NavigationView.OnNav
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                PreferitiController preferitiController = new PreferitiController();
                 int count = tabLayout.getSelectedTabPosition();
                 if(count == 0) {
-                    soluzioni = (HashSet<Soluzione>) preferitiController.visualizzaPreferiti(1).getPreferiti();
+                    soluzioni = (HashSet<Soluzione>) preferitiController.visualizzaPreferiti(1);
                     recyclerView.setHasFixedSize(true);
                     adapter = new MyAdapterPreferiti(Preferiti.this, soluzioni);
                     recyclerView.setLayoutManager(new GridLayoutManager(Preferiti.this,1));
                     recyclerView.setAdapter(adapter);
                 }
                 if(count == 1) {
-                    soluzioni = (HashSet<Soluzione>) preferitiController.visualizzaPreferiti(2).getPreferiti();
+                    soluzioni = (HashSet<Soluzione>) preferitiController.visualizzaPreferiti(2);
                     recyclerView.setHasFixedSize(true);
                     adapter = new MyAdapterPreferiti(Preferiti.this, soluzioni);
                     recyclerView.setLayoutManager(new GridLayoutManager(Preferiti.this,1));
@@ -93,35 +105,35 @@ public class Preferiti extends AppCompatActivity implements NavigationView.OnNav
                     }
                 }
                 if(count == 2) {
-                    soluzioni = (HashSet<Soluzione>) preferitiController.visualizzaPreferiti(3).getPreferiti();
+                    soluzioni = (HashSet<Soluzione>) preferitiController.visualizzaPreferiti(3);
                     recyclerView.setHasFixedSize(true);
                     adapter = new MyAdapterPreferiti(Preferiti.this, soluzioni);
                     recyclerView.setLayoutManager(new GridLayoutManager(Preferiti.this,1));
                     recyclerView.setAdapter(adapter);
                 }
                 if(count == 3) {
-                    soluzioni = (HashSet<Soluzione>) preferitiController.visualizzaPreferiti(4).getPreferiti();
+                    soluzioni = (HashSet<Soluzione>) preferitiController.visualizzaPreferiti(4);
                     recyclerView.setHasFixedSize(true);
                     adapter = new MyAdapterPreferiti(Preferiti.this, soluzioni);
                     recyclerView.setLayoutManager(new GridLayoutManager(Preferiti.this,1));
                     recyclerView.setAdapter(adapter);
                 }
                 if(count == 4) {
-                    soluzioni = (HashSet<Soluzione>) preferitiController.visualizzaPreferiti(5).getPreferiti();
+                    soluzioni = (HashSet<Soluzione>) preferitiController.visualizzaPreferiti(5);
                     recyclerView.setHasFixedSize(true);
                     adapter = new MyAdapterPreferiti(Preferiti.this, soluzioni);
                     recyclerView.setLayoutManager(new GridLayoutManager(Preferiti.this,1));
                     recyclerView.setAdapter(adapter);
                 }
                 if(count == 5) {
-                    soluzioni = (HashSet<Soluzione>) preferitiController.visualizzaPreferiti(6).getPreferiti();
+                    soluzioni = (HashSet<Soluzione>) preferitiController.visualizzaPreferiti(6);
                     recyclerView.setHasFixedSize(true);
                     adapter = new MyAdapterPreferiti(Preferiti.this, soluzioni);
                     recyclerView.setLayoutManager(new GridLayoutManager(Preferiti.this,1));
                     recyclerView.setAdapter(adapter);
                 }
                 if(count == 6) {
-                    soluzioni = (HashSet<Soluzione>) preferitiController.visualizzaPreferiti(7).getPreferiti();
+                    soluzioni = (HashSet<Soluzione>) preferitiController.visualizzaPreferiti(7);
                     recyclerView.setHasFixedSize(true);
                     adapter = new MyAdapterPreferiti(Preferiti.this, soluzioni);
                     recyclerView.setLayoutManager(new GridLayoutManager(Preferiti.this,1));
@@ -134,14 +146,49 @@ public class Preferiti extends AppCompatActivity implements NavigationView.OnNav
             public void onTabUnselected(TabLayout.Tab tab) {
 
             }
-
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
 
             }
         });
 
+        recyclerView.addOnItemTouchListener(new RecyclerOnTouchListener(this,
+                recyclerView, new ClickListener() {
+            int count = tabLayout.getSelectedTabPosition();
+            @Override
+            public void onClick(View view, final int position) {
+
+            }
+
+            @Override
+            public void onLongClick(View view, int position) {
+                AlertDialog.Builder builder1 = new AlertDialog.Builder(Preferiti.this);
+                builder1.setMessage("Vuoi eliminare questo preferito ?");
+                builder1.setCancelable(true);
+
+                builder1.setPositiveButton(
+                        "Elimina",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+
+                            }
+                        });
+
+                builder1.setNegativeButton(
+                        "Annulla",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+
+                AlertDialog alert11 = builder1.create();
+                alert11.show();
+            }
+        }));
+
     }
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {

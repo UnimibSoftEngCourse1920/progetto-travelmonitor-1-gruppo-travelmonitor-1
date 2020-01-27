@@ -11,7 +11,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-public class Tratta extends AsyncTask<Void, Void, Void> {
+public class Tratta {
 
 
     private Stazione origine;
@@ -131,19 +131,4 @@ public class Tratta extends AsyncTask<Void, Void, Void> {
         return Objects.hash(getOrigine(), getDestinazione(), getOrarioPartenza(), getOrarioArrivo());
     }
 
-    @Override
-    protected Void doInBackground(Void... voids) {
-        do{
-            try {
-                update();
-                Thread.sleep(5000);
-                System.out.println(stato.getClass());
-            } catch (ViaggioException | InterruptedException e) {
-                e.printStackTrace();
-            }
-        }while(!(stato instanceof Soppresso) && !(stato instanceof InRitardo)
-            && !(stato instanceof Arrivato));
-        System.out.println("Ok");
-        return null;
-    }
 }
