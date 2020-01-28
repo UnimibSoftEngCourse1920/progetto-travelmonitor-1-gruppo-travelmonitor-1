@@ -35,7 +35,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
                 android:fontFamily="@font/montserrat_bold"
-                android:text="@string/app_name"
+                android:text="trilo"
                 android:textColor="#ffffff"
                 android:textSize="36sp"
                 android:textStyle="bold"
@@ -47,11 +47,11 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/cercabt"
                 style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="135dp"
-                android:layout_height="40dp"
+                android:layout_width="120dp"
+                android:layout_height="45dp"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="10dp"
-                android:layout_marginBottom="15dp"
+                android:layout_marginBottom="4dp"
                 android:text="Cerca"
                 app:backgroundTint="@android:color/transparent"
                 app:icon="@android:drawable/ic_menu_search"
@@ -59,8 +59,27 @@
                 app:iconTint="@android:color/white"
                 app:layout_constraintBottom_toTopOf="@+id/guideline9"
                 app:layout_constraintEnd_toStartOf="@+id/guideline5"
-                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintTop_toBottomOf="@+id/nomeApp"
+                app:strokeColor="#FFFFFF"
+                app:strokeWidth="2dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/mytrilo"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="120dp"
+                android:layout_height="45dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginBottom="4dp"
+                android:text="My trilo"
+                app:backgroundTint="@android:color/transparent"
+                app:icon="@android:drawable/ic_menu_myplaces"
+                app:iconSize="15dp"
+                app:iconTint="@android:color/white"
+                app:layout_constraintBottom_toTopOf="@+id/guideline9"
+                app:layout_constraintEnd_toStartOf="@+id/cercabt"
+                app:layout_constraintHorizontal_bias="0.875"
                 app:layout_constraintStart_toStartOf="@+id/guideline6"
+                app:layout_constraintTop_toBottomOf="@+id/nomeApp"
                 app:strokeColor="#FFFFFF"
                 app:strokeWidth="2dp" />
 
@@ -200,10 +219,12 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
-            android:layout_width="190dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@color/colorPrimary" />
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorPrimary"
+            android:minHeight="50dp" />
 
     </RelativeLayout>
 

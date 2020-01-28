@@ -41,7 +41,7 @@
 
             <TextView
                 android:id="@+id/stazionearrivo"
-                android:layout_width="200dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/oraarrivo"
                 android:layout_marginStart="8dp"
@@ -89,7 +89,7 @@
 
             <TextView
                 android:id="@+id/stazionepartenza"
-                android:layout_width="200dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/statoTreno"
                 android:layout_marginStart="8dp"
@@ -106,13 +106,13 @@
 
             <TextView
                 android:id="@+id/classetreno"
-                android:layout_width="100dp"
-                android:layout_height="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_above="@+id/binariotreno"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="15dp"
-                android:layout_marginBottom="0dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="10dp"
                 android:gravity="right|center_vertical"
                 android:text="2CL"
                 android:textAlignment="inherit"
@@ -121,12 +121,43 @@
                 app:layout_constraintTop_toBottomOf="@+id/lineatreno" />
 
             <TextView
+                android:id="@+id/binariotreno"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/segnala"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="right|center_vertical"
+                android:hint="Binario numero"
+                android:textAlignment="inherit"
+                android:textColor="@color/colorPrimary"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/classetreno" />
+
+            <TextView
+                android:id="@+id/lineatreno"
+                android:layout_width="100dp"
+                android:layout_height="20dp"
+                android:layout_above="@+id/classetreno"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="right|center_vertical"
+                android:hint="Per Destinazione"
+                android:textAlignment="inherit"
+                android:textColor="@color/colorPrimary"
+                android:textSize="10sp" />
+
+            <TextView
                 android:id="@+id/numerotreno"
                 android:layout_width="100dp"
                 android:layout_height="20dp"
                 android:layout_above="@+id/lineatreno"
                 android:layout_alignParentEnd="true"
-                android:layout_marginEnd="15dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="0dp"
                 android:gravity="right|center_vertical"
                 android:hint="Numero Treno"
                 android:textAlignment="inherit"
@@ -144,31 +175,6 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp"
                 app:srcCompat="@drawable/tratta" />
-
-            <ImageView
-                android:id="@+id/preferito"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="4dp"
-                android:layout_marginBottom="6dp"
-                android:layout_toStartOf="@+id/segnalabt"
-                app:layout_constraintTop_toBottomOf="@+id/binariotreno"
-                app:srcCompat="@android:drawable/btn_star" />
-
-            <TextView
-                android:id="@+id/lineatreno"
-                android:layout_width="100dp"
-                android:layout_height="20dp"
-                android:layout_above="@+id/classetreno"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="15dp"
-                android:gravity="right|center_vertical"
-                android:hint="Per Destinazione"
-                android:textAlignment="inherit"
-                android:textColor="@color/colorPrimary"
-                android:textSize="10sp" />
 
             <TextView
                 android:id="@+id/orarioViaggio"
@@ -200,41 +206,27 @@
                 android:textSize="8sp"
                 app:layout_constraintStart_toEndOf="@+id/imagestato" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/segnalabt"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="100dp"
-                android:layout_height="40dp"
+            <ImageView
+                android:id="@+id/segnala"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginEnd="15dp"
-                android:layout_marginBottom="2dp"
-                android:fontFamily="@font/montserrat_bold"
-                android:text="SEGNALA"
-                android:textColor="@color/colorPrimary"
-                android:textSize="10sp"
-                app:icon="@android:drawable/ic_dialog_alert"
-                app:iconSize="10dp"
-                app:iconTint="@color/colorPrimary"
-                app:strokeColor="@color/colorPrimary"
-                app:strokeWidth="2dp" />
-
-            <TextView
-                android:id="@+id/binariotreno"
-                android:layout_width="100dp"
-                android:layout_height="20dp"
-                android:layout_above="@+id/segnalabt"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="15dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginBottom="10dp"
-                android:gravity="right|center_vertical"
-                android:hint="Binario numero"
-                android:textAlignment="inherit"
-                android:textColor="@color/colorPrimary"
-                android:textSize="10sp"
-                android:textStyle="bold"
-                app:layout_constraintTop_toBottomOf="@+id/classetreno" />
+                app:layout_constraintTop_toBottomOf="@+id/binariotreno"
+                app:srcCompat="@drawable/segnalazione" />
+
+            <ImageView
+                android:id="@+id/preferito"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="10dp"
+                android:layout_toStartOf="@+id/segnala"
+                app:layout_constraintTop_toBottomOf="@+id/binariotreno"
+                app:srcCompat="@drawable/notpreferito" />
 
         </RelativeLayout>
 
