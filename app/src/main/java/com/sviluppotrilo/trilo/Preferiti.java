@@ -35,6 +35,7 @@ public class Preferiti extends AppCompatActivity implements NavigationView.OnNav
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
     PreferitiController preferitiController = new PreferitiController();
+    HashSet<Soluzione> soluzioniClone = new HashSet<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +50,9 @@ public class Preferiti extends AppCompatActivity implements NavigationView.OnNav
         recyclerView = findViewById(R.id.recyclerView);
 
         soluzioni = (HashSet<Soluzione>) preferitiController.visualizzaPreferiti(1);
+        soluzioniClone = (HashSet<Soluzione>) soluzioni.clone();
         recyclerView.setHasFixedSize(true);
-        adapter = new MyAdapterPreferiti(Preferiti.this, soluzioni);
+        adapter = new MyAdapterPreferiti(Preferiti.this, soluzioniClone);
         recyclerView.setLayoutManager(new GridLayoutManager(Preferiti.this,1));
         recyclerView.setAdapter(adapter);
 
@@ -80,18 +82,21 @@ public class Preferiti extends AppCompatActivity implements NavigationView.OnNav
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
+
                 int count = tabLayout.getSelectedTabPosition();
                 if(count == 0) {
                     soluzioni = (HashSet<Soluzione>) preferitiController.visualizzaPreferiti(1);
+                    soluzioniClone = (HashSet<Soluzione>) soluzioni.clone();
                     recyclerView.setHasFixedSize(true);
-                    adapter = new MyAdapterPreferiti(Preferiti.this, soluzioni);
+                    adapter = new MyAdapterPreferiti(Preferiti.this, soluzioniClone);
                     recyclerView.setLayoutManager(new GridLayoutManager(Preferiti.this,1));
                     recyclerView.setAdapter(adapter);
                 }
                 if(count == 1) {
                     soluzioni = (HashSet<Soluzione>) preferitiController.visualizzaPreferiti(2);
+                    soluzioniClone = (HashSet<Soluzione>) soluzioni.clone();
                     recyclerView.setHasFixedSize(true);
-                    adapter = new MyAdapterPreferiti(Preferiti.this, soluzioni);
+                    adapter = new MyAdapterPreferiti(Preferiti.this, soluzioniClone);
                     recyclerView.setLayoutManager(new GridLayoutManager(Preferiti.this,1));
                     recyclerView.setAdapter(adapter);
                 }

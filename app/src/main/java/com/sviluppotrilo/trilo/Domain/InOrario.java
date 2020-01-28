@@ -1,8 +1,10 @@
 package com.sviluppotrilo.trilo.Domain;
 
 public class InOrario implements CorsaState {
+    public InOrario(){}
     @Override
     public CorsaState statoCorsa(Corsa corsa) {
+        System.out.println(this.getClass());
         if(corsa.getStazioneUltimoRilevamento().equals(corsa.getDestinazione()))
             return new Arrivato().statoCorsa(corsa);
         if(corsa.getProvvedimento() == 1 && corsa.getTipoTreno().equals("ST"))

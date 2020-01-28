@@ -1,15 +1,28 @@
 package com.sviluppotrilo.trilo;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.job.JobInfo;
+import android.app.job.JobScheduler;
+import android.content.ComponentName;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
+import android.view.View;
 import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 import com.jakewharton.threetenabp.AndroidThreeTen;
 import com.preference.PowerPreference;
 import com.sviluppotrilo.trilo.Domain.Giorno;
+import com.sviluppotrilo.trilo.Domain.NotificaRitardo;
+import com.sviluppotrilo.trilo.Domain.RoutineSettimanale;
 
 
 public class SplashActivity extends AppCompatActivity {
@@ -48,13 +61,30 @@ public class SplashActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         // Quando la ProgressBar arriva al 100% viene aperta la Preferiti e "chiusa" quella attuale(SplashActivity)
+                        scheduleJob();
+                        new NotificaRitardo(2, 2).invia();
                         startActivity(new Intent(SplashActivity.this, Preferiti.class));
                         finish();
                     }
                 });
             }
         }).start();
+    }
+    public void scheduleJob() {
+        ComponentName componentName = new ComponentName(this, Schedulatore.class);
+        JobInfo info = new JobInfo.Builder(123, componentName)
+                .setRequiredNetworkType(JobInfo.NETWORK_TYPE_UNMETERED)
+                .setPersisted(true)
+                .setPeriodic(15 * 60 * 1000)
+                .build();
 
+        JobScheduler scheduler = (JobScheduler) getSystemService(JOB_SCHEDULER_SERVICE);
+        int resultCode = scheduler.schedule(info);
+        if (resultCode == JobScheduler.RESULT_SUCCESS) {
+            Log.d("P>rova", "Job scheduled");
+        } else {
+            Log.d("Prova", "Job scheduling failed");
+        }
     }
 
     private void initPreferiti(){

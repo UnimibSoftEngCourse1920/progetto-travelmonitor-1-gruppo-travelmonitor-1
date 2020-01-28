@@ -3,6 +3,8 @@ package com.sviluppotrilo.trilo;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.sviluppotrilo.trilo.Controller.PreferitiController;
+import com.sviluppotrilo.trilo.Domain.NotificaRitardo;
 import com.sviluppotrilo.trilo.Domain.Soluzione;
 
 import java.util.ArrayList;
@@ -37,7 +40,7 @@ public class MyAdapterViaggio extends RecyclerView.Adapter<MyCardViaggio> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyCardViaggio holder, final int i) {
+    public void onBindViewHolder(final MyCardViaggio holder, final int i) {
         int numeroUltimTratta = datiSoluzione.get(i).getTratte().size() - 1;
         String orarioPartenza = datiSoluzione.get(i).getTratte().get(0).getOrarioPartenza();
         String orarioArrivo = datiSoluzione.get(i).getTratte().get(numeroUltimTratta).getOrarioArrivo();
@@ -50,11 +53,19 @@ public class MyAdapterViaggio extends RecyclerView.Adapter<MyCardViaggio> {
         holder.orarioViaggio.setText(orarioPartenza.substring((orarioPartenza.indexOf('T') + 1), orarioPartenza.indexOf(":00")) + " - "
                 + orarioArrivo.substring((orarioArrivo.indexOf('T') + 1), orarioArrivo.indexOf(":00")));
         //holder.statoTreno.setText(datiSoluzione.get(i).getTratte().get(0).getCorsa().getFermate().get(0).getRitardo());
-        if(datiSoluzione.get(i).numeroCambi() > 1){
-            holder.destinazioneTreno.setText("Numero cambi: "+datiSoluzione.get(i).numeroCambi());
+        if(datiSoluzione.get(i).numeroCambi() > 0){
+            holder.destinazioneTreno.setText("Numero cambi: " + datiSoluzione.get(i).numeroCambi());
         }else{
-            holder.destinazioneTreno.setText("Treno per");
-            //holder.destinazioneTreno.setText(datiSoluzione.get(numeroUltimTratta).getTratte().get(0).getDestinazione().getNome());
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        holder.destinazioneTreno.setText("Per " + datiSoluzione.get(i).getTratte().get(0).cercaCorsa().getDestinazione().getNome());
+                    } catch (ViaggioException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }).start();
         }
 
         holder.preferito.setOnClickListener(new View.OnClickListener() {

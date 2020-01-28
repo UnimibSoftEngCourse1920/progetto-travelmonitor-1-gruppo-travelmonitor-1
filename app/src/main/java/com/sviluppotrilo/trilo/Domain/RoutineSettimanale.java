@@ -17,61 +17,61 @@ public class RoutineSettimanale{
     private RoutineSettimanale(){
     }
 
-    public static Giorno getLunedi(){
+    public synchronized static Giorno getLunedi(){
         if(lunedi == null){
-            lunedi = PowerPreference.getDefaultFile().getObject("Lunedi",Giorno.class);
+            lunedi = PowerPreference.getDefaultFile().getObject("Lunedi", Giorno.class);
         }
         return lunedi;
     }
 
-    public static Giorno getMartedi(){
+    public synchronized static Giorno getMartedi(){
         if(martedi == null){
             martedi = PowerPreference.getDefaultFile().getObject("Martedi", Giorno.class);
         }
         return martedi;
     }
 
-    public static Giorno getMercoledi(){
+    public synchronized static Giorno getMercoledi(){
         if(mercoledi == null){
             mercoledi = PowerPreference.getDefaultFile().getObject("Mercoledi", Giorno.class);
         }
         return mercoledi;
     }
 
-    public static Giorno getGiovedi(){
+    public synchronized static Giorno getGiovedi(){
         if(giovedi == null){
             giovedi = PowerPreference.getDefaultFile().getObject("Giovedi", Giorno.class);
         }
         return giovedi;
     }
 
-    public static Giorno getVenerdi(){
+    public synchronized static Giorno getVenerdi(){
         if(venerdi == null){
             venerdi = PowerPreference.getDefaultFile().getObject("Venerdi", Giorno.class);
         }
         return venerdi;
     }
 
-    public static Giorno getSabato(){
+    public synchronized static Giorno getSabato(){
         if(sabato == null){
             sabato = PowerPreference.getDefaultFile().getObject("Sabato", Giorno.class);
         }
         return sabato;
     }
 
-    public static Giorno getDomenica(){
+    public synchronized static Giorno getDomenica(){
         if(domenica == null){
             domenica = PowerPreference.getDefaultFile().getObject("Domenica", Giorno.class);
         }
         return domenica;
     }
 
-    public static Giorno giornoAttuale() throws Exception{
+    public synchronized static Giorno giornoAttuale() throws Exception{
         int idGiornoAttuale = LocalDate.now().getDayOfWeek().getValue();
         return getGiorno(idGiornoAttuale);
     }
 
-    public static Giorno getGiorno(int idGiorno) throws Exception{
+    public synchronized static Giorno getGiorno(int idGiorno) throws Exception{
         switch(idGiorno) {
             case 1: return getLunedi();
             case 2: return getMartedi();
@@ -84,7 +84,7 @@ public class RoutineSettimanale{
         throw new Exception("L'id del giorno non esiste");
     }
 
-    public void controllaSoluzioniDelGiorno() throws Exception{
+    public synchronized void controllaSoluzioniDelGiorno() throws Exception{
         giornoAttuale().controllaSoluzioni();
     }
 }

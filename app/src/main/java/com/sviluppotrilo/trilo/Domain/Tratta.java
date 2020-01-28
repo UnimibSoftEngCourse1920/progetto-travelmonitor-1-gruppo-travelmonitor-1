@@ -3,11 +3,12 @@ package com.sviluppotrilo.trilo.Domain;
 import com.sviluppotrilo.trilo.ViaggioException;
 
 import java.util.Objects;
+import java.util.Observable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-public class Tratta {
+public class Tratta extends Observable {
 
     private Stazione origine;
     private Stazione destinazione;
@@ -16,17 +17,11 @@ public class Tratta {
     private int categoria;
     private String categoriaDescrizione;
     private String numeroTreno;
-
     private Corsa corsa;
 
-    private CorsaState stato;
-
-
     public void update() throws ViaggioException {
-        if(stato == null)
-            stato = new NonPartito();
         setCorsa(cercaCorsa());
-        stato = stato.statoCorsa((Corsa) corsa);
+        System.out.println("Aggiornamento stato della tratta: " + this);
     }
 
     public Corsa cercaCorsa() throws ViaggioException {
@@ -92,7 +87,13 @@ public class Tratta {
 
     public void setCorsa(Corsa corsa) {
         this.corsa = corsa;
+        setChanged();
+        notifyObservers(corsa);
     }
+
+    /*public CorsaState getStato() {
+        return stato;
+    }*/
 
     @Override
     public String toString() {
