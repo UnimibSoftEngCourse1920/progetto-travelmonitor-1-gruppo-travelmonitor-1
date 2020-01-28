@@ -102,15 +102,20 @@
         app:layout_constraintVertical_bias="0.100">
 
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/subtitle1"
                 android:layout_width="match_parent"
                 android:layout_height="36dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
                 android:gravity="center_vertical"
                 android:text="MAPPA STIBM"
                 android:textAlignment="center"
@@ -120,14 +125,20 @@
 
             <ImageView
                 android:id="@+id/imageView5"
-                android:layout_width="346dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
+                android:layout_below="@+id/subtitle1"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:background="@drawable/stibn"
                 android:clickable="false"
-                android:contentDescription="STIBN"
-                android:background="@drawable/stibn" />
+                android:contentDescription="STIBN" />
 
-        </LinearLayout>
+        </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
     <androidx.constraintlayout.widget.Guideline
