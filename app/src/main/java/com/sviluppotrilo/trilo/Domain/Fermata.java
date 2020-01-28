@@ -1,5 +1,4 @@
 package com.sviluppotrilo.trilo.Domain;
-import com.google.gson.annotations.JsonAdapter;
 
 public class Fermata {
 

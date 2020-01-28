@@ -42,13 +42,14 @@ public class MyAdapterViaggio extends RecyclerView.Adapter<MyCardViaggio> {
         String orarioPartenza = datiSoluzione.get(i).getTratte().get(0).getOrarioPartenza();
         String orarioArrivo = datiSoluzione.get(i).getTratte().get(numeroUltimTratta).getOrarioArrivo();
 
-        holder.oraPartenza.setText(orarioPartenza.substring((orarioPartenza.indexOf("T") + 1), orarioPartenza.indexOf(":00")));
-        holder.oraArrivo.setText(orarioArrivo.substring((orarioArrivo.indexOf("T") + 1), orarioArrivo.indexOf(":00")));
+        holder.oraPartenza.setText(orarioPartenza.substring((orarioPartenza.indexOf('T') + 1), orarioPartenza.indexOf(":00")));
+        holder.oraArrivo.setText(orarioArrivo.substring((orarioArrivo.indexOf('T') + 1), orarioArrivo.indexOf(":00")));
         holder.stazionePartenza.setText(partenza);
         holder.stazioneArrivo.setText(arrivo);
         holder.numeroTreno.setText("Treno N: " + datiSoluzione.get(i).getTratte().get(0).getNumeroTreno());
-        holder.orarioViaggio.setText(orarioPartenza.substring((orarioPartenza.indexOf("T") + 1), orarioPartenza.indexOf(":00")) + " - "
-                + orarioArrivo.substring((orarioArrivo.indexOf("T") + 1), orarioArrivo.indexOf(":00")));
+        holder.orarioViaggio.setText(orarioPartenza.substring((orarioPartenza.indexOf('T') + 1), orarioPartenza.indexOf(":00")) + " - "
+                + orarioArrivo.substring((orarioArrivo.indexOf('T') + 1), orarioArrivo.indexOf(":00")));
+        //holder.statoTreno.setText(datiSoluzione.get(i).getTratte().get(0).getCorsa().getFermate().get(0).getRitardo());
         if(datiSoluzione.get(i).numeroCambi() > 1){
             holder.destinazioneTreno.setText("Numero cambi: "+datiSoluzione.get(i).numeroCambi());
         }else{

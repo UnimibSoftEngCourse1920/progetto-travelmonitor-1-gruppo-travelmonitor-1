@@ -1,13 +1,9 @@
 package com.sviluppotrilo.trilo;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.webkit.WebResourceError;
-import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -51,12 +47,12 @@ public class Social extends AppCompatActivity {
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-
+                // Auto-generated method
             }
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-
+                // Auto-generated method
             }
         });
 

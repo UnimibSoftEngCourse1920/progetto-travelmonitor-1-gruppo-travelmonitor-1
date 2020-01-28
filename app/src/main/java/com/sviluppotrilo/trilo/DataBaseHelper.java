@@ -104,7 +104,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         try {
             db = this.getReadableDatabase();
             String strSQL = "SELECT id FROM " + tablestazioni + " WHERE nome = \""+partenza+"\"";
-            System.out.println(strSQL);
             cursor = db.rawQuery(strSQL, null);
             if (cursor.moveToFirst()) {
                 idPartenza = cursor.getString(cursor.getColumnIndex("id"));
@@ -113,7 +112,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             cursor.close();
         }
 
-        System.out.println(idPartenza);
         return idPartenza;
     }
 
@@ -137,7 +135,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         try {
             db = this.getReadableDatabase();
             String strSQL = "SELECT id FROM " + tablestazioni + " WHERE nome = \""+stazione+"\"";
-            System.out.println(strSQL);
             cursor = db.rawQuery(strSQL, null);
             if (cursor.moveToFirst()) {
                 idStazione = cursor.getString(cursor.getColumnIndex("id"));

@@ -29,16 +29,16 @@ public class RisultatiCercaViaggio extends AppCompatActivity {
         Intent intent = getIntent();
         final String stazionePartenza = intent.getStringExtra("stazionePartenza");
         final String stazioneArrivo = intent.getStringExtra("stazioneArrivo");
-        String IdStazionePartenza = intent.getStringExtra("IdStazionePartenza");
-        String IdStazioneArrivo = intent.getStringExtra("IdStazioneArrivo");
-        String IdStazionePartenzaT = IdStazionePartenza.replace("S0", "");
-        String IdStazioneArrivoT = IdStazioneArrivo.replace("S0", "");
+        String idStazionePartenza = intent.getStringExtra("idStazionePartenza");
+        String idStazioneArrivo = intent.getStringExtra("idStazioneArrivo");
+        String idStazionePartenzaT = idStazionePartenza.replace("S0", "");
+        String idStazioneArrivoT = idStazioneArrivo.replace("S0", "");
         final String dataScelta = intent.getStringExtra("dataScelta");
         final String oraScelta = intent.getStringExtra("oraScelta");
         recyclerView = findViewById(R.id.recyclerView);
 
-        final Stazione partenza = new Stazione(stazionePartenza, IdStazionePartenzaT);
-        final Stazione arrivo = new Stazione(stazioneArrivo,  IdStazioneArrivoT);
+        final Stazione partenza = new Stazione(stazionePartenza, idStazionePartenzaT);
+        final Stazione arrivo = new Stazione(stazioneArrivo,  idStazioneArrivoT);
         new Thread(new Runnable() {
             public void run(){
                 ViaggioController c = new ViaggioController();

@@ -9,6 +9,8 @@ import com.sviluppotrilo.trilo.Domain.Soluzione;
 import java.util.Set;
 
 public class PreferitiController {
+    final static String ERRORE = "Errore: ";
+
     public Set<Soluzione> visualizzaPreferiti(int idGiorno){
         Set<Soluzione> preferiti = null;
         Giorno giorno;
@@ -17,7 +19,7 @@ public class PreferitiController {
             preferiti = giorno.getPreferiti();
 
         }catch(Exception e){
-            Log.e("Errore: ", e.getMessage());
+            Log.e(ERRORE, e.getMessage());
         }
         return preferiti;
     }
@@ -40,7 +42,7 @@ public class PreferitiController {
             giorno = RoutineSettimanale.getGiorno(idGiorno);
             giorno.rimuoviPreferito(s);
         } catch (Exception e) {
-            Log.e("Errore: ", e.getMessage());
+            Log.e(ERRORE, e.getMessage());
         }
     }
 
@@ -50,7 +52,7 @@ public class PreferitiController {
             giorno = RoutineSettimanale.getGiorno(idGiorno);
             giorno.aggiungiPreferito(s);
         } catch (Exception e) {
-            Log.e("Errore: ", e.getMessage());
+            Log.e(ERRORE, e.getMessage());
         }
     }
 
@@ -58,7 +60,7 @@ public class PreferitiController {
         try {
             RoutineSettimanale.giornoAttuale().controllaSoluzioni();
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.e(ERRORE, e.getMessage());
         }
     }
 }

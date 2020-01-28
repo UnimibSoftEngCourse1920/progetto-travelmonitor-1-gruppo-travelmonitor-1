@@ -1,17 +1,15 @@
 package com.sviluppotrilo.trilo;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.preference.PreferenceManager;
 import android.widget.ProgressBar;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.jakewharton.threetenabp.AndroidThreeTen;
 import com.preference.PowerPreference;
 import com.sviluppotrilo.trilo.Domain.Giorno;
-import com.sviluppotrilo.trilo.Domain.RoutineSettimanale;
 
 
 public class SplashActivity extends AppCompatActivity {

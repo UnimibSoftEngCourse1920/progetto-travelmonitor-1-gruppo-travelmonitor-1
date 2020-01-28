@@ -2,22 +2,25 @@ package com.sviluppotrilo.trilo.Controller;
 
 import android.util.Log;
 
+import com.sviluppotrilo.trilo.Domain.Arrivi;
 import com.sviluppotrilo.trilo.Domain.Corsa;
+import com.sviluppotrilo.trilo.Domain.Partenze;
 import com.sviluppotrilo.trilo.Domain.Stazione;
 import com.sviluppotrilo.trilo.Domain.Viaggio;
 import com.sviluppotrilo.trilo.ViaggioException;
-import com.sviluppotrilo.trilo.Domain.Arrivi;
-import com.sviluppotrilo.trilo.Domain.Partenze;
+
 
 public class ViaggioController {
+    final static String ERRORE = "Errore: ";
+
     public Viaggio cercaViaggio(Stazione partenza, Stazione arrivo, String data, String ora){
         Viaggio viaggio = null;
         try {
             viaggio = Viaggio.find(partenza, arrivo, data, ora);
         } catch(ViaggioException e){
-            Log.e("Errore:", e.getMessage());
+            Log.e(ERRORE, e.getMessage());
         } catch (Exception e) {
-            Log.e("Errore:", e.getMessage());
+            Log.e(ERRORE, e.getMessage());
         }
         return viaggio;
     }
@@ -27,9 +30,9 @@ public class ViaggioController {
         try {
             corsa = Corsa.find(partenza, numeroTreno);
         } catch(ViaggioException e){
-            Log.e("Errore:", e.getMessage());
+            Log.e(ERRORE, e.getMessage());
         } catch (Exception e) {
-            Log.e("Errore:", e.getMessage());
+            Log.e(ERRORE, e.getMessage());
         }
         return corsa;
     }
@@ -39,7 +42,7 @@ public class ViaggioController {
         try {
             arrivi = Arrivi.find(stazione);
         } catch (Exception e) {
-            Log.e("Errore:", e.getMessage());
+            Log.e(ERRORE, e.getMessage());
         }
         return arrivi;
     }
@@ -49,7 +52,7 @@ public class ViaggioController {
         try {
             partenze = Partenze.find(stazione);
         } catch (Exception e) {
-            Log.e("Errore:", e.getMessage());
+            Log.e(ERRORE, e.getMessage());
         }
         return partenze;
     }

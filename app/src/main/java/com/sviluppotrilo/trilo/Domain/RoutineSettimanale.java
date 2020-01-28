@@ -2,7 +2,6 @@ package com.sviluppotrilo.trilo.Domain;
 
 import com.preference.PowerPreference;
 
-
 import org.threeten.bp.LocalDate;
 
 public class RoutineSettimanale{
@@ -20,49 +19,49 @@ public class RoutineSettimanale{
 
     public static Giorno getLunedi(){
         if(lunedi == null){
-            lunedi = (Giorno) PowerPreference.getDefaultFile().getObject("Lunedi",Giorno.class);
+            lunedi = PowerPreference.getDefaultFile().getObject("Lunedi",Giorno.class);
         }
         return lunedi;
     }
 
     public static Giorno getMartedi(){
         if(martedi == null){
-            martedi = (Giorno) PowerPreference.getDefaultFile().getObject("Martedi", Giorno.class);
+            martedi = PowerPreference.getDefaultFile().getObject("Martedi", Giorno.class);
         }
         return martedi;
     }
 
     public static Giorno getMercoledi(){
         if(mercoledi == null){
-            mercoledi = (Giorno) PowerPreference.getDefaultFile().getObject("Mercoledi", Giorno.class);
+            mercoledi = PowerPreference.getDefaultFile().getObject("Mercoledi", Giorno.class);
         }
         return mercoledi;
     }
 
     public static Giorno getGiovedi(){
         if(giovedi == null){
-            giovedi = (Giorno) PowerPreference.getDefaultFile().getObject("Giovedi", Giorno.class);
+            giovedi = PowerPreference.getDefaultFile().getObject("Giovedi", Giorno.class);
         }
         return giovedi;
     }
 
     public static Giorno getVenerdi(){
         if(venerdi == null){
-            venerdi = (Giorno) PowerPreference.getDefaultFile().getObject("Venerdi", Giorno.class);
+            venerdi = PowerPreference.getDefaultFile().getObject("Venerdi", Giorno.class);
         }
         return venerdi;
     }
 
     public static Giorno getSabato(){
         if(sabato == null){
-            sabato = (Giorno) PowerPreference.getDefaultFile().getObject("Sabato", Giorno.class);
+            sabato = PowerPreference.getDefaultFile().getObject("Sabato", Giorno.class);
         }
         return sabato;
     }
 
     public static Giorno getDomenica(){
         if(domenica == null){
-            domenica = (Giorno) PowerPreference.getDefaultFile().getObject("Domenica", Giorno.class);
+            domenica = PowerPreference.getDefaultFile().getObject("Domenica", Giorno.class);
         }
         return domenica;
     }

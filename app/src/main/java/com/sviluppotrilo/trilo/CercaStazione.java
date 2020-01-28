@@ -21,6 +21,7 @@ public class CercaStazione extends AppCompatActivity{
     ArrayAdapter arrayAdapter;
     Button cerca;
     String stringaStazione;
+    String idStazione;
 
     //Visualizzazione
     RecyclerView recyclerView;
@@ -82,8 +83,7 @@ public class CercaStazione extends AppCompatActivity{
     }
 
     public String getIdStazione(String stazione) {
-        String idStazione = myDbHelper.selectIdStazione(stazione);
-        return idStazione;
+        return idStazione = myDbHelper.selectIdStazione(stazione);
     }
 
 

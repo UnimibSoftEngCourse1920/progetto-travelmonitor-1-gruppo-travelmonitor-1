@@ -1,9 +1,5 @@
 package com.sviluppotrilo.trilo.Domain;
 
-import android.os.AsyncTask;
-import android.util.Log;
-
-import com.google.gson.annotations.JsonAdapter;
 import com.sviluppotrilo.trilo.ViaggioException;
 
 import java.util.Objects;
@@ -105,7 +101,7 @@ public class Tratta {
                 + categoriaDescrizione + ", numeroTreno=" + numeroTreno + "]";
     }
 
-    private String orario(String dataOra){
+    private String orario(String dataOra) throws NullPointerException{
         String s = null;
         Pattern pattern = Pattern.compile("[T].*");
         Matcher matcher = pattern.matcher(getOrarioPartenza());

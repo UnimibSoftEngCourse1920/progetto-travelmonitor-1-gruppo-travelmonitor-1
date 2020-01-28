@@ -14,15 +14,12 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-import java.util.SimpleTimeZone;
 
 public class CercaViaggio extends AppCompatActivity{
 
@@ -31,12 +28,11 @@ public class CercaViaggio extends AppCompatActivity{
     AutoCompleteTextView autoCom1;
     AutoCompleteTextView autoCom2;
     ArrayAdapter arrayAdapter;
-    Button data, ora,cerca;
-    Calendar calendar;
+    Button data;
+    Button ora;
+    Button cerca;
     DatePickerDialog pickerDate;
     TimePickerDialog pickerTime;
-    private int mYear, mMonth, mDay;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,15 +75,15 @@ public class CercaViaggio extends AppCompatActivity{
                     }else {
                         String stazionePartenza = getStazionePartenza();
                         String stazioneArrivo = getStazioneArrivo();
-                        String IdStazionePartenza = getIdStazionePartenza(stazionePartenza);
-                        String IdStazioneArrivo = getIdStazioneArrivo(stazioneArrivo);
+                        String idStazionePartenza = getIdStazionePartenza(stazionePartenza);
+                        String idStazioneArrivo = getIdStazioneArrivo(stazioneArrivo);
                         String dataScelta = (String) data.getText();
                         String oraScelta = (String) ora.getText();
                         Intent intent = new Intent(CercaViaggio.this, RisultatiCercaViaggio.class);
                         intent.putExtra("stazionePartenza", stazionePartenza);
                         intent.putExtra("stazioneArrivo", stazioneArrivo);
-                        intent.putExtra("IdStazionePartenza", IdStazionePartenza);
-                        intent.putExtra("IdStazioneArrivo", IdStazioneArrivo);
+                        intent.putExtra("idStazionePartenza", idStazionePartenza);
+                        intent.putExtra("idStazioneArrivo", idStazioneArrivo);
                         intent.putExtra("dataScelta", dataScelta);
                         intent.putExtra("oraScelta", oraScelta);
                         startActivity(intent);
@@ -160,13 +156,11 @@ public class CercaViaggio extends AppCompatActivity{
     }
 
     public String getIdStazionePartenza(String partenza) {
-        String idPartenza = myDbHelper.selectIdPartenza(partenza);
-        return idPartenza;
+        return myDbHelper.selectIdPartenza(partenza);
     }
 
     public String getIdStazioneArrivo(String arrivo) {
-        String idArrivo = myDbHelper.selectIdArrivo(arrivo);
-        return idArrivo;
+        return myDbHelper.selectIdArrivo(arrivo);
     }
 
 

@@ -8,7 +8,7 @@ public class NonPartito implements CorsaState {
                 corsa.getTipoTreno().equals("SI") || corsa.getTipoTreno().equals("SF"))){
             return new ParzialmenteSoppresso().statoCorsa(corsa);
         }
-        if(corsa.isPartito() == true)
+        if(corsa.isPartito())
             return new InOrario().statoCorsa(corsa);
         if(corsa.getProvvedimento() == 1 && corsa.getTipoTreno().equals("ST")) {
             return new Soppresso().statoCorsa(corsa);
