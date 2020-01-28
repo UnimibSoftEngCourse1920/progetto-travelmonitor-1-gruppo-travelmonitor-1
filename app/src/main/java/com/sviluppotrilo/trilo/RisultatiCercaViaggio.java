@@ -1,7 +1,10 @@
 package com.sviluppotrilo.trilo;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -21,11 +24,30 @@ public class RisultatiCercaViaggio extends AppCompatActivity {
     RecyclerView recyclerView;
     ArrayList<Soluzione> soluzioni;
     RecyclerView.Adapter adapter;
+    ImageView back;
+    ImageView backmenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_visualizzaviaggi);
+
+        back = findViewById(R.id.backpage);
+        back.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent goBack = new Intent(RisultatiCercaViaggio.this, CercaViaggio.class);
+                RisultatiCercaViaggio.this.startActivity(goBack);
+            }
+        });
+
+        backmenu = findViewById(R.id.backhome);
+        back.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent goBack = new Intent(RisultatiCercaViaggio.this, Preferiti.class);
+                RisultatiCercaViaggio.this.startActivity(goBack);
+            }
+        });
+
         Intent intent = getIntent();
         final String stazionePartenza = intent.getStringExtra("stazionePartenza");
         final String stazioneArrivo = intent.getStringExtra("stazioneArrivo");

@@ -50,6 +50,10 @@
         <activity android:name=".CercaStazione">
         </activity>
 
+        <activity android:name=".AboutUs">
+        </activity>
+
+
         <activity android:name=".Domain.Notifica">
         </activity>
         <service

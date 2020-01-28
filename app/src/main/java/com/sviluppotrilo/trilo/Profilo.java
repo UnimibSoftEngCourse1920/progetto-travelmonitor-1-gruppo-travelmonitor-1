@@ -1,11 +1,13 @@
 package com.sviluppotrilo.trilo;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,6 +22,7 @@ public class Profilo extends AppCompatActivity {
     Button dataN;
     Button salva;
     DatePickerDialog pickerDate;
+    ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +34,18 @@ public class Profilo extends AppCompatActivity {
         dataN = findViewById(R.id.datanascita);
         salva = findViewById(R.id.salvadatiprofilo);
 
+        back = findViewById(R.id.backpage);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent goBack = new Intent(Profilo.this, Preferiti.class);
+                Profilo.this.startActivity(goBack);
+            }
+        });
+
         nome.setText(PowerPreference.getDefaultFile().getString("nome",""));
         cognome.setText(PowerPreference.getDefaultFile().getString("cognome",""));
-        dataN.setText(PowerPreference.getDefaultFile().getString("datanascita",""));
+        dataN.setText(PowerPreference.getDefaultFile().getString("dataNascita",""));
 
         dataN.setOnClickListener(new View.OnClickListener() {
             @Override
