@@ -1,11 +1,13 @@
 package com.sviluppotrilo.trilo;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -22,6 +24,7 @@ public class CercaStazione extends AppCompatActivity{
     Button cerca;
     String stringaStazione;
     String idStazione;
+    ImageView back;
 
     //Visualizzazione
     RecyclerView recyclerView;
@@ -37,6 +40,15 @@ public class CercaStazione extends AppCompatActivity{
         myDbHelper = new DataBaseHelper(getApplicationContext());
         myDbHelper.createDatabase();
         myData = myDbHelper.selectAllData();
+
+        back = findViewById(R.id.backpage);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent goBack = new Intent(CercaStazione.this, Preferiti.class);
+                CercaStazione.this.startActivity(goBack);
+            }
+        });
 
         //Stazione
         autoCom = findViewById(R.id.stazionericercata);

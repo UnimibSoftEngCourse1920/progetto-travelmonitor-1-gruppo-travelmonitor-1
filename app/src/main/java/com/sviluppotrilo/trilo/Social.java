@@ -1,9 +1,12 @@
 package com.sviluppotrilo.trilo;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +16,7 @@ public class Social extends AppCompatActivity {
 
     TabLayout tabLayout;
     WebView webView;
+    ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +25,15 @@ public class Social extends AppCompatActivity {
 
         tabLayout = findViewById(R.id.socialtab);
         webView = findViewById(R.id.webView);
+
+        back = findViewById(R.id.backpage);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent goBack = new Intent(Social.this, Preferiti.class);
+                Social.this.startActivity(goBack);
+            }
+        });
 
         webView.setWebViewClient(new WebViewClient());
         WebSettings webSettings = webView.getSettings();

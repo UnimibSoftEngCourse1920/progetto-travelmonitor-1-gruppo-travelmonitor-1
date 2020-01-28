@@ -49,6 +49,9 @@
         <activity android:name=".CercaStazione">
         </activity>
 
+        <activity android:name=".AboutUs">
+        </activity>
+
 
     </application>
 

@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -33,6 +34,7 @@ public class CercaViaggio extends AppCompatActivity{
     Button cerca;
     DatePickerDialog pickerDate;
     TimePickerDialog pickerTime;
+    ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +54,15 @@ public class CercaViaggio extends AppCompatActivity{
         autoCom2 = findViewById(R.id.stazionearrivo);
         arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, myData);
         autoCom2.setAdapter(arrayAdapter);
+
+        back = findViewById(R.id.backpage);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent goBack = new Intent(CercaViaggio.this, Preferiti.class);
+                CercaViaggio.this.startActivity(goBack);
+            }
+        });
 
         //Data
         data = findViewById(R.id.data);
