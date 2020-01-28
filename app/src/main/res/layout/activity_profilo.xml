@@ -96,12 +96,30 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
+                    <Button
+                        android:id="@+id/datanascita"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_below="@+id/inseriscidatanascita"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="5dp"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:hint="Data di nascita"
+                        android:textColorHint="@color/colorAccent"
+                        android:textSize="12sp"
+                        app:icon="@android:drawable/ic_menu_my_calendar"
+                        app:iconSize="15dp"
+                        app:iconTint="@color/colorAccent"
+                        app:strokeWidth="2dp" />
+
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/datadinascita"
+                        android:id="@+id/nome"
                         style="@style/CardView.Dark"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/inseriscidatanascita"
+                        android:layout_below="@+id/inseriscinome"
                         android:layout_alignParentStart="true"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="5dp"
@@ -114,14 +132,15 @@
                     </com.google.android.material.textfield.TextInputEditText>
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/nome"
+                        android:id="@+id/cognome"
                         style="@style/CardView.Dark"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/inseriscinome"
+                        android:layout_below="@+id/inseriscicognome"
                         android:layout_alignParentStart="true"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
                         android:fontFamily="@font/montserrat_bold"
                         android:inputType="textPersonName"
                         android:minWidth="200dp"
@@ -166,24 +185,6 @@
                         android:textColor="@color/colorPrimary"
                         android:textSize="18sp" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/cognome"
-                        style="@style/CardView.Dark"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/inseriscicognome"
-                        android:layout_alignParentStart="true"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:fontFamily="@font/montserrat_bold"
-                        android:inputType="textPersonName"
-                        android:minWidth="200dp"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="24sp">
-
-                    </com.google.android.material.textfield.TextInputEditText>
-
                     <Button
                         android:id="@+id/salvadatiprofilo"
                         android:layout_width="wrap_content"
@@ -197,6 +198,7 @@
                         android:textColor="@color/colorPrimary"
                         android:textSize="14sp"
                         app:strokeWidth="2dp" />
+
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
