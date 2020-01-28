@@ -5,7 +5,7 @@ import com.preference.PowerPreference;
 
 import org.threeten.bp.LocalDate;
 
-public class RoutineSettimanale extends Giorno{
+public class RoutineSettimanale{
 
     private static Giorno lunedi;
     private static Giorno martedi;

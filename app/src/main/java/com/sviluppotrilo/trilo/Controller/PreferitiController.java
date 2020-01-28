@@ -21,6 +21,18 @@ public class PreferitiController {
         }
         return preferiti;
     }
+    public Set<Soluzione> visualizzaPreferitiOggi(){
+        Set<Soluzione> preferiti = null;
+        Giorno giorno;
+        try {
+            giorno = RoutineSettimanale.giornoAttuale();
+            preferiti = giorno.getPreferiti();
+
+        }catch(Exception e){
+            Log.e("Errore: ", e.getMessage());
+        }
+        return preferiti;
+    }
 
     public void eliminaPreferito(int idGiorno, Soluzione s){
         Giorno giorno = null;

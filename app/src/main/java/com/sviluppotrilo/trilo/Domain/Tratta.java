@@ -13,7 +13,6 @@ import java.util.regex.Pattern;
 
 public class Tratta {
 
-
     private Stazione origine;
     private Stazione destinazione;
     private String orarioPartenza;
@@ -128,7 +127,6 @@ public class Tratta {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getOrigine(), getDestinazione(), getOrarioPartenza(), getOrarioArrivo());
+        return Objects.hash(getOrigine(), getDestinazione(), orario(getOrarioPartenza()), orario(getOrarioArrivo()));
     }
-
 }
