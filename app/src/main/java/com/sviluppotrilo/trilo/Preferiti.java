@@ -21,6 +21,7 @@ import com.google.android.material.tabs.TabLayout;
 import com.sviluppotrilo.trilo.Controller.PreferitiController;
 import com.sviluppotrilo.trilo.Domain.Soluzione;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 
 public class Preferiti extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -35,7 +36,6 @@ public class Preferiti extends AppCompatActivity implements NavigationView.OnNav
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
     PreferitiController preferitiController = new PreferitiController();
-    HashSet<Soluzione> soluzioniClone = new HashSet<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,9 +50,8 @@ public class Preferiti extends AppCompatActivity implements NavigationView.OnNav
         recyclerView = findViewById(R.id.recyclerView);
 
         soluzioni = (HashSet<Soluzione>) preferitiController.visualizzaPreferiti(1);
-        soluzioniClone = (HashSet<Soluzione>) soluzioni.clone();
         recyclerView.setHasFixedSize(true);
-        adapter = new MyAdapterPreferiti(Preferiti.this, soluzioniClone);
+        adapter = new MyAdapterPreferiti(Preferiti.this, soluzioni);
         recyclerView.setLayoutManager(new GridLayoutManager(Preferiti.this,1));
         recyclerView.setAdapter(adapter);
 
@@ -82,21 +81,18 @@ public class Preferiti extends AppCompatActivity implements NavigationView.OnNav
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-
                 int count = tabLayout.getSelectedTabPosition();
                 if(count == 0) {
                     soluzioni = (HashSet<Soluzione>) preferitiController.visualizzaPreferiti(1);
-                    soluzioniClone = (HashSet<Soluzione>) soluzioni.clone();
                     recyclerView.setHasFixedSize(true);
-                    adapter = new MyAdapterPreferiti(Preferiti.this, soluzioniClone);
+                    adapter = new MyAdapterPreferiti(Preferiti.this, soluzioni);
                     recyclerView.setLayoutManager(new GridLayoutManager(Preferiti.this,1));
                     recyclerView.setAdapter(adapter);
                 }
                 if(count == 1) {
                     soluzioni = (HashSet<Soluzione>) preferitiController.visualizzaPreferiti(2);
-                    soluzioniClone = (HashSet<Soluzione>) soluzioni.clone();
                     recyclerView.setHasFixedSize(true);
-                    adapter = new MyAdapterPreferiti(Preferiti.this, soluzioniClone);
+                    adapter = new MyAdapterPreferiti(Preferiti.this, soluzioni);
                     recyclerView.setLayoutManager(new GridLayoutManager(Preferiti.this,1));
                     recyclerView.setAdapter(adapter);
                 }
@@ -135,7 +131,6 @@ public class Preferiti extends AppCompatActivity implements NavigationView.OnNav
                     recyclerView.setLayoutManager(new GridLayoutManager(Preferiti.this,1));
                     recyclerView.setAdapter(adapter);
                 }
-
             }
 
             @Override
@@ -150,23 +145,52 @@ public class Preferiti extends AppCompatActivity implements NavigationView.OnNav
 
         recyclerView.addOnItemTouchListener(new RecyclerOnTouchListener(this,
                 recyclerView, new ClickListener() {
-            int count = tabLayout.getSelectedTabPosition();
             @Override
             public void onClick(View view, final int position) {
 
             }
 
             @Override
-            public void onLongClick(View view, int position) {
+            public void onLongClick(View view, final int position) {
                 AlertDialog.Builder builder1 = new AlertDialog.Builder(Preferiti.this, R.style.bannereliminapreferito);
                 builder1.setMessage("Vuoi eliminare questo preferito?");
                 builder1.setCancelable(true);
-
+                final ArrayList<Soluzione> preferiti = new ArrayList<>();
+                for(Soluzione s : soluzioni){
+                    preferiti.add(s);
+                }
                 builder1.setPositiveButton(
                         "Elimina",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-
+                                if(tabLayout.getSelectedTabPosition() == 0) {
+                                    preferitiController.eliminaPreferito(1,preferiti.get(position));
+                                    adapter.notifyDataSetChanged();
+                                }
+                                if(tabLayout.getSelectedTabPosition() == 1) {
+                                    preferitiController.eliminaPreferito(2,preferiti.get(position));
+                                    adapter.notifyDataSetChanged();
+                                }
+                                if(tabLayout.getSelectedTabPosition() == 2) {
+                                    preferitiController.eliminaPreferito(3,preferiti.get(position));
+                                    adapter.notifyDataSetChanged();
+                                }
+                                if(tabLayout.getSelectedTabPosition() == 3) {
+                                    preferitiController.eliminaPreferito(4,preferiti.get(position));
+                                    adapter.notifyDataSetChanged();
+                                }
+                                if(tabLayout.getSelectedTabPosition() == 4) {
+                                    preferitiController.eliminaPreferito(5,preferiti.get(position));
+                                    adapter.notifyDataSetChanged();
+                                }
+                                if(tabLayout.getSelectedTabPosition() == 5) {
+                                    preferitiController.eliminaPreferito(6,preferiti.get(position));
+                                    adapter.notifyDataSetChanged();
+                                }
+                                if(tabLayout.getSelectedTabPosition() == 6) {
+                                    preferitiController.eliminaPreferito(7,preferiti.get(position));
+                                    adapter.notifyDataSetChanged();
+                                }
                             }
                         });
 

@@ -20,7 +20,6 @@ public class Schedulatore extends JobService {
     public boolean onStartJob(JobParameters jobParameters) {
         System.out.println("OK PARTITO");
         HashSet<Soluzione> preferiti = new HashSet<>();
-        HashSet<Soluzione> preferitiClone = new HashSet<>();
         try {
             preferiti = (HashSet<Soluzione>) RoutineSettimanale.giornoAttuale().getPreferiti();
         } catch (Exception e) {
