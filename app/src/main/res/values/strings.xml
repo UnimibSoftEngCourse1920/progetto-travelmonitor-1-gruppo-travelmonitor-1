@@ -2,9 +2,6 @@
     <string name="app_name">Trilo</string>
     <string name="descriptionLogoSplash">Logo</string>
 
-    <!-- twitter -->
-    <string name="twitter_consumer_key" translatable="false">RkkxLILKqOm0hmbdOsauDFnbT</string>
-
     <!-- navigation menu -->
     <string name="drawerOpen">drawerOpen</string>
     <string name="drawerClose">drawerClose</string>

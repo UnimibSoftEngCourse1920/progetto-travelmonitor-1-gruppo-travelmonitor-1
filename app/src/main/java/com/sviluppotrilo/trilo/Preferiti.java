@@ -36,7 +36,7 @@ import java.util.HashSet;
 
 public class Preferiti extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
-    Button cercaviaggio;
+    Button cercaviaggio, myprofilo;
     DrawerLayout drawerLayout;
     Toolbar toolbar;
     NavigationView navigationView;
@@ -56,6 +56,7 @@ public class Preferiti extends AppCompatActivity implements NavigationView.OnNav
         drawerLayout = findViewById(R.id.drawer);
         tabLayout = findViewById(R.id.tabLayout);
         cercaviaggio = findViewById(R.id.cercabt);
+        myprofilo = findViewById(R.id.mytrilo);
         recyclerView = findViewById(R.id.recyclerView);
 
         soluzioni = (HashSet<Soluzione>) preferitiController.visualizzaPreferiti(1);
@@ -68,6 +69,13 @@ public class Preferiti extends AppCompatActivity implements NavigationView.OnNav
             public void onClick(View v) {
                 Intent goToCercaViaggio = new Intent(Preferiti.this, CercaViaggio.class);
                 Preferiti.this.startActivity(goToCercaViaggio);
+            }
+        });
+
+        myprofilo.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent goToMyProfilo = new Intent(Preferiti.this, Profilo.class);
+                Preferiti.this.startActivity(goToMyProfilo);
             }
         });
 
@@ -201,10 +209,6 @@ public class Preferiti extends AppCompatActivity implements NavigationView.OnNav
                 Intent goToCercaStazione = new Intent(Preferiti.this, CercaStazione.class);
                 startActivity(goToCercaStazione);
                 break;
-            case R.id.gestiscipreferiti:
-                Intent goToPreferiti = new Intent(Preferiti.this, Preferiti.class);
-                startActivity(goToPreferiti);
-                break;
             case R.id.gestiscinotifiche:
                 //Intent goToNotifiche = new Intent(Preferiti.this, Preferiti.class);
                 //startActivity(goToNotifiche);
@@ -226,8 +230,8 @@ public class Preferiti extends AppCompatActivity implements NavigationView.OnNav
                 startActivity(goToMappe);
                 break;
             case R.id.aboutus:
-                //Intent goToAboutUs = new Intent(Preferiti.this, Preferiti.class);
-                //startActivity(goToAboutUs);
+                Intent goToAboutUs = new Intent(Preferiti.this, AboutUs.class);
+                startActivity(goToAboutUs);
                 break;
             default:
                 break;

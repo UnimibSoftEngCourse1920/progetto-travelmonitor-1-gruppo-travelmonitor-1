@@ -17,14 +17,14 @@
         <!-- arrow bordercolor(<>)-->
         <item name="android:selectableItemBackgroundBorderless">@color/colorPrimary</item>
         <!-- Highlight item color-->
-        <item name="colorControlHighlight">#d50000</item>
+        <item name="colorControlHighlight">#fff</item>
         <!--Calender Background color -->
         <item name="android:windowBackground">@color/colorPrimary</item>
         <!-- Ok Cancel Color-->
         <item name="android:buttonBarNegativeButtonStyle">@style/DatePickerTheme.ButtonBarNegativeButtonStyle</item>
         <item name="android:buttonBarPositiveButtonStyle">@style/DatePickerTheme.ButtonBarPositiveButtonStyle</item>
         <!-- Week TextColor-->
-        <item name="android:textColorSecondary">#E91E63</item>
+        <item name="android:textColorSecondary">#fff</item>
         <!-- Calender Number color arrow color (< >) -->
         <item name="android:textColorPrimary">#fff</item>
         <!--day , month-->
@@ -36,6 +36,7 @@
     <style name="DatePickerTheme.ButtonBarNegativeButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
         <item name="android:textColor">#fff</item>
     </style>
+
     <style name="DatePickerTheme.ButtonBarPositiveButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
         <item name="android:textColor">#fff</item>
     </style>
@@ -47,14 +48,14 @@
         <!-- arrow bordercolor(<>)-->
         <item name="android:selectableItemBackgroundBorderless">@color/colorPrimary</item>
         <!-- Highlight item color-->
-        <item name="colorControlHighlight">#d50000</item>
+        <item name="colorControlHighlight">#fff</item>
         <!--Calender Background color -->
         <item name="android:windowBackground">@color/colorPrimary</item>
         <!-- Ok Cancel Color-->
         <item name="android:buttonBarNegativeButtonStyle">@style/TimePickerTheme.ButtonBarNegativeButtonStyle</item>
         <item name="android:buttonBarPositiveButtonStyle">@style/TimePickerTheme.ButtonBarPositiveButtonStyle</item>
         <!-- Week TextColor-->
-        <item name="android:textColorSecondary">#E91E63</item>
+        <item name="android:textColorSecondary">#fff</item>
         <!-- Calender Number color arrow color (< >) -->
         <item name="android:textColorPrimary">#fff</item>
         <!--day , month-->
@@ -65,12 +66,9 @@
 
     <style name="bannereliminapreferito" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="android:windowBackground">@color/colorPrimary</item>
-
         <item name="android:textColorPrimary">#fff</item>
         <item name="android:fontFamily">@font/montserrat_regular</item>
-
         <item name="android:textColorSecondary">@color/colorAccent</item>
-
         <item name="android:buttonBarNegativeButtonStyle">@style/TimePickerTheme.ButtonBarNegativeButtonStyle</item>
         <item name="android:buttonBarPositiveButtonStyle">@style/TimePickerTheme.ButtonBarPositiveButtonStyle</item>
 
@@ -78,14 +76,11 @@
 
     <style name="bannerscegligiornipreferiti" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="android:windowBackground">@color/colorPrimary</item>
-
         <item name="android:textColorPrimary">#fff</item>
         <item name="android:fontFamily">@font/montserrat_regular</item>
-
         <item name="android:textColorAlertDialogListItem">#fff</item>
         <item name="android:colorControlActivated">@color/colorAccent</item>
         <item name="android:textColorSecondary">@color/colorAccent</item>
-
         <item name="android:buttonBarNegativeButtonStyle">@style/TimePickerTheme.ButtonBarNegativeButtonStyle</item>
         <item name="android:buttonBarPositiveButtonStyle">@style/TimePickerTheme.ButtonBarPositiveButtonStyle</item>
 
@@ -94,6 +89,7 @@
     <style name="TimePickerTheme.ButtonBarNegativeButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
         <item name="android:textColor">#fff</item>
     </style>
+
     <style name="TimePickerTheme.ButtonBarPositiveButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
         <item name="android:textColor">#fff</item>
     </style>

@@ -6,29 +6,23 @@ import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.preference.PowerPreference;
 import com.sviluppotrilo.trilo.Controller.PreferitiController;
-import com.sviluppotrilo.trilo.Domain.RoutineSettimanale;
 import com.sviluppotrilo.trilo.Domain.Soluzione;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
-public class MyAdapter extends RecyclerView.Adapter<MyCard> {
+public class MyAdapterViaggio extends RecyclerView.Adapter<MyCardViaggio> {
 
     Context context;
     ArrayList<Soluzione> datiSoluzione;
     String partenza;
     String arrivo;
 
-    public MyAdapter(Context c, ArrayList<Soluzione> datiSoluzione, String partenza, String arrivo) {
+    public MyAdapterViaggio(Context c, ArrayList<Soluzione> datiSoluzione, String partenza, String arrivo) {
         this.context = c;
         this.datiSoluzione = datiSoluzione;
         this.partenza = partenza;
@@ -37,13 +31,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyCard> {
 
     @NonNull
     @Override
-    public MyCard onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MyCardViaggio onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_viaggio, null);
-        return new MyCard(view);
+        return new MyCardViaggio(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyCard holder, final int i) {
+    public void onBindViewHolder(@NonNull MyCardViaggio holder, final int i) {
         int numeroUltimTratta = datiSoluzione.get(i).getTratte().size() - 1;
         String orarioPartenza = datiSoluzione.get(i).getTratte().get(0).getOrarioPartenza();
         String orarioArrivo = datiSoluzione.get(i).getTratte().get(numeroUltimTratta).getOrarioArrivo();

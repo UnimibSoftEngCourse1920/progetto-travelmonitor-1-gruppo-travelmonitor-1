@@ -20,7 +20,8 @@
         android:layout_marginEnd="0dp"
         android:background="#fff"
         android:translationZ="3dp"
-        app:cardCornerRadius="10dp">
+        app:cardCornerRadius="10dp"
+        app:cardElevation="2dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -35,7 +36,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="20dp"
                 android:layout_toEndOf="@+id/orarioViaggio"
-                android:background="@drawable/realtime_black"
+                android:background="@drawable/realtime_ok"
                 android:contentDescription="orarioviaggio"
                 app:layout_constraintStart_toEndOf="@+id/orarioViaggio" />
 
@@ -130,6 +131,7 @@
                 android:layout_marginBottom="10dp"
                 android:gravity="right|center_vertical"
                 android:hint="Binario numero"
+                android:text="Binario numero"
                 android:textAlignment="inherit"
                 android:textColor="@color/colorPrimary"
                 android:textSize="10sp"
@@ -193,16 +195,17 @@
 
             <TextView
                 android:id="@+id/statoTreno"
-                android:layout_width="103dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="6dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="19dp"
                 android:layout_toEndOf="@+id/imagestato"
                 android:gravity="center_vertical"
                 android:hint="stato"
+                android:text="regolare"
                 android:textAlignment="inherit"
-                android:textColor="@android:color/black"
+                android:textColor="@android:color/holo_green_dark"
                 android:textSize="8sp"
                 app:layout_constraintStart_toEndOf="@+id/imagestato" />
 

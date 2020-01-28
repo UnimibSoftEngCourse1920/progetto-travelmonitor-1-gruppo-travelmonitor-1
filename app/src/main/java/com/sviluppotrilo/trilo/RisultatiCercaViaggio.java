@@ -2,9 +2,6 @@ package com.sviluppotrilo.trilo;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -52,7 +49,7 @@ public class RisultatiCercaViaggio extends AppCompatActivity {
                     @Override
                     public void run() {
                         recyclerView.setHasFixedSize(true);
-                        adapter = new MyAdapter(RisultatiCercaViaggio.this, soluzioni, stazionePartenza, stazioneArrivo);
+                        adapter = new MyAdapterViaggio(RisultatiCercaViaggio.this, soluzioni, stazionePartenza, stazioneArrivo);
                         recyclerView.setLayoutManager(new GridLayoutManager(RisultatiCercaViaggio.this,1));
                         recyclerView.setAdapter(adapter);
                     }

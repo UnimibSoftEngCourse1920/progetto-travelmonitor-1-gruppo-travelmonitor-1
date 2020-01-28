@@ -7,7 +7,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class MyCard extends RecyclerView.ViewHolder {
+public class MyCardViaggio extends RecyclerView.ViewHolder {
 
     TextView orarioViaggio;
     TextView oraPartenza;
@@ -22,7 +22,7 @@ public class MyCard extends RecyclerView.ViewHolder {
     ImageView preferito;
 
 
-    public MyCard(@NonNull View itemView) {
+    public MyCardViaggio(@NonNull View itemView) {
         super(itemView);
 
         this.statoTreno = itemView.findViewById(R.id.statoTreno);

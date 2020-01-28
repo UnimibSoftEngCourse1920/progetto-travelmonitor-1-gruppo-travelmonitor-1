@@ -13,7 +13,7 @@ import com.sviluppotrilo.trilo.Domain.Soluzione;
 import java.util.ArrayList;
 import java.util.HashSet;
 
-public class MyAdapterPreferiti extends RecyclerView.Adapter<MyCard> {
+public class MyAdapterPreferiti extends RecyclerView.Adapter<MyCardViaggio> {
 
     Context context;
     HashSet<Soluzione> datiSoluzione;
@@ -26,13 +26,13 @@ public class MyAdapterPreferiti extends RecyclerView.Adapter<MyCard> {
 
     @NonNull
     @Override
-    public MyCard onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MyCardViaggio onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_viaggio, null);
-        return new MyCard(view);
+        return new MyCardViaggio(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyCard holder, final int i) {
+    public void onBindViewHolder(@NonNull MyCardViaggio holder, final int i) {
         ArrayList<Soluzione> soluzione = new ArrayList<>();
         for(Soluzione s: datiSoluzione){
             soluzione.add(s);

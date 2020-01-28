@@ -2,32 +2,25 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/cercaViaggio"
-        android:title="Cerca viaggio"/>
+        android:title="Cerca viaggio" />
 
     <item
         android:id="@+id/cercaStazione"
         android:title="Cerca stazione"/>
 
-    <group >
-        <item
-            android:id="@+id/gestiscipreferiti"
-            android:title="Gestisci Preferiti" />
-        <item
-            android:id="@+id/gestiscinotifiche"
-            android:title="Gestisci notifiche" />
-    </group>
+    <item
+        android:id="@+id/profilo"
+        android:title="Profilo" />
+    <item
+        android:id="@+id/socialnetwork"
+        android:title="Social Network" />
+    <item
+        android:id="@+id/gestiscinotifiche"
+        android:title="Gestisci notifiche" />
 
     <item
         android:id="@+id/impostazioni"
         android:title="Impostazioni"/>
-
-    <item
-        android:id="@+id/profilo"
-        android:title="Profilo"/>
-
-    <item
-        android:id="@+id/socialnetwork"
-        android:title="Social Network"/>
 
     <item
         android:id="@+id/mappe"
