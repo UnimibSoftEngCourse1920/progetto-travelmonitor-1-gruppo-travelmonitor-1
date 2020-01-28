@@ -2,6 +2,8 @@ package com.sviluppotrilo.trilo;
 
 import android.app.job.JobParameters;
 import android.app.job.JobService;
+import android.icu.util.TimeUnit;
+import android.text.format.Time;
 
 import com.sviluppotrilo.trilo.Domain.Arrivato;
 import com.sviluppotrilo.trilo.Domain.Giorno;
@@ -15,20 +17,15 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 public class Schedulatore extends JobService {
-
     @Override
     public boolean onStartJob(JobParameters jobParameters) {
         System.out.println("OK PARTITO");
         HashSet<Soluzione> preferiti = new HashSet<>();
-        HashSet<Soluzione> preferitiClone = new HashSet<>();
         try {
             preferiti = (HashSet<Soluzione>) RoutineSettimanale.giornoAttuale().getPreferiti();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        for(Soluzione e: preferiti)
-            for(Tratta t: e.getTratte())
-                t.addObserver(new NotificaObserver());
         doBackgroundWork(preferiti);
         return true;
     }
@@ -36,17 +33,16 @@ public class Schedulatore extends JobService {
         new Thread(new Runnable() {
             @Override
             public void run() {
+                final int SECONDO = 1000;
+                final int MINUTO = 60 * SECONDO;
+                final int ORA = 60 * MINUTO;
+                int periodoTempo = 5 * MINUTO;
                 while(true){
-                    try {
-                        Thread.sleep(5000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
                     try {
                         System.out.println("PreferitiAggiornati" + preferiti);
                         for(Soluzione e: preferiti)
                             e.controllaTratte();
-                        Thread.sleep(1000);
+                            Thread.sleep(periodoTempo);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     } catch (ViaggioException e) {
