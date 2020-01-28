@@ -1,5 +1,7 @@
 package com.sviluppotrilo.trilo.Domain;
 
+import com.sviluppotrilo.trilo.ViaggioException;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -29,7 +31,7 @@ public class Soluzione {
     }
 
     public int numeroCambi() {
-        return tratte.size();
+        return tratte.size() - 1;
     }
 
     @Override
@@ -52,9 +54,9 @@ public class Soluzione {
         return Objects.hash(getTratte(), getDurata());
     }
 
-    public void controllaTratte() {
+    public void controllaTratte() throws ViaggioException {
         for (Tratta t : getTratte()) {
-            //t.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+            t.update();
         }
     }
 }

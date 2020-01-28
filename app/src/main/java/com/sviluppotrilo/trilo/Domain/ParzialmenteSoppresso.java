@@ -1,7 +1,7 @@
 package com.sviluppotrilo.trilo.Domain;
 
 public class ParzialmenteSoppresso implements CorsaState {
-
+    public ParzialmenteSoppresso(){}
     @Override
     public CorsaState statoCorsa(Corsa corsa){
         Notifica n = new NotificaSoppressioneParziale(corsa);

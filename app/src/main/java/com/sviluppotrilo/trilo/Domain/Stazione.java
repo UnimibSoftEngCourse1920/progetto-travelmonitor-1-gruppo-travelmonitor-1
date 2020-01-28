@@ -17,6 +17,7 @@ public class Stazione {
     public Stazione() {
         super();
     }
+
     public static Stazione findStazionePartenza(String numeroTreno) throws ViaggioException {
         String url = "http://www.viaggiatreno.it/"
                 + "viaggiatrenonew/"
@@ -31,6 +32,7 @@ public class Stazione {
         String id = estraiId(stazionePartenza);
         return new Stazione(nome, id);
     }
+
     private static String estraiNome(String string) {
         String regexNome = "[-].+[|]";
         string = estraiRegex(string, regexNome);
