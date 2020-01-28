@@ -50,6 +50,7 @@ public class MyAdapterPreferiti extends RecyclerView.Adapter<MyCardViaggio> {
         holder.orarioViaggio.setText(orarioPartenza.substring((orarioPartenza.indexOf('T') + 1), orarioPartenza.indexOf(":00")) + " - "
                 + orarioArrivo.substring((orarioArrivo.indexOf('T') + 1), orarioArrivo.indexOf(":00")));
 
+        holder.preferito.setVisibility(View.INVISIBLE);
     }
 
     @Override

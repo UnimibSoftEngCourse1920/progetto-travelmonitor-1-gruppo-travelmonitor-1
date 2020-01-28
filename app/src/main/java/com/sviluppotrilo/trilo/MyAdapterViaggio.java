@@ -68,6 +68,8 @@ public class MyAdapterViaggio extends RecyclerView.Adapter<MyCardViaggio> {
             }).start();
         }
 
+        holder.preferitoSi.setVisibility(View.INVISIBLE);
+
         holder.preferito.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

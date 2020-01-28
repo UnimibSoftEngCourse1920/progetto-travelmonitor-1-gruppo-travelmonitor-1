@@ -30,9 +30,9 @@
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.918"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline5"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/guideline6"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.Guideline
@@ -77,81 +77,168 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="600dp">
 
-            <TextView
-                android:id="@+id/inseriscinome"
-                android:layout_width="wrap_content"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/carddatipersonali"
+                android:layout_width="370dp"
+                android:layout_height="370dp"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="12dp"
+                app:layout_constraintBottom_toTopOf="@+id/guideline4"
+                app:layout_constraintEnd_toStartOf="@+id/guideline1"
+                app:layout_constraintStart_toStartOf="@+id/guideline2"
+                app:layout_constraintTop_toBottomOf="@+id/tabLayout"
+                app:layout_constraintVertical_bias="0.100">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:id="@+id/datanascita"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_below="@+id/inseriscidatanascita"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="5dp"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:hint="Data di nascita"
+                        android:textColorHint="@color/colorAccent"
+                        android:textSize="12sp"
+                        app:icon="@android:drawable/ic_menu_my_calendar"
+                        app:iconSize="15dp"
+                        app:iconTint="@color/colorAccent"
+                        app:strokeWidth="2dp" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/nome"
+                        style="@style/CardView.Dark"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/inseriscinome"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:inputType="textPersonName"
+                        android:minWidth="200dp"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="24sp">
+
+                    </com.google.android.material.textfield.TextInputEditText>
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/cognome"
+                        style="@style/CardView.Dark"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/inseriscicognome"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:inputType="textPersonName"
+                        android:minWidth="200dp"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="24sp">
+
+                    </com.google.android.material.textfield.TextInputEditText>
+
+                    <TextView
+                        android:id="@+id/inseriscidatanascita"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/cognome"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="15dp"
+                        android:text="Data di nascita"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/inseriscinome"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
+                        android:text="Nome"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/inseriscicognome"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/nome"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="15dp"
+                        android:text="Cognome"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/salvadatiprofilo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:text="salva"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp"
+                        app:strokeWidth="2dp" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/carddatiposizione"
+                android:layout_width="370dp"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
+                android:layout_below="@+id/carddatipersonali"
                 android:layout_marginTop="20dp"
-                android:text="Nome"
-                android:textColor="@color/colorPrimary"
-                android:textSize="18sp" />
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="12dp"
+                app:layout_constraintBottom_toTopOf="@+id/guideline4"
+                app:layout_constraintEnd_toStartOf="@+id/guideline1"
+                app:layout_constraintStart_toStartOf="@+id/guideline2"
+                app:layout_constraintTop_toBottomOf="@+id/tabLayout"
+                app:layout_constraintVertical_bias="0.100">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/nome"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/inseriscinome"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/montserrat_bold"
-                android:inputType="textPersonName"
-                android:textColor="@color/colorPrimary"
-                android:textSize="24sp">
 
-            </com.google.android.material.textfield.TextInputEditText>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/inseriscicognome"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/nome"
-                android:layout_alignParentStart="true"
-                android:layout_marginTop="20dp"
-                android:text="Cognome"
-                android:textColor="@color/colorPrimary"
-                android:textSize="18sp" />
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/inserisciposizione"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:inputType="textPersonName"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="24sp">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/cognome"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/inseriscidatanascita"
-                android:layout_alignParentStart="true"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/montserrat_bold"
-                android:inputType="textPersonName"
-                android:textColor="@color/colorPrimary"
-                android:textSize="24sp">
+                    </com.google.android.material.textfield.TextInputEditText>
 
-            </com.google.android.material.textfield.TextInputEditText>
 
-            <TextView
-                android:id="@+id/inseriscidatanascita"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/datadinascita"
-                android:layout_marginTop="20dp"
-                android:text="Data di nascita"
-                android:textColor="@color/colorPrimary"
-                android:textSize="18sp" />
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/datadinascita"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/inseriscicognome"
-                android:layout_alignParentStart="true"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/montserrat_bold"
-                android:inputType="textPersonName"
-                android:textColor="@color/colorPrimary"
-                android:textSize="24sp">
-
-            </com.google.android.material.textfield.TextInputEditText>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
 
         </RelativeLayout>
     </ScrollView>

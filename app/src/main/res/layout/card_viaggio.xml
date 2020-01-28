@@ -44,9 +44,9 @@
                 android:id="@+id/stazionearrivo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/oraarrivo"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="20dp"
+                android:layout_below="@+id/orapartenza"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="15dp"
                 android:layout_toEndOf="@+id/traccia"
                 android:fontFamily="@font/montserrat_bold"
                 android:gravity="left|center_vertical"
@@ -59,9 +59,8 @@
                 android:id="@+id/oraarrivo"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/stazionepartenza"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="-1dp"
+                android:layout_below="@+id/stazionearrivo"
+                android:layout_marginStart="12dp"
                 android:layout_toEndOf="@+id/traccia"
                 android:gravity="center_vertical"
                 android:hint="ORA"
@@ -75,9 +74,8 @@
                 android:id="@+id/orapartenza"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/stazionearrivo"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="0dp"
+                android:layout_below="@+id/stazionepartenza"
+                android:layout_marginStart="12dp"
                 android:layout_toEndOf="@+id/traccia"
                 android:gravity="center_vertical"
                 android:hint="ORA"
@@ -92,9 +90,9 @@
                 android:id="@+id/stazionepartenza"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/statoTreno"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="20dp"
+                android:layout_below="@+id/orarioViaggio"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="19dp"
                 android:layout_toEndOf="@+id/traccia"
                 android:fontFamily="@font/montserrat_bold"
                 android:gravity="left|center_vertical"
@@ -102,8 +100,7 @@
                 android:textAlignment="inherit"
                 android:textColor="@color/colorPrimary"
                 android:textSize="14sp"
-                app:layout_constraintStart_toEndOf="@+id/traccia"
-                app:layout_constraintTop_toBottomOf="@+id/orapartenza" />
+                app:layout_constraintStart_toEndOf="@+id/traccia" />
 
             <TextView
                 android:id="@+id/classetreno"
@@ -230,6 +227,17 @@
                 android:layout_toStartOf="@+id/segnala"
                 app:layout_constraintTop_toBottomOf="@+id/binariotreno"
                 app:srcCompat="@drawable/notpreferito" />
+
+            <ImageView
+                android:id="@+id/setpreferito"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="10dp"
+                android:layout_toStartOf="@+id/segnala"
+                app:layout_constraintTop_toBottomOf="@+id/binariotreno"
+                app:srcCompat="@drawable/preferito" />
 
         </RelativeLayout>
 
