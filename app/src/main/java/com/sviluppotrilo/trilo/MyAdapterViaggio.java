@@ -57,6 +57,8 @@ public class MyAdapterViaggio extends RecyclerView.Adapter<MyCardViaggio> {
             //holder.destinazioneTreno.setText(datiSoluzione.get(numeroUltimTratta).getTratte().get(0).getDestinazione().getNome());
         }
 
+        holder.preferitoSi.setVisibility(View.INVISIBLE);
+
         holder.preferito.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
