@@ -2,6 +2,8 @@ package com.sviluppotrilo.trilo.Domain;
 
 import com.google.gson.Gson;
 
+import java.util.Arrays;
+
 public class Arrivi {
 
     private String numeroTreno;
@@ -80,6 +82,7 @@ public class Arrivi {
                 + stazionePartenza.getId() + "/" // solo get id
                 + time.toString() + "%20GMT+0100").getUrlResponse();
         Arrivi[] arrivi = new Gson().fromJson(jsonPartenza, Arrivi[].class);
+        Arrays.sort(arrivi, new SortTabelloneArrivi());
         return arrivi;
     }
 

@@ -18,6 +18,5 @@ public class CurrentDateTime {
         SimpleDateFormat dateFormat = new SimpleDateFormat(DATEFORMAT, new Locale("EN"));
         Date today = Calendar.getInstance().getTime();
         return dateFormat.format(today);
-        /*prova per visualizzazione viaggi*/
     }
 }

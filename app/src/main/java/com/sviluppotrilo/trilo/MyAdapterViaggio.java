@@ -3,8 +3,6 @@ package com.sviluppotrilo.trilo;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.sviluppotrilo.trilo.Controller.PreferitiController;
-import com.sviluppotrilo.trilo.Domain.NotificaRitardo;
 import com.sviluppotrilo.trilo.Domain.Soluzione;
 
 import java.util.ArrayList;
@@ -58,6 +55,7 @@ public class MyAdapterViaggio extends RecyclerView.Adapter<MyCardViaggio> {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
+                    /*
                     try {
                         holder.destinazioneTreno.setText("Per " + datiSoluzione.get(i).getTratte().get(0).cercaCorsa().getDestinazione().getNome());
                         if(datiSoluzione.get(i).getTratte().get(0).cercaCorsa().getFermate().get(0).getRitardo() >= 2){
@@ -72,6 +70,7 @@ public class MyAdapterViaggio extends RecyclerView.Adapter<MyCardViaggio> {
                     } catch (ViaggioException e) {
                         e.printStackTrace();
                     }
+                     */
                 }
             }).start();
         }

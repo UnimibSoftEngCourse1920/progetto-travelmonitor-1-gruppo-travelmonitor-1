@@ -28,6 +28,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/sviluppotrilo/trilo/AboutUs.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/sviluppotrilo/trilo/CercaStazione.java">
           <value>
             <set />
@@ -49,6 +54,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/sviluppotrilo/trilo/Controller/PreferitiController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/sviluppotrilo/trilo/Controller/StazioniController.java">
           <value>
             <set />
           </value>
@@ -163,6 +173,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/sviluppotrilo/trilo/Impostazioni.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/sviluppotrilo/trilo/InterfaceAdapter.java">
           <value>
             <set />
@@ -193,6 +208,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/sviluppotrilo/trilo/MyAdapterTabellone.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/sviluppotrilo/trilo/MyAdapterViaggio.java">
           <value>
             <set />
@@ -204,6 +224,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/sviluppotrilo/trilo/MyCardStazione.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/sviluppotrilo/trilo/MyCardTabellone.java">
           <value>
             <set />
           </value>
@@ -243,6 +268,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/sviluppotrilo/trilo/RisultatiCercaStazione.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/sviluppotrilo/trilo/RisultatiCercaViaggio.java">
           <value>
             <set />
@@ -254,6 +284,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/sviluppotrilo/trilo/Schedulatore.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/sviluppotrilo/trilo/SendNotification.java">
           <value>
             <set />
           </value>
