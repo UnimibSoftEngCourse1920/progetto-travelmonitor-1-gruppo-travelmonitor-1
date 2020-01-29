@@ -23,19 +23,15 @@
         <activity android:name=".Preferiti">
         </activity>
 
-        <activity android:name=".Test">
-        </activity>
-
-        <activity android:name=".MainActivity">
-        </activity>
-
         <activity android:name=".Impostazioni">
         </activity>
 
-        <activity android:name=".Profilo">
+        <activity android:name=".Profilo"
+            android:windowSoftInputMode="stateHidden">
         </activity>
 
-        <activity android:name=".CercaViaggio">
+        <activity android:name=".CercaViaggio"
+            android:windowSoftInputMode="stateHidden">
         </activity>
 
         <activity android:name=".Mappa">

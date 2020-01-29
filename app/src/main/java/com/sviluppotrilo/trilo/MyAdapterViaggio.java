@@ -52,7 +52,6 @@ public class MyAdapterViaggio extends RecyclerView.Adapter<MyCardViaggio> {
         holder.numeroTreno.setText("Treno N: " + datiSoluzione.get(i).getTratte().get(0).getNumeroTreno());
         holder.orarioViaggio.setText(orarioPartenza.substring((orarioPartenza.indexOf('T') + 1), orarioPartenza.indexOf(":00")) + " - "
                 + orarioArrivo.substring((orarioArrivo.indexOf('T') + 1), orarioArrivo.indexOf(":00")));
-        //holder.statoTreno.setText(datiSoluzione.get(i).getTratte().get(0).getCorsa().getFermate().get(0).getRitardo());
         if(datiSoluzione.get(i).numeroCambi() > 0){
             holder.destinazioneTreno.setText("Numero cambi: " + datiSoluzione.get(i).numeroCambi());
         }else{
@@ -61,6 +60,15 @@ public class MyAdapterViaggio extends RecyclerView.Adapter<MyCardViaggio> {
                 public void run() {
                     try {
                         holder.destinazioneTreno.setText("Per " + datiSoluzione.get(i).getTratte().get(0).cercaCorsa().getDestinazione().getNome());
+                        if(datiSoluzione.get(i).getTratte().get(0).cercaCorsa().getFermate().get(0).getRitardo() >= 2){
+                            holder.statoTreno.setText("In ritardo di " + datiSoluzione.get(i).getTratte().get(0).cercaCorsa().getFermate().get(0).getRitardo() + "minuti");
+                            holder.statusOk.setVisibility(View.INVISIBLE);
+                            holder.statusNonOk.setVisibility(View.VISIBLE);
+                            holder.trattaOk.setVisibility(View.INVISIBLE);
+                            holder.trattaNonOk.setVisibility(View.VISIBLE);
+                            holder.statoTreno.setTextColor(Color.RED);
+                        }
+
                     } catch (ViaggioException e) {
                         e.printStackTrace();
                     }

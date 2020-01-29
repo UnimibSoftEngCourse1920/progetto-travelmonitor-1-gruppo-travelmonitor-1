@@ -21,6 +21,11 @@ public class MyCardViaggio extends RecyclerView.ViewHolder {
     TextView statoTreno;
     ImageView preferito;
     ImageView preferitoSi;
+    ImageView segnala;
+    ImageView trattaOk;
+    ImageView trattaNonOk;
+    ImageView statusOk;
+    ImageView statusNonOk;
 
 
     public MyCardViaggio(@NonNull View itemView) {
@@ -38,5 +43,11 @@ public class MyCardViaggio extends RecyclerView.ViewHolder {
         this.binarioTrenoStazPart = itemView.findViewById(R.id.stazionearrivo);
         this.preferito = itemView.findViewById(R.id.preferito);
         this.preferitoSi = itemView.findViewById(R.id.setpreferito);
+        this.segnala = itemView.findViewById(R.id.segnala);
+        this.trattaOk = itemView.findViewById(R.id.traccia);
+        this.trattaNonOk = itemView.findViewById(R.id.traccia_notok);
+        this.statusOk = itemView.findViewById(R.id.imagestato);
+        this.statusNonOk = itemView.findViewById(R.id.imagestato_notok);
+
     }
 }

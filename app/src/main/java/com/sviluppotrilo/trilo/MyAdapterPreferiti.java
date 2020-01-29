@@ -1,6 +1,7 @@
 package com.sviluppotrilo.trilo;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,7 +34,7 @@ public class MyAdapterPreferiti extends RecyclerView.Adapter<MyCardViaggio> {
 
     @Override
     public void onBindViewHolder(@NonNull MyCardViaggio holder, final int i) {
-        ArrayList<Soluzione> soluzione = new ArrayList<>();
+        final ArrayList<Soluzione> soluzione = new ArrayList<>();
         for(Soluzione s: datiSoluzione){
             soluzione.add(s);
         }
@@ -49,8 +50,8 @@ public class MyAdapterPreferiti extends RecyclerView.Adapter<MyCardViaggio> {
         holder.numeroTreno.setText("Treno N: " + soluzione.get(i).getTratte().get(0).getNumeroTreno());
         holder.orarioViaggio.setText(orarioPartenza.substring((orarioPartenza.indexOf('T') + 1), orarioPartenza.indexOf(":00")) + " - "
                 + orarioArrivo.substring((orarioArrivo.indexOf('T') + 1), orarioArrivo.indexOf(":00")));
-
         holder.preferito.setVisibility(View.INVISIBLE);
+        holder.destinazioneTreno.setText("Enjoy your trip");
     }
 
     @Override

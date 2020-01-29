@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -26,6 +28,7 @@ public class RisultatiCercaViaggio extends AppCompatActivity {
     RecyclerView.Adapter adapter;
     ImageView back;
     ImageView backmenu;
+    ProgressBar caricamento;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,12 +44,14 @@ public class RisultatiCercaViaggio extends AppCompatActivity {
         });
 
         backmenu = findViewById(R.id.backhome);
-        back.setOnClickListener(new View.OnClickListener() {
+        backmenu.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent goBack = new Intent(RisultatiCercaViaggio.this, Preferiti.class);
                 RisultatiCercaViaggio.this.startActivity(goBack);
             }
         });
+
+        caricamento = findViewById(R.id.caricamento);
 
         Intent intent = getIntent();
         final String stazionePartenza = intent.getStringExtra("stazionePartenza");
@@ -72,6 +77,7 @@ public class RisultatiCercaViaggio extends AppCompatActivity {
                     public void run() {
                         recyclerView.setHasFixedSize(true);
                         adapter = new MyAdapterViaggio(RisultatiCercaViaggio.this, soluzioni, stazionePartenza, stazioneArrivo);
+                        caricamento.setVisibility(View.GONE);
                         recyclerView.setLayoutManager(new GridLayoutManager(RisultatiCercaViaggio.this,1));
                         recyclerView.setAdapter(adapter);
                     }
