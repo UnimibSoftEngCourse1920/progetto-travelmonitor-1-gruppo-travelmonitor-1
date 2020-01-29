@@ -5,6 +5,7 @@ import android.app.job.JobService;
 import android.icu.util.TimeUnit;
 import android.text.format.Time;
 
+import com.sviluppotrilo.trilo.Controller.PreferitiController;
 import com.sviluppotrilo.trilo.Domain.Arrivato;
 import com.sviluppotrilo.trilo.Domain.Giorno;
 import com.sviluppotrilo.trilo.Domain.InOrario;
@@ -20,16 +21,11 @@ public class Schedulatore extends JobService {
     @Override
     public boolean onStartJob(JobParameters jobParameters) {
         System.out.println("OK PARTITO");
-        HashSet<Soluzione> preferiti = new HashSet<>();
-        try {
-            preferiti = (HashSet<Soluzione>) RoutineSettimanale.giornoAttuale().getPreferiti();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        doBackgroundWork(preferiti);
+        PreferitiController preferitiController = new PreferitiController();
+        doBackgroundWork(preferitiController);
         return true;
     }
-    private void doBackgroundWork(final HashSet<Soluzione> preferiti) {
+    private void doBackgroundWork(final PreferitiController preferitiController) {
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -39,13 +35,10 @@ public class Schedulatore extends JobService {
                 int periodoTempo = 10 * SECONDO;
                 while(true){
                     try {
-                        System.out.println("PreferitiAggiornati" + preferiti);
-                        for(Soluzione preferito: preferiti)
-                            preferito.controllaTratte();
-                            Thread.sleep(periodoTempo);
+                        System.out.println("Controllo dei preferiti del giorno..");
+                        preferitiController.controllaPreferiti();
+                        Thread.sleep(periodoTempo);
                     } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    } catch (ViaggioException e) {
                         e.printStackTrace();
                     }
                 }

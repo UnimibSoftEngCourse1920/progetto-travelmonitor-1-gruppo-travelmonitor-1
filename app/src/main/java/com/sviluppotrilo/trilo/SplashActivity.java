@@ -1,28 +1,19 @@
 package com.sviluppotrilo.trilo;
 
-import android.app.Notification;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
 import android.app.job.JobInfo;
 import android.app.job.JobScheduler;
 import android.content.ComponentName;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
-import android.view.View;
 import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
 
 import com.jakewharton.threetenabp.AndroidThreeTen;
 import com.preference.PowerPreference;
 import com.sviluppotrilo.trilo.Domain.Giorno;
-import com.sviluppotrilo.trilo.Domain.NotificaRitardo;
-import com.sviluppotrilo.trilo.Domain.RoutineSettimanale;
 
 
 public class SplashActivity extends AppCompatActivity {
@@ -42,19 +33,10 @@ public class SplashActivity extends AppCompatActivity {
 
         //Inizializza la libreria LocalDate
         AndroidThreeTen.init(this);
-        String CHANNEL_1_ID = "channel1";
-        SendNotification.init(this);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationChannel channel1 = new NotificationChannel(
-                    CHANNEL_1_ID,
-                    "Channel 1",
-                    NotificationManager.IMPORTANCE_HIGH
-            );
-            channel1.setDescription("This is Channel 1");
 
-            NotificationManager manager = getSystemService(NotificationManager.class);
-            manager.createNotificationChannel(channel1);
-        }
+        //Inizializza il canale su cui inviare le notifiche push
+        PushNotification.init(this);
+
         // Creo un thread per l'avanzamento della ProgressBar
         new Thread(new Runnable() {
             @Override

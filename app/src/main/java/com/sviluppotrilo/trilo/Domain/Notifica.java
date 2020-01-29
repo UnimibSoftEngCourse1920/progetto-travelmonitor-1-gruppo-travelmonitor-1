@@ -1,23 +1,19 @@
 package com.sviluppotrilo.trilo.Domain;
 
-import android.app.Application;
 import android.app.Notification;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
 import android.content.Context;
-import android.os.Build;
 
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
 import com.sviluppotrilo.trilo.R;
-import com.sviluppotrilo.trilo.SendNotification;
+import com.sviluppotrilo.trilo.PushNotification;
 
 public abstract class Notifica {
     String testoNotifica;
 
     public void invia(){
-        Context context = SendNotification.context;
+        Context context = PushNotification.context;
         NotificationManagerCompat notificationManager;
         notificationManager = NotificationManagerCompat.from(context);
 
