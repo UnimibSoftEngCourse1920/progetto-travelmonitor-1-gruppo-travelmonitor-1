@@ -1,5 +1,6 @@
 package com.sviluppotrilo.trilo;
 
+
 import android.app.job.JobInfo;
 import android.app.job.JobScheduler;
 import android.content.ComponentName;
@@ -88,7 +89,7 @@ public class SplashActivity extends AppCompatActivity {
         }
     }
 
-    private void firstRun(){
+    private void firstRun() {
         Giorno lunedi = new Giorno(1, "Lunedi");
         boolean result = PowerPreference.getDefaultFile().setObject("Lunedi", lunedi);
         Giorno martedi = new Giorno(2, "Martedi");
@@ -103,5 +104,8 @@ public class SplashActivity extends AppCompatActivity {
         result = PowerPreference.getDefaultFile().setObject("Sabato", sabato);
         Giorno domenica = new Giorno(7, "Domenica");
         result = PowerPreference.getDefaultFile().setObject("Domenica", domenica);
+
     }
+
+
 }
