@@ -1,20 +1,16 @@
 package com.sviluppotrilo.trilo;
 
-import com.sviluppotrilo.trilo.Controller.ViaggioController;
-import com.sviluppotrilo.trilo.Domain.Corsa;
-import com.sviluppotrilo.trilo.Domain.Giorno;
-import com.sviluppotrilo.trilo.Domain.RoutineSettimanale;
-import com.sviluppotrilo.trilo.Domain.Soluzione;
-import com.sviluppotrilo.trilo.Domain.Stazione;
-import com.sviluppotrilo.trilo.Domain.Tratta;
-import com.sviluppotrilo.trilo.Domain.Viaggio;
+import com.sviluppotrilo.trilo.controllers.ViaggioController;
+import com.sviluppotrilo.trilo.domain.Corsa;
+import com.sviluppotrilo.trilo.domain.Soluzione;
+import com.sviluppotrilo.trilo.domain.Stazione;
+import com.sviluppotrilo.trilo.domain.Tratta;
+import com.sviluppotrilo.trilo.domain.Viaggio;
+import com.sviluppotrilo.trilo.domain.ViaggioException;
 
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class ViaggioTest {
 
@@ -38,7 +34,7 @@ public class ViaggioTest {
         System.out.println(v);
     }
     @Test
-    public void testProva() throws ViaggioException{
+    public void testProva() throws ViaggioException {
         Stazione origine = new Stazione("Baruccana", "1918");
         Stazione destinazione = new Stazione("Camnago", "1316");
         String data = "2020-01-20";

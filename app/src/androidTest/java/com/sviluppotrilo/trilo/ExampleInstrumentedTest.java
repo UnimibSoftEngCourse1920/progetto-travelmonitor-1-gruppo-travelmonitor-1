@@ -5,6 +5,8 @@ import android.content.Context;
 import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
+import com.sviluppotrilo.trilo.domain.Stazione;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -23,5 +25,11 @@ public class ExampleInstrumentedTest {
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
         assertEquals("com.sviluppotrilo.trilo", appContext.getPackageName());
+    }
+    @Test
+    public void prova() {
+        Stazione s = new Stazione("Prova", "S01925");
+        System.out.println(s.cercaArrivi());
+        System.out.println(s.cercaPartenze());
     }
 }

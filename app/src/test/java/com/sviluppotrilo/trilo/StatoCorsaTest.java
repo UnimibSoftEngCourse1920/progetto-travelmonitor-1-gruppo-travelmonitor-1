@@ -1,29 +1,27 @@
 package com.sviluppotrilo.trilo;
 
-import com.sviluppotrilo.trilo.Controller.ViaggioController;
-import com.sviluppotrilo.trilo.Domain.Corsa;
-import com.sviluppotrilo.trilo.Domain.Giorno;
-import com.sviluppotrilo.trilo.Domain.Stazione;
-import com.sviluppotrilo.trilo.Domain.Partenze;
-import com.sviluppotrilo.trilo.Domain.Arrivi;
-import com.sviluppotrilo.trilo.Domain.CorsaState;
-import com.sviluppotrilo.trilo.Domain.NonPartito;
-import com.sviluppotrilo.trilo.Domain.Soluzione;
-import com.sviluppotrilo.trilo.Domain.Viaggio;
-import com.sviluppotrilo.trilo.Domain.Tratta;
+import com.sviluppotrilo.trilo.controllers.ViaggioController;
+import com.sviluppotrilo.trilo.domain.Corsa;
+import com.sviluppotrilo.trilo.domain.Giorno;
+import com.sviluppotrilo.trilo.domain.Stazione;
+import com.sviluppotrilo.trilo.domain.Partenze;
+import com.sviluppotrilo.trilo.domain.Arrivi;
+import com.sviluppotrilo.trilo.domain.CorsaState;
+import com.sviluppotrilo.trilo.domain.NonPartito;
+import com.sviluppotrilo.trilo.domain.Soluzione;
+import com.sviluppotrilo.trilo.domain.Viaggio;
+import com.sviluppotrilo.trilo.domain.Tratta;
 import java.util.List;
 import java.util.ArrayList;
 
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class StatoCorsaTest {
 
     @Test
     public void treniInPartenza() {
         try {
-            Partenze[] p = new Partenze().find(new Stazione("Cesano Maderno","S01086"));
+            Partenze[] p = new Stazione("Cesano Maderno","S01086").cercaPartenze();
             for (Partenze partenza : p)
                 System.out.println(partenza.toString());
         } catch (Exception e) {
@@ -34,7 +32,7 @@ public class StatoCorsaTest {
     @Test
     public void treniInArrivo(){
         try{
-            Arrivi[] a = new Arrivi().find(new Stazione("P Garibaldi-passante","S01647"));
+            Arrivi[] a = new Stazione("P Garibaldi-passante","S01647").cercaArrivi();
             for(Arrivi arrivo : a)
                 System.out.println(arrivo.toString());
         } catch(Exception e) {
@@ -42,32 +40,6 @@ public class StatoCorsaTest {
         }
     }
 
-
-    @Test
-    public void arriviConController(){
-        Stazione stazione = new Stazione("P Garibaldi-passante","S01647");
-        ViaggioController c = new ViaggioController();
-        try{
-            Arrivi[] a = c.cercaTabelloneArrivi(stazione);
-            for(Arrivi arrivo : a)
-                System.out.println(arrivo.toString());
-        }catch(Exception e){
-            System.out.println("Errore");
-        }
-    }
-
-    @Test
-    public void partenzeConController(){
-        Stazione stazione = new Stazione("P Garibaldi-passante","S01647");
-        ViaggioController c = new ViaggioController();
-        try{
-            Partenze[] a = c.cercaTabellonePartenze(stazione);
-            for(Partenze arrivo : a)
-                System.out.println(arrivo.toString());
-        }catch(Exception e){
-            System.out.println("Errore");
-        }
-    }
 
     @Test
     public void cercaUnaCorsa(){
@@ -83,7 +55,7 @@ public class StatoCorsaTest {
         ViaggioController c= new ViaggioController();
         Stazione origine = new Stazione("SEVESO", "S01925");
         String numeroTreno="20245";
-        Corsa corsa = c.cercaCorsa(origine,numeroTreno);
+        Corsa corsa = c.cercaCorsa(origine, numeroTreno);
         CorsaState s = new NonPartito();
         CorsaState s1=s.statoCorsa(corsa);
         System.out.println(s1.getClass());

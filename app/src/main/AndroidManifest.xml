@@ -13,47 +13,47 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".SplashActivity">
+        <activity android:name=".gui.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".Preferiti">
+        <activity android:name=".gui.Preferiti">
         </activity>
 
-        <activity android:name=".Impostazioni">
+        <activity android:name=".gui.Impostazioni">
         </activity>
 
-        <activity android:name=".Profilo"
+        <activity android:name=".gui.Profilo"
             android:windowSoftInputMode="stateHidden">
         </activity>
 
-        <activity android:name=".CercaViaggio"
+        <activity android:name=".gui.CercaViaggio"
             android:windowSoftInputMode="stateHidden">
         </activity>
 
-        <activity android:name=".Mappa">
+        <activity android:name=".gui.Mappa">
         </activity>
 
-        <activity android:name=".Social">
+        <activity android:name=".gui.Social">
         </activity>
 
-        <activity android:name=".RisultatiCercaViaggio">
+        <activity android:name=".gui.RisultatiCercaViaggio">
         </activity>
 
-        <activity android:name=".CercaStazione">
+        <activity android:name=".gui.CercaStazione">
         </activity>
 
-        <activity android:name=".RisultatiCercaStazione">
+        <activity android:name=".gui.RisultatiCercaStazione">
         </activity>
 
-        <activity android:name=".AboutUs">
+        <activity android:name=".gui.AboutUs">
         </activity>
 
         <service
-            android:name=".Schedulatore"
+            android:name=".gui.Schedulatore"
             android:permission="android.permission.BIND_JOB_SERVICE" />
     </application>
 
