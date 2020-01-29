@@ -1,28 +1,20 @@
 package com.sviluppotrilo.trilo;
 
-import android.app.Notification;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
+
 import android.app.job.JobInfo;
 import android.app.job.JobScheduler;
 import android.content.ComponentName;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
-import android.view.View;
 import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
 
 import com.jakewharton.threetenabp.AndroidThreeTen;
 import com.preference.PowerPreference;
 import com.sviluppotrilo.trilo.Domain.Giorno;
-import com.sviluppotrilo.trilo.Domain.NotificaRitardo;
-import com.sviluppotrilo.trilo.Domain.RoutineSettimanale;
 
 
 public class SplashActivity extends AppCompatActivity {
@@ -42,6 +34,9 @@ public class SplashActivity extends AppCompatActivity {
 
         //Inizializza la libreria LocalDate
         AndroidThreeTen.init(this);
+
+        //Inizializza il canale su cui inviare le notifiche push
+        PushNotification.init(this);
 
         // Creo un thread per l'avanzamento della ProgressBar
         new Thread(new Runnable() {
@@ -94,7 +89,7 @@ public class SplashActivity extends AppCompatActivity {
         }
     }
 
-    private void firstRun(){
+    private void firstRun() {
         Giorno lunedi = new Giorno(1, "Lunedi");
         boolean result = PowerPreference.getDefaultFile().setObject("Lunedi", lunedi);
         Giorno martedi = new Giorno(2, "Martedi");
@@ -109,5 +104,8 @@ public class SplashActivity extends AppCompatActivity {
         result = PowerPreference.getDefaultFile().setObject("Sabato", sabato);
         Giorno domenica = new Giorno(7, "Domenica");
         result = PowerPreference.getDefaultFile().setObject("Domenica", domenica);
+
     }
+
+
 }

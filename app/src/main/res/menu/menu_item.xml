@@ -14,9 +14,6 @@
     <item
         android:id="@+id/socialnetwork"
         android:title="Social Network" />
-    <item
-        android:id="@+id/gestiscinotifiche"
-        android:title="Gestisci notifiche" />
 
     <item
         android:id="@+id/impostazioni"
