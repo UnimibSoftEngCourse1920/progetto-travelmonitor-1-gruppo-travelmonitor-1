@@ -139,7 +139,7 @@
                         android:textColorHighlight="@android:color/holo_green_dark"
                         android:textColorHint="@color/colorAccent"
                         android:thumbTint="@color/colorPrimary"
-                        android:trackTint="@color/colorAccent" />
+                        android:trackTint="@color/colorAccent"/>
 
                     <TextView
                         android:id="@+id/textView2"
@@ -218,7 +218,7 @@
                         android:textColorHighlight="@android:color/holo_green_dark"
                         android:textColorHint="@color/colorAccent"
                         android:thumbTint="@color/colorPrimary"
-                        android:trackTint="@color/colorAccent" />
+                        android:trackTint="@color/colorAccent"/>
 
                     <TextView
                         android:id="@+id/textView3"
@@ -297,7 +297,7 @@
                         android:textColorHighlight="@android:color/holo_green_dark"
                         android:textColorHint="@color/colorAccent"
                         android:thumbTint="@color/colorPrimary"
-                        android:trackTint="@color/colorAccent" />
+                        android:trackTint="@color/colorAccent"/>
 
                     <TextView
                         android:id="@+id/textView6"

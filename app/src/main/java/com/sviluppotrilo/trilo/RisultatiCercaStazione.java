@@ -26,15 +26,13 @@ public class RisultatiCercaStazione extends AppCompatActivity {
 
 
     RecyclerView recyclerView;
-    ArrayList<Arrivi> soluzioniA;
-    ArrayList<Partenze> soluzioniP;
     RecyclerView.Adapter adapter;
     Button back;
-    TextView nomestazione;
     ProgressBar caricamento;
     String nomeStazione;
     String idStazione;
     TabLayout tabLayout;
+    TextView nomeStazioneCorrente;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,11 +49,11 @@ public class RisultatiCercaStazione extends AppCompatActivity {
 
         caricamento = findViewById(R.id.caricamento);
         recyclerView = findViewById(R.id.recicleviewtabellone);
-
+        nomeStazioneCorrente = findViewById(R.id.nomestazionecorrente);
         Intent intent = getIntent();
         nomeStazione = intent.getStringExtra("nomeStazione");
         idStazione = intent.getStringExtra("idStazione");
-
+        nomeStazioneCorrente.setText(nomeStazione);
         tabLayout = findViewById(R.id.tabLayout);
 
 
