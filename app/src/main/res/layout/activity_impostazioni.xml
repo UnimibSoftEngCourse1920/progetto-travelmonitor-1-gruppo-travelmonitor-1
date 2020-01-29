@@ -110,20 +110,21 @@
 
                     <TextView
                         android:id="@+id/textView1"
-                        android:layout_width="250dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
                         android:layout_marginStart="15dp"
                         android:layout_marginTop="11dp"
                         android:gravity="center_vertical"
-                        android:text="Notifiche"
+                        android:maxWidth="260dp"
+                        android:text="Notifiche ritardi"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="24sp"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
 
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chip1"
+                    <Switch
+                        android:id="@+id/switch1"
                         android:layout_width="62dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
@@ -132,20 +133,33 @@
                         android:layout_marginTop="19dp"
                         android:layout_marginEnd="16dp"
                         android:layout_marginBottom="19dp"
-                        android:gravity="clip_vertical" />
+                        android:foregroundTint="@color/colorPrimary"
+                        android:gravity="clip_vertical"
+                        android:shadowColor="@color/colorAccent"
+                        android:textColorHighlight="@android:color/holo_green_dark"
+                        android:textColorHint="@color/colorAccent"
+                        android:thumbTint="@color/colorPrimary"
+                        android:trackTint="@color/colorAccent" />
 
                     <TextView
                         android:id="@+id/textView2"
-                        android:layout_width="250dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/textView1"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentBottom="true"
                         android:layout_marginStart="15dp"
                         android:layout_marginTop="0dp"
                         android:layout_marginBottom="11dp"
+                        android:ellipsize="marquee"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
                         android:gravity="center_vertical"
-                        android:text="Notifiche"
+                        android:isScrollContainer="true"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:maxWidth="220dp"
+                        android:scrollHorizontally="true"
+                        android:singleLine="true"
+                        android:text="Notificami quando uno dei miei treni ritarda"
                         android:textColor="@color/colorPrimary"
                         android:textSize="12sp" />
 
@@ -174,20 +188,21 @@
 
                     <TextView
                         android:id="@+id/textView4"
-                        android:layout_width="250dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
                         android:layout_marginStart="15dp"
                         android:layout_marginTop="11dp"
                         android:gravity="center_vertical"
-                        android:text="Notifiche"
+                        android:maxWidth="260dp"
+                        android:text="Notifiche cancellazioni"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="24sp"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
 
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chip2"
+                    <Switch
+                        android:id="@+id/switch2"
                         android:layout_width="62dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
@@ -197,19 +212,33 @@
                         android:layout_marginTop="19dp"
                         android:layout_marginEnd="16dp"
                         android:layout_marginBottom="19dp"
-                        android:gravity="clip_vertical" />
+                        android:foregroundTint="@color/colorPrimary"
+                        android:gravity="clip_vertical"
+                        android:shadowColor="@color/colorAccent"
+                        android:textColorHighlight="@android:color/holo_green_dark"
+                        android:textColorHint="@color/colorAccent"
+                        android:thumbTint="@color/colorPrimary"
+                        android:trackTint="@color/colorAccent" />
 
                     <TextView
                         android:id="@+id/textView3"
-                        android:layout_width="250dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentBottom="true"
                         android:layout_marginStart="15dp"
                         android:layout_marginTop="0dp"
                         android:layout_marginBottom="11dp"
+                        android:ellipsize="marquee"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
                         android:gravity="center_vertical"
-                        android:text="Notifiche"
+                        android:isScrollContainer="true"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:maxWidth="220dp"
+                        android:scrollHorizontally="true"
+                        android:singleLine="true"
+                        android:text="Notificami quando un mio treno è cancellato"
                         android:textColor="@color/colorPrimary"
                         android:textSize="12sp" />
 
@@ -238,20 +267,21 @@
 
                     <TextView
                         android:id="@+id/textView5"
-                        android:layout_width="250dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
                         android:layout_marginStart="15dp"
                         android:layout_marginTop="11dp"
                         android:gravity="center_vertical"
-                        android:text="Notifiche"
+                        android:maxWidth="260dp"
+                        android:text="Notifiche fuori città"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="24sp"
-                        android:textStyle="bold" />
+                        android:textSize="20sp"
+                        android:textStyle="bold"/>
 
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chip3"
+                    <Switch
+                        android:id="@+id/switch3"
                         android:layout_width="62dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
@@ -261,19 +291,33 @@
                         android:layout_marginTop="19dp"
                         android:layout_marginEnd="16dp"
                         android:layout_marginBottom="19dp"
-                        android:gravity="clip_vertical" />
+                        android:foregroundTint="@color/colorPrimary"
+                        android:gravity="clip_vertical"
+                        android:shadowColor="@color/colorAccent"
+                        android:textColorHighlight="@android:color/holo_green_dark"
+                        android:textColorHint="@color/colorAccent"
+                        android:thumbTint="@color/colorPrimary"
+                        android:trackTint="@color/colorAccent" />
 
                     <TextView
                         android:id="@+id/textView6"
-                        android:layout_width="250dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentBottom="true"
                         android:layout_marginStart="15dp"
                         android:layout_marginTop="0dp"
                         android:layout_marginBottom="11dp"
+                        android:ellipsize="marquee"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
                         android:gravity="center_vertical"
-                        android:text="Notifiche"
+                        android:isScrollContainer="true"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:maxWidth="220dp"
+                        android:scrollHorizontally="true"
+                        android:singleLine="true"
+                        android:text="Notificami quando sono fuori città (raggio 10km)"
                         android:textColor="@color/colorPrimary"
                         android:textSize="12sp" />
 
@@ -302,20 +346,21 @@
 
                     <TextView
                         android:id="@+id/textView7"
-                        android:layout_width="250dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
                         android:layout_marginStart="15dp"
                         android:layout_marginTop="11dp"
                         android:gravity="center_vertical"
-                        android:text="Notifiche"
+                        android:maxWidth="260dp"
+                        android:text="Notifiche promemoria"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="24sp"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
 
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chip4"
+                    <Switch
+                        android:id="@+id/switch4"
                         android:layout_width="62dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
@@ -325,19 +370,33 @@
                         android:layout_marginTop="19dp"
                         android:layout_marginEnd="16dp"
                         android:layout_marginBottom="19dp"
-                        android:gravity="clip_vertical" />
+                        android:foregroundTint="@color/colorPrimary"
+                        android:gravity="clip_vertical"
+                        android:shadowColor="@color/colorAccent"
+                        android:textColorHighlight="@android:color/holo_green_dark"
+                        android:textColorHint="@color/colorAccent"
+                        android:thumbTint="@color/colorPrimary"
+                        android:trackTint="@color/colorAccent" />
 
                     <TextView
                         android:id="@+id/textView8"
-                        android:layout_width="250dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentBottom="true"
                         android:layout_marginStart="15dp"
                         android:layout_marginTop="0dp"
                         android:layout_marginBottom="11dp"
+                        android:ellipsize="marquee"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
                         android:gravity="center_vertical"
-                        android:text="Notifiche"
+                        android:isScrollContainer="true"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:maxWidth="220dp"
+                        android:scrollHorizontally="true"
+                        android:singleLine="true"
+                        android:text="Ricordami di rinnovare l'abbonamento mensile"
                         android:textColor="@color/colorPrimary"
                         android:textSize="12sp" />
 
