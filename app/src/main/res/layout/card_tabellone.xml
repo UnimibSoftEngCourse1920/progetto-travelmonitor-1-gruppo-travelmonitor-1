@@ -56,7 +56,7 @@
                 android:gravity="center_vertical"
                 android:hint="TABELLONE"
                 android:textColor="@color/colorPrimary"
-                android:textSize="18sp" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/ora2"
@@ -70,7 +70,7 @@
                 android:gravity="center_vertical"
                 android:hint="TABELLONE"
                 android:textColor="@color/colorPrimary"
-                android:textSize="18sp" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/ora3"
@@ -84,7 +84,7 @@
                 android:gravity="center_vertical"
                 android:hint="TABELLONE"
                 android:textColor="@color/colorPrimary"
-                android:textSize="18sp" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/ora4"
@@ -98,7 +98,7 @@
                 android:gravity="center_vertical"
                 android:hint="TABELLONE"
                 android:textColor="@color/colorPrimary"
-                android:textSize="18sp" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/ora5"
@@ -112,7 +112,7 @@
                 android:gravity="center_vertical"
                 android:hint="TABELLONE"
                 android:textColor="@color/colorPrimary"
-                android:textSize="18sp" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/ora6"
@@ -126,7 +126,7 @@
                 android:gravity="center_vertical"
                 android:hint="TABELLONE"
                 android:textColor="@color/colorPrimary"
-                android:textSize="18sp" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/ora7"
@@ -140,7 +140,7 @@
                 android:gravity="center_vertical"
                 android:hint="TABELLONE"
                 android:textColor="@color/colorPrimary"
-                android:textSize="18sp" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/ora8"
@@ -154,7 +154,7 @@
                 android:gravity="center_vertical"
                 android:hint="TABELLONE"
                 android:textColor="@color/colorPrimary"
-                android:textSize="18sp" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/ora9"
@@ -168,7 +168,7 @@
                 android:gravity="center_vertical"
                 android:hint="TABELLONE"
                 android:textColor="@color/colorPrimary"
-                android:textSize="18sp" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/ora10"
@@ -182,7 +182,7 @@
                 android:gravity="center_vertical"
                 android:hint="TABELLONE"
                 android:textColor="@color/colorPrimary"
-                android:textSize="18sp" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/treno1"
@@ -197,7 +197,7 @@
                 android:hint="TABELLONE"
                 android:textAlignment="inherit"
                 android:textColor="@color/colorPrimary"
-                android:textSize="18sp"
+                android:textSize="12sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -213,7 +213,7 @@
                 android:hint="TABELLONE"
                 android:textAlignment="inherit"
                 android:textColor="@color/colorPrimary"
-                android:textSize="18sp"
+                android:textSize="12sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -229,7 +229,7 @@
                 android:hint="TABELLONE"
                 android:textAlignment="inherit"
                 android:textColor="@color/colorPrimary"
-                android:textSize="18sp"
+                android:textSize="12sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -245,7 +245,7 @@
                 android:hint="TABELLONE"
                 android:textAlignment="inherit"
                 android:textColor="@color/colorPrimary"
-                android:textSize="18sp"
+                android:textSize="12sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -261,7 +261,7 @@
                 android:hint="TABELLONE"
                 android:textAlignment="inherit"
                 android:textColor="@color/colorPrimary"
-                android:textSize="18sp"
+                android:textSize="12sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -277,7 +277,7 @@
                 android:hint="TABELLONE"
                 android:textAlignment="inherit"
                 android:textColor="@color/colorPrimary"
-                android:textSize="18sp"
+                android:textSize="12sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -293,7 +293,7 @@
                 android:hint="TABELLONE"
                 android:textAlignment="inherit"
                 android:textColor="@color/colorPrimary"
-                android:textSize="18sp"
+                android:textSize="12sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -309,7 +309,7 @@
                 android:hint="TABELLONE"
                 android:textAlignment="inherit"
                 android:textColor="@color/colorPrimary"
-                android:textSize="18sp"
+                android:textSize="12sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -325,7 +325,7 @@
                 android:hint="TABELLONE"
                 android:textAlignment="inherit"
                 android:textColor="@color/colorPrimary"
-                android:textSize="18sp"
+                android:textSize="12sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -341,7 +341,7 @@
                 android:hint="TABELLONE"
                 android:textAlignment="inherit"
                 android:textColor="@color/colorPrimary"
-                android:textSize="18sp"
+                android:textSize="12sp"
                 android:textStyle="bold" />
 
 

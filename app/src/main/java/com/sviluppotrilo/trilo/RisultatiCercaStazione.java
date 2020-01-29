@@ -65,16 +65,22 @@ public class RisultatiCercaStazione extends AppCompatActivity {
         new Thread(new Runnable() {
             public void run(){
                 final Stazione stazione = new Stazione(nomeStazione, idStazione);
-                try {
-                    Arrivi[] arrivi = Arrivi.find(stazione);
-                    Partenze[] partenze = Partenze.find(stazione);
-                    recyclerView.setHasFixedSize(true);
-                    adapter = new MyAdapterTabellone(RisultatiCercaStazione.this, stazione, arrivi, partenze);
-                    recyclerView.setLayoutManager(new GridLayoutManager(RisultatiCercaStazione.this, 1));
-                    recyclerView.setAdapter(adapter);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                ViaggioController vc = new ViaggioController();
+                final Arrivi[] arrivi = vc.cercaTabelloneArrivi(stazione);
+                final Partenze[] partenze = vc.cercaTabellonePartenze(stazione);
+                runOnUiThread(new Runnable(){
+                    @Override
+                    public void run() {
+                        try {
+                            recyclerView.setHasFixedSize(true);
+                            adapter = new MyAdapterTabellone(RisultatiCercaStazione.this, stazione, arrivi, partenze);
+                            recyclerView.setLayoutManager(new GridLayoutManager(RisultatiCercaStazione.this, 1));
+                            recyclerView.setAdapter(adapter);
+                        }catch(Exception e){
+
+                        }
+                    }
+                });
             }
         }).start();
 

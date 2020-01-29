@@ -39,18 +39,29 @@ public class MyAdapterTabellone extends RecyclerView.Adapter<MyCardTabellone> {
     @Override
     public void onBindViewHolder(@NonNull MyCardTabellone holder, final int i) {
         ArrayList<Arrivi> arrivi = new ArrayList<>();
-        for(Arrivi a: datiTabelloneArrivi){
-            arrivi.add(a);
-        }
+        System.out.println("PROVA: "+datiTabelloneArrivi);
 
-        holder.treno1.setText(arrivi.get(1).getOrigine());
-        holder.treno2.setText(arrivi.get(2).getOrigine());
-        holder.ora1.setText((int) arrivi.get(1).getOrarioArrivo());
+
+        holder.treno1.setText(datiTabelloneArrivi[0].getOrigine());
+        holder.treno2.setText(datiTabelloneArrivi[1].getOrigine());
+        holder.treno3.setText(datiTabelloneArrivi[2].getOrigine());
+        holder.treno4.setText(datiTabelloneArrivi[3].getOrigine());
+        holder.treno5.setText(datiTabelloneArrivi[4].getOrigine());
+        holder.treno6.setText(datiTabelloneArrivi[5].getOrigine());
+        holder.treno7.setText(datiTabelloneArrivi[6].getOrigine());
+        holder.treno8.setText(datiTabelloneArrivi[7].getOrigine());
+        /*
+        holder.ora1.setText((int) arrivi.get(0).getOrarioArrivo());
         holder.ora2.setText((int) arrivi.get(1).getOrarioArrivo());
+        holder.ora3.setText((int) arrivi.get(2).getOrarioArrivo());
+        holder.ora4.setText((int) arrivi.get(3).getOrarioArrivo());
+        holder.ora5.setText((int) arrivi.get(4).getOrarioArrivo());
+        holder.ora6.setText((int) arrivi.get(5).getOrarioArrivo());
+         */
     }
 
     @Override
     public int getItemCount() {
-        return 10;
+        return 1;
     }
 }
