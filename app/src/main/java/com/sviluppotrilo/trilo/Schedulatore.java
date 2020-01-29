@@ -2,18 +2,10 @@ package com.sviluppotrilo.trilo;
 
 import android.app.job.JobParameters;
 import android.app.job.JobService;
-import android.icu.util.TimeUnit;
-import android.text.format.Time;
 
-import com.sviluppotrilo.trilo.Domain.Arrivato;
-import com.sviluppotrilo.trilo.Domain.Giorno;
-import com.sviluppotrilo.trilo.Domain.InOrario;
-import com.sviluppotrilo.trilo.Domain.NonPartito;
 import com.sviluppotrilo.trilo.Domain.RoutineSettimanale;
 import com.sviluppotrilo.trilo.Domain.Soluzione;
-import com.sviluppotrilo.trilo.Domain.Tratta;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 
 public class Schedulatore extends JobService {

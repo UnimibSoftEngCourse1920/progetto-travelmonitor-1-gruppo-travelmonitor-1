@@ -14,11 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.sviluppotrilo.trilo.Domain.Arrivi;
-import com.sviluppotrilo.trilo.Domain.Partenze;
 import com.sviluppotrilo.trilo.Domain.Stazione;
-
-import java.util.ArrayList;
 
 public class CercaStazione extends AppCompatActivity {
 

@@ -1,12 +1,11 @@
 package com.sviluppotrilo.trilo;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Adapter;
+import android.webkit.WebSettings;
+import android.webkit.WebViewClient;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -14,16 +13,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.sviluppotrilo.trilo.CercaViaggio;
+import com.google.android.material.tabs.TabLayout;
 import com.sviluppotrilo.trilo.Controller.ViaggioController;
 import com.sviluppotrilo.trilo.Domain.Arrivi;
 import com.sviluppotrilo.trilo.Domain.Partenze;
-import com.sviluppotrilo.trilo.Domain.Soluzione;
 import com.sviluppotrilo.trilo.Domain.Stazione;
-import com.sviluppotrilo.trilo.Domain.Viaggio;
-import com.sviluppotrilo.trilo.MyAdapterViaggio;
-import com.sviluppotrilo.trilo.Preferiti;
-import com.sviluppotrilo.trilo.R;
 
 import java.util.ArrayList;
 
@@ -40,6 +34,7 @@ public class RisultatiCercaStazione extends AppCompatActivity {
     ProgressBar caricamento;
     String nomeStazione;
     String idStazione;
+    TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +56,8 @@ public class RisultatiCercaStazione extends AppCompatActivity {
         nomeStazione = intent.getStringExtra("nomeStazione");
         idStazione = intent.getStringExtra("idStazione");
 
+        tabLayout = findViewById(R.id.tabLayout);
+
 
         new Thread(new Runnable() {
             public void run(){
@@ -71,11 +68,42 @@ public class RisultatiCercaStazione extends AppCompatActivity {
                 runOnUiThread(new Runnable(){
                     @Override
                     public void run() {
+                        int pos = 0;
+                        recyclerView.setHasFixedSize(true);
+                        adapter = new MyAdapterTabellone(RisultatiCercaStazione.this, stazione, arrivi, partenze, pos);
+                        recyclerView.setLayoutManager(new GridLayoutManager(RisultatiCercaStazione.this, 1));
+                        recyclerView.setAdapter(adapter);
                         try {
-                            recyclerView.setHasFixedSize(true);
-                            adapter = new MyAdapterTabellone(RisultatiCercaStazione.this, stazione, arrivi, partenze);
-                            recyclerView.setLayoutManager(new GridLayoutManager(RisultatiCercaStazione.this, 1));
-                            recyclerView.setAdapter(adapter);
+                            tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+                                @Override
+                                public void onTabSelected(TabLayout.Tab tab) {
+                                    int count = tabLayout.getSelectedTabPosition();
+                                    if(count == 0) {
+                                        int pos = 0;
+                                        recyclerView.setHasFixedSize(true);
+                                        adapter = new MyAdapterTabellone(RisultatiCercaStazione.this, stazione, arrivi, partenze, pos);
+                                        recyclerView.setLayoutManager(new GridLayoutManager(RisultatiCercaStazione.this, 1));
+                                        recyclerView.setAdapter(adapter);
+                                    }
+                                    else {
+                                        int pos = 1;
+                                        recyclerView.setHasFixedSize(true);
+                                        adapter = new MyAdapterTabellone(RisultatiCercaStazione.this, stazione, arrivi, partenze, pos);
+                                        recyclerView.setLayoutManager(new GridLayoutManager(RisultatiCercaStazione.this, 1));
+                                        recyclerView.setAdapter(adapter);
+                                    }
+                                }
+                                @Override
+                                public void onTabUnselected(TabLayout.Tab tab) {
+
+                                }
+
+                                @Override
+                                public void onTabReselected(TabLayout.Tab tab) {
+                                    // Auto-generated method
+                                }
+                            });
+
                         }catch(Exception e){
 
                         }

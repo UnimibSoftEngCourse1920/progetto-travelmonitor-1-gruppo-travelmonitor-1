@@ -1,6 +1,5 @@
 package com.sviluppotrilo.trilo;
 
-import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.job.JobInfo;
@@ -11,18 +10,13 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
-import android.view.View;
 import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
 
 import com.jakewharton.threetenabp.AndroidThreeTen;
 import com.preference.PowerPreference;
 import com.sviluppotrilo.trilo.Domain.Giorno;
-import com.sviluppotrilo.trilo.Domain.NotificaRitardo;
-import com.sviluppotrilo.trilo.Domain.RoutineSettimanale;
 
 
 public class SplashActivity extends AppCompatActivity {
@@ -39,9 +33,9 @@ public class SplashActivity extends AppCompatActivity {
 
         //Inizializzazione dei preferiti
         initPreferiti();
-
         //Inizializza la libreria LocalDate
-        AndroidThreeTen.init(this);
+        AndroidThreeTen.init(SplashActivity.this);
+
         String CHANNEL_1_ID = "channel1";
         SendNotification.init(this);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -65,6 +59,7 @@ public class SplashActivity extends AppCompatActivity {
                     myHandler.post(new Runnable() {
                         @Override
                         public void run() {
+                            scheduleJob();
                             mProgressBar.setProgress(mProgressStatus);
                         }
                     });
@@ -73,7 +68,6 @@ public class SplashActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         // Quando la ProgressBar arriva al 100% viene aperta la Preferiti e "chiusa" quella attuale(SplashActivity)
-                        scheduleJob();
                         startActivity(new Intent(SplashActivity.this, Preferiti.class));
                         finish();
                     }

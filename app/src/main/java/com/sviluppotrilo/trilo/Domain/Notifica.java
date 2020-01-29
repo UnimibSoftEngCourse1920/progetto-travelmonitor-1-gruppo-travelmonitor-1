@@ -26,7 +26,7 @@ public abstract class Notifica {
         String message1 = testoNotifica;
         String CHANNEL_1_ID = "channel1";
         Notification notification1 = new NotificationCompat.Builder(context, CHANNEL_1_ID)
-                .setSmallIcon(R.drawable.logo_black)
+                .setSmallIcon(R.drawable.notification_icon)
                 .setContentTitle(title1)
                 .setContentText(message1)
                 .setPriority(NotificationCompat.PRIORITY_LOW)
