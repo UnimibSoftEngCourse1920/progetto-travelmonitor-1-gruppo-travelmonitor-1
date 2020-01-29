@@ -8,6 +8,16 @@
     android:background="@color/colorAccent"
     tools:context=".Preferiti">
 
+    <ProgressBar
+        android:id="@+id/caricamento"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/profilebar"
         android:layout_width="0dp"
@@ -116,6 +126,7 @@
     </com.google.android.material.tabs.TabLayout>
 
     <ScrollView
+        android:id="@+id/scrollView3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="20dp"
@@ -127,7 +138,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recicleviewtabellone"
@@ -157,6 +168,7 @@
                 app:iconTint="@color/colorPrimary"
                 app:strokeColor="@color/colorPrimary"
                 app:strokeWidth="2dp" />
+
         </RelativeLayout>
 
     </ScrollView>
