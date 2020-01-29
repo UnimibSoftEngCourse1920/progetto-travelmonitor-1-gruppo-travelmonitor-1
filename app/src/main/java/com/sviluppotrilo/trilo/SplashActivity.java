@@ -37,6 +37,8 @@ public class SplashActivity extends AppCompatActivity {
         //Inizializza il canale su cui inviare le notifiche push
         PushNotification.init(this);
 
+        scheduleJob();
+
         // Creo un thread per l'avanzamento della ProgressBar
         new Thread(new Runnable() {
             @Override
@@ -55,7 +57,6 @@ public class SplashActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         // Quando la ProgressBar arriva al 100% viene aperta la Preferiti e "chiusa" quella attuale(SplashActivity)
-                        scheduleJob();
                         startActivity(new Intent(SplashActivity.this, Preferiti.class));
                         finish();
                     }
@@ -70,7 +71,6 @@ public class SplashActivity extends AppCompatActivity {
                 .setPersisted(true)
                 .setPeriodic(15 * 60 * 1000)
                 .build();
-
         JobScheduler scheduler = (JobScheduler) getSystemService(JOB_SCHEDULER_SERVICE);
         int resultCode = scheduler.schedule(info);
         if (resultCode == JobScheduler.RESULT_SUCCESS) {

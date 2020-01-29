@@ -13,21 +13,6 @@ public abstract class Notifica {
     String testoNotifica;
 
     public void invia(){
-        Context context = PushNotification.context;
-        NotificationManagerCompat notificationManager;
-        notificationManager = NotificationManagerCompat.from(context);
-
-
-        String title1 = "Ehi !! Trilo ha una cattiva notizia per te!";
-        String message1 = testoNotifica;
-        String CHANNEL_1_ID = "channel1";
-        Notification notification1 = new NotificationCompat.Builder(context, CHANNEL_1_ID)
-                .setSmallIcon(R.drawable.logo_black)
-                .setContentTitle(title1)
-                .setContentText(message1)
-                .setPriority(NotificationCompat.PRIORITY_LOW)
-                .setGroup("example_group")
-                .build();
-        notificationManager.notify(1, notification1);
+        PushNotification.invia(testoNotifica);
     }
 }
