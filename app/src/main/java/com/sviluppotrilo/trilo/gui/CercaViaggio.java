@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.sviluppotrilo.trilo.DataBaseHelper;
+import com.sviluppotrilo.trilo.data.DataBaseHelper;
 import com.sviluppotrilo.trilo.R;
 
 import java.text.DateFormat;

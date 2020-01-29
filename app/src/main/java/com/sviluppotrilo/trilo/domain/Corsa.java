@@ -2,6 +2,7 @@ package com.sviluppotrilo.trilo.domain;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.sviluppotrilo.trilo.data.UrlLoader;
 
 import java.util.ArrayList;
 import java.util.List;

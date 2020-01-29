@@ -1,6 +1,7 @@
 package com.sviluppotrilo.trilo.domain;
 
 import com.google.gson.Gson;
+import com.sviluppotrilo.trilo.data.UrlLoader;
 
 import java.text.SimpleDateFormat;
 import java.util.Arrays;

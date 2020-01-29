@@ -1,4 +1,4 @@
-package com.sviluppotrilo.trilo.domain;
+package com.sviluppotrilo.trilo.data;
 
 import android.util.Log;
 

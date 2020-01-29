@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.sviluppotrilo.trilo.DataBaseHelper;
+import com.sviluppotrilo.trilo.data.DataBaseHelper;
 import com.sviluppotrilo.trilo.R;
 import com.sviluppotrilo.trilo.domain.Stazione;
 

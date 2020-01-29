@@ -1,4 +1,4 @@
-package com.sviluppotrilo.trilo;
+package com.sviluppotrilo.trilo.data;
 
 import android.content.Context;
 import android.database.Cursor;
