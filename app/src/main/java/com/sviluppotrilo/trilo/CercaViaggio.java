@@ -22,7 +22,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-public class CercaViaggio extends AppCompatActivity{
+public class CercaViaggio extends AppCompatActivity {
 
     DataBaseHelper myDbHelper;
     String[] myData;
@@ -35,6 +35,8 @@ public class CercaViaggio extends AppCompatActivity{
     DatePickerDialog pickerDate;
     TimePickerDialog pickerTime;
     ImageView back;
+    Boolean primaValida = false;
+    Boolean secondaValida = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,26 +80,38 @@ public class CercaViaggio extends AppCompatActivity{
         cerca.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(autoCom1.getText().toString().equals(autoCom2.getText().toString())){
+                if (autoCom1.getText().toString().equals(autoCom2.getText().toString())) {
                     Toast.makeText(CercaViaggio.this, "Devi inserire due stazioni diverse", Toast.LENGTH_LONG).show();
-                }else {
-                    if((autoCom1.getText().toString().equals("")) || (autoCom2.getText().toString().equals(""))){
+                } else {
+                    if ((autoCom1.getText().toString().equals("")) || (autoCom2.getText().toString().equals(""))) {
                         Toast.makeText(CercaViaggio.this, "Devi inserire entrambe le stazioni", Toast.LENGTH_LONG).show();
-                    }else {
-                        String stazionePartenza = getStazionePartenza();
-                        String stazioneArrivo = getStazioneArrivo();
-                        String idStazionePartenza = getIdStazionePartenza(stazionePartenza);
-                        String idStazioneArrivo = getIdStazioneArrivo(stazioneArrivo);
-                        String dataScelta = (String) data.getText();
-                        String oraScelta = (String) ora.getText();
-                        Intent intent = new Intent(CercaViaggio.this, RisultatiCercaViaggio.class);
-                        intent.putExtra("stazionePartenza", stazionePartenza);
-                        intent.putExtra("stazioneArrivo", stazioneArrivo);
-                        intent.putExtra("idStazionePartenza", idStazionePartenza);
-                        intent.putExtra("idStazioneArrivo", idStazioneArrivo);
-                        intent.putExtra("dataScelta", dataScelta);
-                        intent.putExtra("oraScelta", oraScelta);
-                        startActivity(intent);
+                    } else {
+                        for(int i = 0; i<myData.length; i++){
+                            if((myData[i].equals(autoCom1.getText().toString())))
+                                primaValida = true;
+                        }
+                        for(int i = 0; i<myData.length; i++){
+                            if((myData[i].equals(autoCom2.getText().toString())))
+                                secondaValida = true;
+                        }
+                        if (primaValida && secondaValida) {
+                            String stazionePartenza = getStazionePartenza();
+                            String stazioneArrivo = getStazioneArrivo();
+                            String idStazionePartenza = getIdStazionePartenza(stazionePartenza);
+                            String idStazioneArrivo = getIdStazioneArrivo(stazioneArrivo);
+                            String dataScelta = (String) data.getText();
+                            String oraScelta = (String) ora.getText();
+                            Intent intent = new Intent(CercaViaggio.this, RisultatiCercaViaggio.class);
+                            intent.putExtra("stazionePartenza", stazionePartenza);
+                            intent.putExtra("stazioneArrivo", stazioneArrivo);
+                            intent.putExtra("idStazionePartenza", idStazionePartenza);
+                            intent.putExtra("idStazioneArrivo", idStazioneArrivo);
+                            intent.putExtra("dataScelta", dataScelta);
+                            intent.putExtra("oraScelta", oraScelta);
+                            startActivity(intent);
+                        } else {
+                            Toast.makeText(CercaViaggio.this, "Seleziona stazioni proposte", Toast.LENGTH_LONG).show();
+                        }
                     }
                 }
             }
@@ -116,17 +130,17 @@ public class CercaViaggio extends AppCompatActivity{
                 final int month = cldr.get(Calendar.MONTH);
                 int year = cldr.get(Calendar.YEAR);
                 // date picker dialog
-                pickerDate = new DatePickerDialog(CercaViaggio.this,R.style.MyDatePickerStyle,
+                pickerDate = new DatePickerDialog(CercaViaggio.this, R.style.MyDatePickerStyle,
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                                String monthFix= String.valueOf(monthOfYear+1);
-                                if(monthFix.length()==1)
-                                    monthFix= "0"+(monthFix);
-                                String dayFix= String.valueOf(dayOfMonth);
-                                if(dayFix.length()==1)
-                                    dayFix= "0"+(dayFix);
-                                data.setText(year +"-"+(monthFix)+"-"+dayFix);
+                                String monthFix = String.valueOf(monthOfYear + 1);
+                                if (monthFix.length() == 1)
+                                    monthFix = "0" + (monthFix);
+                                String dayFix = String.valueOf(dayOfMonth);
+                                if (dayFix.length() == 1)
+                                    dayFix = "0" + (dayFix);
+                                data.setText(year + "-" + (monthFix) + "-" + dayFix);
                             }
                         }, year, month, day);
                 pickerDate.show();
@@ -139,16 +153,16 @@ public class CercaViaggio extends AppCompatActivity{
                 int hour = cldr.get(Calendar.HOUR_OF_DAY);
                 int minutes = cldr.get(Calendar.MINUTE);
                 // time picker dialog
-                pickerTime = new TimePickerDialog(CercaViaggio.this,R.style.MyTimePickerStyle,
+                pickerTime = new TimePickerDialog(CercaViaggio.this, R.style.MyTimePickerStyle,
                         new TimePickerDialog.OnTimeSetListener() {
                             @Override
                             public void onTimeSet(TimePicker tp, int sHour, int sMinute) {
-                                String sHourFix= String.valueOf(sHour);
-                                if(sHourFix.length()==1)
-                                    sHourFix= "0"+(sHourFix);
-                                String sMinuteFix= String.valueOf(sMinute);
-                                if(sMinuteFix.length()==1)
-                                    sMinuteFix= "0"+(sMinuteFix);
+                                String sHourFix = String.valueOf(sHour);
+                                if (sHourFix.length() == 1)
+                                    sHourFix = "0" + (sHourFix);
+                                String sMinuteFix = String.valueOf(sMinute);
+                                if (sMinuteFix.length() == 1)
+                                    sMinuteFix = "0" + (sMinuteFix);
                                 ora.setText(sHourFix + ":" + sMinuteFix);
                             }
                         }, hour, minutes, true);

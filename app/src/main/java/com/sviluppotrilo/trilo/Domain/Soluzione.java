@@ -1,5 +1,6 @@
 package com.sviluppotrilo.trilo.Domain;
 
+import com.sviluppotrilo.trilo.NotificaObserver;
 import com.sviluppotrilo.trilo.ViaggioException;
 
 import java.util.ArrayList;
@@ -56,6 +57,8 @@ public class Soluzione {
 
     public void controllaTratte() throws ViaggioException {
         for (Tratta t : getTratte()) {
+            if(t.countObservers() == 0)
+                t.addObserver(new NotificaObserver());
             t.update();
         }
     }
