@@ -2,6 +2,12 @@ package com.sviluppotrilo.trilo.Domain;
 
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+
+import java.util.Comparator;
+
 public class Partenze {
     private String numeroTreno;
     private String categoria;
@@ -79,6 +85,7 @@ public class Partenze {
                 + stazionePartenza.getId() + "/" // solo get id
                 + time.toString() + "%20GMT+0100").getUrlResponse();
         Partenze[] partenze = new Gson().fromJson(jsonPartenza, Partenze[].class);
+        Arrays.sort(partenze, new SortTabellonePartenze());
         return partenze;
     }
 
