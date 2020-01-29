@@ -221,10 +221,6 @@ public class Preferiti extends AppCompatActivity implements NavigationView.OnNav
                 Intent goToCercaStazione = new Intent(Preferiti.this, CercaStazione.class);
                 startActivity(goToCercaStazione);
                 break;
-            case R.id.gestiscinotifiche:
-                //Intent goToNotifiche = new Intent(Preferiti.this, Preferiti.class);
-                //startActivity(goToNotifiche);
-                break;
             case R.id.impostazioni:
                 Intent goToImpostazioni = new Intent(Preferiti.this, Impostazioni.class);
                 startActivity(goToImpostazioni);

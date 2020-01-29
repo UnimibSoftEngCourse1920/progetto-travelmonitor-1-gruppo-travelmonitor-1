@@ -14,7 +14,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.sviluppotrilo.trilo.Domain.Arrivi;
+import com.sviluppotrilo.trilo.Domain.Partenze;
 import com.sviluppotrilo.trilo.Domain.Stazione;
+
+import java.util.ArrayList;
 
 public class CercaStazione extends AppCompatActivity {
 
@@ -27,6 +31,7 @@ public class CercaStazione extends AppCompatActivity {
     String idStazione;
     ImageView back;
     Boolean valida = false;
+    Stazione stazione;
 
     //Visualizzazione
     RecyclerView recyclerView;
@@ -59,6 +64,8 @@ public class CercaStazione extends AppCompatActivity {
 
         stringaStazione = getStazione();
 
+        recyclerView = findViewById(R.id.recyclerView);
+
         cerca = findViewById(R.id.inviocercastazione);
         cerca.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,9 +77,8 @@ public class CercaStazione extends AppCompatActivity {
                 if (valida) {
                     stringaStazione = getStazione();
                     //visualizzazione risultati
-                    final String IdStazione = getIdStazione(stringaStazione);
-                    recyclerView = findViewById(R.id.recyclerView);
-                    final Stazione stazione = new Stazione(stringaStazione, IdStazione);
+                    final String idStazione = getIdStazione(stringaStazione);
+                    stazione = new Stazione(stringaStazione, idStazione);
                     new Thread(new Runnable() {
                         public void run() {
                             runOnUiThread(new Runnable() {
@@ -91,6 +97,25 @@ public class CercaStazione extends AppCompatActivity {
                 }
             }
         });
+
+        recyclerView.addOnItemTouchListener(new RecyclerOnTouchListener(this,
+                recyclerView, new ClickListener() {
+            @Override
+            public void onClick(View view, final int position) {
+                Intent intent = new Intent(CercaStazione.this, RisultatiCercaStazione.class);
+                intent.putExtra("nomeStazione", stringaStazione);
+                intent.putExtra("idStazione", idStazione);
+                startActivity(intent);
+
+            }
+
+            @Override
+            public void onLongClick(View view, final int position) {
+
+            }
+        }));
+
+
 
 
     }
