@@ -49,9 +49,6 @@
         <activity android:name=".AboutUs">
         </activity>
 
-
-        <activity android:name=".Domain.Notifica">
-        </activity>
         <service
             android:name=".Schedulatore"
             android:permission="android.permission.BIND_JOB_SERVICE" />
