@@ -36,12 +36,12 @@ public class Schedulatore extends JobService {
                 final int SECONDO = 1000;
                 final int MINUTO = 60 * SECONDO;
                 final int ORA = 60 * MINUTO;
-                int periodoTempo = 5 * MINUTO;
+                int periodoTempo = 10 * SECONDO;
                 while(true){
                     try {
                         System.out.println("PreferitiAggiornati" + preferiti);
-                        for(Soluzione e: preferiti)
-                            e.controllaTratte();
+                        for(Soluzione preferito: preferiti)
+                            preferito.controllaTratte();
                             Thread.sleep(periodoTempo);
                     } catch (InterruptedException e) {
                         e.printStackTrace();

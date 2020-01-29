@@ -8,16 +8,14 @@ import java.util.Observable;
 import java.util.Observer;
 
 public class NotificaObserver  implements Observer {
-    Corsa corsa;
-    CorsaState stato = new NonPartito();
+    CorsaState stato;
+
+    public NotificaObserver() {
+        stato = new NonPartito();
+    }
+
     @Override
     public void update(Observable observable, Object corsa) {
-        this.setCorsa((Corsa) corsa);
         stato = stato.statoCorsa((Corsa) corsa);
     }
-
-    private void setCorsa(Corsa corsa) {
-        this.corsa = corsa;
-    }
-
 }

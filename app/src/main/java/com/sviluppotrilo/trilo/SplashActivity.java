@@ -62,7 +62,6 @@ public class SplashActivity extends AppCompatActivity {
                     public void run() {
                         // Quando la ProgressBar arriva al 100% viene aperta la Preferiti e "chiusa" quella attuale(SplashActivity)
                         scheduleJob();
-                        new NotificaRitardo(2, 2).invia();
                         startActivity(new Intent(SplashActivity.this, Preferiti.class));
                         finish();
                     }
@@ -81,7 +80,7 @@ public class SplashActivity extends AppCompatActivity {
         JobScheduler scheduler = (JobScheduler) getSystemService(JOB_SCHEDULER_SERVICE);
         int resultCode = scheduler.schedule(info);
         if (resultCode == JobScheduler.RESULT_SUCCESS) {
-            Log.d("P>rova", "Job scheduled");
+            Log.d("Prova", "Job scheduled");
         } else {
             Log.d("Prova", "Job scheduling failed");
         }
