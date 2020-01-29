@@ -3,6 +3,7 @@ package com.sviluppotrilo.trilo;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -207,7 +208,36 @@ public class Preferiti extends AppCompatActivity implements NavigationView.OnNav
             }
         }));
 
+        //tutorial del primo avvio
+        SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
+        boolean firstStart = prefs.getBoolean("firstStart", true);
+
+        if (firstStart) {
+            showStartDialog();
+        }
+        //fine del tutorial
+
     }
+
+    //tutorial del primo avvio
+    private void showStartDialog(){
+        new AlertDialog.Builder(this)
+                .setTitle("BENVENUTO IN TRILO")
+                .setMessage("Trilo è un app che ti permette di avere sotto controllo i tuoi viaggi. Cerca un viaggio, clicca il cuore e salvalo nei giorni che vuoi!")
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+                .create().show();
+
+        SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean("firstStart", false);
+        editor.apply();
+    }
+    //fine metodo tutorial
 
 
     @Override

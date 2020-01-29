@@ -1,12 +1,10 @@
 package com.sviluppotrilo.trilo;
 
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
+
 import android.app.job.JobInfo;
 import android.app.job.JobScheduler;
 import android.content.ComponentName;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -33,22 +31,13 @@ public class SplashActivity extends AppCompatActivity {
 
         //Inizializzazione dei preferiti
         initPreferiti();
+
         //Inizializza la libreria LocalDate
-        AndroidThreeTen.init(SplashActivity.this);
+        AndroidThreeTen.init(this);
 
-        String CHANNEL_1_ID = "channel1";
-        SendNotification.init(this);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationChannel channel1 = new NotificationChannel(
-                    CHANNEL_1_ID,
-                    "Channel 1",
-                    NotificationManager.IMPORTANCE_HIGH
-            );
-            channel1.setDescription("This is Channel 1");
+        //Inizializza il canale su cui inviare le notifiche push
+        PushNotification.init(this);
 
-            NotificationManager manager = getSystemService(NotificationManager.class);
-            manager.createNotificationChannel(channel1);
-        }
         // Creo un thread per l'avanzamento della ProgressBar
         new Thread(new Runnable() {
             @Override
@@ -59,7 +48,6 @@ public class SplashActivity extends AppCompatActivity {
                     myHandler.post(new Runnable() {
                         @Override
                         public void run() {
-                            scheduleJob();
                             mProgressBar.setProgress(mProgressStatus);
                         }
                     });
@@ -68,6 +56,7 @@ public class SplashActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         // Quando la ProgressBar arriva al 100% viene aperta la Preferiti e "chiusa" quella attuale(SplashActivity)
+                        scheduleJob();
                         startActivity(new Intent(SplashActivity.this, Preferiti.class));
                         finish();
                     }
@@ -100,7 +89,7 @@ public class SplashActivity extends AppCompatActivity {
         }
     }
 
-    private void firstRun(){
+    private void firstRun() {
         Giorno lunedi = new Giorno(1, "Lunedi");
         boolean result = PowerPreference.getDefaultFile().setObject("Lunedi", lunedi);
         Giorno martedi = new Giorno(2, "Martedi");
@@ -115,5 +104,8 @@ public class SplashActivity extends AppCompatActivity {
         result = PowerPreference.getDefaultFile().setObject("Sabato", sabato);
         Giorno domenica = new Giorno(7, "Domenica");
         result = PowerPreference.getDefaultFile().setObject("Domenica", domenica);
+
     }
+
+
 }
