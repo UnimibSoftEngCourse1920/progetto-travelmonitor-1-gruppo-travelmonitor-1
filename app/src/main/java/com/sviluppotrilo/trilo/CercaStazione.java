@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -15,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.sviluppotrilo.trilo.Domain.Stazione;
 
-public class CercaStazione extends AppCompatActivity{
+public class CercaStazione extends AppCompatActivity {
 
     DataBaseHelper myDbHelper;
     String[] myData;
@@ -25,6 +26,7 @@ public class CercaStazione extends AppCompatActivity{
     String stringaStazione;
     String idStazione;
     ImageView back;
+    Boolean valida = false;
 
     //Visualizzazione
     RecyclerView recyclerView;
@@ -61,31 +63,34 @@ public class CercaStazione extends AppCompatActivity{
         cerca.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                stringaStazione = getStazione();
-
-                //visualizzazione risultati
-                final String IdStazione= getIdStazione(stringaStazione);
-                recyclerView = findViewById(R.id.recyclerView);
-
-                final Stazione stazione = new Stazione(stringaStazione, IdStazione);
-
-                new Thread(new Runnable() {
-                    public void run(){
-                        runOnUiThread(new Runnable(){
-                            @Override
-                            public void run() {
-                                recyclerView.setHasFixedSize(true);
-                                adapter = new MyAdapterStazione(CercaStazione.this, stazione);
-                                recyclerView.setLayoutManager(new GridLayoutManager(CercaStazione.this,1));
-                                recyclerView.setAdapter(adapter);
-                            }
-                        });
-                    }
-                }).start();
+                for (int i = 0; i < myData.length; i++) {
+                    if ((myData[i].equals(autoCom.getText().toString())))
+                        valida = true;
+                }
+                if (valida) {
+                    stringaStazione = getStazione();
+                    //visualizzazione risultati
+                    final String IdStazione = getIdStazione(stringaStazione);
+                    recyclerView = findViewById(R.id.recyclerView);
+                    final Stazione stazione = new Stazione(stringaStazione, IdStazione);
+                    new Thread(new Runnable() {
+                        public void run() {
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    recyclerView.setHasFixedSize(true);
+                                    adapter = new MyAdapterStazione(CercaStazione.this, stazione);
+                                    recyclerView.setLayoutManager(new GridLayoutManager(CercaStazione.this, 1));
+                                    recyclerView.setAdapter(adapter);
+                                }
+                            });
+                        }
+                    }).start();
+                }else {
+                    Toast.makeText(CercaStazione.this, "Seleziona stazione proposte", Toast.LENGTH_LONG).show();
+                }
             }
         });
-
-
 
 
     }
