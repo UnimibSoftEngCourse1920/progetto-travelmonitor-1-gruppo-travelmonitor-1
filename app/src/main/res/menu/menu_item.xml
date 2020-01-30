@@ -6,7 +6,7 @@
 
     <item
         android:id="@+id/cercaStazione"
-        android:title="Cerca stazione"/>
+        android:title="Cerca stazione" />
 
     <item
         android:id="@+id/profilo"

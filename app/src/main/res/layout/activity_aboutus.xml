@@ -64,6 +64,7 @@
             android:id="@+id/backpage"
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:contentDescription="@android:string/VideoView_error_text_invalid_progressive_playback"
             app:layout_constraintBottom_toTopOf="@+id/guideline9"
             app:layout_constraintStart_toStartOf="@+id/guideline6"
             app:layout_constraintTop_toTopOf="@+id/guideline8"
@@ -71,7 +72,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -81,90 +82,66 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profilebar">
 
-        <TextView
-            android:id="@+id/aboutus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="20dp"
-            android:text="Trilo nasce da un'idea per il progetto di ingegneria del software. L'idea è di gestire l'uso dei treni in modo da poterli salvare e gestire in una routine settimanale, e ricevere su questi particolari informazioni tramite le notifiche."
-            android:textColor="@color/colorPrimary"
-            android:textSize="18sp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/chisiamo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/aboutus"
-            android:layout_marginTop="50dp"
-            android:fontFamily="@font/montserrat_bold"
-            android:text="Chi siamo?"
-            android:textColor="@color/colorPrimary"
-            android:textSize="18sp" />
+            <TextView
+                android:id="@+id/aboutus"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="0dp"
+                android:text="Trilo nasce da un'idea per il progetto di ingegneria del software. L'idea è di gestire l'uso dei treni in modo da poterli salvare e gestire in una routine settimanale, e ricevere su questi particolari informazioni tramite le notifiche."
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/luca"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/chisiamo"
-            android:layout_marginTop="20dp"
-            android:text="Luca Di Meo"
-            android:textColor="@color/colorPrimary"
-            android:textSize="18sp" />
+            <TextView
+                android:id="@+id/chisiamo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/aboutus"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="Chi siamo?"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/lorenzo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/luca"
-            android:layout_marginTop="5dp"
-            android:text="Lorenzo Zorat"
-            android:textColor="@color/colorPrimary"
-            android:textSize="18sp" />
+            <TextView
+                android:id="@+id/noi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/chisiamo"
+                android:layout_marginTop="5dp"
+                android:text="Di Meo Luca, Fermini Simone, Poveromo Marco, Zorat Lorenzo"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/marco"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/lorenzo"
-            android:layout_marginTop="5dp"
-            android:text="Marco Poveromo"
-            android:textColor="@color/colorPrimary"
-            android:textSize="18sp" />
+            <TextView
+                android:id="@+id/develop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/copyright"
+                android:layout_marginTop="5dp"
+                android:text="Università degli studi di Mi Bicocca"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/simone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/marco"
-            android:layout_marginTop="5dp"
-            android:text="Simone Fermini"
-            android:textColor="@color/colorPrimary"
-            android:textSize="18sp" />
+            <TextView
+                android:id="@+id/copyright"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/noi"
+                android:layout_marginTop="100dp"
+                android:text="Copyright 2020"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/copyright"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/simone"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="130dp"
-            android:text="Copyright 2020"
-            android:textColor="@color/colorPrimary"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/develop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/copyright"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="0dp"
-            android:text="Università degli studi di Mi Bicocca"
-            android:textColor="@color/colorPrimary"
-            android:textSize="18sp" />
-
-    </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

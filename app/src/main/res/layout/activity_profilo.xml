@@ -146,7 +146,7 @@
                         android:minWidth="200dp"
                         android:textColor="@color/colorPrimary"
                         android:textColorHint="@color/colorAccent"
-                        android:textSize="24sp">
+                        android:textSize="22sp">
 
                     </com.google.android.material.textfield.TextInputEditText>
 
@@ -168,7 +168,7 @@
                         android:minWidth="200dp"
                         android:textColor="@color/colorPrimary"
                         android:textColorHint="@color/colorAccent"
-                        android:textSize="24sp">
+                        android:textSize="22sp">
 
                     </com.google.android.material.textfield.TextInputEditText>
 

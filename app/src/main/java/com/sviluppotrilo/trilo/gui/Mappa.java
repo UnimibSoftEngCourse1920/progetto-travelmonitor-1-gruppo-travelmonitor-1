@@ -38,12 +38,15 @@ public class Mappa extends AppCompatActivity {
                     case 0:
                         mappa.setBackgroundResource(R.drawable.stibm);
                         titlemappa.setText("MAPPA STIBM");
+                        break;
                     case 1:
                         mappa.setBackgroundResource(R.drawable.linee_regionali);
                         titlemappa.setText("MAPPA LINEE REGIONALI");
+                        break;
                     case 2:
                         mappa.setBackgroundResource(R.drawable.metro_milano);
                         titlemappa.setText("METRO MILANO");
+                        break;
                 }
             }
 
