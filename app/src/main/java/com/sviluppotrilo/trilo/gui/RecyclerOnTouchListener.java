@@ -43,11 +43,11 @@ class RecyclerOnTouchListener implements RecyclerView.OnItemTouchListener{
 
     @Override
     public void onTouchEvent(RecyclerView rv, MotionEvent e) {
-
+        //Auto-generated method
     }
 
     @Override
     public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
-
+        //Auto-generated method
     }
 }

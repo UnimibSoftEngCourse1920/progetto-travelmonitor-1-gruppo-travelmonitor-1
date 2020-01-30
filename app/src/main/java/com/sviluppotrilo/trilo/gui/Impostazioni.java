@@ -1,7 +1,6 @@
 package com.sviluppotrilo.trilo.gui;
 
 import android.content.Intent;
-import android.content.pm.LauncherApps;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
@@ -9,19 +8,17 @@ import android.widget.ImageView;
 import android.widget.Switch;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.preference.PowerPreference;
 import com.sviluppotrilo.trilo.R;
 
 public class Impostazioni extends AppCompatActivity {
 
-    private ImageView back;
-    private Switch notificaRitardo;
-    private Switch notificaCancellazione;
-    private Switch notificaFuoriCitta;
-    private Switch notificaPromemoria;
-
+    public static final String FILENAME = "impostazioni";
+    public static final String NOTIFICARITARDO = "notificaRitardo";
+    public static final String NOTIFICACANCELLAZIONE = "notificaRitardo";
+    public static final String NOTIFICAFUORICITTA= "notificaRitardo";
+    public static final String NOTIFICAPROMEMORIA = "notificaRitardo";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,24 +30,23 @@ public class Impostazioni extends AppCompatActivity {
         findViewById(R.id.textView6).setSelected(true);
         findViewById(R.id.textView8).setSelected(true);
 
+        Switch notificaRitardo = findViewById(R.id.switch1);
+        Switch notificaCancellazione = findViewById(R.id.switch2);
+        Switch notificaFuoriCitta = findViewById(R.id.switch3);
+        Switch notificaPromemoria = findViewById(R.id.switch4);
 
-        notificaRitardo = findViewById(R.id.switch1);
-        notificaCancellazione = findViewById(R.id.switch2);
-        notificaFuoriCitta = findViewById(R.id.switch3);
-        notificaPromemoria = findViewById(R.id.switch4);
-
-        notificaRitardo.setChecked(PowerPreference.getFileByName("impostazioni").getBoolean("notificaRitardo", false));
-        notificaCancellazione.setChecked(PowerPreference.getFileByName("impostazioni").getBoolean("notificaCancellazione", false));
-        notificaFuoriCitta.setChecked(PowerPreference.getFileByName("impostazioni").getBoolean("notificaFuoriCitta", false));
-        notificaPromemoria.setChecked(PowerPreference.getFileByName("impostazioni").getBoolean("notificaPromemoria", false));
+        notificaRitardo.setChecked(PowerPreference.getFileByName(FILENAME).getBoolean(NOTIFICARITARDO, false));
+        notificaCancellazione.setChecked(PowerPreference.getFileByName(FILENAME).getBoolean(NOTIFICACANCELLAZIONE, false));
+        notificaFuoriCitta.setChecked(PowerPreference.getFileByName(FILENAME).getBoolean(NOTIFICAFUORICITTA, false));
+        notificaPromemoria.setChecked(PowerPreference.getFileByName(FILENAME).getBoolean(NOTIFICAPROMEMORIA, false));
 
         notificaRitardo.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if(isChecked) {
-                    PowerPreference.getFileByName("impostazioni").setBoolean("notificaRitardo", true);
+                    PowerPreference.getFileByName(FILENAME).setBoolean(NOTIFICARITARDO, true);
                 }else {
-                    PowerPreference.getFileByName("impostazioni").setBoolean("notificaRitardo", false);
+                    PowerPreference.getFileByName(FILENAME).setBoolean(NOTIFICARITARDO, false);
                 }
             }
         });
@@ -59,9 +55,9 @@ public class Impostazioni extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if(isChecked)
-                    PowerPreference.getFileByName("impostazioni").setBoolean("notificaCancellazione",true);
+                    PowerPreference.getFileByName(FILENAME).setBoolean(NOTIFICACANCELLAZIONE,true);
                 else
-                    PowerPreference.getFileByName("impostazioni").setBoolean("notificaCancellazione",false);
+                    PowerPreference.getFileByName(FILENAME).setBoolean(NOTIFICACANCELLAZIONE,false);
             }
         });
 
@@ -69,9 +65,9 @@ public class Impostazioni extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if(isChecked)
-                    PowerPreference.getFileByName("impostazioni").setBoolean("notificaFuoriCitta",true);
+                    PowerPreference.getFileByName(FILENAME).setBoolean(NOTIFICAFUORICITTA,true);
                 else
-                    PowerPreference.getFileByName("impostazioni").setBoolean("notificaFuoriCitta",false);
+                    PowerPreference.getFileByName(FILENAME).setBoolean(NOTIFICAFUORICITTA,false);
             }
         });
 
@@ -79,13 +75,13 @@ public class Impostazioni extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if(isChecked)
-                    PowerPreference.getFileByName("impostazioni").setBoolean("notificaPromemoria",true);
+                    PowerPreference.getFileByName(FILENAME).setBoolean(NOTIFICAPROMEMORIA,true);
                 else
-                    PowerPreference.getFileByName("impostazioni").setBoolean("notificaPromemoria",false);
+                    PowerPreference.getFileByName(FILENAME).setBoolean(NOTIFICAPROMEMORIA,false);
             }
         });
 
-        back = findViewById(R.id.backpage);
+        ImageView back = findViewById(R.id.backpage);
 
         back.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

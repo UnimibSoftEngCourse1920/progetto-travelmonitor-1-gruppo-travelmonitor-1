@@ -17,7 +17,6 @@ public class Mappa extends AppCompatActivity {
     private TabLayout tabLayout;
     private ImageView mappaTreni;
     private TextView titlemappa;
-    private ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +64,7 @@ public class Mappa extends AppCompatActivity {
             }
         });
 
-        back = findViewById(R.id.backpage);
+        ImageView back = findViewById(R.id.backpage);
 
         back.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

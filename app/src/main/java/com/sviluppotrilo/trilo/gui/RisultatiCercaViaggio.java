@@ -1,6 +1,7 @@
 package com.sviluppotrilo.trilo.gui;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -25,8 +26,6 @@ public class RisultatiCercaViaggio extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ArrayList<Soluzione> soluzioni;
     private RecyclerView.Adapter adapter;
-    private ImageView back;
-    private ImageView backmenu;
     private ProgressBar caricamento;
 
     @Override
@@ -34,7 +33,7 @@ public class RisultatiCercaViaggio extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_visualizzaviaggi);
 
-        back = findViewById(R.id.backpage);
+        ImageView back = findViewById(R.id.backpage);
         back.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent goBack = new Intent(RisultatiCercaViaggio.this, CercaViaggio.class);
@@ -42,7 +41,7 @@ public class RisultatiCercaViaggio extends AppCompatActivity {
             }
         });
 
-        backmenu = findViewById(R.id.backhome);
+        ImageView backmenu = findViewById(R.id.backhome);
         backmenu.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent goBack = new Intent(RisultatiCercaViaggio.this, Preferiti.class);

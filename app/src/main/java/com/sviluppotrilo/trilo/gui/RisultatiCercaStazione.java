@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.tabs.TabLayout;
 import com.sviluppotrilo.trilo.R;
-import com.sviluppotrilo.trilo.controllers.ViaggioController;
 import com.sviluppotrilo.trilo.domain.Arrivi;
 import com.sviluppotrilo.trilo.domain.Partenze;
 import com.sviluppotrilo.trilo.domain.Stazione;
@@ -25,11 +24,9 @@ public class RisultatiCercaStazione extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
-    private Button back;
     private String nomeStazione;
     private String idStazione;
     private TabLayout tabLayout;
-    private TextView nomeStazioneCorrente;
     ProgressBar caricamento;
 
     @Override
@@ -37,7 +34,7 @@ public class RisultatiCercaStazione extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stazione);
 
-        back = findViewById(R.id.backbutton);
+        Button back = findViewById(R.id.backbutton);
         back.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent goBack = new Intent(RisultatiCercaStazione.this, Preferiti.class);
@@ -47,7 +44,7 @@ public class RisultatiCercaStazione extends AppCompatActivity {
 
         caricamento = findViewById(R.id.caricamento);
         recyclerView = findViewById(R.id.recicleviewtabellone);
-        nomeStazioneCorrente = findViewById(R.id.nomestazionecorrente);
+        TextView nomeStazioneCorrente = findViewById(R.id.nomestazionecorrente);
         Intent intent = getIntent();
         nomeStazione = intent.getStringExtra("nomeStazione");
         idStazione = intent.getStringExtra("idStazione");

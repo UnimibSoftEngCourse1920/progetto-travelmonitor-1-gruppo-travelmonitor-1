@@ -11,7 +11,6 @@ public class NotificaRitardo extends Notifica {
 
     @Override
     public boolean controllaPreferenze(){
-        System.out.println(PowerPreference.getFileByName("impostazioni").getBoolean("notificaRitardo"));
         return PowerPreference.getFileByName("impostazioni").getBoolean("notificaRitardo");
     }
 }

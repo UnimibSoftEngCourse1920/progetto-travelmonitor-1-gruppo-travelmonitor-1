@@ -1,7 +1,6 @@
 package com.sviluppotrilo.trilo.domain;
 
 import com.google.gson.Gson;
-import com.sviluppotrilo.trilo.controllers.ViaggioController;
 import com.sviluppotrilo.trilo.data.UrlLoader;
 
 import java.text.SimpleDateFormat;
@@ -9,7 +8,6 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Comparator;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.regex.Matcher;
@@ -43,26 +41,6 @@ public class Stazione {
         String id = estraiId(stazionePartenza);
         return new Stazione(nome, id);
     }
-
-    /*
-    public static Stazione findStazionePartenza(String numeroTreno, String fermata) throws ViaggioException {
-        String url = Stazione.URL
-                + "cercaNumeroTrenoTrenoAutocomplete/"
-                + numeroTreno;
-        String stazioniPartenza = new UrlLoader(url).getUrlResponse();
-        if(stazioniPartenza == null || stazioniPartenza.length() == 0)
-            throw new ViaggioException("Impossibile trovare la stazione di partenza dal numero del treno");
-        String[] stazioni = stazioniPartenza.split(Pattern.quote("\n"));
-        for(String stazione : stazioni) {
-            Stazione stazionePartenzaCorsa = new Stazione(estraiNome(stazione), estraiId(stazione));
-            List<Fermata> fermate = new ViaggioController().cercaCorsa(
-                    stazionePartenzaCorsa, numeroTreno).getFermate();
-            for(Fermata fermataCorsa : fermate)
-                if(fermataCorsa.getStazione().getNome().equals(fermata))
-                    return stazionePartenzaCorsa;
-        }
-        return null;
-    }*/
 
     public Arrivi[] cercaArrivi(){
         String jsonPartenza = new UrlLoader(Stazione.URL

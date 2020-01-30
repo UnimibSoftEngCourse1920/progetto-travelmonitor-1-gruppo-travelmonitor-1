@@ -17,10 +17,12 @@ import com.sviluppotrilo.trilo.domain.Stazione;
 
 public class MyAdapterTabellone extends RecyclerView.Adapter<MyCardTabellone> {
 
+    public static final String BINARIOSCONOSCIUTO = "Binario sconosciuto";
     Context context;
     private Arrivi[] datiTabelloneArrivi;
     private Partenze[] datiTabellonePartenze;
     Stazione stazione;
+
 
     private int pos = 0;
 
@@ -47,12 +49,12 @@ public class MyAdapterTabellone extends RecyclerView.Adapter<MyCardTabellone> {
                 holder.ora.setText(datiTabellonePartenze[i].getCompOrarioPartenza());
                 if (datiTabellonePartenze[i].isInStazione()){
                     if (datiTabellonePartenze[i].getBinarioEffettivoPartenzaDescrizione() == null)
-                        holder.binario.setText("Binario sconosciuto");
+                        holder.binario.setText(BINARIOSCONOSCIUTO);
                     else
                         holder.binario.setText("E' in stazione, binario " + datiTabellonePartenze[i].getBinarioEffettivoPartenzaDescrizione());
                 } else {
                     if (datiTabellonePartenze[i].getBinarioProgrammatoPartenzaDescrizione() == null)
-                        holder.binario.setText("Binario sconosciuto");
+                        holder.binario.setText(BINARIOSCONOSCIUTO);
                     else
                         holder.binario.setText("Partirà dal binario " + datiTabellonePartenze[i].getBinarioProgrammatoPartenzaDescrizione());
                 }
@@ -62,12 +64,12 @@ public class MyAdapterTabellone extends RecyclerView.Adapter<MyCardTabellone> {
                 holder.ora.setText(datiTabelloneArrivi[i].getCompOrarioArrivo());
                 if(datiTabelloneArrivi[i].isInStazione()) {
                     if (datiTabelloneArrivi[i].getBinarioEffettivoArrivoDescrizione() == null)
-                        holder.binario.setText("Binario sconosciuto");
+                        holder.binario.setText(BINARIOSCONOSCIUTO);
                     else
                         holder.binario.setText("E' in stazione, binario " + datiTabelloneArrivi[i].getBinarioEffettivoArrivoDescrizione());
                 } else {
                     if (datiTabelloneArrivi[i].getBinarioProgrammatoArrivoDescrizione() == null)
-                        holder.binario.setText("Binario sconosciuto");
+                        holder.binario.setText(BINARIOSCONOSCIUTO);
                     else
                         holder.binario.setText("Arriverà al binario " + datiTabelloneArrivi[i].getBinarioProgrammatoArrivoDescrizione());
                 }

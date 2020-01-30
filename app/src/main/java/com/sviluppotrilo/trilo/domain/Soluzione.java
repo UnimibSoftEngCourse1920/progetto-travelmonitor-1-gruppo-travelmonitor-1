@@ -53,7 +53,7 @@ public class Soluzione {
         return Objects.hash(getTratte(), getDurata());
     }
 
-    public void controllaTratte() throws ViaggioException {
+    public void controllaTratte() {
         for (final Tratta t: getTratte()) {
             new Thread(new Runnable() {
                 @Override

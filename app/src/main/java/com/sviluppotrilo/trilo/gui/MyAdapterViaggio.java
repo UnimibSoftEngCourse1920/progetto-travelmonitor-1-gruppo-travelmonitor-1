@@ -12,10 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.sviluppotrilo.trilo.R;
 import com.sviluppotrilo.trilo.controllers.PreferitiController;
-import com.sviluppotrilo.trilo.data.DataBaseHelper;
 import com.sviluppotrilo.trilo.domain.Soluzione;
-import com.sviluppotrilo.trilo.domain.Stazione;
-import com.sviluppotrilo.trilo.domain.ViaggioException;
 
 import java.util.ArrayList;
 

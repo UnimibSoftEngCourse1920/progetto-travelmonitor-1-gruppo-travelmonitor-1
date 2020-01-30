@@ -57,7 +57,7 @@ public class Giorno{
         return "Giorno [id=" + id + ", nome=" + nome + ", preferiti=" + preferiti + "]";
     }
 
-    public synchronized void controllaSoluzioni() throws ViaggioException {
+    public synchronized void controllaSoluzioni(){
         for (Soluzione preferito: preferiti) {
             preferito.controllaTratte();
         }

@@ -17,7 +17,6 @@ public class Social extends AppCompatActivity {
 
     private TabLayout tabLayout;
     private WebView webView;
-    private ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +26,7 @@ public class Social extends AppCompatActivity {
         tabLayout = findViewById(R.id.socialtab);
         webView = findViewById(R.id.webView);
 
-        back = findViewById(R.id.backpage);
+        ImageView back = findViewById(R.id.backpage);
 
         back.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
