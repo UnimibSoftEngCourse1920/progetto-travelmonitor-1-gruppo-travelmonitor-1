@@ -52,12 +52,6 @@ public class Preferiti extends AppCompatActivity implements NavigationView.OnNav
         myprofilo = findViewById(R.id.mytrilo);
         recyclerView = findViewById(R.id.recyclerView);
 
-        soluzioni = (HashSet<Soluzione>) preferitiController.visualizzaPreferiti(1);
-        recyclerView.setHasFixedSize(true);
-        adapter = new MyAdapterPreferiti(Preferiti.this, soluzioni);
-        recyclerView.setLayoutManager(new GridLayoutManager(Preferiti.this,1));
-        recyclerView.setAdapter(adapter);
-
         cercaviaggio.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent goToCercaViaggio = new Intent(Preferiti.this, CercaViaggio.class);
@@ -84,56 +78,11 @@ public class Preferiti extends AppCompatActivity implements NavigationView.OnNav
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                int count = tabLayout.getSelectedTabPosition();
-                if(count == 0) {
-                    soluzioni = (HashSet<Soluzione>) preferitiController.visualizzaPreferiti(1);
-                    recyclerView.setHasFixedSize(true);
-                    adapter = new MyAdapterPreferiti(Preferiti.this, soluzioni);
-                    recyclerView.setLayoutManager(new GridLayoutManager(Preferiti.this,1));
-                    recyclerView.setAdapter(adapter);
-                }
-                if(count == 1) {
-                    soluzioni = (HashSet<Soluzione>) preferitiController.visualizzaPreferiti(2);
-                    recyclerView.setHasFixedSize(true);
-                    adapter = new MyAdapterPreferiti(Preferiti.this, soluzioni);
-                    recyclerView.setLayoutManager(new GridLayoutManager(Preferiti.this,1));
-                    recyclerView.setAdapter(adapter);
-                }
-                if(count == 2) {
-                    soluzioni = (HashSet<Soluzione>) preferitiController.visualizzaPreferiti(3);
-                    recyclerView.setHasFixedSize(true);
-                    adapter = new MyAdapterPreferiti(Preferiti.this, soluzioni);
-                    recyclerView.setLayoutManager(new GridLayoutManager(Preferiti.this,1));
-                    recyclerView.setAdapter(adapter);
-                }
-                if(count == 3) {
-                    soluzioni = (HashSet<Soluzione>) preferitiController.visualizzaPreferiti(4);
-                    recyclerView.setHasFixedSize(true);
-                    adapter = new MyAdapterPreferiti(Preferiti.this, soluzioni);
-                    recyclerView.setLayoutManager(new GridLayoutManager(Preferiti.this,1));
-                    recyclerView.setAdapter(adapter);
-                }
-                if(count == 4) {
-                    soluzioni = (HashSet<Soluzione>) preferitiController.visualizzaPreferiti(5);
-                    recyclerView.setHasFixedSize(true);
-                    adapter = new MyAdapterPreferiti(Preferiti.this, soluzioni);
-                    recyclerView.setLayoutManager(new GridLayoutManager(Preferiti.this,1));
-                    recyclerView.setAdapter(adapter);
-                }
-                if(count == 5) {
-                    soluzioni = (HashSet<Soluzione>) preferitiController.visualizzaPreferiti(6);
-                    recyclerView.setHasFixedSize(true);
-                    adapter = new MyAdapterPreferiti(Preferiti.this, soluzioni);
-                    recyclerView.setLayoutManager(new GridLayoutManager(Preferiti.this,1));
-                    recyclerView.setAdapter(adapter);
-                }
-                if(count == 6) {
-                    soluzioni = (HashSet<Soluzione>) preferitiController.visualizzaPreferiti(7);
-                    recyclerView.setHasFixedSize(true);
-                    adapter = new MyAdapterPreferiti(Preferiti.this, soluzioni);
-                    recyclerView.setLayoutManager(new GridLayoutManager(Preferiti.this,1));
-                    recyclerView.setAdapter(adapter);
-                }
+                soluzioni = (HashSet<Soluzione>) preferitiController.visualizzaPreferiti(tab.getPosition()+1);
+                recyclerView.setHasFixedSize(true);
+                adapter = new MyAdapterPreferiti(Preferiti.this, soluzioni);
+                recyclerView.setLayoutManager(new GridLayoutManager(Preferiti.this,1));
+                recyclerView.setAdapter(adapter);
             }
 
             @Override
