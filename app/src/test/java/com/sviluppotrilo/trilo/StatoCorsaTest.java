@@ -51,14 +51,14 @@ public class StatoCorsaTest {
         Corsa corsa = c.cercaCorsa(origine,numeroTreno);
         System.out.println(corsa.toString());
     }
-
+/*
     @Test
     public void cercaUnaStazioneDiPartenza() throws ViaggioException {
         Stazione fermata = new Stazione("SEVESO", "N00002");
         String numeroTreno="745";
         Stazione origine = Stazione.findStazionePartenza(numeroTreno, fermata.getNome());
         System.out.println(origine.toString());
-    }
+    }*/
 
     @Test
     public void cercaUnaCorsaConStatoInRitardo(){
@@ -70,7 +70,7 @@ public class StatoCorsaTest {
         CorsaState s1=s.statoCorsa(corsa);
         System.out.println(s1.getClass());
     }
-
+/*
     @Test
     public void cercaUnaCorsaConStatoInOrario(){
         ViaggioController c= new ViaggioController();
@@ -92,7 +92,7 @@ public class StatoCorsaTest {
         CorsaState s = new NonPartito();
         CorsaState s1=s.statoCorsa(corsa);
         System.out.println(s1.getClass());
-    }
+    }*/
 
     @Test
     public void cercaUnaCorsaePreferiti(){
@@ -115,7 +115,7 @@ public class StatoCorsaTest {
         System.out.println(g.toString());
         System.out.println(soluzione.get(1).toString());
         List<Tratta> tratte = soluzione.get(2).getTratte();
-
+/*
         for(Tratta tratta : tratte) {
             try {
                 String s = tratta.getOrigine().getNome();
@@ -125,7 +125,7 @@ public class StatoCorsaTest {
             } catch (ViaggioException e) {
                 e.printStackTrace();
             }
-        }
+        }*/
     }
 
 }

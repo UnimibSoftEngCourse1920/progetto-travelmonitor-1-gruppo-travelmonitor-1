@@ -22,7 +22,7 @@ public class Tratta{
     public void update() throws ViaggioException {
         setCorsa(cercaCorsa());
         if(stato == null)
-            stato = new NonPartito();
+            stato = new Regolare();
         setStato(stato.statoCorsa(corsa));
     }
 
