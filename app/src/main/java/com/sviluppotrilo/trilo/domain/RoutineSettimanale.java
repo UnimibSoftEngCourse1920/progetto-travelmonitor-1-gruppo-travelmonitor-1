@@ -80,8 +80,7 @@ public class RoutineSettimanale{
             case 5: return getVenerdi();
             case 6: return getSabato();
             case 7: return getDomenica();
-            default:
-                throw new GiornoException("L'id del giorno non esiste");
+            default: throw new GiornoException("L'id del giorno non esiste");
         }
     }
 

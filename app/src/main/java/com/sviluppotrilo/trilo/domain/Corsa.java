@@ -28,7 +28,7 @@ public class Corsa{
 
     private boolean inStazione;
     private boolean partito;
-    public List<Fermata> fermate;
+    private List<Fermata> fermate;
 
     public Corsa() {
         super();

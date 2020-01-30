@@ -1,7 +1,6 @@
 package com.sviluppotrilo.trilo.domain;
 
 import com.preference.PowerPreference;
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -35,14 +34,14 @@ public class Giorno{
 
     public synchronized void aggiungiPreferito(Soluzione preferito) throws PreferitiException{
         if(preferito == null)
-            return;
+            throw new PreferitiException("Non si può aggiungere un oggetto nullo ai preferiti");
         preferiti.add(preferito);
         update();
     }
 
     public synchronized void rimuoviPreferito(Soluzione preferito) throws PreferitiException{
         if(preferito == null)
-            return;
+            throw new PreferitiException("Non si può eliminare un oggetto nullo dai preferiti");
         preferiti.remove(preferito);
         update();
     }
@@ -59,8 +58,8 @@ public class Giorno{
     }
 
     public synchronized void controllaSoluzioni() throws ViaggioException {
-        for (Soluzione s: preferiti) {
-            s.controllaTratte();
+        for (Soluzione preferito: preferiti) {
+            preferito.controllaTratte();
         }
     }
 }

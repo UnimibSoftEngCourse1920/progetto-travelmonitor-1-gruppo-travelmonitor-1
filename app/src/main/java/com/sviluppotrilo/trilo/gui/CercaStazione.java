@@ -72,10 +72,10 @@ public class CercaStazione extends AppCompatActivity {
                     if ((myData[i].equals(autoCom.getText().toString())))
                         valida = true;
                 }
-                if (valida) {
+                if (Boolean.TRUE.equals(valida)) {
                     stringaStazione = getStazione();
                     //visualizzazione risultati
-                    final String idStazione = getIdStazione(stringaStazione);
+                    idStazione = getIdStazione(stringaStazione);
                     stazione = new Stazione(stringaStazione, idStazione);
                     new Thread(new Runnable() {
                         public void run() {
@@ -109,7 +109,7 @@ public class CercaStazione extends AppCompatActivity {
 
             @Override
             public void onLongClick(View view, final int position) {
-
+                //Auto generated method
             }
         }));
 
@@ -123,7 +123,7 @@ public class CercaStazione extends AppCompatActivity {
     }
 
     public String getIdStazione(String stazione) {
-        return idStazione = myDbHelper.selectIdStazione(stazione);
+        return myDbHelper.selectIdStazione(stazione);
     }
 
 

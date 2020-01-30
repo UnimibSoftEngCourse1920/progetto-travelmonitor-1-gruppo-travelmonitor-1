@@ -6,6 +6,7 @@ import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.JsonWriter;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class CorsaAdapter extends TypeAdapter<Corsa>{
 
@@ -26,84 +27,77 @@ public class CorsaAdapter extends TypeAdapter<Corsa>{
         Stazione rilevamento = new Stazione();
         while (reader.hasNext()) {
             token = reader.peek();
-            if(token.equals(JsonToken.NULL))
-                reader.skipValue();
             if (token.equals(JsonToken.NAME)) {
                 fieldname = reader.nextName();
                 if(reader.peek() == JsonToken.NULL) {
                     reader.skipValue();
-                }else if ("idOrigine".equals(fieldname)) {
-                    String idStazioneOrigine = reader.nextString();
-                    //qui andrebbe cercata la stazione nel db..
-                    //Inoltre andrebbe controllato se l'id inizia
-                    //per S0..
-                    origine.setId(idStazioneOrigine);
-                }else if("origine".equals(fieldname)){
-                    String nomeStazioneOrigine = reader.nextString();
-                    origine.setNome(nomeStazioneOrigine);
-                }else if("idDestinazione".equals(fieldname)){
-                    String idStazioneDestinazione = reader.nextString();
-                    //qui andrebbe cercata la stazione nel db..
-                    //Inoltre andrebbe controllato se l'id inizia
-                    //per S0..
-                    destinazione.setId(idStazioneDestinazione);
-                }else if("destinazione".equals(fieldname)){
-                    String nomeStazioneDestinazione = reader.nextString();
-                    destinazione.setNome(nomeStazioneDestinazione);
-                }else if("compOrarioPartenza".equals(fieldname)){
-                    String orarioPartenza = reader.nextString();
-                    corsa.setOrarioPartenza(orarioPartenza);
-                }else if("compOrarioArrivo".equals(fieldname)){
-                    String orarioArrivo = reader.nextString();
-                    corsa.setOrarioArrivo(orarioArrivo);
-                }else if("compOraUltimoRilevamento".equals(fieldname)){
-                    String oraUltimoRilevamento = reader.nextString();
-                    corsa.setOraUltimoRilevamento(oraUltimoRilevamento);
-                }else if("stazioneUltimoRilevamento".equals(fieldname)){
-                    String stazioneUltimoRilevamento = reader.nextString();
-                    rilevamento.setNome(stazioneUltimoRilevamento);
-                    //qui andrebbe cercata la stazione nel db..
-                    corsa.setStazioneUltimoRilevamento(rilevamento);
-                }else if("tipoTreno".equals(fieldname)){
-                    String tipoTreno = reader.nextString();
-                    //Forse qui andrebbe creato un oggetto Treno
-                    // quindi aggiungere la classe al diagrqmma
-                    corsa.setTipoTreno(tipoTreno);
-                }else if("provvedimento".equals(fieldname)){
-                    int provvedimento = reader.nextInt();
-                    //Forse qui andrebbe creato un oggetto Treno
-                    // quindi aggiungere la classe al diagrqmma
-                    corsa.setProvvedimento(provvedimento);
-                }else if("subTitle".equals(fieldname)){
-                    String descrizione = reader.nextString();
-                    corsa.setDescrizione(descrizione);
-                }else if("codiceCliente".equals(fieldname)){
-                    int codiceCliente = reader.nextInt();
-                    corsa.setCodiceCliente(codiceCliente);
-                }else if("dataPartenza".equals(fieldname)){
-                    String dataPartenza = reader.nextString();
-                    corsa.setDataPartenza(dataPartenza);
-                }else if("numeroTreno".equals(fieldname)){
-                    int numeroTreno = reader.nextInt();
-                    corsa.setNumeroTreno(numeroTreno);
-                }else if("categoria".equals(fieldname)){
-                    String categoria = reader.nextString();
-                    corsa.setCategoria(categoria);
-                }else if("inStazione".equals(fieldname)){
-                    boolean inStazione = reader.nextBoolean();
-                    corsa.setInStazione(inStazione);
-                }else if("nonPartito".equals(fieldname)){
-                    boolean nonPartito = reader.nextBoolean();
-                    corsa.setPartito(!nonPartito);
-                }else if("fermate".equals(fieldname)) {
-                    reader.beginArray();
-                    while (reader.hasNext()){
-                        Fermata fermata = new FermataAdapter().read(reader);
-                        corsa.fermate.add(fermata);
+                }else {
+                    switch (fieldname){
+                        case "idOrigine":
+                            String idStazioneOrigine = reader.nextString();
+                            //qui andrebbe cercata la stazione nel db..
+                            //Inoltre andrebbe controllato se l'id inizia
+                            //per S0..
+                            origine.setId(idStazioneOrigine); break;
+                        case "idDestinazione":
+                            String idStazioneDestinazione = reader.nextString();
+                            //qui andrebbe cercata la stazione nel db..
+                            //Inoltre andrebbe controllato se l'id inizia
+                            //per S0..
+                            destinazione.setId(idStazioneDestinazione); break;
+                        case "origine":
+                            String nomeStazioneOrigine = reader.nextString();
+                            origine.setNome(nomeStazioneOrigine); break;
+                        case "destinazione":
+                            String nomeStazioneDestinazione = reader.nextString();
+                            destinazione.setNome(nomeStazioneDestinazione); break;
+                        case "compOrarioPartenza":
+                            String orarioPartenza = reader.nextString();
+                            corsa.setOrarioPartenza(orarioPartenza); break;
+                        case "compOrarioArrivo":
+                            String orarioArrivo = reader.nextString();
+                            corsa.setOrarioArrivo(orarioArrivo); break;
+                        case "compOraUltimoRilevamento":
+                            String oraUltimoRilevamento = reader.nextString();
+                            corsa.setOraUltimoRilevamento(oraUltimoRilevamento); break;
+                        case "stazioneUltimoRilevamento":
+                            String stazioneUltimoRilevamento = reader.nextString();
+                            rilevamento.setNome(stazioneUltimoRilevamento);
+                            //qui andrebbe cercata la stazione nel db..
+                            corsa.setStazioneUltimoRilevamento(rilevamento); break;
+                        case "tipoTreno":
+                            String tipoTreno = reader.nextString();
+                            //Forse qui andrebbe creato un oggetto Treno
+                            // quindi aggiungere la classe al diagrqmma
+                            corsa.setTipoTreno(tipoTreno); break;
+                        case "provvedimento":
+                            int provvedimento = reader.nextInt();
+                            //Forse qui andrebbe creato un oggetto Treno
+                            // quindi aggiungere la classe al diagrqmma
+                            corsa.setProvvedimento(provvedimento); break;
+                        case "codiceCliente":
+                            int codiceCliente = reader.nextInt();
+                            corsa.setCodiceCliente(codiceCliente); break;
+                        case "dataPartenza":
+                            String dataPartenza = reader.nextString();
+                            corsa.setDataPartenza(dataPartenza); break;
+                        case "numeroTreno":
+                            int numeroTreno = reader.nextInt();
+                            corsa.setNumeroTreno(numeroTreno); break;
+                        case "categoria":
+                            String categoria = reader.nextString();
+                            corsa.setCategoria(categoria); break;
+                        case "inStazione":
+                            boolean inStazione = reader.nextBoolean();
+                            corsa.setInStazione(inStazione); break;
+                        case "nonPartito":
+                            boolean nonPartito = reader.nextBoolean();
+                            corsa.setPartito(!nonPartito); break;
+                        case "fermate":
+                            corsa.setFermate(readFermate(reader));
+                            break;
+                        default: reader.skipValue();
                     }
-                    reader.endArray();
-                }else{
-                    reader.skipValue();
                 }
             }
         }
@@ -113,4 +107,14 @@ public class CorsaAdapter extends TypeAdapter<Corsa>{
         return corsa;
     }
 
+    private ArrayList<Fermata> readFermate(JsonReader reader) throws IOException{
+        ArrayList<Fermata> fermate = new ArrayList<>();
+        reader.beginArray();
+        while (reader.hasNext()){
+            Fermata fermata = new FermataAdapter().read(reader);
+            fermate.add(fermata);
+        }
+        reader.endArray();
+        return fermate;
+    }
 }

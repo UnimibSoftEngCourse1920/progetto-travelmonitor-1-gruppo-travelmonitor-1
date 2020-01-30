@@ -106,7 +106,8 @@ public class Tratta extends Observable {
         Matcher matcher = pattern.matcher(dataOra);
         if (matcher.find())
             s = matcher.group(0);
-        s = s.substring(1);
+        if(s != null)
+            s = s.substring(1);
         return s;
     }
     @Override

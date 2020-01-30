@@ -14,7 +14,7 @@ import com.sviluppotrilo.trilo.R;
 public class PushNotification {
     private PushNotification(){}
 
-    public static Context context;
+    private static Context context;
     private static final String CHANNEL_1_ID = "Channel1";
     private static final String NAME = "Channel1";
     private static final String GROUP = "Group1";
