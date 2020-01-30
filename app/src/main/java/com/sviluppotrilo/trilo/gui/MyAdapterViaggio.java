@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.sviluppotrilo.trilo.R;
 import com.sviluppotrilo.trilo.controllers.PreferitiController;
 import com.sviluppotrilo.trilo.domain.Soluzione;
+import com.sviluppotrilo.trilo.domain.Stazione;
+import com.sviluppotrilo.trilo.domain.ViaggioException;
 
 import java.util.ArrayList;
 
@@ -56,9 +58,14 @@ public class MyAdapterViaggio extends RecyclerView.Adapter<MyCardViaggio> {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    /*
+
                     try {
-                        holder.destinazioneTreno.setText("Per " + datiSoluzione.get(i).getTratte().get(0).cercaCorsa().getDestinazione().getNome());
+                        Stazione stazioneOrigineTratta = datiSoluzione.get(i)
+                                .getTratte()
+                                .get(0)
+                                .getOrigine();
+                        holder.destinazioneTreno.setText("Per " + datiSoluzione.get(i).getTratte().get(0).cercaCorsa(stazioneOrigineTratta).getDestinazione().getNome());
+                        /*
                         if(datiSoluzione.get(i).getTratte().get(0).cercaCorsa().getFermate().get(0).getRitardo() >= 2){
                             holder.statoTreno.setText("In ritardo di " + datiSoluzione.get(i).getTratte().get(0).cercaCorsa().getFermate().get(0).getRitardo() + "minuti");
                             holder.statusOk.setVisibility(View.INVISIBLE);
@@ -66,12 +73,12 @@ public class MyAdapterViaggio extends RecyclerView.Adapter<MyCardViaggio> {
                             holder.trattaOk.setVisibility(View.INVISIBLE);
                             holder.trattaNonOk.setVisibility(View.VISIBLE);
                             holder.statoTreno.setTextColor(Color.RED);
-                        }
+                        }*/
 
-                    } catch (ViaggioException e) {
+                    } catch(ViaggioException e) {
                         e.printStackTrace();
                     }
-                     */
+
                 }
             }).start();
         }
