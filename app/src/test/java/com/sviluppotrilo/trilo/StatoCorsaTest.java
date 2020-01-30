@@ -11,6 +11,8 @@ import com.sviluppotrilo.trilo.domain.NonPartito;
 import com.sviluppotrilo.trilo.domain.Soluzione;
 import com.sviluppotrilo.trilo.domain.Viaggio;
 import com.sviluppotrilo.trilo.domain.Tratta;
+import com.sviluppotrilo.trilo.domain.ViaggioException;
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -48,6 +50,14 @@ public class StatoCorsaTest {
         String numeroTreno="20245";
         Corsa corsa = c.cercaCorsa(origine,numeroTreno);
         System.out.println(corsa.toString());
+    }
+
+    @Test
+    public void cercaUnaStazioneDiPartenza() throws ViaggioException {
+        Stazione fermata = new Stazione("SEVESO", "N00065");
+        String numeroTreno="745";
+        Stazione origine = Stazione.findStazionePartenza(numeroTreno, fermata);
+        System.out.println(origine.toString());
     }
 
     @Test
@@ -105,9 +115,14 @@ public class StatoCorsaTest {
         System.out.println(g.toString());
         System.out.println(soluzione.get(1).toString());
         List<Tratta> tratte = soluzione.get(1).getTratte();
-        for(Tratta tratta : tratte)
-            System.out.println(tratta.toString());
-        Corsa cor = new Corsa();
+        for(Tratta tratta : tratte) {
+            try {
+                System.out.println(tratta.cercaCorsa(origine).getDestinazione().toString());
+            } catch (ViaggioException e) {
+                e.printStackTrace();
+            }
+        }
+
 
 
 

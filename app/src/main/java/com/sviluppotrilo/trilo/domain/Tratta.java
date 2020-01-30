@@ -26,6 +26,11 @@ public class Tratta extends Observable {
         return Corsa.find(stazionePartenza, numeroTreno);
     }
 
+    public Corsa cercaCorsa(Stazione stazione) throws ViaggioException {
+        Stazione stazionePartenza = Stazione.findStazionePartenza(numeroTreno, stazione);
+        return Corsa.find(stazionePartenza, numeroTreno);
+    }
+
     public Stazione getOrigine() {
         return origine;
     }
