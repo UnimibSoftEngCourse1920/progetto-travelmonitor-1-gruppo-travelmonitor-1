@@ -2,6 +2,7 @@ package com.sviluppotrilo.trilo.gui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -57,7 +58,6 @@ public class RisultatiCercaStazione extends AppCompatActivity {
         new Thread(new Runnable() {
             public void run(){
                 final Stazione stazione = new Stazione(nomeStazione, idStazione);
-                ViaggioController vc = new ViaggioController();
                 final Arrivi[] arrivi = stazione.cercaArrivi();
                 final Partenze[] partenze = stazione.cercaPartenze();
                 runOnUiThread(new Runnable(){
@@ -90,7 +90,7 @@ public class RisultatiCercaStazione extends AppCompatActivity {
                                 }
                                 @Override
                                 public void onTabUnselected(TabLayout.Tab tab) {
-
+                                    // Auto-generated method
                                 }
 
                                 @Override
@@ -100,7 +100,7 @@ public class RisultatiCercaStazione extends AppCompatActivity {
                             });
 
                         }catch(Exception e){
-
+                            Log.d("error", "errore, cattura dell'eccezione");
                         }
                     }
                 });

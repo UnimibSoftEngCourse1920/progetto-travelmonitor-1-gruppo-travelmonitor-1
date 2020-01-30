@@ -2,6 +2,7 @@ package com.sviluppotrilo.trilo.gui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,7 +15,7 @@ import com.sviluppotrilo.trilo.R;
 public class Mappa extends AppCompatActivity {
 
     TabLayout tabLayout;
-    ImageView mappa;
+    ImageView mappaTreni;
     TextView titlemappa;
     ImageView back;
 
@@ -24,10 +25,10 @@ public class Mappa extends AppCompatActivity {
         setContentView(R.layout.activity_map);
 
         tabLayout = findViewById(R.id.tabLayout);
-        mappa = findViewById(R.id.imagemappa);
+        mappaTreni = findViewById(R.id.imagemappa);
         titlemappa = findViewById(R.id.titolomappa);
 
-        mappa.setBackgroundResource(R.drawable.stibm);
+        mappaTreni.setBackgroundResource(R.drawable.stibm);
         titlemappa.setText("MAPPA STIBM");
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -36,16 +37,19 @@ public class Mappa extends AppCompatActivity {
                 int count = tabLayout.getSelectedTabPosition();
                 switch(count) {
                     case 0:
-                        mappa.setBackgroundResource(R.drawable.stibm);
+                        mappaTreni.setBackgroundResource(R.drawable.stibm);
                         titlemappa.setText("MAPPA STIBM");
                         break;
                     case 1:
-                        mappa.setBackgroundResource(R.drawable.linee_regionali);
+                        mappaTreni.setBackgroundResource(R.drawable.linee_regionali);
                         titlemappa.setText("MAPPA LINEE REGIONALI");
                         break;
                     case 2:
-                        mappa.setBackgroundResource(R.drawable.metro_milano);
+                        mappaTreni.setBackgroundResource(R.drawable.metro_milano);
                         titlemappa.setText("METRO MILANO");
+                        break;
+                    default:
+                        Log.d("error", "errore");
                         break;
                 }
             }

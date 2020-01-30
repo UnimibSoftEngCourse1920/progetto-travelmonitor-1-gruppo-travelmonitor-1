@@ -1,6 +1,7 @@
 package com.sviluppotrilo.trilo.gui;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,32 +40,40 @@ public class MyAdapterTabellone extends RecyclerView.Adapter<MyCardTabellone> {
 
     @Override
     public void onBindViewHolder(final MyCardTabellone holder, final int i) {
-        if(pos == 0) {
-            holder.treno.setText(datiTabellonePartenze[i].getDestinazione());
-            holder.ora.setText(datiTabellonePartenze[i].getCompOrarioPartenza());
-            if(datiTabellonePartenze[i].isInStazione())
-                if(datiTabellonePartenze[i].getBinarioEffettivoPartenzaDescrizione() == null)
-                    holder.binario.setText("Binario sconosciuto");
-                else
-                    holder.binario.setText("E' in stazione, binario "+datiTabellonePartenze[i].getBinarioEffettivoPartenzaDescrizione());
-            else
-            if(datiTabellonePartenze[i].getBinarioProgrammatoPartenzaDescrizione() == null)
-                holder.binario.setText("Binario sconosciuto");
-            else
-                holder.binario.setText("Partirà dal binario "+datiTabellonePartenze[i].getBinarioProgrammatoPartenzaDescrizione());
-        }else{
-            holder.treno.setText(datiTabelloneArrivi[i].getOrigine());
-            holder.ora.setText(datiTabelloneArrivi[i].getCompOrarioArrivo());
-            if(datiTabelloneArrivi[i].isInStazione())
-                if(datiTabelloneArrivi[i].getBinarioEffettivoArrivoDescrizione() == null)
-                    holder.binario.setText("Binario sconosciuto");
-                else
-                    holder.binario.setText("E' in stazione, binario "+datiTabelloneArrivi[i].getBinarioEffettivoArrivoDescrizione());
-            else
-                if(datiTabelloneArrivi[i].getBinarioProgrammatoArrivoDescrizione() == null)
-                    holder.binario.setText("Binario sconosciuto");
-                else
-                    holder.binario.setText("Arriverà al binario "+datiTabelloneArrivi[i].getBinarioProgrammatoArrivoDescrizione());
+        switch(pos) {
+            case 0:
+                holder.treno.setText(datiTabellonePartenze[i].getDestinazione());
+                holder.ora.setText(datiTabellonePartenze[i].getCompOrarioPartenza());
+                if (datiTabellonePartenze[i].isInStazione()){
+                    if (datiTabellonePartenze[i].getBinarioEffettivoPartenzaDescrizione() == null)
+                        holder.binario.setText("Binario sconosciuto");
+                    else
+                        holder.binario.setText("E' in stazione, binario " + datiTabellonePartenze[i].getBinarioEffettivoPartenzaDescrizione());
+                } else {
+                    if (datiTabellonePartenze[i].getBinarioProgrammatoPartenzaDescrizione() == null)
+                        holder.binario.setText("Binario sconosciuto");
+                    else
+                        holder.binario.setText("Partirà dal binario " + datiTabellonePartenze[i].getBinarioProgrammatoPartenzaDescrizione());
+                }
+                break;
+            case 1:
+                holder.treno.setText(datiTabelloneArrivi[i].getOrigine());
+                holder.ora.setText(datiTabelloneArrivi[i].getCompOrarioArrivo());
+                if(datiTabelloneArrivi[i].isInStazione()) {
+                    if (datiTabelloneArrivi[i].getBinarioEffettivoArrivoDescrizione() == null)
+                        holder.binario.setText("Binario sconosciuto");
+                    else
+                        holder.binario.setText("E' in stazione, binario " + datiTabelloneArrivi[i].getBinarioEffettivoArrivoDescrizione());
+                } else {
+                    if (datiTabelloneArrivi[i].getBinarioProgrammatoArrivoDescrizione() == null)
+                        holder.binario.setText("Binario sconosciuto");
+                    else
+                        holder.binario.setText("Arriverà al binario " + datiTabelloneArrivi[i].getBinarioProgrammatoArrivoDescrizione());
+                }
+                break;
+            default:
+                Log.d("error", "errore");
+                break;
         }
     }
 
