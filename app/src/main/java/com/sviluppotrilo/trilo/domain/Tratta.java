@@ -22,7 +22,7 @@ public class Tratta{
     public void update() throws ViaggioException {
         setCorsa(cercaCorsa());
         if(stato == null)
-            stato = new NonPartito();
+            setStato(new Regolare());
         setStato(stato.statoCorsa(corsa));
     }
 
@@ -30,12 +30,6 @@ public class Tratta{
         Stazione stazionePartenza = Stazione.findStazionePartenza(numeroTreno);
         return Corsa.find(stazionePartenza, numeroTreno);
     }
-
-    /*
-    public Corsa cercaCorsa(String stazione) throws ViaggioException {
-        Stazione stazionePartenza = Stazione.findStazionePartenza(numeroTreno, stazione);
-        return Corsa.find(stazionePartenza, numeroTreno);
-    }*/
 
     public Stazione getOrigine() {
         return origine;

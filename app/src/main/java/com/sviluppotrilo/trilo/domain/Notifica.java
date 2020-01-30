@@ -1,11 +1,15 @@
 package com.sviluppotrilo.trilo.domain;
 
+import com.preference.PowerPreference;
 import com.sviluppotrilo.trilo.gui.PushNotification;
 
 public abstract class Notifica {
     String testoNotifica;
 
     public void invia(){
-        PushNotification.invia(testoNotifica);
+        if(controllaPreferenze())
+            PushNotification.invia(testoNotifica);
     }
+
+    abstract boolean controllaPreferenze();
 }
