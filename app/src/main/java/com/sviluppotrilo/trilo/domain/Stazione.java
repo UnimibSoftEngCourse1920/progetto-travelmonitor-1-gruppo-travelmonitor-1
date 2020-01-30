@@ -44,7 +44,7 @@ public class Stazione {
         return new Stazione(nome, id);
     }
 
-    public static Stazione findStazionePartenza(String numeroTreno, Stazione fermata) throws ViaggioException {
+    public static Stazione findStazionePartenza(String numeroTreno, String fermata) throws ViaggioException {
         String url = Stazione.URL
                 + "cercaNumeroTrenoTrenoAutocomplete/"
                 + numeroTreno;
@@ -57,7 +57,7 @@ public class Stazione {
             List<Fermata> fermate = new ViaggioController().cercaCorsa(
                     stazionePartenzaCorsa, numeroTreno).getFermate();
             for(Fermata fermataCorsa : fermate)
-                if(fermataCorsa.getStazione().equals(fermata))
+                if(fermataCorsa.getStazione().getNome().equals(fermata))
                     return stazionePartenzaCorsa;
         }
         return null;

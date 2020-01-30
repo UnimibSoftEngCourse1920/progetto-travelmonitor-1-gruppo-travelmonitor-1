@@ -1,6 +1,7 @@
 package com.sviluppotrilo.trilo;
 
 import com.sviluppotrilo.trilo.controllers.ViaggioController;
+import com.sviluppotrilo.trilo.data.DataBaseHelper;
 import com.sviluppotrilo.trilo.domain.Corsa;
 import com.sviluppotrilo.trilo.domain.Giorno;
 import com.sviluppotrilo.trilo.domain.Stazione;
@@ -54,7 +55,7 @@ public class StatoCorsaTest {
 
     @Test
     public void cercaUnaStazioneDiPartenza() throws ViaggioException {
-        Stazione fermata = new Stazione("SEVESO", "N00065");
+        Stazione fermata = new Stazione("SEVESO", "N00002");
         String numeroTreno="745";
         Stazione origine = Stazione.findStazionePartenza(numeroTreno, fermata);
         System.out.println(origine.toString());
@@ -96,9 +97,9 @@ public class StatoCorsaTest {
 
     @Test
     public void cercaUnaCorsaePreferiti(){
-        Stazione origine = new Stazione("LECCO", "1520");
-        Stazione destinazione = new Stazione("LECCO M", "1522");
-        String data = "2020-01-26";
+        Stazione origine = new Stazione("sev", "1925");
+        Stazione destinazione = new Stazione("M aff", "1078");
+        String data = "2020-01-30";
         String ora = "T" + "21:00:00";
         ViaggioController c = new ViaggioController();
         Viaggio v = c.cercaViaggio(origine, destinazione, data, ora);
@@ -114,10 +115,14 @@ public class StatoCorsaTest {
         }
         System.out.println(g.toString());
         System.out.println(soluzione.get(1).toString());
-        List<Tratta> tratte = soluzione.get(1).getTratte();
+        List<Tratta> tratte = soluzione.get(2).getTratte();
+
         for(Tratta tratta : tratte) {
             try {
-                System.out.println(tratta.cercaCorsa(origine).getDestinazione().toString());
+                Stazione s = tratta.getOrigine();
+                Stazione origineTreno = Stazione.findStazionePartenza(tratta.getNumeroTreno(),s);
+                System.out.println(tratta.toString());
+                System.out.println(tratta.cercaCorsa(s).getDestinazione().toString());
             } catch (ViaggioException e) {
                 e.printStackTrace();
             }
