@@ -24,8 +24,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private String idPartenza;
     private String idArrivo;
     private String idStazione;
-    @CheckForNull
-    private Cursor cursor = null;
 
     public DataBaseHelper(Context context) {
         super(context, databasename, null, 1);
@@ -81,6 +79,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     public String[] selectAllData() {
         SQLiteDatabase db;
+        Cursor cursor = null;
         try {
             db = this.getReadableDatabase();
             String strSQL = "SELECT nome FROM " + tablestazioni;
@@ -101,6 +100,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     public String selectIdStazione(String stazione) {
         SQLiteDatabase db;
+        Cursor cursor = null;
         try {
             db = this.getReadableDatabase();
             String strSQL = "SELECT id FROM " + tablestazioni + " WHERE nome = \""+stazione+"\"";
@@ -109,7 +109,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 idStazione = cursor.getString(cursor.getColumnIndex("id"));
             }
         } finally {
-            cursor.close();
+            if(cursor != null)
+                cursor.close();
         }
 
         return idStazione;

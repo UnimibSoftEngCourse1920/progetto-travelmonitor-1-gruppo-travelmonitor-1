@@ -323,6 +323,21 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/sviluppotrilo/trilo/data/DataBaseHelper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/sviluppotrilo/trilo/gui/CercaStazione.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/sviluppotrilo/trilo/gui/CercaViaggio.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/sviluppotrilo/trilo/gui/MyAdapterViaggio.java">
           <value>
             <set />
