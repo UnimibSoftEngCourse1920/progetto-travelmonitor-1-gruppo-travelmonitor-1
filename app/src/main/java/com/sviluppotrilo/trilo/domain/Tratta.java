@@ -1,7 +1,6 @@
 package com.sviluppotrilo.trilo.domain;
 
 import java.util.Objects;
-import java.util.Observable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

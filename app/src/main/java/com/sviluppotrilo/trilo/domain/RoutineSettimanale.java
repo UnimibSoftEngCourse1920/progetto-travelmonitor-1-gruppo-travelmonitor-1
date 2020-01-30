@@ -84,7 +84,7 @@ public class RoutineSettimanale{
         }
     }
 
-    public synchronized void controllaSoluzioniDelGiorno() throws GiornoException, ViaggioException {
+    public synchronized void controllaSoluzioniDelGiorno() throws GiornoException{
         giornoAttuale().controllaSoluzioni();
     }
 }

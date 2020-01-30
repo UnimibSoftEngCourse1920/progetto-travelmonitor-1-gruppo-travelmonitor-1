@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -26,11 +25,8 @@ public class CercaStazione extends AppCompatActivity {
     private DataBaseHelper myDbHelper;
     private String[] myData;
     private AutoCompleteTextView autoCom;
-    private ArrayAdapter arrayAdapter;
-    private Button cerca;
     private String stringaStazione;
     private String idStazione;
-    private ImageView back;
     private Boolean valida = false;
     private Stazione stazione;
     private RecyclerView recyclerView;
@@ -46,7 +42,8 @@ public class CercaStazione extends AppCompatActivity {
         myDbHelper.createDatabase();
         myData = myDbHelper.selectAllData();
 
-        back = findViewById(R.id.backpage);
+
+        ImageView back = findViewById(R.id.backpage);
 
         back.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -57,14 +54,14 @@ public class CercaStazione extends AppCompatActivity {
 
         //Stazione
         autoCom = findViewById(R.id.stazionericercata);
-        arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, myData);
+        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, myData);
         autoCom.setAdapter(arrayAdapter);
 
         stringaStazione = getStazione();
 
         recyclerView = findViewById(R.id.recyclerView);
 
-        cerca = findViewById(R.id.inviocercastazione);
+        Button cerca = findViewById(R.id.inviocercastazione);
         cerca.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

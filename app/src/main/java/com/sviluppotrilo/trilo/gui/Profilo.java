@@ -21,9 +21,7 @@ public class Profilo extends AppCompatActivity {
     private EditText nome;
     private EditText cognome;
     private Button dataN;
-    private Button salva;
     private DatePickerDialog pickerDate;
-    private ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +31,9 @@ public class Profilo extends AppCompatActivity {
         nome = findViewById(R.id.nome);
         cognome = findViewById(R.id.cognome);
         dataN = findViewById(R.id.datanascita);
-        salva = findViewById(R.id.salvadatiprofilo);
+        Button salva = findViewById(R.id.salvadatiprofilo);
 
-        back = findViewById(R.id.backpage);
+        ImageView back = findViewById(R.id.backpage);
 
         back.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

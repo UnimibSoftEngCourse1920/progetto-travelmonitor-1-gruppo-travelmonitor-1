@@ -3,12 +3,9 @@ package com.sviluppotrilo.trilo.gui;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -19,8 +16,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.sviluppotrilo.trilo.data.DataBaseHelper;
 import com.sviluppotrilo.trilo.R;
+import com.sviluppotrilo.trilo.data.DataBaseHelper;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -34,13 +31,10 @@ public class CercaViaggio extends AppCompatActivity {
     private String[] myData;
     private AutoCompleteTextView autoCom1;
     private AutoCompleteTextView autoCom2;
-    private ArrayAdapter arrayAdapter;
     private Button data;
     private Button ora;
-    private Button cerca;
     private DatePickerDialog pickerDate;
     private TimePickerDialog pickerTime;
-    private ImageView back;
     private Boolean primaValida = false;
     private Boolean secondaValida = false;
 
@@ -48,7 +42,7 @@ public class CercaViaggio extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cercaviaggio);
-
+        ArrayAdapter arrayAdapter;
         myDbHelper = new DataBaseHelper(getApplicationContext());
         myDbHelper.createDatabase();
         myData = myDbHelper.selectAllData();
@@ -63,7 +57,7 @@ public class CercaViaggio extends AppCompatActivity {
         arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, myData);
         autoCom2.setAdapter(arrayAdapter);
 
-        back = findViewById(R.id.backpage);
+        ImageView back = findViewById(R.id.backpage);
 
         back.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -82,7 +76,7 @@ public class CercaViaggio extends AppCompatActivity {
         ora.setText(time);
 
 
-        cerca = findViewById(R.id.cerca);
+        Button cerca = findViewById(R.id.cerca);
         cerca.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

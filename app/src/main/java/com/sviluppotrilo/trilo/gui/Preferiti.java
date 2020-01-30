@@ -27,13 +27,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 public class Preferiti extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
-
-    private Button cercaviaggio;
-    private Button myprofilo;
-    private DrawerLayout drawerLayout;
-    private Toolbar toolbar;
-    private NavigationView navigationView;
-    private ActionBarDrawerToggle toggle;
+    
     private TabLayout tabLayout;
     private HashSet<Soluzione> soluzioni;
     private RecyclerView recyclerView;
@@ -44,12 +38,12 @@ public class Preferiti extends AppCompatActivity implements NavigationView.OnNav
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preferiti);
-        toolbar = findViewById(R.id.toolbar);
-        navigationView = findViewById(R.id.navigation);
-        drawerLayout = findViewById(R.id.drawer);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        NavigationView navigationView = findViewById(R.id.navigation);
+        DrawerLayout drawerLayout = findViewById(R.id.drawer);
         tabLayout = findViewById(R.id.tabLayout);
-        cercaviaggio = findViewById(R.id.cercabt);
-        myprofilo = findViewById(R.id.mytrilo);
+        Button cercaviaggio = findViewById(R.id.cercabt);
+        Button myprofilo = findViewById(R.id.mytrilo);
         recyclerView = findViewById(R.id.recyclerView);
 
         cercaviaggio.setOnClickListener(new View.OnClickListener() {
@@ -69,7 +63,7 @@ public class Preferiti extends AppCompatActivity implements NavigationView.OnNav
         setSupportActionBar(toolbar);
         getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawerOpen, R.string.drawerClose);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawerOpen, R.string.drawerClose);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);

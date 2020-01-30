@@ -1,6 +1,5 @@
 package com.sviluppotrilo.trilo.domain;
 
-import com.preference.PowerPreference;
 import com.sviluppotrilo.trilo.gui.PushNotification;
 
 public abstract class Notifica {

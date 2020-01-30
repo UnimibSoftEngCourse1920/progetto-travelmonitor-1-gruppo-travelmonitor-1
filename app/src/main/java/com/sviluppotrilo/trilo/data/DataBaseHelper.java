@@ -5,13 +5,13 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import javax.annotation.CheckForNull;
 
 public class DataBaseHelper extends SQLiteOpenHelper {
     private static String databasename = "Stazioni.db";
@@ -21,8 +21,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private String[] arrData;
     private InputStream myInput;
     private OutputStream myOutput;
-    private String idPartenza;
-    private String idArrivo;
     private String idStazione;
 
     public DataBaseHelper(Context context) {
@@ -77,7 +75,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public String[] selectAllData() {
+    public String[] selectAllData(){
         SQLiteDatabase db;
         Cursor cursor = null;
         try {
@@ -93,7 +91,10 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 } while (cursor.moveToNext());
             }
         } finally {
-            cursor.close();
+            if(cursor != null)
+                cursor.close();
+            else
+                Log.d("error", "cursor is null");
         }
         return arrData;
     }

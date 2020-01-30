@@ -328,12 +328,67 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/sviluppotrilo/trilo/domain/Giorno.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/sviluppotrilo/trilo/domain/Notifica.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/sviluppotrilo/trilo/domain/NotificaRitardo.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/sviluppotrilo/trilo/domain/RoutineSettimanale.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/sviluppotrilo/trilo/domain/Soluzione.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/sviluppotrilo/trilo/domain/Stazione.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/sviluppotrilo/trilo/domain/Tratta.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/sviluppotrilo/trilo/gui/AboutUs.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/sviluppotrilo/trilo/gui/CercaStazione.java">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/sviluppotrilo/trilo/gui/CercaViaggio.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/sviluppotrilo/trilo/gui/Impostazioni.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/sviluppotrilo/trilo/gui/Mappa.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/sviluppotrilo/trilo/gui/MyAdapterTabellone.java">
           <value>
             <set />
           </value>
@@ -348,7 +403,32 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/sviluppotrilo/trilo/gui/Profilo.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/sviluppotrilo/trilo/gui/PushNotification.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/sviluppotrilo/trilo/gui/RecyclerOnTouchListener.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/sviluppotrilo/trilo/gui/RisultatiCercaStazione.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/sviluppotrilo/trilo/gui/RisultatiCercaViaggio.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/sviluppotrilo/trilo/gui/Social.java">
           <value>
             <set />
           </value>
@@ -434,6 +514,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/test/java/com/sviluppotrilo/trilo/AboutUsTest.java">
           <value>
             <set />
           </value>

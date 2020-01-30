@@ -9,7 +9,7 @@ import com.sviluppotrilo.trilo.domain.Viaggio;
 import com.sviluppotrilo.trilo.domain.ViaggioException;
 
 import org.junit.Test;
-
+import static org.junit.Assert.*;
 import java.util.ArrayList;
 
 public class ViaggioTest {
@@ -17,7 +17,15 @@ public class ViaggioTest {
     @Test
     public void cercaViaggio() {
         Stazione origine = new Stazione("Seveso", "1925");
+        assertNotNull(new Stazione("Seveso", "1925"));
+        assertEquals("Seveso", origine.getNome());
+        assertEquals("1925", origine.getId());
+
         Stazione destinazione = new Stazione("Affori", "1078");
+        assertNotNull(new Stazione("Affori", "1078"));
+        assertEquals( "Affori", destinazione.getNome());
+        assertEquals( "1078", destinazione.getId());
+
         String data = "2020-01-27";
         String ora = "T" + "12:00:00";
         ViaggioController c = new ViaggioController();
