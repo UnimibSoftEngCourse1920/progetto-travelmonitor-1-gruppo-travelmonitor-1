@@ -28,7 +28,8 @@ import java.util.HashSet;
 
 public class Preferiti extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
-    Button cercaviaggio, myprofilo;
+    Button cercaviaggio;
+    Button myprofilo;
     DrawerLayout drawerLayout;
     Toolbar toolbar;
     NavigationView navigationView;
@@ -149,7 +150,7 @@ public class Preferiti extends AppCompatActivity implements NavigationView.OnNav
                 recyclerView, new ClickListener() {
             @Override
             public void onClick(View view, final int position) {
-
+                // Auto-generated method
             }
 
             @Override

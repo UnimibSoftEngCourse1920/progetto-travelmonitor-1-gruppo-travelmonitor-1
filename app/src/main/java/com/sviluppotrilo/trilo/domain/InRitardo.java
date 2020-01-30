@@ -13,7 +13,7 @@ public class InRitardo implements CorsaState {
         Stazione sur = corsa.getStazioneUltimoRilevamento();
         for(Fermata fermata : corsa.getFermate())
             if (fermata.getStazione().getNome().equals(sur.getNome()) && fermata.getRitardo() < 5)
-                return new InOrario().statoCorsa(corsa);
+                return new Regolare().statoCorsa(corsa);
         return this;
     }
 }

@@ -100,8 +100,8 @@ public class CercaViaggio extends AppCompatActivity {
                         if (primaValida && secondaValida) {
                             String stazionePartenza = getStazionePartenza();
                             String stazioneArrivo = getStazioneArrivo();
-                            String idStazionePartenza = getIdStazionePartenza(stazionePartenza);
-                            String idStazioneArrivo = getIdStazioneArrivo(stazioneArrivo);
+                            String idStazionePartenza = getIdStazione(stazionePartenza);
+                            String idStazioneArrivo = getIdStazione(stazioneArrivo);
                             String dataScelta = (String) data.getText();
                             String oraScelta = (String) ora.getText();
                             Intent intent = new Intent(CercaViaggio.this, RisultatiCercaViaggio.class);
@@ -183,13 +183,10 @@ public class CercaViaggio extends AppCompatActivity {
         return String.valueOf(autoCom2.getText());
     }
 
-    public String getIdStazionePartenza(String partenza) {
-        return myDbHelper.selectIdPartenza(partenza);
+    public String getIdStazione(String stazione) {
+        return myDbHelper.selectIdStazione(stazione);
     }
 
-    public String getIdStazioneArrivo(String arrivo) {
-        return myDbHelper.selectIdArrivo(arrivo);
-    }
 
 
 }

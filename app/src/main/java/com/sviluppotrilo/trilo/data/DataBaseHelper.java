@@ -99,37 +99,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return arrData;
     }
 
-    public String selectIdPartenza(String partenza) {
-        SQLiteDatabase db;
-        try {
-            db = this.getReadableDatabase();
-            String strSQL = "SELECT id FROM " + tablestazioni + " WHERE nome = \""+partenza+"\"";
-            cursor = db.rawQuery(strSQL, null);
-            if (cursor.moveToFirst()) {
-                idPartenza = cursor.getString(cursor.getColumnIndex("id"));
-            }
-        } finally {
-            cursor.close();
-        }
-
-        return idPartenza;
-    }
-
-    public String selectIdArrivo(String arrivo) {
-        SQLiteDatabase db;
-        try {
-            db = this.getReadableDatabase();
-            String strSQL = "SELECT id FROM " +tablestazioni+ " WHERE nome = \""+arrivo+"\"";
-            cursor = db.rawQuery(strSQL, null);
-            if (cursor.moveToFirst()) {
-                idArrivo = cursor.getString(cursor.getColumnIndex("id"));
-            }
-        } finally {
-            cursor.close();
-        }
-        return idArrivo;
-    }
-
     public String selectIdStazione(String stazione) {
         SQLiteDatabase db;
         try {

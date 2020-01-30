@@ -44,7 +44,7 @@ public class MyAdapterPreferiti extends RecyclerView.Adapter<MyCardViaggio> {
         String partenza = soluzione.get(i).getTratte().get(0).getOrigine().getNome();
         String arrivo = soluzione.get(i).getTratte().get(0).getDestinazione().getNome();
         holder.oraPartenza.setText(orarioPartenza.substring((orarioPartenza.indexOf('T') + 1), orarioPartenza.indexOf(":00")));
-        holder.oraArrivo.setText(orarioArrivo.substring((orarioArrivo.indexOf("T") + 1), orarioArrivo.indexOf(":00")));
+        holder.oraArrivo.setText(orarioArrivo.substring((orarioArrivo.indexOf('T') + 1), orarioArrivo.indexOf(":00")));
         holder.stazionePartenza.setText(partenza);
         holder.stazioneArrivo.setText(arrivo);
         holder.numeroTreno.setText("Treno N: " + soluzione.get(i).getTratte().get(0).getNumeroTreno());

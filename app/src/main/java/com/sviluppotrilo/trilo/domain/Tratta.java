@@ -31,10 +31,11 @@ public class Tratta{
         return Corsa.find(stazionePartenza, numeroTreno);
     }
 
-    public Corsa cercaCorsa(Stazione stazione) throws ViaggioException {
+    /*
+    public Corsa cercaCorsa(String stazione) throws ViaggioException {
         Stazione stazionePartenza = Stazione.findStazionePartenza(numeroTreno, stazione);
         return Corsa.find(stazionePartenza, numeroTreno);
-    }
+    }*/
 
     public Stazione getOrigine() {
         return origine;
