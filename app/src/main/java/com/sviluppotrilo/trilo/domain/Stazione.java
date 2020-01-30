@@ -6,6 +6,7 @@ import com.sviluppotrilo.trilo.data.UrlLoader;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Objects;
@@ -13,7 +14,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Stazione {
-    public final String DATEFORMAT = "E%20MMM%20dd%20yyyy%20HH:mm:ss";
+    private static final String URL = "http://www.viaggiatreno.it/"
+            + "viaggiatrenonew/"
+            + "resteasy/"
+            + "viaggiatreno/";
+
     private String nome;
     private String id;
 
@@ -26,10 +31,7 @@ public class Stazione {
     }
 
     public static Stazione findStazionePartenza(String numeroTreno) throws ViaggioException {
-        String url = "http://www.viaggiatreno.it/"
-                + "viaggiatrenonew/"
-                + "resteasy/"
-                + "viaggiatreno/"
+        String url = Stazione.URL
                 + "cercaNumeroTrenoTrenoAutocomplete/"
                 + numeroTreno;
         String stazionePartenza = new UrlLoader(url).getUrlResponse();
@@ -41,32 +43,41 @@ public class Stazione {
     }
 
     public Arrivi[] cercaArrivi(){
-            String jsonPartenza = new UrlLoader("http://www.viaggiatreno.it/"
-                    + "viaggiatrenonew/"
-                    + "resteasy/"
-                    + "viaggiatreno/"
+        String jsonPartenza = new UrlLoader(Stazione.URL
                     + "arrivi/"
-                    + getId() + "/" // solo get id
+                    + getId() + "/"
                     + now()).getUrlResponse();
-            Arrivi[] arrivi = new Gson().fromJson(jsonPartenza, Arrivi[].class);
-            Arrays.sort(arrivi, new SortTabelloneArrivi());
-            return arrivi;
+        Arrivi[] arrivi = new Gson().fromJson(jsonPartenza, Arrivi[].class);
+        Arrays.sort(arrivi, new Comparator<Arrivi>() {
+            @Override
+            public int compare(Arrivi a1, Arrivi a2) {
+                long op1 = a1.getOrarioArrivo();
+                long op2 = a2.getOrarioArrivo();
+                return (int) (op1 - op2);
+            }
+        });
+        return arrivi;
     }
 
     public Partenze[]  cercaPartenze(){
-        String jsonPartenza = new UrlLoader("http://www.viaggiatreno.it/"
-                + "viaggiatrenonew/"
-                + "resteasy/"
-                + "viaggiatreno/"
+        String jsonPartenza = new UrlLoader(Stazione.URL
                 + "partenze/"
                 + getId() + "/" // solo get id
                 + now()).getUrlResponse();
         Partenze[] partenze = new Gson().fromJson(jsonPartenza, Partenze[].class);
-        Arrays.sort(partenze, new SortTabellonePartenze());
+        Arrays.sort(partenze, new Comparator<Partenze>() {
+            @Override
+            public int compare(Partenze p1, Partenze p2) {
+                long op1 = p1.getOrarioPartenza();
+                long op2 = p2.getOrarioPartenza();
+                return (int) (op1 - op2);
+            }
+        });
         return partenze;
     }
 
-    public String now(){
+    private String now(){
+        final String DATEFORMAT = "E%20MMM%20dd%20yyyy%20HH:mm:ss";
         SimpleDateFormat dateFormat = new SimpleDateFormat(DATEFORMAT, new Locale("EN"));
         Date today = Calendar.getInstance().getTime();
         return dateFormat.format(today) + "%20GMT+0100";

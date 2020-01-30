@@ -26,50 +26,40 @@ public class FermataAdapter extends TypeAdapter<Fermata> {
             token = reader.peek();
             if(token.equals(JsonToken.NULL))
                 reader.skipValue();
-            if (token.equals(JsonToken.NAME)) {
+            else if (token.equals(JsonToken.NAME)) {
                 fieldname = reader.nextName();
                 if(reader.peek() == JsonToken.NULL) {
                     reader.skipValue();
-                }else if ("stazione".equals(fieldname)) {
-                    String nomeStazione = reader.nextString();
-                    stazione.setNome(nomeStazione);
-                }else if("id".equals(fieldname)){
-                    String idStazione = reader.nextString();
-                    stazione.setId(idStazione);
-                    //Qui andrebbe cercato l'id della stazione nel db
-                    //Per mantenere la coerenza ??
-                }else if("programmata".equals(fieldname)){
-                    String programmata = reader.nextString();
-                    fermata.setProgrammata(programmata);
-                }else if("tipoFermata".equals(fieldname)){
-                    String tipoFermata = reader.nextString();
-                    fermata.setTipoFermata(tipoFermata);
-                }else if("ritardo".equals(fieldname)){
-                    int ritardo = reader.nextInt();
-                    fermata.setRitardo(ritardo);
-                }else if("ritardoArrivo".equals(fieldname)){
-                    int ritardoArrivo = reader.nextInt();
-                    fermata.setRitardoArrivo(ritardoArrivo);
-                }else if("ritardoPartenza".equals(fieldname)){
-                    int ritardoPartenza = reader.nextInt();
-                    fermata.setRitardoPartenza(ritardoPartenza);
-                }else if("arrivoReale".equals(fieldname)){
-                    String arrivoReale = reader.nextString();
-                    fermata.setArrivoReale(arrivoReale);
-                }else if("partenzaReale".equals(fieldname)){
-                    String partenzaReale = reader.nextString();
-                    fermata.setPartenzaReale(partenzaReale);
-                }else if("arrivo_teorico".equals(fieldname)){
-                    String arrivoTeorico = reader.nextString();
-                    fermata.setArrivoTeorico(arrivoTeorico);
-                }else if("partenza_teorica".equals(fieldname)){
-                    String partenzaTeorica = reader.nextString();
-                    fermata.setPartenzaTeorica(partenzaTeorica);
-                }else if("actualFermataType".equals(fieldname)){
-                    int tipoFermataAttuale = reader.nextInt();
-                    fermata.setTipoFermataAttuale(tipoFermataAttuale);
                 }else{
-                    reader.skipValue();
+                    switch(fieldname){
+                    case "stazione": String nomeStazione = reader.nextString();
+                        stazione.setNome(nomeStazione); break;
+                    case "id": String idStazione = reader.nextString();
+                        stazione.setId(idStazione); break;
+                        //Qui andrebbe cercato l'id della stazione nel db
+                        //Per mantenere la coerenza
+                    case "programmata":String programmata = reader.nextString();
+                        fermata.setProgrammata(programmata); break;
+                    case "tipoFermata": String tipoFermata = reader.nextString();
+                        fermata.setTipoFermata(tipoFermata); break;
+                    case "ritardo": int ritardo = reader.nextInt();
+                        fermata.setRitardo(ritardo); break;
+                    case "ritardoArrivo":int ritardoArrivo = reader.nextInt();
+                        fermata.setRitardoArrivo(ritardoArrivo); break;
+                    case "ritardoPartenza":int ritardoPartenza = reader.nextInt();
+                        fermata.setRitardoPartenza(ritardoPartenza); break;
+                    case "arrivoReale": String arrivoReale = reader.nextString();
+                        fermata.setArrivoReale(arrivoReale); break;
+                    case "partenzaReale": String partenzaReale = reader.nextString();
+                        fermata.setPartenzaReale(partenzaReale); break;
+                    case "arrivo_teorico": String arrivoTeorico = reader.nextString();
+                        fermata.setArrivoTeorico(arrivoTeorico); break;
+                    case "partenza_teorica": String partenzaTeorica = reader.nextString();
+                        fermata.setPartenzaTeorica(partenzaTeorica); break;
+                    case "actualFermataType": int tipoFermataAttuale = reader.nextInt();
+                        fermata.setTipoFermataAttuale(tipoFermataAttuale); break;
+                    default:  reader.skipValue();
+                    }
                 }
             }
         }
@@ -77,5 +67,4 @@ public class FermataAdapter extends TypeAdapter<Fermata> {
         fermata.setStazione(stazione);
         return fermata;
     }
-
 }

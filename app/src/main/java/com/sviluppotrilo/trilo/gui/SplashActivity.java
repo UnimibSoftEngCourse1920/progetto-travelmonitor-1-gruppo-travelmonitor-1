@@ -92,19 +92,19 @@ public class SplashActivity extends AppCompatActivity {
 
     private void firstRun() {
         Giorno lunedi = new Giorno(1, "Lunedi");
-        boolean result = PowerPreference.getDefaultFile().setObject("Lunedi", lunedi);
+        PowerPreference.getDefaultFile().setObject("Lunedi", lunedi);
         Giorno martedi = new Giorno(2, "Martedi");
-        result = PowerPreference.getDefaultFile().setObject("Martedi", martedi);
+        PowerPreference.getDefaultFile().setObject("Martedi", martedi);
         Giorno mercoledi = new Giorno(3, "Mercoledi");
-        result = PowerPreference.getDefaultFile().setObject("Mercoledi", mercoledi);
+        PowerPreference.getDefaultFile().setObject("Mercoledi", mercoledi);
         Giorno giovedi = new Giorno(4, "Giovedi");
-        result = PowerPreference.getDefaultFile().setObject("Giovedi", giovedi);
+        PowerPreference.getDefaultFile().setObject("Giovedi", giovedi);
         Giorno venerdi = new Giorno(5, "Venerdi");
-        result = PowerPreference.getDefaultFile().setObject("Venerdi", venerdi);
+        PowerPreference.getDefaultFile().setObject("Venerdi", venerdi);
         Giorno sabato = new Giorno(6, "Sabato");
-        result = PowerPreference.getDefaultFile().setObject("Sabato", sabato);
+        PowerPreference.getDefaultFile().setObject("Sabato", sabato);
         Giorno domenica = new Giorno(7, "Domenica");
-        result = PowerPreference.getDefaultFile().setObject("Domenica", domenica);
+        PowerPreference.getDefaultFile().setObject("Domenica", domenica);
 
     }
 

@@ -13,28 +13,19 @@ public class UrlLoader {
         urlResponse = readUrl(url);
     }
 
-    private String readUrl(String urlString){
-        BufferedReader reader = null;
-        try {
-            URL url = new URL(urlString);
-            reader = new BufferedReader(new InputStreamReader(url.openStream()));
-            StringBuffer buffer = new StringBuffer();
+    private String readUrl(String urlString) {
+        try (BufferedReader reader =
+                     new BufferedReader(new InputStreamReader(new URL(urlString).openStream()));) {
+            StringBuilder buffer = new StringBuilder();
             int read;
             char[] chars = new char[1024];
             while ((read = reader.read(chars)) != -1)
                 buffer.append(chars, 0, read);
             return buffer.toString();
-        }catch(Exception e){
+        } catch (Exception e) {
             Log.e("Errore: ", e.toString());
-        }finally {
-            if (reader != null)
-                try {
-                    reader.close();
-                } catch (Exception e) {
-                    Log.e("Errore: ", "Errore nella chiusura del buffer.");
-                }
+            return null;
         }
-        return null;
     }
 
     public String getUrlResponse() {

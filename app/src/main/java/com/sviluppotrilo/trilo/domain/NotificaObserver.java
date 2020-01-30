@@ -1,9 +1,5 @@
 package com.sviluppotrilo.trilo.domain;
 
-import com.sviluppotrilo.trilo.domain.Corsa;
-import com.sviluppotrilo.trilo.domain.CorsaState;
-import com.sviluppotrilo.trilo.domain.NonPartito;
-
 import java.util.Observable;
 import java.util.Observer;
 
