@@ -14,12 +14,12 @@ import com.sviluppotrilo.trilo.R;
 public class PushNotification {
     private PushNotification(){}
 
-    private static Context context;
+    public static Context context;
     private static final String CHANNEL_1_ID = "Channel1";
     private static final String NAME = "Channel1";
     private static final String GROUP = "Group1";
-    private static final String TITLE = "Ehi !! Trilo ha rilevato qualcosa !";
-    private static final String DESCRIPTION = "Ehi !! Trilo ha rilevato qualcosa !";
+    private static final String TITLE = "Ehi! Trilo ha rilevato qualcosa";
+    private static final String DESCRIPTION = "Ehi! Trilo ha rilevato qualcosa";
 
     public static void init(Context c){
         context = c;
@@ -39,11 +39,13 @@ public class PushNotification {
         NotificationManagerCompat notificationManager;
         notificationManager = NotificationManagerCompat.from(context);
         Notification notification1 = new NotificationCompat.Builder(context, CHANNEL_1_ID)
-                .setSmallIcon(R.drawable.logo_black)
+                .setSmallIcon(R.drawable.notification)
                 .setContentTitle(TITLE)
                 .setContentText(testoNotifica)
                 .setPriority(NotificationCompat.PRIORITY_LOW)
                 .setGroup(GROUP)
+                .setStyle(new NotificationCompat.BigTextStyle()
+                        .bigText(testoNotifica))
                 .build();
         notificationManager.notify(1, notification1);
     }
