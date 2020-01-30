@@ -9,7 +9,7 @@ import com.sviluppotrilo.trilo.domain.Soluzione;
 import java.util.Set;
 
 public class PreferitiController {
-    final static String ERRORE = "Errore: ";
+    static final String ERRORE = "Errore: ";
 
     public Set<Soluzione> visualizzaPreferiti(int idGiorno){
         Set<Soluzione> preferiti = null;
@@ -31,7 +31,7 @@ public class PreferitiController {
             preferiti = giorno.getPreferiti();
 
         }catch(Exception e){
-            Log.e("Errore: ", e.getMessage());
+            Log.e(ERRORE, e.getMessage());
         }
         return preferiti;
     }

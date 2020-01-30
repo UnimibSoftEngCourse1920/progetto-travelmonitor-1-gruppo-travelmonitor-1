@@ -1,9 +1,5 @@
 package com.sviluppotrilo.trilo.domain;
 
-import com.google.gson.Gson;
-
-import java.util.Arrays;
-
 public class Partenze {
     private String numeroTreno;
     private String categoria;
@@ -81,4 +77,5 @@ public class Partenze {
                 + inStazione + ", orarioPartenza=" + orarioPartenza + ", ritardo="
                 + ritardo + ", compOrarioPartenza=" + compOrarioPartenza + ", compNumeroTreno=" + compNumeroTreno + "]";
     }
+
 }

@@ -4,11 +4,6 @@ import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.JsonWriter;
-import com.sviluppotrilo.trilo.domain.Soluzione;
-import com.sviluppotrilo.trilo.domain.SoluzioneAdapter;
-import com.sviluppotrilo.trilo.domain.Stazione;
-import com.sviluppotrilo.trilo.domain.Viaggio;
-
 import java.io.IOException;
 
 public class ViaggioAdapter extends TypeAdapter<Viaggio> {

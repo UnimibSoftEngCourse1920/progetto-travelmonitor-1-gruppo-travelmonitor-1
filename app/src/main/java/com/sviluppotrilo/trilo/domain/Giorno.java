@@ -18,7 +18,7 @@ public class Giorno{
     public Giorno(int id, String nome) {
         this.id = id;
         this.nome = nome;
-        preferiti = new HashSet<Soluzione>();
+        preferiti = new HashSet<>();
     }
 
     public synchronized int getId() {
@@ -33,24 +33,24 @@ public class Giorno{
         return preferiti;
     }
 
-    public synchronized void aggiungiPreferito(Soluzione preferito) throws Exception{
+    public synchronized void aggiungiPreferito(Soluzione preferito) throws PreferitiException{
         if(preferito == null)
             return;
         preferiti.add(preferito);
         update();
     }
 
-    public synchronized void rimuoviPreferito(Soluzione preferito) throws Exception{
+    public synchronized void rimuoviPreferito(Soluzione preferito) throws PreferitiException{
         if(preferito == null)
             return;
         preferiti.remove(preferito);
         update();
     }
 
-    private synchronized void update() throws Exception{
+    private synchronized void update() throws PreferitiException{
         boolean result = PowerPreference.getDefaultFile().setObject(getNome(), this);
         if(!result)
-            throw new Exception("Update dei preferiti fallito");
+            throw new PreferitiException("Update dei preferiti fallito");
     }
 
     @Override

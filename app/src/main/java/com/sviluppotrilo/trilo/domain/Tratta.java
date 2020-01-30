@@ -19,7 +19,6 @@ public class Tratta extends Observable {
 
     public void update() throws ViaggioException {
         setCorsa(cercaCorsa());
-        System.out.println("Aggiornamento stato della tratta: " + this);
     }
 
     public Corsa cercaCorsa() throws ViaggioException {
@@ -89,10 +88,6 @@ public class Tratta extends Observable {
         notifyObservers(corsa);
     }
 
-    /*public CorsaState getStato() {
-        return stato;
-    }*/
-
     @Override
     public String toString() {
         return "Tratta [origine=" + origine + ", destinazione=" + destinazione + ", orarioPartenza=" + orarioPartenza
@@ -100,10 +95,10 @@ public class Tratta extends Observable {
                 + categoriaDescrizione + ", numeroTreno=" + numeroTreno + "]";
     }
 
-    private String orario(String dataOra) throws NullPointerException{
+    private String orario(String dataOra){
         String s = null;
         Pattern pattern = Pattern.compile("[T].*");
-        Matcher matcher = pattern.matcher(getOrarioPartenza());
+        Matcher matcher = pattern.matcher(dataOra);
         if (matcher.find())
             s = matcher.group(0);
         s = s.substring(1);

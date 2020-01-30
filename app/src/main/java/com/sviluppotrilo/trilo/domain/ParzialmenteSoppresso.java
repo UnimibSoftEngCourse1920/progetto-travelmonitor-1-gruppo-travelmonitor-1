@@ -1,10 +1,9 @@
 package com.sviluppotrilo.trilo.domain;
 
 public class ParzialmenteSoppresso implements CorsaState {
-    public ParzialmenteSoppresso(){}
     @Override
     public CorsaState statoCorsa(Corsa corsa){
-        if(corsa.isPartito() == true)
+        if(corsa.isPartito())
             return new InOrario().statoCorsa(corsa);
         if(corsa.getProvvedimento() == 1 && corsa.getTipoTreno().equals("ST")) {
             new NotificaSoppressione(corsa.getNumeroTreno(), corsa.getDestinazione().getNome()).invia();

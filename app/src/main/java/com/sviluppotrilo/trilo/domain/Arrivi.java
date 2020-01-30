@@ -1,9 +1,5 @@
 package com.sviluppotrilo.trilo.domain;
 
-import com.google.gson.Gson;
-
-import java.util.Arrays;
-
 public class Arrivi {
     private String numeroTreno;
     private String categoria;
