@@ -23,6 +23,7 @@ public class PreferitiController {
         }
         return preferiti;
     }
+
     public Set<Soluzione> visualizzaPreferitiOggi(){
         Set<Soluzione> preferiti = null;
         Giorno giorno;
@@ -36,17 +37,17 @@ public class PreferitiController {
         return preferiti;
     }
 
-    public void eliminaPreferito(int idGiorno, Soluzione s){
+    public void eliminaPreferito(int idGiorno, Soluzione soluzione){
         Giorno giorno = null;
         try {
             giorno = RoutineSettimanale.getGiorno(idGiorno);
-            giorno.rimuoviPreferito(s);
+            giorno.rimuoviPreferito(soluzione);
         } catch (Exception e) {
             Log.e(ERRORE, e.getMessage());
         }
     }
 
-    public void aggiungiPreferito(int idGiorno, Soluzione s){
+    public void aggiungiPreferito(int idGiorno, Soluzione soluzione){
         Giorno giorno = null;
         try {
             giorno = RoutineSettimanale.getGiorno(idGiorno);
