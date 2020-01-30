@@ -90,8 +90,8 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/carddatipersonali"
-                android:layout_width="370dp"
-                android:layout_height="370dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
@@ -112,11 +112,13 @@
                     <Button
                         android:id="@+id/datanascita"
                         android:layout_width="wrap_content"
-                        android:layout_height="40dp"
+                        android:layout_height="wrap_content"
                         android:layout_below="@+id/inseriscidatanascita"
                         android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="5dp"
+                        android:layout_marginEnd="20dp"
                         android:backgroundTint="@color/colorPrimary"
                         android:fontFamily="@font/montserrat_bold"
                         android:hint="Data di nascita"
@@ -134,12 +136,16 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/inseriscinome"
                         android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="5dp"
+                        android:layout_marginEnd="20dp"
                         android:fontFamily="@font/montserrat_bold"
+                        android:hint="Inserisci il tuo nome"
                         android:inputType="textPersonName"
                         android:minWidth="200dp"
                         android:textColor="@color/colorPrimary"
+                        android:textColorHint="@color/colorAccent"
                         android:textSize="24sp">
 
                     </com.google.android.material.textfield.TextInputEditText>
@@ -151,13 +157,17 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/inseriscicognome"
                         android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="5dp"
+                        android:layout_marginEnd="20dp"
                         android:layout_marginBottom="5dp"
                         android:fontFamily="@font/montserrat_bold"
+                        android:hint="Inserisci il tuo cognome"
                         android:inputType="textPersonName"
                         android:minWidth="200dp"
                         android:textColor="@color/colorPrimary"
+                        android:textColorHint="@color/colorAccent"
                         android:textSize="24sp">
 
                     </com.google.android.material.textfield.TextInputEditText>
@@ -168,8 +178,10 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/cognome"
                         android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
                         android:layout_marginStart="20dp"
-                        android:layout_marginTop="15dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="20dp"
                         android:text="Data di nascita"
                         android:textColor="@color/colorPrimary"
                         android:textSize="18sp" />
@@ -180,8 +192,10 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="20dp"
+                        android:layout_marginEnd="20dp"
                         android:text="Nome"
                         android:textColor="@color/colorPrimary"
                         android:textSize="18sp" />
@@ -192,24 +206,29 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/nome"
                         android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
                         android:layout_marginStart="20dp"
-                        android:layout_marginTop="15dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="20dp"
                         android:text="Cognome"
                         android:textColor="@color/colorPrimary"
                         android:textSize="18sp" />
 
                     <Button
                         android:id="@+id/salvadatiprofilo"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_below="@+id/datanascita"
+                        android:layout_alignParentStart="true"
                         android:layout_alignParentEnd="true"
-                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="80dp"
                         android:layout_marginEnd="20dp"
-                        android:layout_marginBottom="10dp"
+                        android:layout_marginBottom="20dp"
                         android:fontFamily="@font/montserrat_bold"
                         android:text="salva"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="14sp"
+                        android:textSize="18sp"
                         app:strokeWidth="2dp" />
 
                 </RelativeLayout>

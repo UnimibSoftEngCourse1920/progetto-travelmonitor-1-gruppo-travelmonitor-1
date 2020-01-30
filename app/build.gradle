@@ -56,4 +56,5 @@ dependencies {
 
     //Libreria per la retrocompatibilità di LocalDate
     implementation 'com.jakewharton.threetenabp:threetenabp:1.2.2'
+
 }

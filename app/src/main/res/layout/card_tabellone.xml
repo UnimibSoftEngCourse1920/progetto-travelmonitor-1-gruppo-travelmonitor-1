@@ -54,7 +54,7 @@
                 android:fontFamily="@font/montserrat_medium"
                 android:gravity="center_vertical"
                 android:hint="treno"
-                android:maxWidth="250dp"
+                android:maxWidth="210dp"
                 android:textAlignment="inherit"
                 android:textColor="@color/colorPrimary"
                 android:textSize="18sp"

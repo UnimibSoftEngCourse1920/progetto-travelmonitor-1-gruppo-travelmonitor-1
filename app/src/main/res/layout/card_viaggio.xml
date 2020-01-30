@@ -37,7 +37,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="3dp"
                 android:background="@drawable/realtime_ok"
-                android:contentDescription="orarioviaggio"
+                android:contentDescription="statook"
                 app:layout_constraintStart_toEndOf="@+id/orarioViaggio" />
 
             <ImageView
@@ -48,6 +48,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="3dp"
+                android:contentDescription="statoritardo"
                 android:visibility="invisible"
                 app:srcCompat="@drawable/realtime_notok" />
 
@@ -169,6 +170,7 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
+                android:contentDescription="linea"
                 app:srcCompat="@drawable/tratta_green" />
 
             <ImageView
@@ -181,6 +183,7 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
+                android:contentDescription="linearitardo"
                 android:visibility="invisible"
                 app:srcCompat="@drawable/tratta_red" />
 
@@ -216,33 +219,25 @@
                 app:layout_constraintStart_toEndOf="@+id/imagestato" />
 
             <ImageView
-                android:id="@+id/segnala"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:id="@+id/preferito"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginEnd="20dp"
-                android:layout_marginBottom="10dp"
-                app:srcCompat="@drawable/segnalazione" />
-
-            <ImageView
-                android:id="@+id/preferito"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_alignParentBottom="true"
-                android:layout_marginEnd="5dp"
-                android:layout_marginBottom="10dp"
-                android:layout_toStartOf="@+id/segnala"
+                android:layout_marginBottom="20dp"
+                android:contentDescription="preferito"
                 app:srcCompat="@drawable/notpreferito" />
 
             <ImageView
                 android:id="@+id/setpreferito"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginEnd="5dp"
-                android:layout_marginBottom="10dp"
-                android:layout_toStartOf="@+id/segnala"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:contentDescription="setpreferito"
                 app:srcCompat="@drawable/preferito" />
 
         </RelativeLayout>

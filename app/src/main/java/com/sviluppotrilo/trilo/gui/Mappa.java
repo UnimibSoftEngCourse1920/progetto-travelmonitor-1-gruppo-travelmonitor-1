@@ -34,14 +34,16 @@ public class Mappa extends AppCompatActivity {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 int count = tabLayout.getSelectedTabPosition();
-                if(count == 0) {
-                    mappa.setBackgroundResource(R.drawable.stibm);
-                    titlemappa.setText("MAPPA STIBM");
-                }
-                else {
-                    mappa.setBackgroundResource(R.drawable.linee_regionali);
-                    titlemappa.setText("MAPPA LINEE REGIONALI");
-
+                switch(count) {
+                    case 0:
+                        mappa.setBackgroundResource(R.drawable.stibm);
+                        titlemappa.setText("MAPPA STIBM");
+                    case 1:
+                        mappa.setBackgroundResource(R.drawable.linee_regionali);
+                        titlemappa.setText("MAPPA LINEE REGIONALI");
+                    case 2:
+                        mappa.setBackgroundResource(R.drawable.metro_milano);
+                        titlemappa.setText("METRO MILANO");
                 }
             }
 
