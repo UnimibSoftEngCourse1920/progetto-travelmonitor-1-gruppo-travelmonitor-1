@@ -7,7 +7,7 @@ public class NotificaObserver  implements Observer {
     CorsaState stato;
 
     public NotificaObserver() {
-        stato = new NonPartito();
+        stato = new Regolare();
     }
 
     @Override

@@ -1,14 +1,13 @@
 package com.sviluppotrilo.trilo;
 
 import com.sviluppotrilo.trilo.controllers.ViaggioController;
-import com.sviluppotrilo.trilo.data.DataBaseHelper;
 import com.sviluppotrilo.trilo.domain.Corsa;
 import com.sviluppotrilo.trilo.domain.Giorno;
+import com.sviluppotrilo.trilo.domain.Regolare;
 import com.sviluppotrilo.trilo.domain.Stazione;
 import com.sviluppotrilo.trilo.domain.Partenze;
 import com.sviluppotrilo.trilo.domain.Arrivi;
 import com.sviluppotrilo.trilo.domain.CorsaState;
-import com.sviluppotrilo.trilo.domain.NonPartito;
 import com.sviluppotrilo.trilo.domain.Soluzione;
 import com.sviluppotrilo.trilo.domain.Viaggio;
 import com.sviluppotrilo.trilo.domain.Tratta;
@@ -67,7 +66,7 @@ public class StatoCorsaTest {
         Stazione origine = new Stazione("SEVESO", "S01925");
         String numeroTreno="20245";
         Corsa corsa = c.cercaCorsa(origine, numeroTreno);
-        CorsaState s = new NonPartito();
+        CorsaState s = new Regolare();
         CorsaState s1=s.statoCorsa(corsa);
         System.out.println(s1.getClass());
     }
