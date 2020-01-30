@@ -51,7 +51,7 @@ public class PreferitiController {
         Giorno giorno = null;
         try {
             giorno = RoutineSettimanale.getGiorno(idGiorno);
-            giorno.aggiungiPreferito(s);
+            giorno.aggiungiPreferito(soluzione);
         } catch (Exception e) {
             Log.e(ERRORE, e.getMessage());
         }
