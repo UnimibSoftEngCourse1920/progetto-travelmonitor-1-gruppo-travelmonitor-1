@@ -23,14 +23,14 @@ import com.sviluppotrilo.trilo.domain.Stazione;
 public class RisultatiCercaStazione extends AppCompatActivity {
 
 
-    RecyclerView recyclerView;
-    RecyclerView.Adapter adapter;
-    Button back;
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter adapter;
+    private Button back;
+    private String nomeStazione;
+    private String idStazione;
+    private TabLayout tabLayout;
+    private TextView nomeStazioneCorrente;
     ProgressBar caricamento;
-    String nomeStazione;
-    String idStazione;
-    TabLayout tabLayout;
-    TextView nomeStazioneCorrente;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +66,7 @@ public class RisultatiCercaStazione extends AppCompatActivity {
                         int pos = 0;
                         recyclerView.setHasFixedSize(true);
                         adapter = new MyAdapterTabellone(RisultatiCercaStazione.this, stazione, arrivi, partenze, pos);
+                        caricamento.setVisibility(View.GONE);
                         recyclerView.setLayoutManager(new GridLayoutManager(RisultatiCercaStazione.this, 1));
                         recyclerView.setAdapter(adapter);
                         try {

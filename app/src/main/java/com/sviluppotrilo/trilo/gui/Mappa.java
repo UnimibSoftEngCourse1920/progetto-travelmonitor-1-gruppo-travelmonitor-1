@@ -14,10 +14,10 @@ import com.sviluppotrilo.trilo.R;
 
 public class Mappa extends AppCompatActivity {
 
-    TabLayout tabLayout;
-    ImageView mappaTreni;
-    TextView titlemappa;
-    ImageView back;
+    private TabLayout tabLayout;
+    private ImageView mappaTreni;
+    private TextView titlemappa;
+    private ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

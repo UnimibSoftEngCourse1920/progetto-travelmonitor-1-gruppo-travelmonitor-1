@@ -15,7 +15,7 @@ import com.sviluppotrilo.trilo.domain.Stazione;
 public class MyAdapterStazione extends RecyclerView.Adapter<MyCardStazione> {
 
     Context context;
-    Stazione datiStazione;
+    private Stazione datiStazione;
 
     public MyAdapterStazione(Context c, Stazione datiStazione) {
         this.context = c;

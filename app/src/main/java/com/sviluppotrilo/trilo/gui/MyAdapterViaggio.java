@@ -22,9 +22,9 @@ import java.util.ArrayList;
 public class MyAdapterViaggio extends RecyclerView.Adapter<MyCardViaggio> {
 
     Context context;
-    ArrayList<Soluzione> datiSoluzione;
-    String partenza;
-    String arrivo;
+    private ArrayList<Soluzione> datiSoluzione;
+    private String partenza;
+    private String arrivo;
 
     public MyAdapterViaggio(Context c, ArrayList<Soluzione> datiSoluzione, String partenza, String arrivo) {
         this.context = c;

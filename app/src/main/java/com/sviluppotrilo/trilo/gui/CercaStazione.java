@@ -20,21 +20,18 @@ import com.sviluppotrilo.trilo.domain.Stazione;
 
 public class CercaStazione extends AppCompatActivity {
 
-    DataBaseHelper myDbHelper;
-    String[] myData;
-    AutoCompleteTextView autoCom;
-    ArrayAdapter arrayAdapter;
-    Button cerca;
-    String stringaStazione;
-    String idStazione;
-    ImageView back;
-    Boolean valida = false;
-    Stazione stazione;
-
-    //Visualizzazione
-    RecyclerView recyclerView;
-    Stazione soluzione;
-    RecyclerView.Adapter adapter;
+    private DataBaseHelper myDbHelper;
+    private String[] myData;
+    private AutoCompleteTextView autoCom;
+    private ArrayAdapter arrayAdapter;
+    private Button cerca;
+    private String stringaStazione;
+    private String idStazione;
+    private ImageView back;
+    private Boolean valida = false;
+    private Stazione stazione;
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter adapter;
 
 
     @Override

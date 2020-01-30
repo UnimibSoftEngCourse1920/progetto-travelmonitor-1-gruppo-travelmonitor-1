@@ -18,12 +18,12 @@ import java.util.Calendar;
 
 public class Profilo extends AppCompatActivity {
 
-    EditText nome;
-    EditText cognome;
-    Button dataN;
-    Button salva;
-    DatePickerDialog pickerDate;
-    ImageView back;
+    private EditText nome;
+    private EditText cognome;
+    private Button dataN;
+    private Button salva;
+    private DatePickerDialog pickerDate;
+    private ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -17,7 +17,7 @@ import java.util.HashSet;
 public class MyAdapterPreferiti extends RecyclerView.Adapter<MyCardViaggio> {
 
     Context context;
-    HashSet<Soluzione> datiSoluzione;
+    private HashSet<Soluzione> datiSoluzione;
 
     public MyAdapterPreferiti(Context c, HashSet<Soluzione> datiSoluzione) {
         this.context = c;

@@ -21,7 +21,7 @@ public class MyCardTabellone extends RecyclerView.ViewHolder {
         this.treno = itemView.findViewById(R.id.treno);
         this.ora = itemView.findViewById(R.id.ora);
         this.binario = itemView.findViewById(R.id.binario);
-
+        itemView.findViewById(R.id.treno).setSelected(true);
 
     }
 }

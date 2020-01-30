@@ -28,17 +28,17 @@ import java.util.HashSet;
 
 public class Preferiti extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
-    Button cercaviaggio;
-    Button myprofilo;
-    DrawerLayout drawerLayout;
-    Toolbar toolbar;
-    NavigationView navigationView;
-    ActionBarDrawerToggle toggle;
-    TabLayout tabLayout;
-    HashSet<Soluzione> soluzioni;
-    RecyclerView recyclerView;
-    RecyclerView.Adapter adapter;
-    PreferitiController preferitiController = new PreferitiController();
+    private Button cercaviaggio;
+    private Button myprofilo;
+    private DrawerLayout drawerLayout;
+    private Toolbar toolbar;
+    private NavigationView navigationView;
+    private ActionBarDrawerToggle toggle;
+    private TabLayout tabLayout;
+    private HashSet<Soluzione> soluzioni;
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter adapter;
+    private PreferitiController preferitiController = new PreferitiController();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

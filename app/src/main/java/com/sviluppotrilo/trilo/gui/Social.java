@@ -15,9 +15,9 @@ import com.sviluppotrilo.trilo.R;
 
 public class Social extends AppCompatActivity {
 
-    TabLayout tabLayout;
-    WebView webView;
-    ImageView back;
+    private TabLayout tabLayout;
+    private WebView webView;
+    private ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

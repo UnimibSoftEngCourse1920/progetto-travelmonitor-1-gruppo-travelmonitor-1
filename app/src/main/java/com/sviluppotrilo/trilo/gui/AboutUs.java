@@ -11,7 +11,7 @@ import com.sviluppotrilo.trilo.R;
 
 public class AboutUs extends AppCompatActivity {
 
-    ImageView back;
+    private ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

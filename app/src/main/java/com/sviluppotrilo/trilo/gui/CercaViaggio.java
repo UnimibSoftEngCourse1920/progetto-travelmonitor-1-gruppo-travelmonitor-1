@@ -27,19 +27,19 @@ import java.util.Locale;
 
 public class CercaViaggio extends AppCompatActivity {
 
-    DataBaseHelper myDbHelper;
-    String[] myData;
-    AutoCompleteTextView autoCom1;
-    AutoCompleteTextView autoCom2;
-    ArrayAdapter arrayAdapter;
-    Button data;
-    Button ora;
-    Button cerca;
-    DatePickerDialog pickerDate;
-    TimePickerDialog pickerTime;
-    ImageView back;
-    Boolean primaValida = false;
-    Boolean secondaValida = false;
+    private DataBaseHelper myDbHelper;
+    private String[] myData;
+    private AutoCompleteTextView autoCom1;
+    private AutoCompleteTextView autoCom2;
+    private ArrayAdapter arrayAdapter;
+    private Button data;
+    private Button ora;
+    private Button cerca;
+    private DatePickerDialog pickerDate;
+    private TimePickerDialog pickerTime;
+    private ImageView back;
+    private Boolean primaValida = false;
+    private Boolean secondaValida = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

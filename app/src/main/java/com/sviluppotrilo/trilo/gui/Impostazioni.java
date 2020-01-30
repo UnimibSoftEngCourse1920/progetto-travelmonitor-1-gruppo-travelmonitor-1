@@ -16,11 +16,11 @@ import com.sviluppotrilo.trilo.R;
 
 public class Impostazioni extends AppCompatActivity {
 
-    ImageView back;
-    Switch notificaRitardo;
-    Switch notificaCancellazione;
-    Switch notificaFuoriCitta;
-    Switch notificaPromemoria;
+    private ImageView back;
+    private Switch notificaRitardo;
+    private Switch notificaCancellazione;
+    private Switch notificaFuoriCitta;
+    private Switch notificaPromemoria;
 
 
     @Override

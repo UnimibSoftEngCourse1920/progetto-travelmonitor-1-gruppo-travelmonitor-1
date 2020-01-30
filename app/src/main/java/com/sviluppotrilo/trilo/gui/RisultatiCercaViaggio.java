@@ -22,12 +22,12 @@ import java.util.ArrayList;
 public class RisultatiCercaViaggio extends AppCompatActivity {
 
 
-    RecyclerView recyclerView;
-    ArrayList<Soluzione> soluzioni;
-    RecyclerView.Adapter adapter;
-    ImageView back;
-    ImageView backmenu;
-    ProgressBar caricamento;
+    private RecyclerView recyclerView;
+    private ArrayList<Soluzione> soluzioni;
+    private RecyclerView.Adapter adapter;
+    private ImageView back;
+    private ImageView backmenu;
+    private ProgressBar caricamento;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

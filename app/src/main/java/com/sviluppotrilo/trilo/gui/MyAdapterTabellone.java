@@ -18,10 +18,11 @@ import com.sviluppotrilo.trilo.domain.Stazione;
 public class MyAdapterTabellone extends RecyclerView.Adapter<MyCardTabellone> {
 
     Context context;
-    Arrivi[] datiTabelloneArrivi;
-    Partenze[] datiTabellonePartenze;
+    private Arrivi[] datiTabelloneArrivi;
+    private Partenze[] datiTabellonePartenze;
     Stazione stazione;
-    int pos = 0;
+
+    private int pos = 0;
 
     public MyAdapterTabellone(Context c, Stazione stazione, Arrivi[] datiTabelloneArrivi, Partenze[] datiTabellonePartenze, int pos) {
         this.context = c;
