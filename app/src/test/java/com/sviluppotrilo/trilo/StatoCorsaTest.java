@@ -3,11 +3,11 @@ package com.sviluppotrilo.trilo;
 import com.sviluppotrilo.trilo.controllers.ViaggioController;
 import com.sviluppotrilo.trilo.domain.Corsa;
 import com.sviluppotrilo.trilo.domain.Giorno;
+import com.sviluppotrilo.trilo.domain.Regolare;
 import com.sviluppotrilo.trilo.domain.Stazione;
 import com.sviluppotrilo.trilo.domain.Partenze;
 import com.sviluppotrilo.trilo.domain.Arrivi;
 import com.sviluppotrilo.trilo.domain.CorsaState;
-import com.sviluppotrilo.trilo.domain.NonPartito;
 import com.sviluppotrilo.trilo.domain.Soluzione;
 import com.sviluppotrilo.trilo.domain.Viaggio;
 import com.sviluppotrilo.trilo.domain.Tratta;
@@ -54,9 +54,9 @@ public class StatoCorsaTest {
 
     @Test
     public void cercaUnaStazioneDiPartenza() throws ViaggioException {
-        Stazione fermata = new Stazione("SEVESO", "N00065");
+        Stazione fermata = new Stazione("SEVESO", "N00002");
         String numeroTreno="745";
-        Stazione origine = Stazione.findStazionePartenza(numeroTreno, fermata);
+        Stazione origine = Stazione.findStazionePartenza(numeroTreno, fermata.getNome());
         System.out.println(origine.toString());
     }
 
@@ -66,7 +66,7 @@ public class StatoCorsaTest {
         Stazione origine = new Stazione("SEVESO", "S01925");
         String numeroTreno="20245";
         Corsa corsa = c.cercaCorsa(origine, numeroTreno);
-        CorsaState s = new NonPartito();
+        CorsaState s = new Regolare();
         CorsaState s1=s.statoCorsa(corsa);
         System.out.println(s1.getClass());
     }
@@ -96,9 +96,9 @@ public class StatoCorsaTest {
 
     @Test
     public void cercaUnaCorsaePreferiti(){
-        Stazione origine = new Stazione("LECCO", "1520");
-        Stazione destinazione = new Stazione("LECCO M", "1522");
-        String data = "2020-01-26";
+        Stazione origine = new Stazione("sev", "1925");
+        Stazione destinazione = new Stazione("M aff", "1078");
+        String data = "2020-01-30";
         String ora = "T" + "21:00:00";
         ViaggioController c = new ViaggioController();
         Viaggio v = c.cercaViaggio(origine, destinazione, data, ora);
@@ -114,18 +114,18 @@ public class StatoCorsaTest {
         }
         System.out.println(g.toString());
         System.out.println(soluzione.get(1).toString());
-        List<Tratta> tratte = soluzione.get(1).getTratte();
+        List<Tratta> tratte = soluzione.get(2).getTratte();
+
         for(Tratta tratta : tratte) {
             try {
-                System.out.println(tratta.cercaCorsa(origine).getDestinazione().toString());
+                String s = tratta.getOrigine().getNome();
+                Stazione origineTreno = Stazione.findStazionePartenza(tratta.getNumeroTreno(),s);
+                System.out.println(tratta.toString());
+                System.out.println(tratta.cercaCorsa(s).getDestinazione().toString());
             } catch (ViaggioException e) {
                 e.printStackTrace();
             }
         }
-
-
-
-
     }
 
 }

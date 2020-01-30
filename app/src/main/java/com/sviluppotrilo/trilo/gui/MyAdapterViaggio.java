@@ -3,7 +3,6 @@ package com.sviluppotrilo.trilo.gui;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.sviluppotrilo.trilo.R;
 import com.sviluppotrilo.trilo.controllers.PreferitiController;
+import com.sviluppotrilo.trilo.data.DataBaseHelper;
 import com.sviluppotrilo.trilo.domain.Soluzione;
 import com.sviluppotrilo.trilo.domain.Stazione;
 import com.sviluppotrilo.trilo.domain.ViaggioException;
@@ -61,11 +61,12 @@ public class MyAdapterViaggio extends RecyclerView.Adapter<MyCardViaggio> {
                 public void run() {
                     /*
                     try {
-                        Stazione stazioneOrigineTratta = datiSoluzione.get(i)
+                        String stazioneOrigineTratta = datiSoluzione.get(i)
                                 .getTratte()
                                 .get(0)
-                                .getOrigine();
-                        holder.destinazioneTreno.setText("Per " + datiSoluzione.get(i).getTratte().get(0).cercaCorsa(stazioneOrigineTratta).getDestinazione().getNome());
+                                .getOrigine().getNome();
+                            holder.destinazioneTreno.setText("Per " + datiSoluzione.get(i).getTratte()
+                                .get(0).cercaCorsa(stazioneOrigineTratta).getDestinazione().getNome());
 
                         if(datiSoluzione.get(i).getTratte().get(0).cercaCorsa().getFermate().get(0).getRitardo() >= 2){
                             holder.statoTreno.setText("In ritardo di " + datiSoluzione.get(i).getTratte().get(0).cercaCorsa().getFermate().get(0).getRitardo() + "minuti");
@@ -77,11 +78,8 @@ public class MyAdapterViaggio extends RecyclerView.Adapter<MyCardViaggio> {
                         }
 
                     } catch(ViaggioException e) {
-                        Log.d("error", e.printStackTrace());
-                    }
-
-                     */
-
+                        e.printStackTrace();
+                    }*/
 
                 }
             }).start();

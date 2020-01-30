@@ -6,7 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-public class Tratta extends Observable {
+public class Tratta{
 
     private Stazione origine;
     private Stazione destinazione;
@@ -16,9 +16,14 @@ public class Tratta extends Observable {
     private String categoriaDescrizione;
     private String numeroTreno;
     private Corsa corsa;
+    private transient CorsaState stato;
+
 
     public void update() throws ViaggioException {
         setCorsa(cercaCorsa());
+        if(stato == null)
+            stato = new NonPartito();
+        setStato(stato.statoCorsa(corsa));
     }
 
     public Corsa cercaCorsa() throws ViaggioException {
@@ -26,10 +31,11 @@ public class Tratta extends Observable {
         return Corsa.find(stazionePartenza, numeroTreno);
     }
 
-    public Corsa cercaCorsa(Stazione stazione) throws ViaggioException {
+    /*
+    public Corsa cercaCorsa(String stazione) throws ViaggioException {
         Stazione stazionePartenza = Stazione.findStazionePartenza(numeroTreno, stazione);
         return Corsa.find(stazionePartenza, numeroTreno);
-    }
+    }*/
 
     public Stazione getOrigine() {
         return origine;
@@ -89,8 +95,14 @@ public class Tratta extends Observable {
 
     public void setCorsa(Corsa corsa) {
         this.corsa = corsa;
-        setChanged();
-        notifyObservers(corsa);
+    }
+
+    public CorsaState getStato() {
+        return stato;
+    }
+
+    public void setStato(CorsaState stato) {
+        this.stato = stato;
     }
 
     @Override

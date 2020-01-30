@@ -1,11 +1,12 @@
 package com.sviluppotrilo.trilo.domain;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 public class Soluzione {
-
     private List<Tratta> tratte;
     private String durata;
 
@@ -53,10 +54,37 @@ public class Soluzione {
     }
 
     public void controllaTratte() throws ViaggioException {
-        for (Tratta t: getTratte()) {
-            if(t.countObservers() == 0)
-                t.addObserver(new NotificaObserver());
-            t.update();
+        for (final Tratta t: getTratte()) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        CorsaState stato;
+                        while(true) {
+                            t.update();
+                            stato = t.getStato();
+                            if(notificato(stato))
+                                break;
+                            Log.i("INFO", "AGGIORNAMENTO della tratta" + t + "con stato" + stato);
+                            Thread.sleep(1_000L * 10);
+                        }
+                    } catch (ViaggioException e) {
+                        Log.i("INFO: ", e.getMessage());
+                    } catch (InterruptedException e) {
+                        Log.i("INFO", e.getMessage());
+                        Thread.currentThread().interrupt();
+                    }
+                }
+            }).start();
         }
+    }
+
+    private boolean notificato(CorsaState stato){
+        if(stato instanceof Arrivato ||
+                stato instanceof Soppresso ||
+                stato instanceof ParzialmenteSoppresso) {
+            return true;
+        }
+        return false;
     }
 }

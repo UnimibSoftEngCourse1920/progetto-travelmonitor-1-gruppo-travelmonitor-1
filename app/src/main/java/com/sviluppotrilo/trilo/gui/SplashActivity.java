@@ -23,7 +23,7 @@ public class SplashActivity extends AppCompatActivity {
     private ProgressBar mProgressBar;
     private int mProgressStatus = 0;
     private Handler myHandler = new Handler();
-
+    static String TAG = "SCHEDULE_JOB";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,19 +67,19 @@ public class SplashActivity extends AppCompatActivity {
         }).start();
     }
     public void scheduleJob() {
-        long periodo = 15 * 60 * 1_000L;
+        long periodo = 15 * 60 * 1000L;
         ComponentName componentName = new ComponentName(this, Schedulatore.class);
         JobInfo info = new JobInfo.Builder(123, componentName)
-                .setRequiredNetworkType(JobInfo.NETWORK_TYPE_UNMETERED)
+                .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
                 .setPersisted(true)
                 .setPeriodic(periodo)
                 .build();
         JobScheduler scheduler = (JobScheduler) getSystemService(JOB_SCHEDULER_SERVICE);
         int resultCode = scheduler.schedule(info);
         if (resultCode == JobScheduler.RESULT_SUCCESS) {
-            Log.d("Prova", "Job scheduled");
+            Log.d(TAG, "Job scheduled");
         } else {
-            Log.d("Prova", "Job scheduling failed");
+            Log.d(TAG, "Job scheduling failed");
         }
     }
 
@@ -106,6 +106,5 @@ public class SplashActivity extends AppCompatActivity {
         PowerPreference.getDefaultFile().setObject("Sabato", sabato);
         Giorno domenica = new Giorno(7, "Domenica");
         PowerPreference.getDefaultFile().setObject("Domenica", domenica);
-
     }
 }
