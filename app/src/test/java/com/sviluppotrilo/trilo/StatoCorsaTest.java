@@ -57,7 +57,7 @@ public class StatoCorsaTest {
     public void cercaUnaStazioneDiPartenza() throws ViaggioException {
         Stazione fermata = new Stazione("SEVESO", "N00002");
         String numeroTreno="745";
-        Stazione origine = Stazione.findStazionePartenza(numeroTreno, fermata);
+        Stazione origine = Stazione.findStazionePartenza(numeroTreno, fermata.getNome());
         System.out.println(origine.toString());
     }
 
@@ -119,7 +119,7 @@ public class StatoCorsaTest {
 
         for(Tratta tratta : tratte) {
             try {
-                Stazione s = tratta.getOrigine();
+                String s = tratta.getOrigine().getNome();
                 Stazione origineTreno = Stazione.findStazionePartenza(tratta.getNumeroTreno(),s);
                 System.out.println(tratta.toString());
                 System.out.println(tratta.cercaCorsa(s).getDestinazione().toString());
@@ -127,10 +127,6 @@ public class StatoCorsaTest {
                 e.printStackTrace();
             }
         }
-
-
-
-
     }
 
 }

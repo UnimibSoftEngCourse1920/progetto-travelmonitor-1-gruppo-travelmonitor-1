@@ -44,6 +44,7 @@ public class Stazione {
         return new Stazione(nome, id);
     }
 
+    /*
     public static Stazione findStazionePartenza(String numeroTreno, String fermata) throws ViaggioException {
         String url = Stazione.URL
                 + "cercaNumeroTrenoTrenoAutocomplete/"
@@ -61,7 +62,7 @@ public class Stazione {
                     return stazionePartenzaCorsa;
         }
         return null;
-    }
+    }*/
 
     public Arrivi[] cercaArrivi(){
         String jsonPartenza = new UrlLoader(Stazione.URL
