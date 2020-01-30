@@ -80,7 +80,6 @@ public class MyAdapterViaggio extends RecyclerView.Adapter<MyCardViaggio> {
                     } catch(ViaggioException e) {
                         e.printStackTrace();
                     }*/
-
                 }
             }).start();
         }
@@ -97,7 +96,7 @@ public class MyAdapterViaggio extends RecyclerView.Adapter<MyCardViaggio> {
 
     public void showMultiSelection(final int i) {
         final String[] items = {"Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato", "Domenica"};
-        final ArrayList<Integer> selectedList = new ArrayList<>();
+        final ArrayList<String> selectedList = new ArrayList<>();
         AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.bannerscegligiornipreferiti);
 
         builder.setTitle("Salva Viaggio Per:");
@@ -106,39 +105,35 @@ public class MyAdapterViaggio extends RecyclerView.Adapter<MyCardViaggio> {
                     @Override
                     public void onClick(DialogInterface dialog, int which, boolean isChecked) {
                         if (isChecked) {
-                            selectedList.add(which);
-                        } else if (selectedList.contains(which)) {
-                            selectedList.remove(which);
+                            selectedList.add(items[which]);
+                        } else{
+                            selectedList.remove(items[which]);
                         }
                     }
                 });
-        builder.setPositiveButton("Salva", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Salva", new DialogInterface.OnClickListener(){
             @Override
             public void onClick(DialogInterface dialogInterface, int k) {
-                ArrayList<String> selectedStrings = new ArrayList<>();
-                for (int j = 0; j < selectedList.size(); j++) {
-                    selectedStrings.add(items[selectedList.get(j)]);
-                }
                 PreferitiController preferitiController = new PreferitiController();
-                if(selectedStrings.contains("Lunedì")){
+                if(selectedList.contains("Lunedì")){
                     preferitiController.aggiungiPreferito(1, datiSoluzione.get(i));
                 }
-                if(selectedStrings.contains("Martedì")){
+                if(selectedList.contains("Martedì")){
                     preferitiController.aggiungiPreferito(2, datiSoluzione.get(i));
                 }
-                if(selectedStrings.contains("Mercoledì")){
+                if(selectedList.contains("Mercoledì")){
                     preferitiController.aggiungiPreferito(3, datiSoluzione.get(i));
                 }
-                if(selectedStrings.contains("Giovedì")){
+                if(selectedList.contains("Giovedì")){
                     preferitiController.aggiungiPreferito(4, datiSoluzione.get(i));
                 }
-                if(selectedStrings.contains("Venerdì")){
+                if(selectedList.contains("Venerdì")){
                     preferitiController.aggiungiPreferito(5, datiSoluzione.get(i));
                 }
-                if(selectedStrings.contains("Sabato")){
+                if(selectedList.contains("Sabato")){
                     preferitiController.aggiungiPreferito(6, datiSoluzione.get(i));
                 }
-                if(selectedStrings.contains("Domenica")){
+                if(selectedList.contains("Domenica")){
                     preferitiController.aggiungiPreferito(7, datiSoluzione.get(i));
                 }
             }
