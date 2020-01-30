@@ -19,7 +19,7 @@ public class PushNotification {
     private static final String NAME = "Channel1";
     private static final String GROUP = "Group1";
     private static final String TITLE = "Ehi !! Trilo ha rilevato qualcosa !";
-    private static final String DESCRIPTION = "Ehi !! Trilo ha rilevato qualcosa !";
+    private static final String DESCRIPTION = "Channel for trilo notification";
 
     public static void init(Context c){
         context = c;

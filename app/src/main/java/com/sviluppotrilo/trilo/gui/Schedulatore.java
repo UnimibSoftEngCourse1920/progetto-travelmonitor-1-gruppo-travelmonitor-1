@@ -18,16 +18,8 @@ public class Schedulatore extends JobService {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                int periodoTempo = 10 * 1000;
-                while(true){
-                    try {
                         Log.i(TAG, "Controllo dei preferiti del giorno");
                         preferitiController.controllaPreferiti();
-                        Thread.sleep(periodoTempo);
-                    } catch (InterruptedException e) {
-                        Log.e(TAG, e.getMessage());
-                    }
-                }
             }
         }).start();
     }
