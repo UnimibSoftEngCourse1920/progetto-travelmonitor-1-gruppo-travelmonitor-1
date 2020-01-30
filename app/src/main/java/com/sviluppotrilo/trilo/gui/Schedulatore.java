@@ -7,7 +7,7 @@ import android.util.Log;
 import com.sviluppotrilo.trilo.controllers.PreferitiController;
 
 public class Schedulatore extends JobService {
-    static final String INFO = "Scheduler";
+    static final String TAG = "Scheduler";
     @Override
     public boolean onStartJob(JobParameters jobParameters) {
         PreferitiController preferitiController = new PreferitiController();
@@ -21,11 +21,11 @@ public class Schedulatore extends JobService {
                 int periodoTempo = 10 * 1000;
                 while(true){
                     try {
-                        Log.i(INFO, "Controllo dei preferiti del giorno");
+                        Log.i(TAG, "Controllo dei preferiti del giorno");
                         preferitiController.controllaPreferiti();
                         Thread.sleep(periodoTempo);
                     } catch (InterruptedException e) {
-                        e.printStackTrace();
+                        Log.e(TAG, e.getMessage());
                     }
                 }
             }

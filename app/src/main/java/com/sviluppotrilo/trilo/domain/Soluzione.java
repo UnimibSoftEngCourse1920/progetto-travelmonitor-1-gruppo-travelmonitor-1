@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class Soluzione {
 
-    public List<Tratta> tratte;
+    private List<Tratta> tratte;
     private String durata;
 
     public Soluzione() {
@@ -53,7 +53,7 @@ public class Soluzione {
     }
 
     public void controllaTratte() throws ViaggioException {
-        for (Tratta t : getTratte()) {
+        for (Tratta t: getTratte()) {
             if(t.countObservers() == 0)
                 t.addObserver(new NotificaObserver());
             t.update();

@@ -5,6 +5,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class ViaggioAdapter extends TypeAdapter<Viaggio> {
 
@@ -42,12 +43,7 @@ public class ViaggioAdapter extends TypeAdapter<Viaggio> {
                     //Perchè a questa stazione manca l'id
                     viaggio.setDestinazione(destinazione);
                 }else if("soluzioni".equals(fieldname)) {
-                    reader.beginArray();
-                    while (reader.hasNext()){
-                        Soluzione soluzione = new SoluzioneAdapter().read(reader);
-                        viaggio.soluzioni.add(soluzione);
-                    }
-                    reader.endArray();
+                    viaggio.setSoluzioni(readSoluzioni(reader));
                 }else {
                     reader.skipValue();
                 }
@@ -55,5 +51,15 @@ public class ViaggioAdapter extends TypeAdapter<Viaggio> {
         }
         reader.endObject();
         return viaggio;
+    }
+    private ArrayList<Soluzione> readSoluzioni(JsonReader reader) throws IOException{
+        ArrayList<Soluzione> soluzioni = new ArrayList<>();
+        reader.beginArray();
+        while (reader.hasNext()){
+            Soluzione soluzione = new SoluzioneAdapter().read(reader);
+            soluzioni.add(soluzione);
+        }
+        reader.endArray();
+        return soluzioni;
     }
 }

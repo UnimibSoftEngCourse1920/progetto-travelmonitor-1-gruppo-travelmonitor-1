@@ -67,11 +67,12 @@ public class SplashActivity extends AppCompatActivity {
         }).start();
     }
     public void scheduleJob() {
+        long periodo = 15 * 60 * 1_000L;
         ComponentName componentName = new ComponentName(this, Schedulatore.class);
         JobInfo info = new JobInfo.Builder(123, componentName)
                 .setRequiredNetworkType(JobInfo.NETWORK_TYPE_UNMETERED)
                 .setPersisted(true)
-                .setPeriodic(15 * 60 * 1000)
+                .setPeriodic(periodo)
                 .build();
         JobScheduler scheduler = (JobScheduler) getSystemService(JOB_SCHEDULER_SERVICE);
         int resultCode = scheduler.schedule(info);
@@ -107,6 +108,4 @@ public class SplashActivity extends AppCompatActivity {
         PowerPreference.getDefaultFile().setObject("Domenica", domenica);
 
     }
-
-
 }

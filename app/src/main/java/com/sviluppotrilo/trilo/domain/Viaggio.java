@@ -11,7 +11,7 @@ public class Viaggio{
 
     private Stazione origine;
     private Stazione destinazione;
-    public List<Soluzione> soluzioni;
+    private List<Soluzione> soluzioni;
 
     public Viaggio() {
         soluzioni = new ArrayList<>();

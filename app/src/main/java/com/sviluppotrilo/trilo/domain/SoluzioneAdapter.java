@@ -35,7 +35,7 @@ public class SoluzioneAdapter extends TypeAdapter<Soluzione> {
                     reader.beginArray();
                     while (reader.hasNext()){
                         Tratta tratta = new TrattaAdapter().read(reader);
-                        soluzione.tratte.add(tratta);
+                        soluzione.getTratte().add(tratta);
                     }
                     reader.endArray();
                 }else {
