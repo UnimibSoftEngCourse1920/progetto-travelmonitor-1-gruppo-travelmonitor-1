@@ -10,7 +10,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/profilebar"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="70dp"
         android:background="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"

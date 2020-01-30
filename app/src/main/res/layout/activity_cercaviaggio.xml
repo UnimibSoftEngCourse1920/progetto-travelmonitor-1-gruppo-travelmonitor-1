@@ -5,180 +5,169 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
+    android:background="@color/colorPrimary"
     tools:context=".gui.Preferiti">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/profilebar"
+    <TextView
+        android:id="@+id/Inseriscipartenza"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Inserisci la stazione di partenza"
+        android:textColor="@android:color/white"
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintTop_toTopOf="@+id/guideline8" />
+
+    <TextView
+        android:id="@+id/inseriscidataeora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Inserisci la data e l'ora"
+        android:textColor="@android:color/white"
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintTop_toBottomOf="@+id/stazionearrivo" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.80" />
+
+    <TextView
+        android:id="@+id/inserisciarrivo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Inserisci la stazione di arrivo"
+        android:textColor="@android:color/white"
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintTop_toBottomOf="@+id/stazionepartenza" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/data"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:hint="Data"
+        android:textColor="@color/colorPrimary"
+        android:textColorHint="@color/colorPrimary"
+        android:textSize="12sp"
+        app:icon="@android:drawable/ic_menu_my_calendar"
+        app:iconSize="12dp"
+        app:iconTint="@color/colorPrimary"
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintTop_toBottomOf="@+id/inseriscidataeora"
+        app:strokeColor="@color/colorPrimary"
+        app:strokeWidth="2dp" />
+
+    <AutoCompleteTextView
+        android:id="@+id/stazionearrivo"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:textColor="@android:color/white"
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintTop_toBottomOf="@+id/inserisciarrivo" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/cerca"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:background="@color/colorPrimary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="60dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Cerca"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline9"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintTop_toBottomOf="@+id/data"
+        app:layout_constraintVertical_bias="0.725"
+        app:strokeColor="@color/colorPrimary"
+        app:strokeWidth="2dp" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/ora"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:hint="Orario"
+        android:textColor="@color/colorPrimary"
+        android:textColorHint="@color/colorPrimary"
+        android:textSize="12sp"
+        app:icon="@android:drawable/ic_menu_recent_history"
+        app:iconSize="12dp"
+        app:iconTint="@color/colorPrimary"
+        app:layout_constraintStart_toEndOf="@+id/data"
+        app:layout_constraintTop_toBottomOf="@+id/inseriscidataeora"
+        app:strokeColor="@color/colorPrimary"
+        app:strokeWidth="2dp" />
 
-        <ImageView
-            android:id="@+id/backpage"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            app:layout_constraintBottom_toTopOf="@+id/guideline8"
-            app:layout_constraintStart_toStartOf="@+id/guideline6"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/back" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.10" />
 
-        <TextView
-            android:id="@+id/pagetitlecercaviaggio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_regular"
-            android:text="Cerca Viaggio"
-            android:textAlignment="textEnd"
-            android:textColor="#ffffff"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/guideline8"
-            app:layout_constraintEnd_toStartOf="@+id/guideline5"
-            app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/backpage"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline8"
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back" />
 
-        <TextView
-            android:id="@+id/Inseriscipartenza"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:text="Inserisci la stazione di partenza"
-            android:textColor="@android:color/white"
-            app:layout_constraintStart_toStartOf="@+id/guideline6"
-            app:layout_constraintTop_toTopOf="@+id/guideline8" />
+    <TextView
+        android:id="@+id/pagetitlecercaviaggio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="Cerca Viaggio"
+        android:textAlignment="textEnd"
+        android:textColor="#ffffff"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline8"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <AutoCompleteTextView
-            android:id="@+id/stazionepartenza"
-            android:layout_width="230dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:backgroundTint="@color/colorAccent"
-            android:fontFamily="@font/montserrat_medium"
-            android:textColor="@android:color/white"
-            app:layout_constraintStart_toStartOf="@+id/guideline6"
-            app:layout_constraintTop_toBottomOf="@+id/Inseriscipartenza" />
+    <AutoCompleteTextView
+        android:id="@+id/stazionepartenza"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="5dp"
+        android:backgroundTint="@color/colorAccent"
+        android:fontFamily="@font/montserrat_medium"
+        android:textColor="@android:color/white"
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintTop_toBottomOf="@+id/Inseriscipartenza" />
 
-        <TextView
-            android:id="@+id/inserisciarrivo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Inserisci la stazione di arrivo"
-            android:textColor="@android:color/white"
-            app:layout_constraintStart_toStartOf="@+id/guideline6"
-            app:layout_constraintTop_toBottomOf="@+id/stazionepartenza" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.92" />
 
-        <AutoCompleteTextView
-            android:id="@+id/stazionearrivo"
-            android:layout_width="230dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:fontFamily="@font/montserrat_medium"
-            android:textColor="@android:color/white"
-            app:layout_constraintStart_toStartOf="@+id/guideline6"
-            app:layout_constraintTop_toBottomOf="@+id/inserisciarrivo" />
-
-        <TextView
-            android:id="@+id/inseriscidataeora"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Inserisci la data e l'ora"
-            android:textColor="@android:color/white"
-            app:layout_constraintStart_toStartOf="@+id/guideline6"
-            app:layout_constraintTop_toBottomOf="@+id/stazionearrivo" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/data"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:fontFamily="@font/montserrat_bold"
-            android:hint="Data"
-            android:textColor="@color/colorPrimary"
-            android:textSize="12sp"
-            app:icon="@android:drawable/ic_menu_my_calendar"
-            app:iconSize="12dp"
-            app:iconTint="@color/colorPrimary"
-            app:layout_constraintStart_toStartOf="@+id/guideline6"
-            app:layout_constraintTop_toBottomOf="@+id/inseriscidataeora"
-            app:strokeColor="@color/colorPrimary"
-            app:strokeWidth="2dp" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/ora"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:fontFamily="@font/montserrat_bold"
-            android:hint="Orario"
-            android:textColor="@color/colorPrimary"
-            android:textSize="12sp"
-            app:icon="@android:drawable/ic_menu_recent_history"
-            app:iconSize="12dp"
-            app:iconTint="@color/colorPrimary"
-            app:layout_constraintEnd_toStartOf="@+id/guideline5"
-            app:layout_constraintHorizontal_bias="0.195"
-            app:layout_constraintStart_toEndOf="@+id/data"
-            app:layout_constraintTop_toTopOf="@+id/data"
-            app:strokeColor="@color/colorPrimary"
-            app:strokeWidth="2dp" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/cerca"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="340dp"
-            android:layout_height="60dp"
-            android:fontFamily="@font/montserrat_bold"
-            android:text="Cerca"
-            android:textColor="@color/colorPrimary"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/guideline9"
-            app:layout_constraintEnd_toStartOf="@+id/guideline5"
-            app:layout_constraintHorizontal_bias="0.494"
-            app:layout_constraintStart_toStartOf="@+id/guideline6"
-            app:layout_constraintTop_toBottomOf="@+id/data"
-            app:layout_constraintVertical_bias="0.767"
-            app:strokeColor="@color/colorPrimary"
-            app:strokeWidth="2dp" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.92" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.08" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.10" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.80" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.08" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
