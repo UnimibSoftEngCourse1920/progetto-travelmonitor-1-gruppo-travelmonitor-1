@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.sviluppotrilo.trilo.controllers.StazioniController;
 import com.sviluppotrilo.trilo.data.DataBaseHelper;
 import com.sviluppotrilo.trilo.R;
 import com.sviluppotrilo.trilo.domain.Stazione;
@@ -31,16 +32,15 @@ public class CercaStazione extends AppCompatActivity {
     private Stazione stazione;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
-
+    private StazioniController stazioniController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cercastazione);
+        stazioniController = new StazioniController();
 
-        myDbHelper = new DataBaseHelper(getApplicationContext());
-        myDbHelper.createDatabase();
-        myData = myDbHelper.selectAllData();
+        myData = stazioniController.getStazioni();
 
 
         ImageView back = findViewById(R.id.backpage);
@@ -72,7 +72,7 @@ public class CercaStazione extends AppCompatActivity {
                 if (Boolean.TRUE.equals(valida)) {
                     stringaStazione = getStazione();
                     //visualizzazione risultati
-                    idStazione = getIdStazione(stringaStazione);
+                    idStazione = stazioniController.getIdStazione(stringaStazione);
                     stazione = new Stazione(stringaStazione, idStazione);
                     new Thread(new Runnable() {
                         public void run() {
@@ -123,10 +123,4 @@ public class CercaStazione extends AppCompatActivity {
     public String getStazione() {
         return String.valueOf(autoCom.getText());
     }
-
-    public String getIdStazione(String stazione) {
-        return myDbHelper.selectIdStazione(stazione);
-    }
-
-
 }

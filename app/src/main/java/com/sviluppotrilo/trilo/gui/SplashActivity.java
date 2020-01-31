@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.jakewharton.threetenabp.AndroidThreeTen;
 import com.preference.PowerPreference;
 import com.sviluppotrilo.trilo.R;
+import com.sviluppotrilo.trilo.data.DataBaseHelper;
 import com.sviluppotrilo.trilo.domain.Giorno;
 
 
@@ -30,6 +31,8 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.splash_theme); //Viene settato il Layout
         mProgressBar = findViewById(R.id.progressBar); //Viene referenziata la ProgressBar presente nel layout
 
+        //Inizializzazione database
+        DataBaseHelper.init(this);
         //Inizializzazione dei preferiti
         initPreferiti();
 

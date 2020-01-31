@@ -17,6 +17,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.sviluppotrilo.trilo.R;
+import com.sviluppotrilo.trilo.controllers.StazioniController;
 import com.sviluppotrilo.trilo.data.DataBaseHelper;
 
 import java.text.DateFormat;
@@ -37,16 +38,15 @@ public class CercaViaggio extends AppCompatActivity {
     private TimePickerDialog pickerTime;
     private Boolean primaValida = false;
     private Boolean secondaValida = false;
+    private StazioniController stazioniController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cercaviaggio);
         ArrayAdapter arrayAdapter;
-        myDbHelper = new DataBaseHelper(getApplicationContext());
-        myDbHelper.createDatabase();
-        myData = myDbHelper.selectAllData();
-
+        stazioniController = new StazioniController();
+        myData = stazioniController.getStazioni();
         //Stazionepartenza
         autoCom1 = findViewById(R.id.stazionepartenza);
         arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, myData);
@@ -97,8 +97,8 @@ public class CercaViaggio extends AppCompatActivity {
                         if (primaValida && secondaValida) {
                             String stazionePartenza = getStazionePartenza();
                             String stazioneArrivo = getStazioneArrivo();
-                            String idStazionePartenza = getIdStazione(stazionePartenza);
-                            String idStazioneArrivo = getIdStazione(stazioneArrivo);
+                            String idStazionePartenza = stazioniController.getIdStazione(stazionePartenza);
+                            String idStazioneArrivo = stazioniController.getIdStazione(stazioneArrivo);
                             String dataScelta = (String) data.getText();
                             String oraScelta = (String) ora.getText();
                             Intent intent = new Intent(CercaViaggio.this, RisultatiCercaViaggio.class);
@@ -178,11 +178,5 @@ public class CercaViaggio extends AppCompatActivity {
     public String getStazioneArrivo() {
         return String.valueOf(autoCom2.getText());
     }
-
-    public String getIdStazione(String stazione) {
-        return myDbHelper.selectIdStazione(stazione);
-    }
-
-
 
 }

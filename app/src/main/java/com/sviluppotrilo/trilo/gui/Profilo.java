@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.preference.PowerPreference;
 import com.sviluppotrilo.trilo.R;
+import com.sviluppotrilo.trilo.controllers.ProfiloController;
 
 import java.util.Calendar;
 
@@ -22,11 +23,13 @@ public class Profilo extends AppCompatActivity {
     private EditText cognome;
     private Button dataN;
     private DatePickerDialog pickerDate;
-
+    private ProfiloController profiloController;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profilo);
+
+        profiloController = new ProfiloController();
 
         nome = findViewById(R.id.nome);
         cognome = findViewById(R.id.cognome);
@@ -42,9 +45,9 @@ public class Profilo extends AppCompatActivity {
             }
         });
 
-        nome.setText(PowerPreference.getDefaultFile().getString("nome",""));
-        cognome.setText(PowerPreference.getDefaultFile().getString("cognome",""));
-        dataN.setText(PowerPreference.getDefaultFile().getString("dataNascita",""));
+        nome.setText(profiloController.getNome());
+        cognome.setText(profiloController.getCognome());
+        dataN.setText(profiloController.getDataDiNascita());
 
         dataN.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,10 +77,9 @@ public class Profilo extends AppCompatActivity {
         salva.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PowerPreference.getDefaultFile()
-                        .putString("nome", nome.getText().toString())
-                        .putString("cognome", cognome.getText().toString())
-                        .putString("dataNascita", dataN.getText().toString());
+                profiloController.setNome(nome.getText().toString());
+                profiloController.setCognome(cognome.getText().toString());
+                profiloController.setDataDiNascita(dataN.getText().toString());
             }
         });
 

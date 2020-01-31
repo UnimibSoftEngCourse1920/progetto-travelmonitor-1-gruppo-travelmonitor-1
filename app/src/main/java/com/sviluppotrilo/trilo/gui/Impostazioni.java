@@ -11,19 +11,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.preference.PowerPreference;
 import com.sviluppotrilo.trilo.R;
+import com.sviluppotrilo.trilo.controllers.NotificheController;
 
 public class Impostazioni extends AppCompatActivity {
-
-    public static final String FILENAME = "impostazioni";
-    public static final String NOTIFICARITARDO = "notificaRitardo";
-    public static final String NOTIFICACANCELLAZIONE = "notificaRitardo";
-    public static final String NOTIFICAFUORICITTA= "notificaRitardo";
-    public static final String NOTIFICAPROMEMORIA = "notificaRitardo";
-
+    NotificheController notificheController;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_impostazioni);
+
+        notificheController = new NotificheController();
 
         findViewById(R.id.textView2).setSelected(true);
         findViewById(R.id.textView3).setSelected(true);
@@ -35,18 +32,18 @@ public class Impostazioni extends AppCompatActivity {
         Switch notificaFuoriCitta = findViewById(R.id.switch3);
         Switch notificaPromemoria = findViewById(R.id.switch4);
 
-        notificaRitardo.setChecked(PowerPreference.getFileByName(FILENAME).getBoolean(NOTIFICARITARDO, false));
-        notificaCancellazione.setChecked(PowerPreference.getFileByName(FILENAME).getBoolean(NOTIFICACANCELLAZIONE, false));
-        notificaFuoriCitta.setChecked(PowerPreference.getFileByName(FILENAME).getBoolean(NOTIFICAFUORICITTA, false));
-        notificaPromemoria.setChecked(PowerPreference.getFileByName(FILENAME).getBoolean(NOTIFICAPROMEMORIA, false));
+        notificaRitardo.setChecked(notificheController.getNotificaRitardo());
+        notificaCancellazione.setChecked(notificheController.getNotificaCancellazione());
+        notificaFuoriCitta.setChecked(notificheController.getNotificaFuoriCitta());
+        notificaPromemoria.setChecked(notificheController.getNotificaPromemoria());
 
         notificaRitardo.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if(isChecked) {
-                    PowerPreference.getFileByName(FILENAME).setBoolean(NOTIFICARITARDO, true);
+                    notificheController.setNotificaRitardo(true);
                 }else {
-                    PowerPreference.getFileByName(FILENAME).setBoolean(NOTIFICARITARDO, false);
+                    notificheController.setNotificaRitardo(false);
                 }
             }
         });
@@ -55,9 +52,9 @@ public class Impostazioni extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if(isChecked)
-                    PowerPreference.getFileByName(FILENAME).setBoolean(NOTIFICACANCELLAZIONE,true);
+                    notificheController.setNotificaCancellazione(true);
                 else
-                    PowerPreference.getFileByName(FILENAME).setBoolean(NOTIFICACANCELLAZIONE,false);
+                    notificheController.setNotificaCancellazione(false);
             }
         });
 
@@ -65,9 +62,9 @@ public class Impostazioni extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if(isChecked)
-                    PowerPreference.getFileByName(FILENAME).setBoolean(NOTIFICAFUORICITTA,true);
+                    notificheController.setNotificaFuoriCitta(true);
                 else
-                    PowerPreference.getFileByName(FILENAME).setBoolean(NOTIFICAFUORICITTA,false);
+                    notificheController.setNotificaFuoriCitta(false);
             }
         });
 
@@ -75,9 +72,9 @@ public class Impostazioni extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if(isChecked)
-                    PowerPreference.getFileByName(FILENAME).setBoolean(NOTIFICAPROMEMORIA,true);
+                    notificheController.setNotificaPromemoria(true);
                 else
-                    PowerPreference.getFileByName(FILENAME).setBoolean(NOTIFICAPROMEMORIA,false);
+                    notificheController.setNotificaPromemoria(false);
             }
         });
 

@@ -17,16 +17,21 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private static String databasename = "Stazioni.db";
     private static String tablestazioni = "stazioni";
     private static String databasepath = "";
-    private Context mContext;
+    private static Context mContext;
     private String[] arrData;
     private InputStream myInput;
     private OutputStream myOutput;
     private String idStazione;
 
-    public DataBaseHelper(Context context) {
-        super(context, databasename, null, 1);
-        databasepath = context.getApplicationInfo().dataDir + "/databases/";
+
+    public static void init(Context context){
         mContext = context;
+    }
+
+    public DataBaseHelper() {
+        super(mContext, databasename, null, 1);
+        databasepath = mContext.getApplicationInfo().dataDir + "/databases/";
+        createDatabase();
     }
 
     @Override
@@ -64,7 +69,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public void createDatabase() {
+    private void createDatabase() {
         if(!checkDatabase()){
             this.getReadableDatabase();
             try {
