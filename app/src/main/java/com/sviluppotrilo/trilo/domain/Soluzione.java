@@ -65,8 +65,8 @@ public class Soluzione {
                             stato = t.getStato();
                             if(notificato(stato))
                                 break;
-                            Log.i("INFO", "AGGIORNAMENTO della tratta" + t + "con stato" + stato);
-                            Thread.sleep(1_000L * 10);
+                            Log.i("INFO", "AGGIORNAMENTO: " + t + "con stato" + stato);
+                            Thread.sleep(1_000L * 60 * 5);
                         }
                     } catch (ViaggioException e) {
                         Log.i("INFO: ", e.getMessage());

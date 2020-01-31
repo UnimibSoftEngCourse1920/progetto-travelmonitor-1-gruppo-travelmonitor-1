@@ -58,8 +58,10 @@ public class PreferitiController {
     }
 
     public void controllaPreferiti(){
+        Giorno giorno = null;
         try {
-            RoutineSettimanale.giornoAttuale().controllaSoluzioni();
+            giorno = RoutineSettimanale.giornoAttuale();
+            giorno.controllaSoluzioni();
         } catch (Exception e) {
             Log.e(ERRORE, e.getMessage());
         }
