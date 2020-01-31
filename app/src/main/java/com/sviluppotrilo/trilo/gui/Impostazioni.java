@@ -13,7 +13,8 @@ import com.sviluppotrilo.trilo.R;
 import com.sviluppotrilo.trilo.controllers.NotificheController;
 
 public class Impostazioni extends AppCompatActivity {
-    NotificheController notificheController;
+    private NotificheController notificheController;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
