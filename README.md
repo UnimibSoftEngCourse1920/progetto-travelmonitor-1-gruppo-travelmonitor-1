@@ -58,3 +58,7 @@ la procedura d'installazione
 * **Fermini Simone**
 * **Poveromo Marco**
 * **Zorat Lorenzo**
+
+## NOTE
+Il file "RELAZIONE_Progetto_TravelMonitor_Gruppo1.pdf" nella root del progetto contiene
+l'analisi e la progettazione del sistema Trilo.
