@@ -18,7 +18,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.sviluppotrilo.trilo.R;
 import com.sviluppotrilo.trilo.controllers.StazioniController;
-import com.sviluppotrilo.trilo.data.DataBaseHelper;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -28,7 +27,6 @@ import java.util.Locale;
 
 public class CercaViaggio extends AppCompatActivity {
 
-    private DataBaseHelper myDbHelper;
     private String[] myData;
     private AutoCompleteTextView autoCom1;
     private AutoCompleteTextView autoCom2;

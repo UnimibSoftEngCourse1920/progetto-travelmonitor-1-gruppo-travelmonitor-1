@@ -26,10 +26,4 @@ public class ExampleInstrumentedTest {
 
         assertEquals("com.sviluppotrilo.trilo", appContext.getPackageName());
     }
-    @Test
-    public void prova() {
-        Stazione s = new Stazione("Prova", "S01925");
-        System.out.println(s.cercaArrivi());
-        System.out.println(s.cercaPartenze());
-    }
 }

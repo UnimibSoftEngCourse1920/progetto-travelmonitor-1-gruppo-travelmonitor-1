@@ -17,13 +17,11 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.sviluppotrilo.trilo.controllers.StazioniController;
-import com.sviluppotrilo.trilo.data.DataBaseHelper;
 import com.sviluppotrilo.trilo.R;
 import com.sviluppotrilo.trilo.domain.Stazione;
 
 public class CercaStazione extends AppCompatActivity {
 
-    private DataBaseHelper myDbHelper;
     private String[] myData;
     private AutoCompleteTextView autoCom;
     private String stringaStazione;

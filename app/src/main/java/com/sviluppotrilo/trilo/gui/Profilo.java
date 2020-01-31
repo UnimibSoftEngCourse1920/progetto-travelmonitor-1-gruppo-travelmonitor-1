@@ -11,7 +11,6 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.preference.PowerPreference;
 import com.sviluppotrilo.trilo.R;
 import com.sviluppotrilo.trilo.controllers.ProfiloController;
 
