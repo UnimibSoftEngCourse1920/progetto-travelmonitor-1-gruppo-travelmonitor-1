@@ -168,7 +168,7 @@ public class Preferiti extends AppCompatActivity implements NavigationView.OnNav
     private void showStartDialog(){
         new AlertDialog.Builder(this, R.style.bannerscegligiornipreferiti)
                 .setTitle("BENVENUTO IN TRILO")
-                .setMessage("Trilo è un app che ti permette di avere sotto controllo i tuoi viaggi. Cerca un viaggio, clicca il cuore e salvalo nei giorni che vuoi!")
+                .setMessage("Trilo è un'app che ti permette di avere sotto controllo i tuoi viaggi. Cerca un viaggio, clicca il cuore e salvalo nei giorni che vuoi!")
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
